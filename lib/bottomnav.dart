@@ -1,63 +1,73 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:translate/colors.dart';
+// import 'package:flutter/material.dart';
+// import 'package:google_nav_bar/google_nav_bar.dart';
 
-class Nav extends StatefulWidget {
-  const Nav({super.key});
+// import 'colors.dart';
+// import 'pages/bottom_nav_pages/conversation.dart';
+// import 'pages/bottom_nav_pages/default_page.dart';
+// import 'pages/bottom_nav_pages/favorite.dart';
+// import 'pages/bottom_nav_pages/history.dart';
 
-  @override
-  State<Nav> createState() => _NavState();
-}
+// class Nav extends StatefulWidget {
+//   const Nav({super.key});
 
-class _NavState extends State<Nav> {
-  int _selectedIndex = 0;
+//   @override
+//   State<Nav> createState() => _NavState();
+// }
 
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 18, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-  ];
+// class _NavState extends State<Nav> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return SingleChildScrollView(
+//       scrollDirection: Axis.horizontal,
+//       child: GNav(
+//         backgroundColor: mcgpalette,
+//         color: Colors.white,
+//         activeColor: Colors.white,
+//         tabBackgroundColor: Colors.grey.shade700,
+//         gap: 20,
+//         selectedIndex: _selectedIndex,
+//         onTabChange: (int index) {
+//           setState(() {
+//             _selectedIndex = index;
+//           });
+//         },
+//         //padding: const EdgeInsets.all(16),
+//         tabs: const [
+//           GButton(
+//             icon: Icons.home,
+//             text: 'Home',
+//             iconColor: Colors.white,
+//           ),
+//           GButton(
+//             icon: Icons.mic_rounded,
+//             text: 'Conversation',
+//             iconColor: Colors.white,
+//           ),
+//           GButton(
+//             icon: Icons.history,
+//             text: 'History',
+//             iconColor: Colors.white,
+//           ),
+//           GButton(
+//             icon: Icons.favorite,
+//             text: 'Favorite',
+//             iconColor: Colors.white,
+//           )
+//         ],
+//       ),
+//     );
+//   }
+// }
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+// class BottomNavPages {
+//   int currentIndex = 0;
 
-  @override
-  Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.language_rounded,
-            size: 30,
-          ),
-          label: "",
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.keyboard_voice_rounded,
-            size: 30,
-          ),
-          label: "",
-        ),
-      ],
-      currentIndex: _selectedIndex,
-      selectedItemColor: mcgpalette,
-      onTap: _onItemTapped,
-    );
-  }
-}
+//   final List<Widget> pages = [
+//     const DefaultPage(),
+//     const Conversation(),
+//     const History(),
+//     const Favorite(),
+//   ];
+
+//   int getIndex() => currentIndex;
+// }

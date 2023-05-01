@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:translate/colors.dart';
 
 import 'home.dart';
-import 'pages/languages.dart';
+import 'pages/about.dart';
+import 'pages/privacy.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,10 +23,11 @@ class MyApp extends StatelessWidget {
       ),
       home: const HomePage(),
       routes: {
-        // '/page1': (context) => const Page1(),
-        '/page2': (context) => const Page2(),
-        '/page3': (context) => const Page3(),
-        '/languages': (context) => const MyLanguageUI(),
+        '/about': (context) => const About(),
+        '/privacy': (context) => const Privacy(),
+        // '/page2': (context) => const Page2(),
+        // '/page3': (context) => const Page3(),
+        // '/languages': (context) => const MyLanguageUI(),
       },
     );
   }
