@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'home.dart';
+import 'pages/languages.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         '/page1': (context) => const Page1(),
         '/page2': (context) => const Page2(),
         '/page3': (context) => const Page3(),
+        '/languages': (context) => const MyLanguageUI(),
       },
     );
   }

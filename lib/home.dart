@@ -27,7 +27,7 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Example'),
+        title: const Text('Translate'),
         //elevation: 0,
       ),
       drawer: Drawer(
@@ -41,17 +41,10 @@ class HomePageState extends State<HomePage> {
               child: Text('Drawer Header'),
             ),
             ListTile(
-              leading: selectedPage == 0
-                  ? Image.asset(
-                      'assets/home_selected.png',
-                      width: 25,
-                      height: 25,
-                    )
-                  : Image.asset(
-                      'assets/home_unselected.png',
-                      width: 25,
-                      height: 25,
-                    ),
+              leading: Icon(
+                Icons.home,
+                color: selectedPage == 0 ? Colors.black : null,
+              ),
               title: Text(
                 'Home',
                 style: selectedPage == 0
@@ -67,17 +60,10 @@ class HomePageState extends State<HomePage> {
               onTap: () => _onItemTapped(0),
             ),
             ListTile(
-              leading: selectedPage == 1
-                  ? Image.asset(
-                      'assets/about_selected.png',
-                      width: 25,
-                      height: 25,
-                    )
-                  : Image.asset(
-                      'assets/about_unselected.png',
-                      width: 25,
-                      height: 25,
-                    ),
+              leading: Icon(
+                Icons.three_p_rounded,
+                color: selectedPage == 1 ? Colors.black : null,
+              ),
               title: Text(
                 'About',
                 style: selectedPage == 1
@@ -92,17 +78,10 @@ class HomePageState extends State<HomePage> {
               onTap: () => _onItemTapped(1),
             ),
             ListTile(
-              leading: selectedPage == 2
-                  ? Image.asset(
-                      'assets/privacy_selected.png',
-                      width: 25,
-                      height: 25,
-                    )
-                  : Image.asset(
-                      'assets/privacy_unselected.png',
-                      width: 25,
-                      height: 25,
-                    ),
+              leading: Icon(
+                Icons.security,
+                color: selectedPage == 2 ? Colors.black : null,
+              ),
               title: Text(
                 'Privacy Policy',
                 style: selectedPage == 2
@@ -131,7 +110,7 @@ class Page1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: const Center(
-        child: Text('Page 1'),
+        child: ExampleDropdownButton(),
       ),
     );
   }
@@ -159,6 +138,48 @@ class Page3 extends StatelessWidget {
       child: const Center(
         child: Text('Page 3'),
       ),
+    );
+  }
+}
+final dropdownFocusNode = FocusNode();
+
+class ExampleDropdownButton extends StatefulWidget {
+  const ExampleDropdownButton({super.key});
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _ExampleDropdownButtonState createState() => _ExampleDropdownButtonState();
+}
+
+class _ExampleDropdownButtonState extends State<ExampleDropdownButton> {
+  String selectedValue = 'en';
+
+  final languages = {'English': 'en', 'Filipino': 'tagalog'};
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton<String>(
+      focusNode: dropdownFocusNode,
+      value: selectedValue,
+      onChanged: (newValue) {
+        setState(() {
+          selectedValue = newValue!;
+          debugPrint(selectedValue);
+        });
+      },
+      focusColor: Colors.white,
+      onTap: (){
+        FocusManager.instance.primaryFocus?.unfocus();
+        Navigator.pushNamed(context, '/languages');
+        
+      },
+      items: languages.entries.map((entry) {
+        return DropdownMenuItem<String>(
+          value: entry.value,
+          child: Text(entry.key),
+        );
+      }).toList(),
+      underline: const SizedBox.shrink(),
     );
   }
 }
