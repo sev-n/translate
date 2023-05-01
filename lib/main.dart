@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:translate/colors.dart';
 
 import 'home.dart';
 import 'pages/languages.dart';
@@ -17,11 +18,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: mcgpalette,
       ),
       home: const HomePage(),
       routes: {
-        '/page1': (context) => const Page1(),
+        // '/page1': (context) => const Page1(),
         '/page2': (context) => const Page2(),
         '/page3': (context) => const Page3(),
         '/languages': (context) => const MyLanguageUI(),

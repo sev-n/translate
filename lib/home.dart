@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'bottomnav.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,7 +12,7 @@ class HomePageState extends State<HomePage> {
   int selectedPage = 0;
 
   final List<Widget> pages = [
-    const Page1(),
+    // const Page1(),
     const Page2(),
     const Page3(),
   ];
@@ -26,6 +27,7 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const Nav(),
       appBar: AppBar(
         title: const Text('Translate'),
         //elevation: 0,
@@ -36,58 +38,64 @@ class HomePageState extends State<HomePage> {
           children: <Widget>[
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Color(0xFF002945),
               ),
-              child: Text('Drawer Header'),
+              child: Text(
+                'Babel',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontSize: 20),
+              ),
             ),
             ListTile(
               leading: Icon(
                 Icons.home,
-                color: selectedPage == 0 ? Colors.black : null,
+                color: selectedPage == 0 ? const Color(0xff002945) : null,
               ),
               title: Text(
                 'Home',
                 style: selectedPage == 0
                     ? const TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        color: Color(0xff264961),
                       )
                     : null,
               ),
               selected: selectedPage == 0,
               //selectedColor: Colors.black,
-              selectedTileColor: Colors.grey[400],
+              selectedTileColor: const Color(0xffB3BFC7),
               onTap: () => _onItemTapped(0),
             ),
             ListTile(
               leading: Icon(
                 Icons.three_p_rounded,
-                color: selectedPage == 1 ? Colors.black : null,
+                color: selectedPage == 1 ? const Color(0xff002945) : null,
               ),
               title: Text(
                 'About',
                 style: selectedPage == 1
                     ? const TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        color: Color(0xff264961),
                       )
                     : null,
               ),
               selected: selectedPage == 1,
-              selectedTileColor: Colors.grey[400],
+              selectedTileColor: const Color(0xffB3BFC7),
               onTap: () => _onItemTapped(1),
             ),
             ListTile(
               leading: Icon(
                 Icons.security,
-                color: selectedPage == 2 ? Colors.black : null,
+                color: selectedPage == 2 ? const Color(0xff002945) : null,
               ),
               title: Text(
                 'Privacy Policy',
                 style: selectedPage == 2
                     ? const TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        color: Color(0xff264961),
                       )
                     : null,
               ),
@@ -110,7 +118,7 @@ class Page1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: const Center(
-        child: ExampleDropdownButton(),
+        child: Placeholder(),
       ),
     );
   }
@@ -121,11 +129,7 @@ class Page2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: const Center(
-        child: Text('Page 2'),
-      ),
-    );
+    return const Placeholder();
   }
 }
 
@@ -141,6 +145,7 @@ class Page3 extends StatelessWidget {
     );
   }
 }
+
 final dropdownFocusNode = FocusNode();
 
 class ExampleDropdownButton extends StatefulWidget {
@@ -168,10 +173,9 @@ class _ExampleDropdownButtonState extends State<ExampleDropdownButton> {
         });
       },
       focusColor: Colors.white,
-      onTap: (){
+      onTap: () {
         FocusManager.instance.primaryFocus?.unfocus();
         Navigator.pushNamed(context, '/languages');
-        
       },
       items: languages.entries.map((entry) {
         return DropdownMenuItem<String>(
