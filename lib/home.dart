@@ -35,40 +35,44 @@ class HomePageState extends State<HomePage> {
     return Scaffold(
       bottomNavigationBar: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
-        child: GNav(
-          backgroundColor: mcgpalette,
-          color: Colors.white,
-          activeColor: Colors.white,
-          tabBackgroundColor: Colors.grey.shade700,
-          gap: 20,
-          selectedIndex: currentIndex,
-          onTabChange: (index) {
-            updateIndex(index);
-            debugPrint('Current Index: $currentIndex');
-          },
-          //padding: const EdgeInsets.all(16),
-          tabs: const [
-            GButton(
-              icon: Icons.home,
-              text: 'Home',
-              iconColor: Colors.white,
-            ),
-            GButton(
-              icon: Icons.mic_rounded,
-              text: 'Conversation',
-              iconColor: Colors.white,
-            ),
-            GButton(
-              icon: Icons.history,
-              text: 'History',
-              iconColor: Colors.white,
-            ),
-            GButton(
-              icon: Icons.favorite,
-              text: 'Favorite',
-              iconColor: Colors.white,
-            )
-          ],
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          color: mcgpalette,
+          child: GNav(
+            backgroundColor: mcgpalette,
+            color: Colors.white,
+            activeColor: Colors.white,
+            tabBackgroundColor: Colors.grey.shade700,
+            gap: 20,
+            selectedIndex: currentIndex,
+            onTabChange: (index) {
+              updateIndex(index);
+              debugPrint('Current Index: $currentIndex');
+            },
+            //padding: const EdgeInsets.all(16),
+            tabs: const [
+              GButton(
+                icon: Icons.home,
+                text: 'Home',
+                iconColor: Colors.white,
+              ),
+              GButton(
+                icon: Icons.mic_rounded,
+                text: 'Conversation',
+                iconColor: Colors.white,
+              ),
+              GButton(
+                icon: Icons.history,
+                text: 'History',
+                iconColor: Colors.white,
+              ),
+              GButton(
+                icon: Icons.favorite,
+                text: 'Favorite',
+                iconColor: Colors.white,
+              )
+            ],
+          ),
         ),
       ),
       appBar: AppBar(
@@ -125,7 +129,6 @@ class HomePageState extends State<HomePage> {
               onTap: () {
                 Navigator.pop(context);
                 Navigator.pushNamed(context, '/privacy');
-                
               },
             ),
           ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:translate/colors.dart';
 
 import 'home.dart';
@@ -15,19 +16,25 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: mcgpalette,
-      ),
-      home: const HomePage(),
-      routes: {
-        '/about': (context) => const About(),
-        '/privacy': (context) => const Privacy(),
-        // '/page2': (context) => const Page2(),
-        // '/page3': (context) => const Page3(),
-        // '/languages': (context) => const MyLanguageUI(),
+    return ScreenUtilInit(
+      designSize: const Size(360, 690),
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            primarySwatch: mcgpalette,
+          ),
+          home: const HomePage(),
+          routes: {
+            '/about': (context) => const About(),
+            '/privacy': (context) => const Privacy(),
+            // '/page2': (context) => const Page2(),
+            // '/page3': (context) => const Page3(),
+            // '/languages': (context) => const MyLanguageUI(),
+          },
+        );
       },
     );
   }
