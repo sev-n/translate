@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'bottomnav.dart';
-import 'colors.dart';
 import 'pages/bottom_nav_pages/conversation.dart';
 import 'pages/bottom_nav_pages/default_page.dart';
 import 'pages/bottom_nav_pages/favorite.dart';
@@ -35,14 +33,12 @@ class HomePageState extends State<HomePage> {
     return Scaffold(
       bottomNavigationBar: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
-        child: Container(
+        child: SizedBox(
           width: MediaQuery.of(context).size.width,
-          color: mcgpalette,
           child: GNav(
-            backgroundColor: mcgpalette,
-            color: Colors.white,
+            color: Colors.grey[200],
             activeColor: Colors.white,
-            tabBackgroundColor: Colors.grey.shade700,
+            tabBackgroundColor: Colors.grey,
             gap: 20,
             selectedIndex: currentIndex,
             onTabChange: (index) {
@@ -54,86 +50,99 @@ class HomePageState extends State<HomePage> {
               GButton(
                 icon: Icons.home,
                 text: 'Home',
-                iconColor: Colors.white,
+                iconColor: Colors.green,
+                iconActiveColor: Colors.white,
+                backgroundColor: Colors.greenAccent,
+                rippleColor: Colors.green,
               ),
               GButton(
                 icon: Icons.mic_rounded,
                 text: 'Conversation',
-                iconColor: Colors.white,
+                iconColor: Colors.orange,
+                iconActiveColor: Colors.white,
+                backgroundColor: Colors.orangeAccent,
+                rippleColor: Colors.amber,
               ),
               GButton(
                 icon: Icons.history,
                 text: 'History',
-                iconColor: Colors.white,
+                iconColor: Colors.indigo,
+                iconActiveColor: Colors.white,
+                backgroundColor: Colors.indigoAccent,
+                rippleColor: Colors.indigo,
               ),
               GButton(
                 icon: Icons.favorite,
                 text: 'Favorite',
-                iconColor: Colors.white,
+                iconColor: Colors.pink,
+                iconActiveColor: Colors.white,
+                backgroundColor: Colors.pinkAccent,
+                rippleColor: Colors.pink,
               )
             ],
           ),
         ),
       ),
-      appBar: AppBar(
-        title: const Text('Translate'),
-        //elevation: 0,
-      ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Color(0xFF002945),
-              ),
-              child: Text(
-                'Babel',
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    fontSize: 20),
-              ),
-            ),
-            ListTile(
-              leading: const Icon(
-                Icons.three_p_rounded,
-                color: Color(0xff002945),
-              ),
-              title: const Text('About',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xff264961),
-                  )),
-              //selected: selectedPage == 1,
-              selectedTileColor: const Color(0xffB3BFC7),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.pushNamed(context, '/about');
-              },
-            ),
-            ListTile(
-              leading: const Icon(
-                Icons.security,
-                color: Color(0xff002945),
-              ),
-              title: const Text(
-                'Privacy Policy',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xff264961),
-                ),
-              ),
-              //selected: selectedPage == 2,
-              selectedTileColor: Colors.grey[400],
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.pushNamed(context, '/privacy');
-              },
-            ),
-          ],
-        ),
-      ),
+      // appBar: AppBar(
+      //   title: const Text('Translate'),
+      //elevation: 0,
+      // ),
+
+      // drawer: Drawer(
+      //   child: ListView(
+      //     padding: EdgeInsets.zero,
+      //     children: <Widget>[
+      //       const DrawerHeader(
+      //         decoration: BoxDecoration(
+      //           color: Color(0xFF002945),
+      //         ),
+      //         child: Text(
+      //           'Babel',
+      //           style: TextStyle(
+      //               fontWeight: FontWeight.bold,
+      //               color: Colors.white,
+      //               fontSize: 20),
+      //         ),
+      //       ),
+      //       ListTile(
+      //         leading: const Icon(
+      //           Icons.three_p_rounded,
+      //           color: Color(0xff002945),
+      //         ),
+      //         title: const Text('About',
+      //             style: TextStyle(
+      //               fontWeight: FontWeight.bold,
+      //               color: Color(0xff264961),
+      //             )),
+      //         //selected: selectedPage == 1,
+      //         selectedTileColor: const Color(0xffB3BFC7),
+      //         onTap: () {
+      //           Navigator.pop(context);
+      //           Navigator.pushNamed(context, '/about');
+      //         },
+      //       ),
+      //       ListTile(
+      //         leading: const Icon(
+      //           Icons.security,
+      //           color: Color(0xff002945),
+      //         ),
+      //         title: const Text(
+      //           'Privacy Policy',
+      //           style: TextStyle(
+      //             fontWeight: FontWeight.bold,
+      //             color: Color(0xff264961),
+      //           ),
+      //         ),
+      //         //selected: selectedPage == 2,
+      //         selectedTileColor: Colors.grey[400],
+      //         onTap: () {
+      //           Navigator.pop(context);
+      //           Navigator.pushNamed(context, '/privacy');
+      //         },
+      //       ),
+      //     ],
+      //   ),
+      // ),
       body: pages[currentIndex],
     );
   }
