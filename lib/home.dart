@@ -17,6 +17,16 @@ class HomePageState extends State<HomePage> {
   //darkmode
   bool isDarkMode = false;
 
+  final IconData _iconLight = Icons.wb_sunny;
+  final IconData _iconDark = Icons.nights_stay;
+  Color get navColor => isDarkMode ? darkColor : lightColor;
+
+  final ThemeData _lightTheme =
+      ThemeData(primarySwatch: lightColor, brightness: Brightness.light);
+
+  final ThemeData _darkTheme =
+      ThemeData(primarySwatch: darkColor, brightness: Brightness.dark);
+
   //index
   int currentIndex = 0;
 
@@ -35,159 +45,169 @@ class HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width,
-          child: Container(
-            color: dark,
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
-              child: GNav(
-                backgroundColor: const Color(0xff131316),
-                color: const Color(0xff131316),
-                activeColor: Colors.white,
-                gap: 20,
-                padding: const EdgeInsets.all(18),
-                tabBackgroundColor: Colors.grey.shade900,
-                selectedIndex: currentIndex,
-                onTabChange: (index) {
-                  updateIndex(index);
-                  debugPrint('Current Index: $currentIndex');
-                },
-                //padding: const EdgeInsets.all(16),
-                tabs: const [
-                  GButton(
-                    icon: Icons.home,
-                    text: 'Home',
-                    iconColor: Color(0xFF006A60),
-                    iconActiveColor: Color(0xFF006A60),
-                    rippleColor: Color(0xFF006A60),
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: isDarkMode ? _lightTheme : _darkTheme,
+        home: Theme(
+          data: isDarkMode ? _darkTheme : _lightTheme,
+          child: Scaffold(
+            bottomNavigationBar: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: Container(
+                  color: navColor,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 15.0, vertical: 15.0),
+                    child: GNav(
+                      backgroundColor: navColor,
+                      color: const Color(0xff131316),
+                      activeColor: Colors.white,
+                      gap: 20,
+                      padding: const EdgeInsets.all(18),
+                      selectedIndex: currentIndex,
+                      onTabChange: (index) {
+                        updateIndex(index);
+                        debugPrint('Current Index: $currentIndex');
+                      },
+                      //padding: const EdgeInsets.all(16),
+                      tabs: const [
+                        GButton(
+                          icon: Icons.home,
+                          text: 'Home',
+                          iconColor: Color(0xFF006A60),
+                          iconActiveColor: Colors.white,
+                          rippleColor: Color(0xFF006A60),
+                          backgroundColor: Color(0xFF006A60),
+                        ),
+                        GButton(
+                          icon: Icons.mic_rounded,
+                          text: 'Conversation',
+                          iconColor: Colors.orange,
+                          iconActiveColor: Colors.white,
+                          rippleColor: Colors.amber,
+                          backgroundColor: Colors.orange,
+                        ),
+                        GButton(
+                          icon: Icons.history,
+                          text: 'History',
+                          iconColor: Colors.indigo,
+                          iconActiveColor: Colors.white,
+                          rippleColor: Colors.indigoAccent,
+                          backgroundColor: Colors.indigoAccent,
+                        ),
+                        GButton(
+                          icon: Icons.favorite,
+                          text: 'Favorite',
+                          iconColor: Colors.pink,
+                          iconActiveColor: Colors.white,
+                          rippleColor: Colors.pinkAccent,
+                          backgroundColor: Colors.pinkAccent,
+                        )
+                      ],
+                    ),
                   ),
-                  GButton(
-                    icon: Icons.mic_rounded,
-                    text: 'Conversation',
-                    iconColor: Colors.orange,
-                    iconActiveColor: Colors.orange,
-                    rippleColor: Colors.amber,
-                  ),
-                  GButton(
-                    icon: Icons.history,
-                    text: 'History',
-                    iconColor: Colors.indigo,
-                    iconActiveColor: Colors.indigo,
-                    rippleColor: Colors.indigoAccent,
-                  ),
-                  GButton(
-                    icon: Icons.favorite,
-                    text: 'Favorite',
-                    iconColor: Colors.pink,
-                    iconActiveColor: Colors.pink,
-                    rippleColor: Colors.pinkAccent,
-                  )
-                ],
+                ),
               ),
             ),
-          ),
-        ),
-      ),
-      appBar: AppBar(
-        title: const Text(
-          'BABEL',
-          style: TextStyle(
-            fontFamily: 'Morgenwalsh',
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 3,
-          ),
-        ),
-        elevation: 0,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 16.0, top: 8.0, bottom: 8.0),
-            child: Container(
-              decoration: BoxDecoration(
-                shape: BoxShape.rectangle,
-                color: Colors.white70.withOpacity(0.1),
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-              child: IconButton(
-                icon: isDarkMode
-                    ? const Icon(Icons.wb_sunny, color: Colors.amberAccent)
-                    : const Icon(Icons.nightlight_round,
-                        color: Colors.deepPurpleAccent),
-                onPressed: () {
-                  setState(() {
-                    isDarkMode = !isDarkMode;
-                  });
-                },
-              ),
-            ),
-          ),
-        ],
-      ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Color(0xff131316),
-              ),
-              child: Text(
+            appBar: AppBar(
+              backgroundColor: isDarkMode ? darkColor : lightColor,
+              title: const Text(
                 'Babel',
                 style: TextStyle(
                   fontFamily: 'Morgenwalsh',
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  letterSpacing: 4,
-                  color: Color(0xfffdfffc),
+                  letterSpacing: 3,
+                ),
+              ),
+              elevation: 0,
+              actions: [
+                Padding(
+                  padding:
+                      const EdgeInsets.only(right: 16.0, top: 8.0, bottom: 8.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      color: Colors.white70.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    child: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          isDarkMode = !isDarkMode;
+                        });
+                      },
+                      icon: Icon(isDarkMode ? _iconDark : _iconLight),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            drawer: Theme(
+              data: Theme.of(context).copyWith(
+                canvasColor: isDarkMode ? darkColor : lightColor,
+              ),
+              child: Drawer(
+                child: ListView(
+                  padding: EdgeInsets.zero,
+                  children: <Widget>[
+                    DrawerHeader(
+                      child: Text(
+                        'Babel',
+                        style: TextStyle(
+                          fontFamily: 'Morgenwalsh',
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 4,
+                          color: isDarkMode ? lightColor : darkColor,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      leading: Icon(
+                        Icons.three_p_rounded,
+                        color: isDarkMode ? lightColor : darkColor,
+                      ),
+                      title: Text('About',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: isDarkMode ? lightColor : darkColor,
+                          )),
+                      //selected: selectedPage == 1,
+                      selectedTileColor: const Color(0xfffdfffc),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.pushNamed(context, '/about');
+                      },
+                    ),
+                    ListTile(
+                      leading: Icon(
+                        Icons.security,
+                        color: isDarkMode ? lightColor : darkColor,
+                      ),
+                      title: Text(
+                        'Privacy Policy',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: isDarkMode ? lightColor : darkColor,
+                        ),
+                      ),
+                      //selected: selectedPage == 2,
+                      selectedTileColor: Colors.grey[400],
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.pushNamed(context, '/privacy');
+                      },
+                    ),
+                  ],
                 ),
               ),
             ),
-            ListTile(
-              leading: const Icon(
-                Icons.three_p_rounded,
-                color: Color(0xff011627),
-              ),
-              title: const Text('About',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xff011627),
-                  )),
-              //selected: selectedPage == 1,
-              selectedTileColor: const Color(0xfffdfffc),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.pushNamed(context, '/about');
-              },
-            ),
-            ListTile(
-              leading: const Icon(
-                Icons.security,
-                color: Color(0xff011627),
-              ),
-              title: const Text(
-                'Privacy Policy',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xff011627),
-                ),
-              ),
-              //selected: selectedPage == 2,
-              selectedTileColor: Colors.grey[400],
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.pushNamed(context, '/privacy');
-              },
-            ),
-          ],
-        ),
-      ),
-      body: pages[currentIndex],
-    );
+            body: pages[currentIndex],
+          ),
+        ));
   }
 }
 
