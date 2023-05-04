@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'bottomnav.dart';
-import 'colors.dart';
+import 'package:translate/colors.dart';
 import 'pages/bottom_nav_pages/conversation.dart';
 import 'pages/bottom_nav_pages/default_page.dart';
 import 'pages/bottom_nav_pages/favorite.dart';
@@ -15,6 +14,10 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
+  //darkmode
+  bool isDarkMode = false;
+
+  //index
   int currentIndex = 0;
 
   void updateIndex(int index) {
@@ -35,49 +38,95 @@ class HomePageState extends State<HomePage> {
     return Scaffold(
       bottomNavigationBar: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
-        child: Container(
+        child: SizedBox(
           width: MediaQuery.of(context).size.width,
-          color: mcgpalette,
-          child: GNav(
-            backgroundColor: mcgpalette,
-            color: Colors.white,
-            activeColor: Colors.white,
-            tabBackgroundColor: Colors.grey.shade700,
-            gap: 20,
-            selectedIndex: currentIndex,
-            onTabChange: (index) {
-              updateIndex(index);
-              debugPrint('Current Index: $currentIndex');
-            },
-            //padding: const EdgeInsets.all(16),
-            tabs: const [
-              GButton(
-                icon: Icons.home,
-                text: 'Home',
-                iconColor: Colors.white,
+          child: Container(
+            color: dark,
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
+              child: GNav(
+                backgroundColor: const Color(0xff131316),
+                color: const Color(0xff131316),
+                activeColor: Colors.white,
+                gap: 20,
+                padding: const EdgeInsets.all(18),
+                tabBackgroundColor: Colors.grey.shade900,
+                selectedIndex: currentIndex,
+                onTabChange: (index) {
+                  updateIndex(index);
+                  debugPrint('Current Index: $currentIndex');
+                },
+                //padding: const EdgeInsets.all(16),
+                tabs: const [
+                  GButton(
+                    icon: Icons.home,
+                    text: 'Home',
+                    iconColor: Color(0xFF006A60),
+                    iconActiveColor: Color(0xFF006A60),
+                    rippleColor: Color(0xFF006A60),
+                  ),
+                  GButton(
+                    icon: Icons.mic_rounded,
+                    text: 'Conversation',
+                    iconColor: Colors.orange,
+                    iconActiveColor: Colors.orange,
+                    rippleColor: Colors.amber,
+                  ),
+                  GButton(
+                    icon: Icons.history,
+                    text: 'History',
+                    iconColor: Colors.indigo,
+                    iconActiveColor: Colors.indigo,
+                    rippleColor: Colors.indigoAccent,
+                  ),
+                  GButton(
+                    icon: Icons.favorite,
+                    text: 'Favorite',
+                    iconColor: Colors.pink,
+                    iconActiveColor: Colors.pink,
+                    rippleColor: Colors.pinkAccent,
+                  )
+                ],
               ),
-              GButton(
-                icon: Icons.mic_rounded,
-                text: 'Conversation',
-                iconColor: Colors.white,
-              ),
-              GButton(
-                icon: Icons.history,
-                text: 'History',
-                iconColor: Colors.white,
-              ),
-              GButton(
-                icon: Icons.favorite,
-                text: 'Favorite',
-                iconColor: Colors.white,
-              )
-            ],
+            ),
           ),
         ),
       ),
       appBar: AppBar(
-        title: const Text('Translate'),
-        //elevation: 0,
+        title: const Text(
+          'BABEL',
+          style: TextStyle(
+            fontFamily: 'Morgenwalsh',
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 3,
+          ),
+        ),
+        elevation: 0,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 16.0, top: 8.0, bottom: 8.0),
+            child: Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.rectangle,
+                color: Colors.white70.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: IconButton(
+                icon: isDarkMode
+                    ? const Icon(Icons.wb_sunny, color: Colors.amberAccent)
+                    : const Icon(Icons.nightlight_round,
+                        color: Colors.deepPurpleAccent),
+                onPressed: () {
+                  setState(() {
+                    isDarkMode = !isDarkMode;
+                  });
+                },
+              ),
+            ),
+          ),
+        ],
       ),
       drawer: Drawer(
         child: ListView(
@@ -85,28 +134,31 @@ class HomePageState extends State<HomePage> {
           children: <Widget>[
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Color(0xFF002945),
+                color: Color(0xff131316),
               ),
               child: Text(
                 'Babel',
                 style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    fontSize: 20),
+                  fontFamily: 'Morgenwalsh',
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 4,
+                  color: Color(0xfffdfffc),
+                ),
               ),
             ),
             ListTile(
               leading: const Icon(
                 Icons.three_p_rounded,
-                color: Color(0xff002945),
+                color: Color(0xff011627),
               ),
               title: const Text('About',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Color(0xff264961),
+                    color: Color(0xff011627),
                   )),
               //selected: selectedPage == 1,
-              selectedTileColor: const Color(0xffB3BFC7),
+              selectedTileColor: const Color(0xfffdfffc),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.pushNamed(context, '/about');
@@ -115,13 +167,13 @@ class HomePageState extends State<HomePage> {
             ListTile(
               leading: const Icon(
                 Icons.security,
-                color: Color(0xff002945),
+                color: Color(0xff011627),
               ),
               title: const Text(
                 'Privacy Policy',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Color(0xff264961),
+                  color: Color(0xff011627),
                 ),
               ),
               //selected: selectedPage == 2,
@@ -180,56 +232,3 @@ class _ExampleDropdownButtonState extends State<ExampleDropdownButton> {
     );
   }
 }
-
-// class Nav extends StatefulWidget {
-//   const Nav({super.key});
-
-//   @override
-//   State<Nav> createState() => _NavState();
-// }
-
-// class _NavState extends State<Nav> {
-  
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return SingleChildScrollView(
-//       scrollDirection: Axis.horizontal,
-//       child: GNav(
-//         backgroundColor: mcgpalette,
-//         color: Colors.white,
-//         activeColor: Colors.white,
-//         tabBackgroundColor: Colors.grey.shade700,
-//         gap: 20,
-//         selectedIndex: currentIndex,
-//         onTabChange: (index) {
-//           updateIndex(index);
-//           debugPrint('Current Index: $currentIndex');
-//         },
-//         //padding: const EdgeInsets.all(16),
-//         tabs: const [
-//           GButton(
-//             icon: Icons.home,
-//             text: 'Home',
-//             iconColor: Colors.white,
-//           ),
-//           GButton(
-//             icon: Icons.mic_rounded,
-//             text: 'Conversation',
-//             iconColor: Colors.white,
-//           ),
-//           GButton(
-//             icon: Icons.history,
-//             text: 'History',
-//             iconColor: Colors.white,
-//           ),
-//           GButton(
-//             icon: Icons.favorite,
-//             text: 'Favorite',
-//             iconColor: Colors.white,
-//           )
-//         ],
-//       ),
-//     );
-//   }
-// }
