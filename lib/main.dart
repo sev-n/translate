@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:translate/colors.dart';
-
 import 'home.dart';
 import 'pages/about.dart';
 import 'pages/privacy.dart';
@@ -24,7 +23,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(
-            primarySwatch: mcgpalette,
+            primarySwatch: dark,
           ),
           home: const HomePage(),
           routes: {
