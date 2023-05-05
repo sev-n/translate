@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:translate/colors.dart';
 import 'home.dart';
 import 'pages/about.dart';
 import 'pages/privacy.dart';
+import 'package:translate/colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,9 +22,6 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
-          theme: ThemeData(
-            primarySwatch: dark,
-          ),
           home: const HomePage(),
           routes: {
             '/about': (context) => const About(),
