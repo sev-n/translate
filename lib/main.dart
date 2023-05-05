@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'home.dart';
-import 'pages/about.dart';
-import 'pages/privacy.dart';
-import 'package:translate/colors.dart';
+import 'pages/side_menu/about.dart';
+import 'pages/side_menu/privacy.dart';
+import 'package:translate/pages/utils/colors.dart';
 
 void main() {
   runApp(const MyApp());

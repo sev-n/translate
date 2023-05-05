@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:translate/colors.dart';
+import 'package:translate/pages/utils/colors.dart';
 import 'pages/bottom_nav_pages/conversation.dart';
 import 'pages/bottom_nav_pages/default_page.dart';
 import 'pages/bottom_nav_pages/favorite.dart';
@@ -51,62 +51,59 @@ class HomePageState extends State<HomePage> {
         home: Theme(
           data: isDarkMode ? _darkTheme : _lightTheme,
           child: Scaffold(
-            bottomNavigationBar: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width,
-                child: Container(
-                  color: navColor,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 15.0, vertical: 15.0),
-                    child: GNav(
-                      backgroundColor: navColor,
-                      color: const Color(0xff131316),
-                      activeColor: Colors.white,
-                      gap: 20,
-                      padding: const EdgeInsets.all(18),
-                      selectedIndex: currentIndex,
-                      onTabChange: (index) {
-                        updateIndex(index);
-                        debugPrint('Current Index: $currentIndex');
-                      },
-                      //padding: const EdgeInsets.all(16),
-                      tabs: const [
-                        GButton(
-                          icon: Icons.home,
-                          text: 'Home',
-                          iconColor: Color(0xFF006A60),
-                          iconActiveColor: Colors.white,
-                          rippleColor: Color(0xFF006A60),
-                          backgroundColor: Color(0xFF006A60),
-                        ),
-                        GButton(
-                          icon: Icons.mic_rounded,
-                          text: 'Conversation',
-                          iconColor: Colors.orange,
-                          iconActiveColor: Colors.white,
-                          rippleColor: Colors.amber,
-                          backgroundColor: Colors.orange,
-                        ),
-                        GButton(
-                          icon: Icons.history,
-                          text: 'History',
-                          iconColor: Colors.indigo,
-                          iconActiveColor: Colors.white,
-                          rippleColor: Colors.indigoAccent,
-                          backgroundColor: Colors.indigoAccent,
-                        ),
-                        GButton(
-                          icon: Icons.favorite,
-                          text: 'Favorite',
-                          iconColor: Colors.pink,
-                          iconActiveColor: Colors.white,
-                          rippleColor: Colors.pinkAccent,
-                          backgroundColor: Colors.pinkAccent,
-                        )
-                      ],
-                    ),
+            bottomNavigationBar: SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: Container(
+                color: navColor,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 15.0, vertical: 15.0),
+                  child: GNav(
+                    backgroundColor: navColor,
+                    color: const Color(0xff131316),
+                    activeColor: Colors.white,
+                    gap: 20,
+                    padding: const EdgeInsets.all(18),
+                    selectedIndex: currentIndex,
+                    onTabChange: (index) {
+                      updateIndex(index);
+                      debugPrint('Current Index: $currentIndex');
+                    },
+                    //padding: const EdgeInsets.all(16),
+                    tabs: const [
+                      GButton(
+                        icon: Icons.home,
+                        text: 'Home',
+                        iconColor: Color(0xFF006A60),
+                        iconActiveColor: Colors.white,
+                        rippleColor: Color(0xFF006A60),
+                        backgroundColor: Color(0xFF006A60),
+                      ),
+                      GButton(
+                        icon: Icons.mic_rounded,
+                        text: 'Speech',
+                        iconColor: Colors.orange,
+                        iconActiveColor: Colors.white,
+                        rippleColor: Colors.amber,
+                        backgroundColor: Colors.orange,
+                      ),
+                      GButton(
+                        icon: Icons.history,
+                        text: 'History',
+                        iconColor: Colors.indigo,
+                        iconActiveColor: Colors.white,
+                        rippleColor: Colors.indigoAccent,
+                        backgroundColor: Colors.indigoAccent,
+                      ),
+                      GButton(
+                        icon: Icons.favorite,
+                        text: 'Favorite',
+                        iconColor: Colors.pink,
+                        iconActiveColor: Colors.white,
+                        rippleColor: Colors.pinkAccent,
+                        backgroundColor: Colors.pinkAccent,
+                      )
+                    ],
                   ),
                 ),
               ),
