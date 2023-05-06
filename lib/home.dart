@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:translate/pages/utils/colors.dart';
-import 'pages/bottom_nav_pages/conversation.dart';
+import 'pages/bottom_nav_pages/speech.dart';
 import 'pages/bottom_nav_pages/default_page.dart';
 import 'pages/bottom_nav_pages/favorite.dart';
 import 'pages/bottom_nav_pages/history.dart';
