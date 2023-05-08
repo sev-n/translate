@@ -112,7 +112,7 @@ class Conversation extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () {},
-                icon: const Icon(Icons.mic_outlined),
+                icon: const Icon(Icons.mic_none),
                 iconSize: 30,
                 color: Colors.orange,
               ),
