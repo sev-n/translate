@@ -97,7 +97,7 @@ class HomePageState extends State<HomePage> {
                       ),
                       GButton(
                         icon: Icons.favorite,
-                        text: 'Favorite',
+                        text: 'Discover',
                         iconColor: Colors.pink,
                         iconActiveColor: Colors.white,
                         rippleColor: Colors.pinkAccent,

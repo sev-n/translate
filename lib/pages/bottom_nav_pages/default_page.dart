@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 import 'package:translate/pages/utils/animate.dart';
+
+import '../../model.dart';
+import 'trans_language.dart';
 
 final TextEditingController controller = TextEditingController();
 
@@ -27,6 +31,11 @@ class _DefaultPageState extends State<DefaultPage> {
                 child: ElevatedButton(
                   onPressed: () {
                     // Do something when the button is pressed
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Languages()),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.black,
@@ -42,12 +51,16 @@ class _DefaultPageState extends State<DefaultPage> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Expanded(
-                        child: Text(
-                          'English',
+                        child: Consumer<ModelLang>(
+                          builder: (context, data, child){
+                            return Text(
+                          data.displayText,
                           overflow: TextOverflow.ellipsis,
                           maxLines: 1,
                           textAlign: TextAlign.start,
                           style: TextStyle(fontSize: 16.sp),
+                        );
+                          }
                         ),
                       ),
                       SizedBox(width: 16.0.w),
@@ -160,14 +173,6 @@ class _DefaultPageState extends State<DefaultPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  // const SizedBox(width: 20),
-                  // IconButton(
-                  //     onPressed: () {},
-                  //     icon: const Icon(Icons.volume_up_rounded)),
-                  // const SizedBox(width: 10),
-                  // IconButton(
-                  //     onPressed: () {}, icon: const Icon(Icons.mic_rounded)),
-                  // const SizedBox(width: 50),
                   SizedBox(
                     width: 120.w,
                     height: 40.h,
