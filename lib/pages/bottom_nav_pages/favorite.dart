@@ -10,50 +10,87 @@ class Favorite extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.only(top: 30.h),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SizedBox(
-                    width: 150.w,
-                    height: 150.h,
-                    child: const Card(
-                      elevation: 20,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 150.w,
-                    height: 150.h,
-                    child: const Card(
-                      elevation: 20,
-                    ),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 15.h),
-                child: Row(
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(
+              children: [
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    SizedBox(
-                      width: 150.w,
-                      height: 150.h,
-                      child: const Card(
-                        elevation: 20,
+                    CardClickable(
+                      child: SizedBox(
+                        width: 150.w,
+                        height: 150.h,
+                        child: const Card(
+                          elevation: 20,
+                        ),
                       ),
                     ),
-                    SizedBox(
-                      width: 150.w,
-                      height: 150.h,
-                      child: const Card(
-                        elevation: 20,
+                    CardClickable(
+                      child: SizedBox(
+                        width: 150.w,
+                        height: 150.h,
+                        child: const Card(
+                          elevation: 20,
+                        ),
                       ),
                     ),
                   ],
                 ),
-              ),
-            ],
+                Padding(
+                  padding: EdgeInsets.only(top: 15.h),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      CardClickable(
+                        child: SizedBox(
+                          width: 150.w,
+                          height: 150.h,
+                          child: const Card(
+                            elevation: 20,
+                          ),
+                        ),
+                      ),
+                      CardClickable(
+                        child: SizedBox(
+                          width: 150.w,
+                          height: 150.h,
+                          child: const Card(
+                            elevation: 20,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 15.h),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      CardClickable(
+                        child: SizedBox(
+                          width: 150.w,
+                          height: 150.h,
+                          child: const Card(
+                            elevation: 20,
+                          ),
+                        ),
+                      ),
+                      CardClickable(
+                        child: SizedBox(
+                          width: 150.w,
+                          height: 150.h,
+                          child: const Card(
+                            elevation: 20,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ],
@@ -68,11 +105,13 @@ class CardClickable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-        type: MaterialType.transparency,
-        child: InkWell(
-          borderRadius: BorderRadius.circular(10.0.r),
-          splashColor: Colors.black.withOpacity(0.3),
-          child: child,
-        ));
+      type: MaterialType.transparency,
+      child: InkWell(
+        onTap: () {},
+        borderRadius: BorderRadius.circular(10.0.r),
+        splashColor: Colors.black.withOpacity(0.3),
+        child: child,
+      ),
+    );
   }
 }
