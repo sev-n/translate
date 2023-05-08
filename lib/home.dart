@@ -136,7 +136,7 @@ class HomePageState extends State<HomePage> {
                           isDarkMode = !isDarkMode;
                         });
                       },
-                      icon: Icon(isDarkMode ? _iconDark : _iconLight),
+                      icon: Icon(!isDarkMode ? _iconDark : _iconLight),
                     ),
                   ),
                 ),
