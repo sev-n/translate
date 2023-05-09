@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:translate/pages/utils/colors.dart';
 
 class History extends StatelessWidget {
   const History({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container(
+      color: darkColor,
+      child: const Placeholder(
+        color: accent,
+      ),
+    );
   }
 }

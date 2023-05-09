@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'pages/bottom_nav_pages/trans_language.dart';
 
 class ModelLang extends ChangeNotifier {

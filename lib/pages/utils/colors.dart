@@ -2,27 +2,27 @@ import 'package:flutter/material.dart';
 
 const MaterialColor darkColor =
     MaterialColor(_darkColorPrimaryValue, <int, Color>{
-  50: Color(0xFFE3E3E3),
-  100: Color(0xFFB8B8B9),
-  200: Color(0xFF89898B),
-  300: Color(0xFF5A5A5C),
-  400: Color(0xFF363639),
+  50: Color(0xFFE4E5E6),
+  100: Color(0xFFBDBFC1),
+  200: Color(0xFF919498),
+  300: Color(0xFF64696F),
+  400: Color(0xFF434850),
   500: Color(_darkColorPrimaryValue),
-  600: Color(0xFF111113),
-  700: Color(0xFF0E0E10),
-  800: Color(0xFF0B0B0C),
-  900: Color(0xFF060606),
+  600: Color(0xFF1E242C),
+  700: Color(0xFF191E25),
+  800: Color(0xFF14181F),
+  900: Color(0xFF0C0F13),
 });
-const int _darkColorPrimaryValue = 0xFF131316;
+const int _darkColorPrimaryValue = 0xFF222831;
 
 const MaterialColor darkColorAccent =
     MaterialColor(_darkColorAccentValue, <int, Color>{
-  100: Color(0xFFFF4E4E),
+  100: Color(0xFF589BFF),
   200: Color(_darkColorAccentValue),
-  400: Color(0xFFE70000),
-  700: Color(0xFFCE0000),
+  400: Color(0xFF0060F1),
+  700: Color(0xFF0056D7),
 });
-const int _darkColorAccentValue = 0xFFFF1B1B;
+const int _darkColorAccentValue = 0xFF257CFF;
 
 const MaterialColor lightColor =
     MaterialColor(_lightColorPrimaryValue, <int, Color>{
@@ -141,3 +141,26 @@ const MaterialColor vbgAccent = MaterialColor(_vbgAccentValue, <int, Color>{
   700: Color(0xFF0000D6),
 });
 const int _vbgAccentValue = 0xFF2424FF;
+
+const MaterialColor accent = MaterialColor(_accentPrimaryValue, <int, Color>{
+  50: Color(0xFFE0F5F6),
+  100: Color(0xFFB3E6E9),
+  200: Color(0xFF80D6DA),
+  300: Color(0xFF4DC6CB),
+  400: Color(0xFF26B9C0),
+  500: Color(_accentPrimaryValue),
+  600: Color(0xFF00A6AE),
+  700: Color(0xFF009CA5),
+  800: Color(0xFF00939D),
+  900: Color(0xFF00838D),
+});
+const int _accentPrimaryValue = 0xFF00ADB5;
+
+const MaterialColor accentAccent =
+    MaterialColor(_accentAccentValue, <int, Color>{
+  100: Color(0xFFB9F9FF),
+  200: Color(_accentAccentValue),
+  400: Color(0xFF53F0FF),
+  700: Color(0xFF3AEEFF),
+});
+const int _accentAccentValue = 0xFF86F5FF;

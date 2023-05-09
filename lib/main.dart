@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:translate/pages/utils/colors.dart';
 import 'home.dart';
 import 'model.dart';
 import 'pages/bottom_nav_pages/trans_language.dart';
@@ -22,6 +23,9 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp(
+          theme: ThemeData(
+            primarySwatch: accent,
+          ),
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           home: ChangeNotifierProvider(

@@ -27,7 +27,7 @@ class _LanguagesState extends State<Languages> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ThemeManager.isDarkMode ? vbg : mcgpalette0,
+      backgroundColor: darkColor,
       appBar: AppBar(),
       body: ListView.builder(
         itemCount: langs.values.length,
@@ -38,9 +38,9 @@ class _LanguagesState extends State<Languages> {
             return ListTile(
               title: Text(
                 langName,
-                style: TextStyle(
-                    color:
-                        ThemeManager.isDarkMode ? Colors.white : Colors.black),
+                style: const TextStyle(
+                  color: Colors.white,
+                ),
               ),
               //subtitle: Text(langCode),
               onTap: () {

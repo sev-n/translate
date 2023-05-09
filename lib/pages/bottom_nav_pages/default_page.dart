@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:translate/color_model.dart';
 import 'package:translate/pages/utils/animate.dart';
 import 'package:translate/pages/utils/colors.dart';
 
@@ -23,11 +22,11 @@ class _DefaultPageState extends State<DefaultPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: const Color(0xff222831),
       child: Stack(
         children: [
           Padding(
-            padding: EdgeInsets.only(top: 30.h, left: 10.w),
+            padding: EdgeInsets.only(top: 70.h, left: 10.w),
             child: Row(
               children: [
                 SizedBox(
@@ -42,9 +41,7 @@ class _DefaultPageState extends State<DefaultPage> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      foregroundColor:
-                          ThemeManager.isDarkMode ? mcgpalette0 : vbg,
-                      backgroundColor: Colors.grey[300],
+                      backgroundColor: accent,
                       padding: EdgeInsets.symmetric(
                           horizontal: 16.0.w, vertical: 14.0.h),
                       shape: RoundedRectangleBorder(
@@ -81,10 +78,11 @@ class _DefaultPageState extends State<DefaultPage> {
                       borderRadius: BorderRadius.circular(10.0.r),
                       splashColor: Colors.black.withOpacity(0.3),
                       onTap: () {},
-                      child: const RotateSwapButton(
+                      child: RotateSwapButton(
                         childWidget: Icon(
                           Icons.swap_horizontal_circle_outlined,
                           size: 35,
+                          color: Colors.grey.shade300,
                         ),
                       ),
                     ),
@@ -99,8 +97,7 @@ class _DefaultPageState extends State<DefaultPage> {
                         // Do something when the button is pressed
                       },
                       style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.black,
-                        backgroundColor: Colors.grey[300],
+                        backgroundColor: accent,
                         padding: EdgeInsets.symmetric(
                             horizontal: 16.0.w, vertical: 14.0.h),
                         shape: RoundedRectangleBorder(

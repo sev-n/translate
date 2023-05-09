@@ -19,4 +19,6 @@ class ThemeManager {
 
   static get iconDark => _iconDark;
   static get iconLight => _iconLight;
+
+  static Color get appTheme => accent;
 }
