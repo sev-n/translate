@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:translate/pages/utils/colors.dart';
+import 'color_model.dart';
 import 'pages/bottom_nav_pages/speech.dart';
 import 'pages/bottom_nav_pages/default_page.dart';
 import 'pages/bottom_nav_pages/favorite.dart';
@@ -15,17 +16,6 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
   //darkmode
-  bool isDarkMode = false;
-
-  final IconData _iconLight = Icons.wb_sunny;
-  final IconData _iconDark = Icons.nights_stay;
-  Color get navColor => isDarkMode ? darkColor : lightColor;
-
-  final ThemeData _lightTheme =
-      ThemeData(primarySwatch: lightColor, brightness: Brightness.light);
-
-  final ThemeData _darkTheme =
-      ThemeData(primarySwatch: darkColor, brightness: Brightness.dark);
 
   //index
   int currentIndex = 0;
@@ -47,19 +37,23 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: isDarkMode ? _lightTheme : _darkTheme,
+        theme: ThemeManager.isDarkMode
+            ? ThemeManager.lightTheme
+            : ThemeManager.darkTheme,
         home: Theme(
-          data: isDarkMode ? _darkTheme : _lightTheme,
+          data: ThemeManager.isDarkMode
+              ? ThemeManager.darkTheme
+              : ThemeManager.lightTheme,
           child: Scaffold(
             bottomNavigationBar: SizedBox(
               width: MediaQuery.of(context).size.width,
               child: Container(
-                color: navColor,
+                color: ThemeManager.navColor,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
                       horizontal: 15.0, vertical: 15.0),
                   child: GNav(
-                    backgroundColor: navColor,
+                    backgroundColor: ThemeManager.navColor,
                     color: const Color(0xff131316),
                     activeColor: Colors.white,
                     gap: 20,
@@ -109,7 +103,7 @@ class HomePageState extends State<HomePage> {
               ),
             ),
             appBar: AppBar(
-              backgroundColor: isDarkMode ? darkColor : lightColor,
+              backgroundColor: ThemeManager.isDarkMode ? vbg : mcgpalette0,
               title: const Text(
                 'Babel',
                 style: TextStyle(
@@ -133,10 +127,12 @@ class HomePageState extends State<HomePage> {
                     child: IconButton(
                       onPressed: () {
                         setState(() {
-                          isDarkMode = !isDarkMode;
+                          ThemeManager.isDarkMode = !ThemeManager.isDarkMode;
                         });
                       },
-                      icon: Icon(!isDarkMode ? _iconDark : _iconLight),
+                      icon: Icon(!ThemeManager.isDarkMode
+                          ? ThemeManager.iconDark
+                          : ThemeManager.iconLight),
                     ),
                   ),
                 ),
@@ -144,13 +140,16 @@ class HomePageState extends State<HomePage> {
             ),
             drawer: Theme(
               data: Theme.of(context).copyWith(
-                canvasColor: isDarkMode ? darkColor : lightColor,
-              ),
+                  //canvasColor: ThemeManager.isDarkMode ? vbg : mcgpalette0,
+                  ),
               child: Drawer(
                 child: ListView(
                   padding: EdgeInsets.zero,
                   children: <Widget>[
                     DrawerHeader(
+                      decoration: BoxDecoration(
+                        color: ThemeManager.isDarkMode ? vbg : mcgpalette0,
+                      ),
                       child: Text(
                         'Babel',
                         style: TextStyle(
@@ -158,19 +157,23 @@ class HomePageState extends State<HomePage> {
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                           letterSpacing: 4,
-                          color: isDarkMode ? lightColor : darkColor,
+                          color:
+                              ThemeManager.isDarkMode ? lightColor : darkColor,
                         ),
                       ),
                     ),
                     ListTile(
                       leading: Icon(
                         Icons.three_p_rounded,
-                        color: isDarkMode ? lightColor : darkColor,
+                        color:
+                            ThemeManager.isDarkMode ? Colors.black : darkColor,
                       ),
                       title: Text('About',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            color: isDarkMode ? lightColor : darkColor,
+                            color: ThemeManager.isDarkMode
+                                ? Colors.black
+                                : darkColor,
                           )),
                       //selected: selectedPage == 1,
                       selectedTileColor: const Color(0xfffdfffc),
@@ -182,13 +185,16 @@ class HomePageState extends State<HomePage> {
                     ListTile(
                       leading: Icon(
                         Icons.security,
-                        color: isDarkMode ? lightColor : darkColor,
+                        color:
+                            ThemeManager.isDarkMode ? Colors.black : darkColor,
                       ),
                       title: Text(
                         'Privacy Policy',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: isDarkMode ? lightColor : darkColor,
+                          color: ThemeManager.isDarkMode
+                              ? Colors.black
+                              : darkColor,
                         ),
                       ),
                       //selected: selectedPage == 2,

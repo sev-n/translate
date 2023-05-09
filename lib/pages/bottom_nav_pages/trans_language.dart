@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:translate/color_model.dart';
 import 'package:translate/model.dart';
+import 'package:translate/pages/utils/colors.dart';
 import 'package:translator/translator.dart';
 import 'package:translator/src/langs/language.dart';
 
@@ -25,6 +27,7 @@ class _LanguagesState extends State<Languages> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ThemeManager.isDarkMode ? vbg : mcgpalette0,
       appBar: AppBar(),
       body: ListView.builder(
         itemCount: langs.values.length,
@@ -33,7 +36,12 @@ class _LanguagesState extends State<Languages> {
           String langName = langs.values.elementAt(index + 1);
           return Consumer<ModelLang>(builder: (context, data, child) {
             return ListTile(
-              title: Text(langName),
+              title: Text(
+                langName,
+                style: TextStyle(
+                    color:
+                        ThemeManager.isDarkMode ? Colors.white : Colors.black),
+              ),
               //subtitle: Text(langCode),
               onTap: () {
                 // Do something when the user taps on a language

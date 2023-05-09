@@ -95,3 +95,49 @@ const MaterialColor secondaryAccent =
   700: Color(0xFFFFC5C3),
 });
 const int _secondaryAccentValue = 0xFFFFFFFF;
+
+const MaterialColor mcgpalette0 =
+    MaterialColor(_mcgpalette0PrimaryValue, <int, Color>{
+  50: Color(0xFFFFF9F3),
+  100: Color(0xFFFFF0E0),
+  200: Color(0xFFFFE6CC),
+  300: Color(0xFFFFDBB8),
+  400: Color(0xFFFFD4A8),
+  500: Color(_mcgpalette0PrimaryValue),
+  600: Color(0xFFFFC791),
+  700: Color(0xFFFFC086),
+  800: Color(0xFFFFB97C),
+  900: Color(0xFFFFAD6B),
+});
+const int _mcgpalette0PrimaryValue = 0xFFFFCC99;
+
+const MaterialColor mcgpalette0Accent =
+    MaterialColor(_mcgpalette0AccentValue, <int, Color>{
+  100: Color(0xFFFFFFFF),
+  200: Color(_mcgpalette0AccentValue),
+  400: Color(0xFFFFFFFF),
+  700: Color(0xFFFFF8F3),
+});
+const int _mcgpalette0AccentValue = 0xFFFFFFFF;
+
+const MaterialColor vbg = MaterialColor(_vbgPrimaryValue, <int, Color>{
+  50: Color(0xFFE4E4E6),
+  100: Color(0xFFBBBBC1),
+  200: Color(0xFF8E8E98),
+  300: Color(0xFF61606E),
+  400: Color(0xFF3F3E4F),
+  500: Color(_vbgPrimaryValue),
+  600: Color(0xFF1A192B),
+  700: Color(0xFF151424),
+  800: Color(0xFF11111E),
+  900: Color(0xFF0A0913),
+});
+const int _vbgPrimaryValue = 0xFF1D1C30;
+
+const MaterialColor vbgAccent = MaterialColor(_vbgAccentValue, <int, Color>{
+  100: Color(0xFF5757FF),
+  200: Color(_vbgAccentValue),
+  400: Color(0xFF0000F0),
+  700: Color(0xFF0000D6),
+});
+const int _vbgAccentValue = 0xFF2424FF;
