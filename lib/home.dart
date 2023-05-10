@@ -42,6 +42,7 @@ class HomePageState extends State<HomePage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        resizeToAvoidBottomInset: false,
         extendBodyBehindAppBar: true,
         bottomNavigationBar: SizedBox(
           width: MediaQuery.of(context).size.width,

@@ -1,13 +1,24 @@
+
 import 'package:flutter/material.dart';
-import '../pages/bottom_nav_pages/trans_language.dart';
 
-class ModelLang extends ChangeNotifier {
-  String displayText = '';
+class Model extends ChangeNotifier {
 
-  //String defaultText = ListLanguage.langKey['en'];
+  String text = '';
+  String langCode = '';
 
-  void setText(String text) {
-    displayText = text;
+  void setText(String newText){
+    text = newText;
     notifyListeners();
   }
+
+  void setLangCode(String code){
+    langCode = code;
+    notifyListeners();
+  }
+
+  get getLangName => text;
+
+  get getLangCode => langCode;
+  
 }
+
