@@ -40,7 +40,10 @@ class Conversation extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
                             textAlign: TextAlign.start,
-                            style: TextStyle(fontSize: 16.sp),
+                            style: TextStyle(
+                              fontSize: 16.sp,
+                              fontFamily: 'Space',
+                            ),
                           ),
                         ),
                         SizedBox(width: 16.0.w),
@@ -93,7 +96,10 @@ class Conversation extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
                               textAlign: TextAlign.start,
-                              style: TextStyle(fontSize: 16.sp),
+                              style: TextStyle(
+                                fontSize: 16.sp,
+                                fontFamily: 'Space',
+                              ),
                             ),
                           ),
                           SizedBox(width: 16.0.w),

@@ -61,9 +61,13 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   fonts:
-    - family: Morgenwalsh
+    - family: Space
       fonts:
-        - asset: assets/fonts/Morgenwalsh.otf
+        - asset: assets/fonts/SpaceGrotesk-Regular.ttf
+        - asset: assets/fonts/SpaceGrotesk-Bold.ttf
+        - asset: assets/fonts/SpaceGrotesk-Light.ttf
+        - asset: assets/fonts/SpaceGrotesk-Medium.ttf
+        - asset: assets/fonts/SpaceGrotesk-SemiBold.ttf
 
   # To add assets to your application, add an assets section, like this:
   assets:

@@ -33,6 +33,10 @@ class HomePageState extends State<HomePage> {
     const Favorite(),
   ];
 
+  TextStyle myTextStyle = const TextStyle(
+    fontFamily: 'Space',
+  );
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -53,6 +57,11 @@ class HomePageState extends State<HomePage> {
                 color: const Color(0xff131316),
                 activeColor: Colors.white,
                 gap: 20,
+                textStyle: const TextStyle(
+                  fontFamily: 'Space',
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500,
+                ),
                 padding: const EdgeInsets.all(17),
                 selectedIndex: currentIndex,
                 onTabChange: (index) {
@@ -142,7 +151,7 @@ class HomePageState extends State<HomePage> {
                   child: Text(
                     'Babel',
                     style: TextStyle(
-                      fontFamily: 'Morgenwalsh',
+                      fontFamily: 'Space',
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 4,
@@ -158,6 +167,7 @@ class HomePageState extends State<HomePage> {
                   title: Text('About',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
+                        fontFamily: 'Space',
                         color:
                             ThemeManager.isDarkMode ? Colors.black : darkColor,
                       )),
@@ -177,6 +187,7 @@ class HomePageState extends State<HomePage> {
                     'Privacy Policy',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
+                      fontFamily: 'Space',
                       color: ThemeManager.isDarkMode ? Colors.black : darkColor,
                     ),
                   ),

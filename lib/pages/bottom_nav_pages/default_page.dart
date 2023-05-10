@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:translate/pages/utils/animate.dart';
 import 'package:translate/pages/utils/colors.dart';
-
 import '../../model.dart';
 import 'trans_language.dart';
 
@@ -60,7 +59,10 @@ class _DefaultPageState extends State<DefaultPage> {
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
                               textAlign: TextAlign.start,
-                              style: TextStyle(fontSize: 16.sp),
+                              style: TextStyle(
+                                fontSize: 16.sp,
+                                fontFamily: 'Space',
+                              ),
                             );
                           }),
                         ),
@@ -114,7 +116,10 @@ class _DefaultPageState extends State<DefaultPage> {
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
                               textAlign: TextAlign.start,
-                              style: TextStyle(fontSize: 16.sp),
+                              style: TextStyle(
+                                fontSize: 16.sp,
+                                fontFamily: 'Space',
+                              ),
                             ),
                           ),
                           SizedBox(width: 16.0.w),
@@ -128,12 +133,12 @@ class _DefaultPageState extends State<DefaultPage> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 60.h),
+            padding: EdgeInsets.only(top: 80.h),
             child: Column(
               //crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 //const SizedBox(height: 32.0),
-                SizedBox(height: 32.0.h),
+                SizedBox(height: 70.0.h),
                 SizedBox(
                   width: 340.w,
                   child: TextField(
@@ -148,9 +153,14 @@ class _DefaultPageState extends State<DefaultPage> {
                     },
 
                     controller: controller,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Space',
+                    ),
                     decoration: InputDecoration(
-                      border: const OutlineInputBorder(
-                        borderSide: BorderSide(),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide.none,
                       ),
                       suffix: ifHasText
                           ? IconButton(
@@ -163,9 +173,22 @@ class _DefaultPageState extends State<DefaultPage> {
                               icon: const Icon(
                                 Icons.clear,
                                 size: 20,
+                                color: Color(0xffEEEEEE),
                               ),
                             )
                           : null,
+                      fillColor: const Color(0xff393E46),
+                      filled: true,
+                      hintStyle: const TextStyle(
+                        color: Color(0xffEEEEEE),
+                        fontSize: 18,
+                        fontFamily: 'Space',
+                      ),
+                      hintText: "Enter you text here...",
+                      contentPadding: const EdgeInsets.symmetric(
+                        vertical: 20,
+                        horizontal: 10,
+                      ),
                     ),
                     maxLines: 5,
                   ),
@@ -183,7 +206,10 @@ class _DefaultPageState extends State<DefaultPage> {
                         },
                         child: Text(
                           'Translate',
-                          style: TextStyle(fontSize: 16.sp),
+                          style: TextStyle(
+                            fontSize: 16.sp,
+                            fontFamily: 'Space',
+                          ),
                         ),
                       ),
                     ),
