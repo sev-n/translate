@@ -68,6 +68,9 @@ flutter:
         - asset: assets/fonts/SpaceGrotesk-Light.ttf
         - asset: assets/fonts/SpaceGrotesk-Medium.ttf
         - asset: assets/fonts/SpaceGrotesk-SemiBold.ttf
+    - family: gothic
+      fonts:
+        - asset: assets/fonts/GothicA1-Regular.ttf
 
   # To add assets to your application, add an assets section, like this:
   assets:
