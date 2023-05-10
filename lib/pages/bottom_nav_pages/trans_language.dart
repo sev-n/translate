@@ -40,6 +40,7 @@ class _LanguagesState extends State<Languages> {
                 langName,
                 style: const TextStyle(
                   color: Colors.white,
+                  fontFamily: 'Space',
                 ),
               ),
               //subtitle: Text(langCode),
