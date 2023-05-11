@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         builder: (context, child) {
           return MaterialApp(
             theme: ThemeData(
-              fontFamily: 'Space',
+              fontFamily: 'gothic',
               primarySwatch: accent,
             ),
             debugShowCheckedModeBanner: false,
