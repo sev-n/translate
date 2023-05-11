@@ -6,17 +6,17 @@ import 'package:translate/model/model.dart';
 import 'package:translate/pages/utils/colors.dart';
 import 'package:translator/translator.dart';
 
-class Languages extends StatefulWidget {
-  const Languages({super.key});
+class SourceLanguage extends StatefulWidget {
+  const SourceLanguage({super.key});
 
   @override
-  State<Languages> createState() => _LanguagesState();
+  State<SourceLanguage> createState() => _SourceLanguage();
 }
 
-class _LanguagesState extends State<Languages> {
+class _SourceLanguage extends State<SourceLanguage> {
   @override
   Widget build(BuildContext context) {
-    var onChange = Provider.of<Model>(context, listen: false);
+    var sourceLang = Provider.of<SourceLanguageModel>(context, listen: false);
 
     return Scaffold(
       backgroundColor: darkColor,
@@ -31,17 +31,74 @@ class _LanguagesState extends State<Languages> {
               langName,
               style: const TextStyle(
                 color: Colors.white,
-                fontFamily: 'Space',
+                fontFamily: 'gothic',
               ),
             ),
-            //subtitle: Text(langCode),
+            subtitle: Text(
+              langCode,
+              style: const TextStyle(
+                color: Colors.white,
+                fontFamily: 'gothic',
+              ),
+            ),
             onTap: () {
               // Do something when the user taps on a language
-              onChange.setText(langName);
-              onChange.setLangCode(langCode);
+              sourceLang.setText(langName);
+              sourceLang.setLangCode(langCode);
               Navigator.pop(context);
-              debugPrint('Language code - ${onChange.getLangName}');
-              debugPrint('Language code - ${onChange.getLangCode}');
+              debugPrint('Language code - ${sourceLang.getLangName}');
+              debugPrint('Language code - ${sourceLang.getLangCode}');
+            },
+          );
+        },
+      ),
+    );
+  }
+}
+
+class LanguagesToTranslate extends StatefulWidget {
+  const LanguagesToTranslate({super.key});
+
+  @override
+  State<LanguagesToTranslate> createState() => _LanguagesToTranslateState();
+}
+
+class _LanguagesToTranslateState extends State<LanguagesToTranslate> {
+  @override
+  Widget build(BuildContext context) {
+    var translated =
+        Provider.of<TranslatedLanguageModel>(context, listen: false);
+
+    return Scaffold(
+      backgroundColor: darkColor,
+      appBar: AppBar(),
+      body: ListView.builder(
+        itemCount: TranslateToLanguages.tLangs.values.length,
+        itemBuilder: (BuildContext context, int index) {
+          String langCode = TranslateToLanguages.tLangs.keys.elementAt(index);
+          String langName = TranslateToLanguages.tLangs.values.elementAt(index);
+          return ListTile(
+            title: Text(
+              langName,
+              style: const TextStyle(
+                color: Colors.white,
+                fontFamily: 'gothic',
+              ),
+            ),
+            subtitle: Text(
+              langCode,
+              style: const TextStyle(
+                color: Colors.white,
+                fontFamily: 'gothic',
+              ),
+            ),
+            onTap: () {
+              // Do something when the user taps on a language
+              translated.setText(langName);
+              translated.setLangCode(langCode);
+              Navigator.pop(context);
+              debugPrint('Language code - ${translated.getLangName}');
+              debugPrint('Language code - ${translated.getLangCode}');
             },
           );
         },

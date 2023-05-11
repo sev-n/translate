@@ -18,8 +18,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => Model(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<SourceLanguageModel>(
+          create: (_) => SourceLanguageModel(),
+        ),
+        ChangeNotifierProvider<TranslatedLanguageModel>(
+          create: (_) => TranslatedLanguageModel(),
+        ),
+      ],
       child: ScreenUtilInit(
         designSize: const Size(360, 690),
         splitScreenMode: true,
@@ -35,8 +42,8 @@ class MyApp extends StatelessWidget {
             routes: {
               '/about': (context) => const About(),
               '/privacy': (context) => const Privacy(),
-              '/lang': (context) => const Languages(),
-              // '/page2': (context) => const Page2(),
+              '/lang': (context) => const SourceLanguage(),
+              '/translang': (context) => const LanguagesToTranslate(),
               // '/page3': (context) => const Page3(),
               // '/languages': (context) => const MyLanguageUI(),
             },

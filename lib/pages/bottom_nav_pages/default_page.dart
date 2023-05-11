@@ -35,7 +35,8 @@ class _DefaultPageState extends State<DefaultPage> {
 
   @override
   Widget build(BuildContext context) {
-    var languageCode = Provider.of<Model>(context, listen: false);
+    var sourceLanguageCode = Provider.of<SourceLanguageModel>(context, listen: false);
+    var translatedLanguageCode = Provider.of<TranslatedLanguageModel>(context, listen: false);
     final FocusScopeNode textFieldFocus = FocusScope.of(context);
 
     return GestureDetector(
@@ -60,7 +61,7 @@ class _DefaultPageState extends State<DefaultPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const Languages()),
+                              builder: (context) => const SourceLanguage()),
                         );
                       },
                       style: ElevatedButton.styleFrom(
@@ -76,7 +77,7 @@ class _DefaultPageState extends State<DefaultPage> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Expanded(
-                            child: Consumer<Model>(
+                            child: Consumer<SourceLanguageModel>(
                                 builder: (context, data, child) {
                               return Text(
                                 data.getLangName,
@@ -84,8 +85,8 @@ class _DefaultPageState extends State<DefaultPage> {
                                 maxLines: 1,
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
-                                  fontSize: 16.sp,
-                                  fontFamily: 'Space',
+                                  fontSize: 14.sp,
+                                  fontFamily: 'gothic',
                                 ),
                               );
                             }),
@@ -111,6 +112,11 @@ class _DefaultPageState extends State<DefaultPage> {
                       child: ElevatedButton(
                         onPressed: () {
                           // Do something when the button is pressed
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LanguagesToTranslate()),
+                          );
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: accent,
@@ -125,15 +131,19 @@ class _DefaultPageState extends State<DefaultPage> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Expanded(
-                              child: Text(
-                                'English',
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 1,
-                                textAlign: TextAlign.start,
-                                style: TextStyle(
-                                  fontSize: 16.sp,
-                                  fontFamily: 'Space',
-                                ),
+                              child: Consumer<TranslatedLanguageModel>(
+                                builder: (context, data, child) {
+                                  return Text(
+                                    data.getLangName,
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 1,
+                                    textAlign: TextAlign.start,
+                                    style: TextStyle(
+                                      fontSize: 14.sp,
+                                      fontFamily: 'gothic',
+                                    ),
+                                  );
+                                },
                               ),
                             ),
                             SizedBox(width: 16.0.w),
@@ -248,7 +258,7 @@ class _DefaultPageState extends State<DefaultPage> {
 
                           return FutureBuilder<Translation>(
                             future: translator.translate(snapshot.data!,
-                                from: languageCode.getLangCode, to: 'en'),
+                                from: sourceLanguageCode.getLangCode, to: translatedLanguageCode.getLangCode),
                             builder: (context, snapshot) {
                               if (snapshot.connectionState !=
                                   ConnectionState.done) {

@@ -1,10 +1,11 @@
 
 import 'package:flutter/material.dart';
 
-class Model extends ChangeNotifier {
+class SourceLanguageModel extends ChangeNotifier {
+  //String langCode = ListLanguage.langs.keys.;
+  String text = 'English';
+  String langCode = 'en';
 
-  String text = '';
-  String langCode = '';
 
   void setText(String newText){
     text = newText;
@@ -20,5 +21,28 @@ class Model extends ChangeNotifier {
 
   get getLangCode => langCode;
   
+}
+
+// TODO: need some refactoring.
+class TranslatedLanguageModel extends ChangeNotifier {
+
+  String language = 'Filipino (Tagalog)';
+  String languageCode = 'tl';
+
+    void setText(String newText){
+    language = newText;
+    notifyListeners();
+  }
+
+  void setLangCode(String code){
+    languageCode = code;
+    notifyListeners();
+  }
+
+  get getLangName => language;
+
+  get getLangCode => languageCode;
+  
+
 }
 

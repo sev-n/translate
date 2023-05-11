@@ -135,3 +135,10 @@ class ListLanguage {
     'zu': 'Zulu'
   };
 }
+
+class TranslateToLanguages {
+  static final tLangs = {
+    'en' : 'English',
+    'tl' : 'Filipino (Tagalog)'
+  };
+}
