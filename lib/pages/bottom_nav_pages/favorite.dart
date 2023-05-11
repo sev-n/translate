@@ -11,12 +11,37 @@ class Favorite extends StatelessWidget {
       child: Stack(
         children: [
           Padding(
-            padding: EdgeInsets.only(top: 70.h),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Column(
-                children: [
-                  Row(
+            padding: EdgeInsets.only(top: 120.h),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    CardClickable(
+                      child: SizedBox(
+                        width: 150.w,
+                        height: 150.h,
+                        child: const Card(
+                          shadowColor: Colors.grey,
+                          elevation: 20,
+                        ),
+                      ),
+                    ),
+                    CardClickable(
+                      child: SizedBox(
+                        width: 150.w,
+                        height: 150.h,
+                        child: const Card(
+                          shadowColor: Colors.grey,
+                          elevation: 20,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 15.h),
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       CardClickable(
@@ -24,75 +49,15 @@ class Favorite extends StatelessWidget {
                           width: 150.w,
                           height: 150.h,
                           child: const Card(
-                            elevation: 20,
-                          ),
-                        ),
-                      ),
-                      CardClickable(
-                        child: SizedBox(
-                          width: 150.w,
-                          height: 150.h,
-                          child: const Card(
+                            shadowColor: Colors.grey,
                             elevation: 20,
                           ),
                         ),
                       ),
                     ],
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 15.h),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        CardClickable(
-                          child: SizedBox(
-                            width: 150.w,
-                            height: 150.h,
-                            child: const Card(
-                              elevation: 20,
-                            ),
-                          ),
-                        ),
-                        CardClickable(
-                          child: SizedBox(
-                            width: 150.w,
-                            height: 150.h,
-                            child: const Card(
-                              elevation: 20,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 15.h),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        CardClickable(
-                          child: SizedBox(
-                            width: 150.w,
-                            height: 150.h,
-                            child: const Card(
-                              elevation: 20,
-                            ),
-                          ),
-                        ),
-                        CardClickable(
-                          child: SizedBox(
-                            width: 150.w,
-                            height: 150.h,
-                            child: const Card(
-                              elevation: 20,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],
