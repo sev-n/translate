@@ -4,10 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:translate/model/model.dart';
-import 'package:translate/pages/utils/animate.dart';
 import 'package:translate/pages/utils/colors.dart';
 import 'package:translator/translator.dart';
-import '../../model.dart';
 import 'trans_language.dart';
 
 //final TextEditingController resultController = TextEditingController();
@@ -38,13 +36,13 @@ class _DefaultPageState extends State<DefaultPage> {
   @override
   Widget build(BuildContext context) {
     var languageCode = Provider.of<Model>(context, listen: false);
-     final FocusScopeNode textFieldFocus = FocusScope.of(context);
+    final FocusScopeNode textFieldFocus = FocusScope.of(context);
 
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         if (!textFieldFocus.hasPrimaryFocus && textFieldFocus.hasFocus) {
-            FocusManager.instance.primaryFocus?.unfocus();
-          }
+          FocusManager.instance.primaryFocus?.unfocus();
+        }
       },
       child: Container(
         color: const Color(0xff222831),
@@ -78,8 +76,8 @@ class _DefaultPageState extends State<DefaultPage> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Expanded(
-                            child:
-                                Consumer<Model>(builder: (context, data, child) {
+                            child: Consumer<Model>(
+                                builder: (context, data, child) {
                               return Text(
                                 data.getLangName,
                                 overflow: TextOverflow.ellipsis,
@@ -101,7 +99,7 @@ class _DefaultPageState extends State<DefaultPage> {
                   Padding(
                     padding: EdgeInsets.only(left: 14.w, right: 10.w),
                     child: Icon(
-                      Icons.arrow_forward,
+                      Icons.double_arrow_rounded,
                       size: 35,
                       color: Colors.grey.shade300,
                     ),
@@ -169,11 +167,12 @@ class _DefaultPageState extends State<DefaultPage> {
                           });
                           streamController.add(text);
                         },
-        
+
                         controller: controller,
                         style: const TextStyle(
                           color: Colors.white,
                           fontFamily: 'gothic',
+                          fontSize: 20,
                         ),
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
@@ -199,7 +198,7 @@ class _DefaultPageState extends State<DefaultPage> {
                           filled: true,
                           hintStyle: TextStyle(
                             color: const Color(0xffEEEEEE),
-                            fontSize: 18.sp,
+                            fontSize: 20.sp,
                             fontFamily: 'gothic',
                           ),
                           hintText: "Enter you text here...",
@@ -241,12 +240,12 @@ class _DefaultPageState extends State<DefaultPage> {
                               'Translation will appear here',
                               style: TextStyle(
                                 color: const Color(0xffEEEEEE),
-                                fontSize: 18.sp,
+                                fontSize: 20.sp,
                                 fontFamily: 'gothic',
                               ),
                             );
                           }
-        
+
                           return FutureBuilder<Translation>(
                             future: translator.translate(snapshot.data!,
                                 from: languageCode.getLangCode, to: 'en'),
@@ -257,23 +256,27 @@ class _DefaultPageState extends State<DefaultPage> {
                                   'Translating...',
                                   style: TextStyle(
                                     color: accent,
-                                    fontSize: 16.sp,
+                                    fontSize: 18.sp,
                                     fontFamily: 'gothic',
                                     fontWeight: FontWeight.bold,
                                   ),
                                 );
                               }
-        
+
                               if (snapshot.hasError) {
-                                return Text('Error: ${snapshot.error}');
+                                return Text(
+                                  'Error: Please input valid characters!',
+                                  style:
+                                      TextStyle(color: accent, fontSize: 20.sp),
+                                );
                               }
-        
+
                               return SingleChildScrollView(
                                 child: Text(
                                   snapshot.data!.text,
                                   style: TextStyle(
                                     color: accent,
-                                    fontSize: 18.sp,
+                                    fontSize: 20.sp,
                                     fontFamily: 'gothic',
                                     fontWeight: FontWeight.bold,
                                   ),
