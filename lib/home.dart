@@ -6,6 +6,7 @@ import 'pages/bottom_nav_pages/default_page.dart';
 import 'pages/bottom_nav_pages/favorite.dart';
 import 'pages/bottom_nav_pages/history.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'dart:ui' as ui;
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -143,21 +144,38 @@ class HomePageState extends State<HomePage> {
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
-              const DrawerHeader(
-                decoration: BoxDecoration(
-                  color: darkColor,
-                ),
-                child: Text(
-                  'Babel',
-                  style: TextStyle(
-                    fontFamily: 'Space',
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 4,
-                    color: Colors.white,
+              DrawerHeader(
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/BB.png'),
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                ),
-              ),
+                  child: Stack(
+                    children: [
+                      Positioned.fill(
+                        child: ImageFiltered(
+                          imageFilter:
+                              ui.ImageFilter.blur(sigmaX: 50.0, sigmaY: 50.0),
+                          child: Container(
+                            color: Colors.black.withOpacity(0.2),
+                          ),
+                        ),
+                      ),
+                      const Center(
+                        child: Text(
+                          'Babel',
+                          style: TextStyle(
+                            fontFamily: 'Space',
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 4,
+                            fontSize: 30,
+                            color: Colors.white,
+                          ),
+                        ),
+                      )
+                    ],
+                  )),
               ListTile(
                 leading: Icon(
                   Icons.three_p_rounded,
@@ -166,7 +184,7 @@ class HomePageState extends State<HomePage> {
                 title: Text('About',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontFamily: 'Space',
+                      fontFamily: 'GothicA1',
                       color: ThemeManager.isDarkMode ? Colors.black : darkColor,
                     )),
                 //selected: selectedPage == 1,
@@ -185,7 +203,7 @@ class HomePageState extends State<HomePage> {
                   'Privacy Policy',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontFamily: 'Space',
+                    fontFamily: 'GothicA1',
                     color: ThemeManager.isDarkMode ? Colors.black : darkColor,
                   ),
                 ),

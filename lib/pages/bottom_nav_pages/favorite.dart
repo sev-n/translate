@@ -17,45 +17,134 @@ class Favorite extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    CardClickable(
-                      child: SizedBox(
-                        width: 150.w,
-                        height: 150.h,
-                        child: const Card(
-                          shadowColor: Colors.grey,
-                          elevation: 20,
+                    Column(
+                      children: [
+                        CardClickable(
+                          child: SizedBox(
+                            width: 150.w,
+                            height: 150.h,
+                            child: Card(
+                              shadowColor: Colors.grey,
+                              elevation: 20,
+                              child: Stack(
+                                children: [
+                                  Image.asset('assets/Beaches/ELNIDO.jpg',
+                                      width: double.infinity,
+                                      height: double.infinity,
+                                      fit: BoxFit.cover),
+                                  Positioned(
+                                    bottom: 0,
+                                    left: 0,
+                                    right: 0,
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 8, horizontal: 16),
+                                      color: Colors.black.withOpacity(0.5),
+                                      child: const Text(
+                                        'EL NIDO',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16,
+                                          color: Colors.white,
+                                          fontFamily: 'GothicA1',
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                         ),
-                      ),
+                        CardClickable(
+                          child: SizedBox(
+                            width: 150.w,
+                            height: 150.h,
+                            child: Card(
+                              shadowColor: Colors.grey,
+                              elevation: 20,
+                              child: Stack(
+                                children: [
+                                  Image.asset(
+                                    'assets/Beaches/BLUELAGOON.jpg',
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  Positioned(
+                                    bottom: 0,
+                                    left: 0,
+                                    right: 0,
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 8, horizontal: 16),
+                                      color: Colors.black.withOpacity(0.5),
+                                      child: const Text(
+                                        'Blue Lagoon',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16,
+                                          color: Colors.white,
+                                          fontFamily: 'GothicA1',
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    CardClickable(
-                      child: SizedBox(
-                        width: 150.w,
-                        height: 150.h,
-                        child: const Card(
-                          shadowColor: Colors.grey,
-                          elevation: 20,
-                        ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 15.h),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          CardClickable(
+                            child: SizedBox(
+                              width: 150.w,
+                              height: 150.h,
+                              child: Card(
+                                shadowColor: Colors.grey,
+                                elevation: 20,
+                                child: Stack(
+                                  children: [
+                                    Image.asset(
+                                      'assets/Beaches/CRYSTALCOVE.jpg',
+                                      width: double.infinity,
+                                      height: double.infinity,
+                                      fit: BoxFit.cover,
+                                    ),
+                                    Positioned(
+                                      bottom: 0,
+                                      left: 0,
+                                      right: 0,
+                                      child: Container(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 8, horizontal: 16),
+                                        color: Colors.black.withOpacity(0.5),
+                                        child: const Text(
+                                          'Crystal Cove',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                            color: Colors.white,
+                                            fontFamily: 'GothicA1',
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 15.h),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      CardClickable(
-                        child: SizedBox(
-                          width: 150.w,
-                          height: 150.h,
-                          child: const Card(
-                            shadowColor: Colors.grey,
-                            elevation: 20,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
                 ),
               ],
             ),
