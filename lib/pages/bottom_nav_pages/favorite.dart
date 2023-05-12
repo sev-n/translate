@@ -21,96 +21,38 @@ class Favorite extends StatelessWidget {
                   children: [
                     Column(
                       children: [
-                        CardClickable(
-                          child: SizedBox(
+                        GestureDetector(
+                          onTap: () {},
+                          child: Container(
                             width: 150.w,
                             height: 150.h,
-                            child: Card(
-                              shadowColor: Colors.grey,
-                              elevation: 20,
-                              child: Stack(
-                                alignment: Alignment.center,
-                                children: [
-                                  Positioned.fill(
-                                    child: Image.asset(
-                                      'assets/Beaches/BLUELAGOON.jpg',
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                  Positioned.fill(
-                                    child: BackdropFilter(
-                                      filter: ImageFilter.blur(
-                                        sigmaX: 0.90,
-                                        sigmaY: 0.90,
-                                      ),
-                                      child: Container(
-                                        padding: const EdgeInsets.symmetric(
-                                          vertical: 20,
-                                          horizontal: 25,
-                                        ),
-                                        child: const Center(
-                                          child: Text(
-                                            'Beaches',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 25,
-                                              color: Colors.white,
-                                              fontFamily: 'GothicA1',
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                            color: Colors.grey[300],
+                            child: const Center(
+                              child: Text(
+                                'Beaches',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ),
                         ),
-                        CardClickable(
-                          child: SizedBox(
+                        GestureDetector(
+                          onTap: () {},
+                          child: Container(
                             width: 150.w,
                             height: 150.h,
-                            child: Card(
-                              shadowColor: Colors.grey,
-                              elevation: 20,
-                              child: Stack(
-                                alignment: Alignment.center,
-                                children: [
-                                  Positioned.fill(
-                                    child: Image.asset(
-                                      'assets/Foods/ADOBO.jpg',
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                  Positioned.fill(
-                                    child: BackdropFilter(
-                                      filter: ImageFilter.blur(
-                                        sigmaX: 0.90,
-                                        sigmaY: 0.90,
-                                      ),
-                                      child: Container(
-                                        padding: const EdgeInsets.symmetric(
-                                          vertical: 20,
-                                          horizontal: 25,
-                                        ),
-                                        child: const Center(
-                                          child: Text(
-                                            'Food Delicacy',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 25,
-                                              color: Colors.white,
-                                              fontFamily: 'GothicA1',
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                            color: Colors.grey[300],
+                            child: const Center(
+                              child: Text(
+                                'Cultural',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ),
@@ -122,49 +64,20 @@ class Favorite extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          CardClickable(
-                            child: SizedBox(
+                          GestureDetector(
+                            onTap: () {},
+                            child: Container(
                               width: 150.w,
                               height: 150.h,
-                              child: Card(
-                                shadowColor: Colors.grey,
-                                elevation: 20,
-                                child: Stack(
-                                  alignment: Alignment.center,
-                                  children: [
-                                    Positioned.fill(
-                                      child: Image.asset(
-                                        'assets/Cultural/INTRAMUROS.jpg',
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    Positioned.fill(
-                                      child: BackdropFilter(
-                                        filter: ImageFilter.blur(
-                                          sigmaX: 0.90,
-                                          sigmaY: 0.90,
-                                        ),
-                                        child: Container(
-                                          padding: const EdgeInsets.symmetric(
-                                            vertical: 20,
-                                            horizontal: 25,
-                                          ),
-                                          child: const Center(
-                                            child: Text(
-                                              'Cultural',
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 25,
-                                                color: Colors.white,
-                                                fontFamily: 'GothicA1',
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                              color: Colors.grey[300],
+                              child: const Center(
+                                child: Text(
+                                  'Cultural',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ),
