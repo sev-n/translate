@@ -3,7 +3,7 @@ import 'package:translate/pages/utils/colors.dart';
 import 'color_model.dart';
 import 'pages/bottom_nav_pages/speech.dart';
 import 'pages/bottom_nav_pages/default_page.dart';
-import 'pages/bottom_nav_pages/favorite.dart';
+import 'pages/bottom_nav_pages/discover.dart';
 import 'pages/bottom_nav_pages/history.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'dart:ui' as ui;
