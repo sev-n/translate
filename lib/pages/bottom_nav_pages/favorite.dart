@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -11,7 +13,7 @@ class Favorite extends StatelessWidget {
       child: Stack(
         children: [
           Padding(
-            padding: EdgeInsets.only(top: 120.h),
+            padding: EdgeInsets.only(top: 150.h),
             child: Column(
               children: [
                 Row(
@@ -27,26 +29,36 @@ class Favorite extends StatelessWidget {
                               shadowColor: Colors.grey,
                               elevation: 20,
                               child: Stack(
+                                alignment: Alignment.center,
                                 children: [
-                                  Image.asset('assets/Beaches/ELNIDO.jpg',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.cover),
-                                  Positioned(
-                                    bottom: 0,
-                                    left: 0,
-                                    right: 0,
-                                    child: Container(
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 8, horizontal: 16),
-                                      color: Colors.black.withOpacity(0.5),
-                                      child: const Text(
-                                        'EL NIDO',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16,
-                                          color: Colors.white,
-                                          fontFamily: 'GothicA1',
+                                  Positioned.fill(
+                                    child: Image.asset(
+                                      'assets/Beaches/BLUELAGOON.jpg',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  Positioned.fill(
+                                    child: BackdropFilter(
+                                      filter: ImageFilter.blur(
+                                        sigmaX: 0.90,
+                                        sigmaY: 0.90,
+                                      ),
+                                      child: Container(
+                                        padding: const EdgeInsets.symmetric(
+                                          vertical: 20,
+                                          horizontal: 25,
+                                        ),
+                                        child: const Center(
+                                          child: Text(
+                                            'Beaches',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 25,
+                                              color: Colors.white,
+                                              fontFamily: 'GothicA1',
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -64,28 +76,36 @@ class Favorite extends StatelessWidget {
                               shadowColor: Colors.grey,
                               elevation: 20,
                               child: Stack(
+                                alignment: Alignment.center,
                                 children: [
-                                  Image.asset(
-                                    'assets/Beaches/BLUELAGOON.jpg',
-                                    width: double.infinity,
-                                    height: double.infinity,
-                                    fit: BoxFit.cover,
+                                  Positioned.fill(
+                                    child: Image.asset(
+                                      'assets/Foods/ADOBO.jpg',
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
-                                  Positioned(
-                                    bottom: 0,
-                                    left: 0,
-                                    right: 0,
-                                    child: Container(
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 8, horizontal: 16),
-                                      color: Colors.black.withOpacity(0.5),
-                                      child: const Text(
-                                        'Blue Lagoon',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16,
-                                          color: Colors.white,
-                                          fontFamily: 'GothicA1',
+                                  Positioned.fill(
+                                    child: BackdropFilter(
+                                      filter: ImageFilter.blur(
+                                        sigmaX: 0.90,
+                                        sigmaY: 0.90,
+                                      ),
+                                      child: Container(
+                                        padding: const EdgeInsets.symmetric(
+                                          vertical: 20,
+                                          horizontal: 25,
+                                        ),
+                                        child: const Center(
+                                          child: Text(
+                                            'Food Delicacy',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 25,
+                                              color: Colors.white,
+                                              fontFamily: 'GothicA1',
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -110,28 +130,36 @@ class Favorite extends StatelessWidget {
                                 shadowColor: Colors.grey,
                                 elevation: 20,
                                 child: Stack(
+                                  alignment: Alignment.center,
                                   children: [
-                                    Image.asset(
-                                      'assets/Beaches/CRYSTALCOVE.jpg',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.cover,
+                                    Positioned.fill(
+                                      child: Image.asset(
+                                        'assets/Cultural/INTRAMUROS.jpg',
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
-                                    Positioned(
-                                      bottom: 0,
-                                      left: 0,
-                                      right: 0,
-                                      child: Container(
-                                        padding: const EdgeInsets.symmetric(
-                                            vertical: 8, horizontal: 16),
-                                        color: Colors.black.withOpacity(0.5),
-                                        child: const Text(
-                                          'Crystal Cove',
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 16,
-                                            color: Colors.white,
-                                            fontFamily: 'GothicA1',
+                                    Positioned.fill(
+                                      child: BackdropFilter(
+                                        filter: ImageFilter.blur(
+                                          sigmaX: 0.90,
+                                          sigmaY: 0.90,
+                                        ),
+                                        child: Container(
+                                          padding: const EdgeInsets.symmetric(
+                                            vertical: 20,
+                                            horizontal: 25,
+                                          ),
+                                          child: const Center(
+                                            child: Text(
+                                              'Cultural',
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 25,
+                                                color: Colors.white,
+                                                fontFamily: 'GothicA1',
+                                              ),
+                                            ),
                                           ),
                                         ),
                                       ),
