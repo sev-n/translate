@@ -13,7 +13,7 @@ class Conversation extends StatelessWidget {
       child: Stack(
         children: [
           Padding(
-            padding: EdgeInsets.only(top: 70.h, left: 10.w),
+            padding: EdgeInsets.only(top: 100.h, left: 10.w),
             child: Row(
               children: [
                 SizedBox(
@@ -114,21 +114,15 @@ class Conversation extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: const Alignment(0, 0.90),
+            alignment: const Alignment(0, 0.80),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconButton(
                   onPressed: () {},
                   icon: const Icon(Icons.mic_none),
-                  iconSize: 30,
+                  iconSize: 40,
                   color: Colors.orange,
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.mic_outlined),
-                  iconSize: 30,
-                  color: Colors.pink,
                 ),
               ],
             ),
