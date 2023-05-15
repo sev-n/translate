@@ -1,4 +1,3 @@
-
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -29,27 +28,8 @@ class Favorite extends StatelessWidget {
                             height: 150.h,
                             decoration: const BoxDecoration(
                               image: DecorationImage(
-                                image: AssetImage('assets/Beaches/ELNIDO.jpg')  
-                              ),
-                            ),
-                            child: ClipRRect(
-                              child: BackdropFilter(
-                                filter: ImageFilter.blur(sigmaX: 0.85, sigmaY: 0.85),
-                                child: SizedBox(
-                                  width: 150.w,
-                                  height: 150.h,
-                                  child: const Center(
-                                    child: Text(
-                                      'Beaches',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
+                                  image: AssetImage(
+                                      'assets/Beaches/Beaches Cover.png')),
                             ),
                           ),
                         ),
@@ -61,27 +41,8 @@ class Favorite extends StatelessWidget {
                             height: 150.h,
                             decoration: const BoxDecoration(
                               image: DecorationImage(
-                                image: AssetImage('assets/Cultural/INTRAMUROS.jpg')
-                              ),
-                            ),
-                            child: ClipRRect(
-                              child: BackdropFilter(
-                                filter: ImageFilter.blur(sigmaX: 0.85 , sigmaY: 0.85, ),
-                                child: SizedBox(
-                                  width: 150.w,
-                                  height: 150.h,
-                                  child: const Center(
-                                    child: Text(
-                                      'Cultural',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
+                                  image: AssetImage(
+                                      'assets/Cultural/Cultural Attraction.png')),
                             ),
                           ),
                         ),
@@ -98,28 +59,9 @@ class Favorite extends StatelessWidget {
                               width: 150.w,
                               height: 150.h,
                               decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage(
-                                    'assets/Foods/ADOBO.jpg'
-                                  )
-                                )
-                              ),
-                              child: BackdropFilter(
-                                filter: ImageFilter.blur(
-                                  sigmaY: 0.90,
-                                  sigmaX: 0.90,
-                                ),
-                                child: const Center(
-                                  child: Text(
-                                    'Food Delicacy',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              ),
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          'assets/Foods/Food Delicacy.png'))),
                             ),
                           ),
                         ],
