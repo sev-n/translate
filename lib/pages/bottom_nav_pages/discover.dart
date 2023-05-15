@@ -1,3 +1,4 @@
+
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -26,32 +27,59 @@ class Favorite extends StatelessWidget {
                           child: Container(
                             width: 150.w,
                             height: 150.h,
-                            color: Colors.grey[300],
-                            child: const Center(
-                              child: Text(
-                                'Beaches',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold,
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('assets/Beaches/ELNIDO.jpg')  
+                              ),
+                            ),
+                            child: ClipRRect(
+                              child: BackdropFilter(
+                                filter: ImageFilter.blur(sigmaX: 0.85, sigmaY: 0.85),
+                                child: SizedBox(
+                                  width: 150.w,
+                                  height: 150.h,
+                                  child: const Center(
+                                    child: Text(
+                                      'Beaches',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
                         ),
+                        const SizedBox(height: 20),
                         GestureDetector(
                           onTap: () {},
                           child: Container(
                             width: 150.w,
                             height: 150.h,
-                            color: Colors.grey[300],
-                            child: const Center(
-                              child: Text(
-                                'Cultural',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold,
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('assets/Cultural/INTRAMUROS.jpg')
+                              ),
+                            ),
+                            child: ClipRRect(
+                              child: BackdropFilter(
+                                filter: ImageFilter.blur(sigmaX: 0.85 , sigmaY: 0.85, ),
+                                child: SizedBox(
+                                  width: 150.w,
+                                  height: 150.h,
+                                  child: const Center(
+                                    child: Text(
+                                      'Cultural',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
@@ -69,14 +97,26 @@ class Favorite extends StatelessWidget {
                             child: Container(
                               width: 150.w,
                               height: 150.h,
-                              color: Colors.grey[300],
-                              child: const Center(
-                                child: Text(
-                                  'Cultural',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold,
+                              decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                    'assets/Foods/ADOBO.jpg'
+                                  )
+                                )
+                              ),
+                              child: BackdropFilter(
+                                filter: ImageFilter.blur(
+                                  sigmaY: 0.90,
+                                  sigmaX: 0.90,
+                                ),
+                                child: const Center(
+                                  child: Text(
+                                    'Food Delicacy',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
                               ),
