@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:translate/utils/colors.dart';
 
 class PageTwo extends StatefulWidget {
   const PageTwo({super.key});
@@ -10,6 +11,10 @@ class PageTwo extends StatefulWidget {
 class _PageTwoState extends State<PageTwo> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height,
+      color: darkColor
+    );
   }
 }

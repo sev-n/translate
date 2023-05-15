@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:translate/pages/utils/colors.dart';
+import 'package:translate/utils/colors.dart';
 
 class Beaches extends StatelessWidget {
   const Beaches({super.key});
