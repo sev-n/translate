@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:translate/pages/utils/colors.dart';
-import 'color_model.dart';
+import 'package:translate/utils/colors.dart';
+import 'model/color_model.dart';
 import 'pages/bottom_nav_pages/speech.dart';
 import 'pages/bottom_nav_pages/default_page.dart';
 import 'pages/bottom_nav_pages/discover.dart';

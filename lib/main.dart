@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:translate/pages/utils/colors.dart';
+import 'package:translate/utils/colors.dart';
 import 'home.dart';
 import 'model/model.dart';
 import 'pages/bottom_nav_pages/trans_language.dart';
