@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -23,27 +21,72 @@ class Favorite extends StatelessWidget {
                       children: [
                         GestureDetector(
                           onTap: () {},
-                          child: Container(
-                            width: 150.w,
-                            height: 150.h,
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage(
-                                      'assets/Beaches/Beaches Cover.png')),
-                            ),
+                          child: Stack(
+                            children: [
+                              Container(
+                                width: 150.w,
+                                height: 150.h,
+                                decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage('assets/Beaches/BC.png'),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              Positioned.fill(
+                                child: Container(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: const Center(
+                                    child: Text(
+                                      'Beaches',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 25,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'gothic',
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                         const SizedBox(height: 20),
                         GestureDetector(
                           onTap: () {},
-                          child: Container(
-                            width: 150.w,
-                            height: 150.h,
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage(
-                                      'assets/Cultural/Cultural Attraction.png')),
-                            ),
+                          child: Stack(
+                            children: [
+                              Container(
+                                width: 150.w,
+                                height: 150.h,
+                                decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                    image:
+                                        AssetImage('assets/Cultural/CAC.png'),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              Positioned.fill(
+                                child: Container(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: const Center(
+                                    child: Text(
+                                      'Culutural Attraction',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'gothic',
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
@@ -55,13 +98,36 @@ class Favorite extends StatelessWidget {
                         children: [
                           GestureDetector(
                             onTap: () {},
-                            child: Container(
-                              width: 150.w,
-                              height: 150.h,
-                              decoration: const BoxDecoration(
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                          'assets/Foods/Food Delicacy.png'))),
+                            child: Stack(
+                              children: [
+                                Container(
+                                  width: 150.w,
+                                  height: 150.h,
+                                  decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage('assets/Foods/FDC.png'),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                                Positioned.fill(
+                                  child: Container(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: const Center(
+                                      child: Text(
+                                        'Food Delicacy',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'gothic',
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
