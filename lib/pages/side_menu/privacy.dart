@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:translate/pages/utils/colors.dart';
 
 class Privacy extends StatelessWidget {
   const Privacy({super.key});
@@ -6,7 +7,8 @@ class Privacy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar()
+      appBar: AppBar(),
+      backgroundColor: darkColor,
     );
   }
 }
