@@ -5,6 +5,7 @@ import 'package:translate/utils/colors.dart';
 import 'home.dart';
 import 'model/model.dart';
 import 'pages/bottom_nav_pages/trans_language.dart';
+import 'pages/intro_page/introduction.dart';
 import 'pages/side_menu/about.dart';
 import 'pages/side_menu/privacy.dart';
 
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
             ),
             debugShowCheckedModeBanner: false,
             title: 'Flutter Demo',
-            home: const HomePage(),
+            home: const Introduction(),
             routes: {
               '/about': (context) => const About(),
               '/privacy': (context) => const Privacy(),
