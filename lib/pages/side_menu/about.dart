@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:translate/pages/utils/colors.dart';
 
 class About extends StatelessWidget {
   const About({super.key});
@@ -6,7 +7,8 @@ class About extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar()
+      appBar: AppBar(),
+      backgroundColor: darkColor,
     );
   }
 }

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/Beach/Beaches.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/Cultural/Cultures.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/Food/Foods.dart';
 
 class Favorite extends StatelessWidget {
   const Favorite({super.key});
@@ -20,7 +23,14 @@ class Favorite extends StatelessWidget {
                     Column(
                       children: [
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Beaches(),
+                              ),
+                            );
+                          },
                           child: Stack(
                             children: [
                               Container(
@@ -55,7 +65,14 @@ class Favorite extends StatelessWidget {
                         ),
                         const SizedBox(height: 20),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Cultures(),
+                              ),
+                            );
+                          },
                           child: Stack(
                             children: [
                               Container(
@@ -65,7 +82,7 @@ class Favorite extends StatelessWidget {
                                   image: DecorationImage(
                                     image:
                                         AssetImage('assets/Cultural/CAC.png'),
-                                    fit: BoxFit.cover,
+                                    fit: BoxFit.contain,
                                   ),
                                 ),
                               ),
@@ -77,7 +94,7 @@ class Favorite extends StatelessWidget {
                                       'Culutural Attraction',
                                       style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 20,
+                                        fontSize: 21,
                                         fontWeight: FontWeight.bold,
                                         fontFamily: 'gothic',
                                       ),
@@ -97,7 +114,14 @@ class Favorite extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Foods(),
+                                ),
+                              );
+                            },
                             child: Stack(
                               children: [
                                 Container(
@@ -118,7 +142,7 @@ class Favorite extends StatelessWidget {
                                         'Food Delicacy',
                                         style: TextStyle(
                                           color: Colors.white,
-                                          fontSize: 20,
+                                          fontSize: 22,
                                           fontWeight: FontWeight.bold,
                                           fontFamily: 'gothic',
                                         ),
