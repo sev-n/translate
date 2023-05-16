@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
               primarySwatch: accent,
             ),
             debugShowCheckedModeBanner: false,
-            title: 'Flutter Demo',
+            title: 'sdafasdfadfa',
             home: const HomePage(),
             routes: {
               '/about': (context) => const About(),
