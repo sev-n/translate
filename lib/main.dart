@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
               primarySwatch: accent,
             ),
             debugShowCheckedModeBanner: false,
-            title: 'Flutter Demo',
+            title: 'Umaya',
             home: const HomePage(),
             routes: {
               '/about': (context) => const About(),
