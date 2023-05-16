@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+
 import 'package:translate/pages/bottom_nav_pages/discover%20pages/Beach/Beaches.dart';
 import 'package:translate/pages/bottom_nav_pages/discover%20pages/Cultural/Cultures.dart';
 import 'package:translate/pages/bottom_nav_pages/discover%20pages/Food/Foods.dart';
 import 'package:translate/pages/utils/colors.dart';
+
 import 'home.dart';
 import 'model/model.dart';
 import 'pages/bottom_nav_pages/trans_language.dart';
+import 'pages/intro_page/introduction.dart';
 import 'pages/side_menu/about.dart';
 import 'pages/side_menu/privacy.dart';
 
@@ -40,8 +43,9 @@ class MyApp extends StatelessWidget {
               primarySwatch: accent,
             ),
             debugShowCheckedModeBanner: false,
-            title: 'Umaya',
-            home: const HomePage(),
+            title: 'Flutter Demo',
+            home: const Introduction(),
+
             routes: {
               '/about': (context) => const About(),
               '/privacy': (context) => const Privacy(),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:translate/pages/utils/animate.dart';
-import 'package:translate/pages/utils/colors.dart';
+import 'package:translate/utils/animate.dart';
+import 'package:translate/utils/colors.dart';
 
 class Conversation extends StatelessWidget {
   const Conversation({super.key});

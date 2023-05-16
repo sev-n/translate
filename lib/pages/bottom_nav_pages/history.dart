@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:translate/pages/utils/colors.dart';
+import 'package:translate/utils/colors.dart';
 
 class History extends StatelessWidget {
   const History({super.key});
