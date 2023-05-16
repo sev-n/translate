@@ -35,8 +35,10 @@ class _DefaultPageState extends State<DefaultPage> {
 
   @override
   Widget build(BuildContext context) {
-    var sourceLanguageCode = Provider.of<SourceLanguageModel>(context, listen: false);
-    var translatedLanguageCode = Provider.of<TranslatedLanguageModel>(context, listen: false);
+    var sourceLanguageCode =
+        Provider.of<SourceLanguageModel>(context, listen: false);
+    var translatedLanguageCode =
+        Provider.of<TranslatedLanguageModel>(context, listen: false);
     final FocusScopeNode textFieldFocus = FocusScope.of(context);
 
     return GestureDetector(
@@ -50,7 +52,7 @@ class _DefaultPageState extends State<DefaultPage> {
         child: Stack(
           children: [
             Padding(
-              padding: EdgeInsets.only(top: 100.h, left: 10.w),
+              padding: EdgeInsets.only(top: 30.h, left: 10.w),
               child: Row(
                 children: [
                   SizedBox(
@@ -115,7 +117,8 @@ class _DefaultPageState extends State<DefaultPage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const LanguagesToTranslate()),
+                                builder: (context) =>
+                                    const LanguagesToTranslate()),
                           );
                         },
                         style: ElevatedButton.styleFrom(
@@ -157,7 +160,7 @@ class _DefaultPageState extends State<DefaultPage> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 110.h),
+              padding: EdgeInsets.only(top: 70.h),
               child: Column(
                 //crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -225,7 +228,7 @@ class _DefaultPageState extends State<DefaultPage> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 360.h),
+              padding: EdgeInsets.only(top: 320.h),
               child: Column(
                 children: [
                   Center(
@@ -258,7 +261,8 @@ class _DefaultPageState extends State<DefaultPage> {
 
                           return FutureBuilder<Translation>(
                             future: translator.translate(snapshot.data!,
-                                from: sourceLanguageCode.getLangCode, to: translatedLanguageCode.getLangCode),
+                                from: sourceLanguageCode.getLangCode,
+                                to: translatedLanguageCode.getLangCode),
                             builder: (context, snapshot) {
                               if (snapshot.connectionState !=
                                   ConnectionState.done) {
