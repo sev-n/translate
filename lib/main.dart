@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:translate/utils/colors.dart';
+
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/Beach/Beaches.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/Cultural/Cultures.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/Food/Foods.dart';
+import 'package:translate/pages/utils/colors.dart';
+
 import 'home.dart';
 import 'model/model.dart';
 import 'pages/bottom_nav_pages/trans_language.dart';
@@ -40,11 +45,15 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'Flutter Demo',
             home: const Introduction(),
+
             routes: {
               '/about': (context) => const About(),
               '/privacy': (context) => const Privacy(),
               '/lang': (context) => const SourceLanguage(),
               '/translang': (context) => const LanguagesToTranslate(),
+              '/foods': (context) => const Foods(),
+              '/cultures': (content) => const Cultures(),
+              '/beaches': (content) => const Beaches(),
               // '/page3': (context) => const Page3(),
               // '/languages': (context) => const MyLanguageUI(),
             },

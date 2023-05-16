@@ -13,7 +13,7 @@ class Conversation extends StatelessWidget {
       child: Stack(
         children: [
           Padding(
-            padding: EdgeInsets.only(top: 100.h, left: 10.w),
+            padding: EdgeInsets.only(top: 30.h, left: 10.w),
             child: Row(
               children: [
                 SizedBox(
@@ -114,7 +114,7 @@ class Conversation extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: const Alignment(0, 0.80),
+            alignment: const Alignment(0, 0.70),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

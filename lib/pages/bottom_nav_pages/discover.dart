@@ -1,183 +1,177 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:translate/pages/bottom_nav_pages/discover%20pages/Beach/Beaches.dart';
-import 'package:translate/pages/bottom_nav_pages/discover%20pages/Cultural/Cultures.dart';
-import 'package:translate/pages/bottom_nav_pages/discover%20pages/Food/Foods.dart';
 
 class Favorite extends StatelessWidget {
   const Favorite({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: const Color(0xff222831),
-      child: Stack(
-        children: [
-          Padding(
-            padding: EdgeInsets.only(top: 150.h),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Column(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const Beaches(),
-                              ),
-                            );
-                          },
-                          child: Stack(
-                            children: [
-                              Container(
-                                width: 150.w,
-                                height: 150.h,
-                                decoration: const BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage('assets/Beaches/BC.png'),
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                              Positioned.fill(
-                                child: Container(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: const Center(
-                                    child: Text(
-                                      'Beaches',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 25,
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: 'gothic',
-                                      ),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
+    return SingleChildScrollView(
+      child: Container(
+        color: const Color(0xff222831),
+        child: Stack(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(top: 30.h),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Clickable(
+                        destination: '/beaches',
+                        child: Container(
+                          width: 150.w,
+                          height: 150.h,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            image: const DecorationImage(
+                              image: AssetImage('assets/Beaches/BC.png'),
+                              fit: BoxFit.cover,
+                            ),
+                            borderRadius: BorderRadius.circular(10.r),
+                          ),
+                          child: Text(
+                            'Beaches',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'gothic',
+                            ),
+                            textAlign: TextAlign.center,
                           ),
                         ),
-                        const SizedBox(height: 20),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const Cultures(),
+                      ),
+                      Clickable(
+                        destination: '/cultures',
+                        child: Container(
+                          width: 150.w,
+                          height: 150.h,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            image: const DecorationImage(
+                              image: AssetImage('assets/Cultural/CAC.png'),
+                              fit: BoxFit.cover,
+                            ),
+                            borderRadius: BorderRadius.circular(10.r),
+                          ),
+                          child: Text(
+                            'Culutural Attraction',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'gothic',
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 50.h),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Clickable(
+                          destination: '/foods',
+                          child: Container(
+                            width: 150.w,
+                            height: 150.h,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              image: const DecorationImage(
+                                image: AssetImage('assets/Foods/FDC.png'),
+                                fit: BoxFit.cover,
                               ),
-                            );
-                          },
-                          child: Stack(
-                            children: [
-                              Container(
-                                width: 150.w,
-                                height: 150.h,
-                                decoration: const BoxDecoration(
-                                  image: DecorationImage(
-                                    image:
-                                        AssetImage('assets/Cultural/CAC.png'),
-                                    fit: BoxFit.contain,
-                                  ),
-                                ),
+                              borderRadius: BorderRadius.circular(10.r),
+                            ),
+                            child: Text(
+                              'Food Delicacy',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18.sp,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'gothic',
                               ),
-                              Positioned.fill(
-                                child: Container(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: const Center(
-                                    child: Text(
-                                      'Culutural Attraction',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 21,
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: 'gothic',
-                                      ),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: 150.w,
+                          height: 150.h,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10.r),
+                          ),
+                          child: Text(
+                            'Festivals',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'gothic',
+                            ),
+                            textAlign: TextAlign.center,
                           ),
                         ),
                       ],
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 15.h),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const Foods(),
-                                ),
-                              );
-                            },
-                            child: Stack(
-                              children: [
-                                Container(
-                                  width: 150.w,
-                                  height: 150.h,
-                                  decoration: const BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage('assets/Foods/FDC.png'),
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                                Positioned.fill(
-                                  child: Container(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: const Center(
-                                      child: Text(
-                                        'Food Delicacy',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 22,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'gothic',
-                                        ),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 50.h, bottom: 50.h),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 150.w,
+                          height: 150.h,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10.r),
                           ),
-                        ],
-                      ),
+                          child: Text(
+                            'Landscape',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'gothic',
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ],
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 }
 
-class CardClickable extends StatelessWidget {
+class Clickable extends StatelessWidget {
   final Widget child;
-  const CardClickable({super.key, required this.child});
+  final String destination;
+  const Clickable({super.key, required this.child, required this.destination});
 
   @override
   Widget build(BuildContext context) {
     return Material(
       type: MaterialType.transparency,
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.pushNamed(context, destination);
+        },
         borderRadius: BorderRadius.circular(10.0.r),
         splashColor: Colors.black.withOpacity(0.3),
         child: child,

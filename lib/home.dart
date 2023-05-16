@@ -42,7 +42,7 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      extendBodyBehindAppBar: true,
+      extendBodyBehindAppBar: false,
       bottomNavigationBar: SizedBox(
         width: MediaQuery.of(context).size.width,
         child: Container(
@@ -108,7 +108,7 @@ class HomePageState extends State<HomePage> {
         ),
       ),
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: darkColor,
         //todo : use this section if we want to have a title on appbar
         elevation: 0,
         //todo : use this when you want to have a theme switcher
@@ -145,48 +145,51 @@ class HomePageState extends State<HomePage> {
             padding: EdgeInsets.zero,
             children: <Widget>[
               DrawerHeader(
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/BB.png'),
-                      fit: BoxFit.cover,
-                    ),
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/BB.png'),
+                    fit: BoxFit.cover,
                   ),
-                  child: Stack(
-                    children: [
-                      Positioned.fill(
-                        child: ImageFiltered(
-                          imageFilter:
-                              ui.ImageFilter.blur(sigmaX: 50.0, sigmaY: 50.0),
-                          child: Container(
-                            color: Colors.black.withOpacity(0.2),
-                          ),
+                ),
+                child: Stack(
+                  children: [
+                    Positioned.fill(
+                      child: ImageFiltered(
+                        imageFilter:
+                            ui.ImageFilter.blur(sigmaX: 50.0, sigmaY: 50.0),
+                        child: Container(
+                          color: Colors.black.withOpacity(0.2),
                         ),
                       ),
-                      const Center(
-                        child: Text(
-                          'Babel',
-                          style: TextStyle(
-                            fontFamily: 'Space',
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 4,
-                            fontSize: 30,
-                            color: Colors.white,
-                          ),
+                    ),
+                    const Center(
+                      child: Text(
+                        'Babel',
+                        style: TextStyle(
+                          fontFamily: 'Space',
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 4,
+                          fontSize: 30,
+                          color: Colors.white,
                         ),
-                      )
-                    ],
-                  )),
+                      ),
+                    )
+                  ],
+                ),
+              ),
               ListTile(
                 leading: Icon(
                   Icons.three_p_rounded,
                   color: ThemeManager.isDarkMode ? Colors.black : darkColor,
                 ),
-                title: Text('About',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'GothicA1',
-                      color: ThemeManager.isDarkMode ? Colors.black : darkColor,
-                    )),
+                title: Text(
+                  'About',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'GothicA1',
+                    color: ThemeManager.isDarkMode ? Colors.black : darkColor,
+                  ),
+                ),
                 //selected: selectedPage == 1,
                 selectedTileColor: const Color(0xfffdfffc),
                 onTap: () {
@@ -218,49 +221,7 @@ class HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      body: pages[currentIndex],
-    );
-  }
-}
-
-final dropdownFocusNode = FocusNode();
-
-class ExampleDropdownButton extends StatefulWidget {
-  const ExampleDropdownButton({super.key});
-
-  @override
-  // ignore: library_private_types_in_public_api
-  _ExampleDropdownButtonState createState() => _ExampleDropdownButtonState();
-}
-
-class _ExampleDropdownButtonState extends State<ExampleDropdownButton> {
-  String selectedValue = 'en';
-
-  final languages = {'English': 'en', 'Filipino': 'tagalog'};
-
-  @override
-  Widget build(BuildContext context) {
-    return DropdownButton<String>(
-      focusNode: dropdownFocusNode,
-      value: selectedValue,
-      onChanged: (newValue) {
-        setState(() {
-          selectedValue = newValue!;
-          debugPrint(selectedValue);
-        });
-      },
-      focusColor: Colors.white,
-      onTap: () {
-        FocusManager.instance.primaryFocus?.unfocus();
-        Navigator.pushNamed(context, '/languages');
-      },
-      items: languages.entries.map((entry) {
-        return DropdownMenuItem<String>(
-          value: entry.value,
-          child: Text(entry.key),
-        );
-      }).toList(),
-      underline: const SizedBox.shrink(),
+      body: SafeArea(child: pages[currentIndex]),
     );
   }
 }
