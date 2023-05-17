@@ -9,51 +9,107 @@ class Beaches extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       backgroundColor: darkColor,
-      body: Center(
-        child: Card(
-          color: darkColor,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Image.asset('assets/Beaches/ELNIDO.jpg'),
-              Container(
-                color: darkColor,
-                child: const Padding(
-                  padding: EdgeInsets.all(10.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            backgroundColor: accent,
+            leading: const Icon(Icons.menu),
+            expandedHeight: 400,
+            floating: false,
+            pinned: true,
+            flexibleSpace: FlexibleSpaceBar(
+              background: Image.asset(
+                'assets/Beaches/BC.png',
+                fit: BoxFit.cover,
+              ),
+              title: const Text(
+                "B E A C H E S",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'gothic',
+                  fontSize: 25,
+                ),
+              ),
+              centerTitle: true,
+            ),
+          ),
+          //sliver items
+
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Container(
+                      color: const Color(0xff393E46),
+                      height: 500,
+                      // Add an Image widget here with your desired image source
+                      child: Align(
+                        alignment: Alignment.topCenter,
+                        child: Image.asset(
+                          'assets/Beaches/ELNIDO.jpg',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'El Nido',
+                        'EL Nido',
                         style: TextStyle(
-                          fontFamily: 'gothic',
-                          fontSize: 22,
+                          color: Colors.white,
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
                         ),
                       ),
-                      SizedBox(
-                        height: 22,
-                      ),
-                      Text(
-                        "El Nido, which is the well-known region of Palawan, consistently ranks among the world's most picturesque beaches, giving the moniker 'Heaven on Earth'. The beaches and islands of EL Nido, looks like a hidden adventure since they are sorrounded by old limestone cliffs, yet this paradise is actually a well-known getaway.",
-                        style: TextStyle(
-                          fontFamily: 'gothic',
-                          fontSize: 18,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      )
                     ],
                   ),
+                  const SizedBox(
+                      height:
+                          10), // Added SizedBox to create spacing between title and description
+                  const Text(
+                    "El Nido, which is the well-known region of Palawan, consistently ranks among the world's picturesque beaches, giving it the moniker 'Heaven on Earth'. The beaches and islands of El Nido, look like a hidden adventure since they are surrounded by old limestone cliffs, yet this paradise is actually a well-known getaway.",
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Container(
+                  color: const Color(0xff393E46),
+                  height: 400,
                 ),
               ),
-            ],
+            ),
           ),
-        ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Container(
+                  color: const Color(0xff393E46),
+                  height: 400,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
