@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-
 import 'package:translate/pages/bottom_nav_pages/discover%20pages/Beach/Beaches.dart';
 import 'package:translate/pages/bottom_nav_pages/discover%20pages/Cultural/Cultures.dart';
 import 'package:translate/pages/bottom_nav_pages/discover%20pages/Food/Foods.dart';
-import 'package:translate/pages/utils/colors.dart';
-
-import 'home.dart';
+import 'package:translate/utils/colors.dart';
 import 'model/model.dart';
+import 'model/show_hide_model.dart';
 import 'pages/bottom_nav_pages/trans_language.dart';
 import 'pages/intro_page/introduction.dart';
 import 'pages/side_menu/about.dart';
@@ -31,6 +29,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider<TranslatedLanguageModel>(
           create: (_) => TranslatedLanguageModel(),
+        ),
+        ChangeNotifierProvider<ShowState>(
+          create: (_) => ShowState(),
         ),
       ],
       child: ScreenUtilInit(
