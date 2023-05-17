@@ -5,10 +5,29 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:translate/home.dart';
 import 'package:lottie/lottie.dart';
 import 'package:translate/model/show_hide_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'page_one.dart';
 //import 'page_three.dart';
 import 'page_two.dart';
+
+class OneTimeWelcomePage extends StatelessWidget {
+  final SharedPreferences prefs;
+
+  const OneTimeWelcomePage({Key? key, required this.prefs}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final hasShownWelcomePage = prefs.getBool('hasShownWelcomePage') ?? false;
+
+    if (hasShownWelcomePage) {
+      return const HomePage();
+    } else {
+      prefs.setBool('hasShownWelcomePage', true);
+      return const Introduction();
+    }
+  }
+}
 
 final PageController controllerPage = PageController();
 

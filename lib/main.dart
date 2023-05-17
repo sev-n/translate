@@ -11,17 +11,25 @@ import 'pages/bottom_nav_pages/trans_language.dart';
 import 'pages/intro_page/introduction.dart';
 import 'pages/side_menu/about.dart';
 import 'pages/side_menu/privacy.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final prefs = await SharedPreferences.getInstance();
+
+  runApp(MyApp(prefs: prefs));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final SharedPreferences prefs;
+
+  const MyApp({super.key, required this.prefs});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<SourceLanguageModel>(
@@ -45,7 +53,7 @@ class MyApp extends StatelessWidget {
             ),
             debugShowCheckedModeBanner: false,
             title: 'Flutter Demo',
-            home: const Introduction(),
+            home: OneTimeWelcomePage(prefs: prefs),
 
             routes: {
               '/about': (context) => const About(),
