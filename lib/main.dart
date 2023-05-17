@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:translate/pages/bottom_nav_pages/discover%20pages/Beach/Beaches.dart';
 import 'package:translate/pages/bottom_nav_pages/discover%20pages/Cultural/Cultures.dart';
-import 'package:translate/pages/bottom_nav_pages/discover%20pages/Food/Foods.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/Food/food.dart';
 import 'package:translate/utils/colors.dart';
 import 'model/model.dart';
 import 'model/show_hide_model.dart';
@@ -29,7 +29,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<SourceLanguageModel>(
@@ -54,7 +53,6 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'Flutter Demo',
             home: OneTimeWelcomePage(prefs: prefs),
-
             routes: {
               '/about': (context) => const About(),
               '/privacy': (context) => const Privacy(),
