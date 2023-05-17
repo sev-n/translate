@@ -62,14 +62,16 @@ class _IntroductionState extends State<Introduction> {
               ],
             ),
             isLastPage ? const GetStartedBtn() : const NextBtn(),
-            isLastPage ? SizedBox(
-              child: Consumer<ShowState>(builder: (context, data, child) {
-                return Visibility(
-                  visible: !data.isShowed,
-                  child: const Loading(),
-                );
-              }),
-            ) : const SizedBox(),
+            isLastPage
+                ? SizedBox(
+                    child: Consumer<ShowState>(builder: (context, data, child) {
+                      return Visibility(
+                        visible: !data.isShowed,
+                        child: const Loading(),
+                      );
+                    }),
+                  )
+                : const SizedBox(),
             Container(
               alignment: const Alignment(0, 0.65),
               child: const Row(
@@ -129,7 +131,7 @@ class _GetStartedBtnState extends State<GetStartedBtn> {
     var varShow = Provider.of<ShowState>(context, listen: false);
 
     void sleep() {
-      Future.delayed(const Duration(seconds: 10), () {
+      Future.delayed(const Duration(seconds: 5), () {
         // code here you want to do after sleep
         debugPrint('This code execute');
         debugPrint(varShow.show.toString());
