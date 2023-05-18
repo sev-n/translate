@@ -119,7 +119,7 @@ class Foods extends StatelessWidget {
                           Padding(
                             padding: EdgeInsets.only(top: 40.h),
                             child: Text(
-                              'EL Nido',
+                              'Sinigang',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -130,7 +130,7 @@ class Foods extends StatelessWidget {
                           Padding(
                             padding: EdgeInsets.only(top: 40.h),
                             child: Text(
-                              "El Nido, which is the well-known region of Palawan, consistently ranks among the world's picturesque beaches, giving it the moniker 'Heaven on Earth'. The beaches and islands of El Nido, look like a hidden adventure since they are surrounded by old limestone cliffs, yet this paradise is actually a well-known getaway.",
+                              "Sinigang is a sour soup that is typically made with pork and tamarind though sometinmes other sour fruits like guava, green mango or calamansi are used insted. Tomatoes, garlic, onion and various other vegetables complete the stew. It's delicious Filipino comfort food and makes for a hearty hangover breakfast if had a few to many liquor the night before.",
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 fontSize: 14.sp,
@@ -172,7 +172,7 @@ class Foods extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 40.h),
+                            padding: EdgeInsets.only(top: 20.h),
                             child: Text(
                               'Crispy Pata',
                               style: TextStyle(
@@ -183,9 +183,9 @@ class Foods extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 40.h),
+                            padding: EdgeInsets.only(top: 20.h),
                             child: Text(
-                              "El Nido, which is the well-known region of Palawan, consistently ranks among the world's picturesque beaches, giving it the moniker 'Heaven on Earth'. The beaches and islands of El Nido, look like a hidden adventure since they are surrounded by old limestone cliffs, yet this paradise is actually a well-known getaway.",
+                              "Crispy Pata refers to a famous Filipino dish of deep-fried pork trotters or knuckles served with a dipping sauce made with vinegar, soy sauce, garlic, onions, sugar and black pepper. To prepare, the pork leg is boiled to tenderize the meat before being deep-fried till golden brown and crispy. When cooked well, crispy pata is crunchy on the outside with moist and tender meat. It's usually served as a main dish with white rice.",
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 fontSize: 14.sp,
@@ -263,8 +263,9 @@ class Foods extends StatelessWidget {
               child: Container(
                 height: 520.h,
                 decoration: BoxDecoration(
-                    color: const Color(0xff393E46),
-                    borderRadius: BorderRadius.circular(20.w),),
+                  color: const Color(0xff393E46),
+                  borderRadius: BorderRadius.circular(20.w),
+                ),
                 child: Stack(
                   children: [
                     Padding(
@@ -283,7 +284,7 @@ class Foods extends StatelessWidget {
                           Padding(
                             padding: EdgeInsets.only(top: 40.h),
                             child: Text(
-                              'Crispy Pata',
+                              'Kare-Kare',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -317,8 +318,9 @@ class Foods extends StatelessWidget {
               child: Container(
                 height: 500.h,
                 decoration: BoxDecoration(
-                    color: const Color(0xff393E46),
-                    borderRadius: BorderRadius.circular(20.w),),
+                  color: const Color(0xff393E46),
+                  borderRadius: BorderRadius.circular(20.w),
+                ),
                 child: Stack(
                   children: [
                     Padding(
@@ -349,6 +351,226 @@ class Foods extends StatelessWidget {
                             padding: EdgeInsets.only(top: 40.h),
                             child: Text(
                               "Balut is probably the most infamous street food in the Philippines and the most likely to be a part of drunken dare involving tourists. It is basically just boiled duck egg. However, the duck eggs used for Balut have been fertilized and allowed to incubate anywhere from 14 to  18 days.",
+                              textAlign: TextAlign.justify,
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.all(20.0.w),
+              child: Container(
+                height: 500.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xff393E46),
+                  borderRadius: BorderRadius.circular(20.w),
+                ),
+                child: Stack(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(20.0.w),
+                      child: Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10.w),
+                            child: Image.asset(
+                              'assets/Foods/BICOLEXPRESS.jpg',
+                              fit: BoxFit.cover,
+                              width: 400.w,
+                              height: 220.h,
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 40.h),
+                            child: Text(
+                              'Bicol Express',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 20.h),
+                            child: Text(
+                              "Bicol Express is a stew made with pork belly, coconut milk/cream, bagoong alamang(shrimp paste), and generous amounts of finger chillis and siling labuyo(bird's eye chili). It's spicy and creamy and best eaten with steamed rice to help tone down the heat. Bicol Express got its name from a cooking competition in Manila in the 1970's.",
+                              textAlign: TextAlign.justify,
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.all(20.0.w),
+              child: Container(
+                height: 500.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xff393E46),
+                  borderRadius: BorderRadius.circular(20.w),
+                ),
+                child: Stack(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(20.0.w),
+                      child: Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10.w),
+                            child: Image.asset(
+                              'assets/Foods/HALOHALO.jpg',
+                              fit: BoxFit.cover,
+                              width: 400.w,
+                              height: 220.h,
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 20.h),
+                            child: Text(
+                              'Halo-Halo',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 20.h),
+                            child: Text(
+                              "Literally meaning 'mix mix' the name halo-halo is pretty description for this tranditional Filipino dessert that includes every sweet treat the restaurant has in their refrigerator and freezer. While components vary, you'll find some common and add-ons at most halo-halo carts and bars: jellies, flan, macapuno, palm seed, sweetened red beans, shaved ice, ube ice cream, fresh fruit, toasted coconut flakes, pinipig.",
+                              textAlign: TextAlign.justify,
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.all(20.0.w),
+              child: Container(
+                height: 500.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xff393E46),
+                  borderRadius: BorderRadius.circular(20.w),
+                ),
+                child: Stack(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(20.0.w),
+                      child: Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10.w),
+                            child: Image.asset(
+                              'assets/Foods/ICECANDY.jpg',
+                              fit: BoxFit.cover,
+                              width: 400.w,
+                              height: 220.h,
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 40.h),
+                            child: Text(
+                              'Halo-Halo',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 20.h),
+                            child: Text(
+                              "Ice Candy is made by mixing fruit juice with sugar and milk, then pouring it into slender practice bags that are tied shut and frozen. Ice Candy is eaten just like a home made push pop. Tea or bite off the top of the plastic and squeeze from the buttom.",
+                              textAlign: TextAlign.justify,
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.all(20.0.w),
+              child: Container(
+                height: 500.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xff393E46),
+                  borderRadius: BorderRadius.circular(20.w),
+                ),
+                child: Stack(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(20.0.w),
+                      child: Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10.w),
+                            child: Image.asset(
+                              'assets/Foods/BULALO.jpg',
+                              fit: BoxFit.cover,
+                              width: 400.w,
+                              height: 220.h,
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 40.h),
+                            child: Text(
+                              'Bulalo',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 20.h),
+                            child: Text(
+                              "Bulalo is light-colored soup made with leafy vegetables, corn on the cob and beef shanks filled with bone marrow. It's basically a type of Nilaga dish (Boiled meat and vegies soup) made specifically with beef shanks containing marrow. To prepare, the beef shanks are simmered for several hours until the collagen and fat melt into the clea broth.",
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 fontSize: 14.sp,
