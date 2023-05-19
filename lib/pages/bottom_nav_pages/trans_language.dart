@@ -16,41 +16,55 @@ class _SourceLanguage extends State<SourceLanguage> {
   Widget build(BuildContext context) {
     var sourceLang = Provider.of<SourceLanguageModel>(context, listen: false);
 
-    return Scaffold(
-      backgroundColor: darkColor,
-      appBar: AppBar(),
-      body: ListView.builder(
-        itemCount: ListLanguage.langs.values.length,
-        itemBuilder: (BuildContext context, int index) {
-          String langCode = ListLanguage.langs.keys.elementAt(index);
-          String langName = ListLanguage.langs.values.elementAt(index);
-          return ListTile(
-            title: Text(
-              langName,
-              style: const TextStyle(
-                color: Colors.white,
-                fontFamily: 'gothic',
-              ),
+    return Builder(builder: (BuildContext scaffoldContext) {
+      return Scaffold(
+        backgroundColor: darkColor,
+        appBar: AppBar(
+          actions: [
+            IconButton(
+              onPressed: () {
+                showSearch(
+                  context: context,
+                  delegate: CustomSearch(scaffoldContext),
+                );
+              },
+              icon: const Icon(Icons.search),
             ),
-            subtitle: Text(
-              langCode,
-              style: const TextStyle(
-                color: Colors.white,
-                fontFamily: 'gothic',
+          ],
+        ),
+        body: ListView.builder(
+          itemCount: ListLanguage.langs.values.length,
+          itemBuilder: (BuildContext context, int index) {
+            String langCode = ListLanguage.langs.keys.elementAt(index);
+            String langName = ListLanguage.langs.values.elementAt(index);
+            return ListTile(
+              title: Text(
+                langName,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'gothic',
+                ),
               ),
-            ),
-            onTap: () {
-              // Do something when the user taps on a language
-              sourceLang.setText(langName);
-              sourceLang.setLangCode(langCode);
-              Navigator.pop(context);
-              debugPrint('Language code - ${sourceLang.getLangName}');
-              debugPrint('Language code - ${sourceLang.getLangCode}');
-            },
-          );
-        },
-      ),
-    );
+              subtitle: Text(
+                langCode,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'gothic',
+                ),
+              ),
+              onTap: () {
+                // Do something when the user taps on a language
+                sourceLang.setText(langName);
+                sourceLang.setLangCode(langCode);
+                Navigator.pop(context);
+                debugPrint('Language code - ${sourceLang.getLangName}');
+                debugPrint('Language code - ${sourceLang.getLangCode}');
+              },
+            );
+          },
+        ),
+      );
+    });
   }
 }
 
@@ -97,6 +111,122 @@ class _LanguagesToTranslateState extends State<LanguagesToTranslate> {
               Navigator.pop(context);
               debugPrint('Language code - ${translated.getLangName}');
               debugPrint('Language code - ${translated.getLangCode}');
+            },
+          );
+        },
+      ),
+    );
+  }
+}
+
+class CustomSearch extends SearchDelegate {
+  final BuildContext scaffoldContext;
+  CustomSearch(this.scaffoldContext);
+
+  @override
+  List<Widget> buildActions(BuildContext context) {
+    return [
+      IconButton(
+        icon: const Icon(Icons.clear),
+        onPressed: () {
+          query = '';
+        },
+      ),
+    ];
+  }
+
+  @override
+  Widget buildLeading(BuildContext context) {
+    return IconButton(
+      icon: const Icon(Icons.arrow_back),
+      onPressed: () {
+        close(context, null);
+      },
+    );
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    // Perform search logic here with query
+    final List<MapEntry<String, String>> filteredResults = [];
+
+    for (MapEntry<String, String> e in ListLanguage.langs.entries) {
+      if (e.value.toLowerCase().contains(query.toLowerCase()) ||
+          e.key.toLowerCase().contains(query.toLowerCase())) {
+        filteredResults.add(e);
+      }
+    }
+
+    return ListView.builder(
+      itemCount: filteredResults.length,
+      itemBuilder: (context, index) {
+        final MapEntry<String, String> entry = filteredResults[index];
+        return ListTile(
+          title: Text(
+            entry.value,
+            style: const TextStyle(
+              color: Colors.white,
+              fontFamily: 'gothic',
+            ),
+          ),
+          subtitle: Text(
+            entry.key,
+            style: const TextStyle(
+              color: Colors.white,
+              fontFamily: 'gothic',
+            ),
+          ),
+          onTap: () {
+            close(context, entry);
+          },
+        );
+      },
+    );
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    var updateLang = Provider.of<SourceLanguageModel>(context, listen: false);
+    // Display suggestions based on query and perform the same logic above.
+    // TODO: not sure if we need the buildResult, need to double check later.
+    final List<MapEntry<String, String>> filteredResults = [];
+
+    for (MapEntry<String, String> item in ListLanguage.langs.entries) {
+      if (item.value.toLowerCase().contains(query.toLowerCase()) ||
+          item.key.toLowerCase().contains(query.toLowerCase())) {
+        filteredResults.add(item);
+      }
+    }
+
+    return Container(
+      color: darkColor,
+      child: ListView.builder(
+        itemCount: filteredResults.length,
+        itemBuilder: (context, index) {
+          final MapEntry<String, String> entry = filteredResults[index];
+          return ListTile(
+            title: Text(
+              entry.value,
+              style: const TextStyle(
+                color: Colors.white,
+                fontFamily: 'gothic',
+              ),
+            ),
+            subtitle: Text(
+              entry.key,
+              style: const TextStyle(
+                color: Colors.white,
+                fontFamily: 'gothic',
+              ),
+            ),
+            onTap: () {
+              updateLang.setText(entry.value);
+              updateLang.setLangCode(entry.key);
+
+              debugPrint(updateLang.getLangName);
+              debugPrint(updateLang.getLangCode);
+              close(context, entry);
+              Navigator.pop(scaffoldContext);
             },
           );
         },
