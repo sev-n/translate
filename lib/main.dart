@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
               primarySwatch: accent,
             ),
             debugShowCheckedModeBanner: false,
-            title: 'Flutter Demo',
+            title: 'Babel',
             home: OneTimeWelcomePage(prefs: prefs),
             routes: {
               '/about': (context) => const About(),
