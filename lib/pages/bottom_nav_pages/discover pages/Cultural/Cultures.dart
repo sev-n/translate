@@ -212,6 +212,64 @@ class Cultures extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
+                height: 525.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xff393E46),
+                  borderRadius: BorderRadius.circular(20.w),
+                ),
+                child: Stack(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(20.0.w),
+                      child: Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10.w),
+                            child: Align(
+                              alignment: Alignment.topCenter,
+                              child: Image.asset(
+                                'assets/Cultural/CULTURALCENTER.jpg',
+                                fit: BoxFit.cover,
+                                width: 400.w,
+                                height: 200.h,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 40.h),
+                            child: Text(
+                              'Cultural Center of the Philippines',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 40.h),
+                            child: Text(
+                              "Cultural Center of the Philippines was created back in 1966 with its purpose of promoting and preserving the best Filipino Arts and Culture. Through its Cultural Exchange Program, the CCP supports the growth and development of regional arts centers all over the country.",
+                              textAlign: TextAlign.justify,
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.all(20.0.w),
+              child: Container(
                 height: 550.h,
                 decoration: BoxDecoration(
                   color: const Color(0xff393E46),
@@ -228,7 +286,7 @@ class Cultures extends StatelessWidget {
                             child: Align(
                               alignment: Alignment.topCenter,
                               child: Image.asset(
-                                'assets/Cultural/NATIONALMUSEUM.jpg',
+                                'assets/Cultural/VIGAN.jpg',
                                 fit: BoxFit.cover,
                                 width: 400.w,
                                 height: 200.h,
@@ -238,7 +296,7 @@ class Cultures extends StatelessWidget {
                           Padding(
                             padding: EdgeInsets.only(top: 40.h),
                             child: Text(
-                              'National Museum of the Philippines',
+                              'Vigan City',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -249,7 +307,7 @@ class Cultures extends StatelessWidget {
                           Padding(
                             padding: EdgeInsets.only(top: 20.h),
                             child: Text(
-                              "National Museum of Fine Arts is a home to 29 galleries and hallway exhibitions of 19th century Filipino masters National Artists, leading modern painters, sculptors, and printmakers. The National Museum of Anthropology stages the Philippine ethnographic and terrestrial and underwater archaeological collection narrating the story of the Philippines from the past. National Museum of History is houses 12 permanent galleries that exhibit the biological and geological diversity of the Philippines.",
+                              "Know for its perfectly-preserved Spanish Colonial architecture and culture,Vigan, Ilocos Sur easily became one of the country's tourism giants. Inviting millions of tourists not only from different parts of the country but the whole world. Vigan is unique for having preserved much of its Hispanic colonial character, particularly its grid street pattern historic urban lay out. Its significance also lies on how the different architectural influences are blended to create a homogenous townscape.",
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 fontSize: 14.sp,
