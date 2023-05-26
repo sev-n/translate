@@ -260,7 +260,7 @@ class _DefaultPageState extends State<DefaultPage> {
                           }
 
                           return FutureBuilder<Translation>(
-                            future: translator.translate(snapshot.data!,
+                            future: translator.translate(snapshot.requireData,
                                 from: sourceLanguageCode.getLangCode,
                                 to: translatedLanguageCode.getLangCode),
                             builder: (context, snapshot) {
