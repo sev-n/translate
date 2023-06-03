@@ -9,7 +9,6 @@ class Cultures extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       backgroundColor: darkColor,
       body: CustomScrollView(
         slivers: [

@@ -100,23 +100,30 @@ class Favorite extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Container(
-                          width: 150.w,
-                          height: 150.h,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10.r),
-                          ),
-                          child: Text(
-                            'Festivals',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 18.sp,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'gothic',
+                        Clickable(
+                          destination: '/festivals',
+                          child: Container(
+                            width: 150.w,
+                            height: 150.h,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              // image: const DecorationImage(
+                              //     image: AssetImage(
+                              //         'assets/Festival/sliver_bg.jpg'),
+                              //     fit: BoxFit.cover),
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10.r),
                             ),
-                            textAlign: TextAlign.center,
+                            child: Text(
+                              'Festivals',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 18.sp,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'gothic',
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
                           ),
                         ),
                       ],
