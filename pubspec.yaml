@@ -41,8 +41,8 @@ dependencies:
   translator: ^0.1.7
   smooth_page_indicator: ^1.1.0
   speech_to_text: ^6.1.1
-  text_to_speech: ^0.2.3
   lottie: ^2.3.2
+  flutter_tts: ^3.7.0
 
 dev_dependencies:
   flutter_test:
@@ -82,6 +82,8 @@ flutter:
     - assets/Beaches/
     - assets/Cultural/
     - assets/Foods/
+    - assets/Festival/
+    - assets/Landscape/
     - assets/lottie/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
