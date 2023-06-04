@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:translate/model/custom_leading.dart';
+import 'package:translate/model/tts.dart';
 import 'package:translate/utils/colors.dart';
 
 class Beaches extends StatelessWidget {
@@ -78,7 +79,9 @@ class Beaches extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Speak.speak('EL Nido');
+                              },
                               icon: const Icon(
                                 Icons
                                     .volume_down_rounded, // if clicked change color and icon
@@ -144,7 +147,9 @@ class Beaches extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Speak.speak('Blue Lagoon');
+                              },
                               icon: const Icon(
                                 Icons
                                     .volume_down_rounded, // if clicked change color and icon
@@ -210,7 +215,9 @@ class Beaches extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Speak.speak('Crystal Cove');
+                              },
                               icon: const Icon(
                                 Icons
                                     .volume_down_rounded, // if clicked change color and icon
@@ -278,7 +285,9 @@ class Beaches extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Speak.speak('Kayangan Lake');
+                              },
                               icon: const Icon(
                                 Icons
                                     .volume_down_rounded, // if clicked change color and icon
@@ -346,7 +355,9 @@ class Beaches extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Speak.speak('White Island');
+                              },
                               icon: const Icon(
                                 Icons
                                     .volume_down_rounded, // if clicked change color and icon
@@ -411,7 +422,9 @@ class Beaches extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Speak.speak('Siargao Island');
+                              },
                               icon: const Icon(
                                 Icons
                                     .volume_down_rounded, // if clicked change color and icon
@@ -476,7 +489,9 @@ class Beaches extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Speak.speak('Baler');
+                              },
                               icon: const Icon(
                                 Icons
                                     .volume_down_rounded, // if clicked change color and icon
