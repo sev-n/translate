@@ -66,18 +66,32 @@ class Festivals extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 40.h),
-                            child: Text(
-                              'Ati-Atihan Festival',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            padding: EdgeInsets.only(top: 20.h),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Ati-Atihan Festival',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons
+                                        .volume_down_rounded, // if clicked change color and icon
+                                    size: 30,
+                                    color: Color(0xff35bbca),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 40.h),
+                            padding: EdgeInsets.only(top: 20.h),
                             child: Text(
                               "Location: Aklan\n"
                               "Date: 3rd Sunday of January\n\n"
@@ -129,18 +143,32 @@ class Festivals extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 40.h),
-                            child: Text(
-                              'Sinulog Festival',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            padding: EdgeInsets.only(top: 20.h),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Sinulog Festival',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons
+                                        .volume_down_rounded, // if clicked change color and icon
+                                    size: 30,
+                                    color: Color(0xff35bbca),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 40.h),
+                            padding: EdgeInsets.only(top: 20.h),
                             child: Text(
                               "Location: Cebu City\n"
                               "Date: 3rd Sunday of January\n\n"
@@ -193,18 +221,32 @@ class Festivals extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 40.h),
-                            child: Text(
-                              'Dinagyang Festival',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            padding: EdgeInsets.only(top: 20.h),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Dinagyang Festival',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons
+                                        .volume_down_rounded, // if clicked change color and icon
+                                    size: 30,
+                                    color: Color(0xff35bbca),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 40.h),
+                            padding: EdgeInsets.only(top: 20.h),
                             child: Text(
                               "Location: IloIlo City\n"
                               "Date: 4th Sunday of January\n\n"
@@ -254,18 +296,32 @@ class Festivals extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 40.h),
-                            child: Text(
-                              'Panagbenga Festival',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            padding: EdgeInsets.only(top: 20.h),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Panagbenga Festival',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons
+                                        .volume_down_rounded, // if clicked change color and icon
+                                    size: 30,
+                                    color: Color(0xff35bbca),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 40.h),
+                            padding: EdgeInsets.only(top: 20.h),
                             child: Text(
                               "Location: Baguio City\n"
                               "Date: February 1 - March 4\n\n"
@@ -316,18 +372,32 @@ class Festivals extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 40.h),
-                            child: Text(
-                              'Moriones Festival',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            padding: EdgeInsets.only(top: 20.h),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Moriones Festival',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons
+                                        .volume_down_rounded, // if clicked change color and icon
+                                    size: 30,
+                                    color: Color(0xff35bbca),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 40.h),
+                            padding: EdgeInsets.only(top: 20.h),
                             child: Text(
                               "Location: Marinduque Province\n"
                               "Date: April 2 - 7\n\n"
@@ -377,18 +447,32 @@ class Festivals extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 40.h),
-                            child: Text(
-                              'Pahiyas Festival',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            padding: EdgeInsets.only(top: 20.h),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Pahiyas Festival',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons
+                                        .volume_down_rounded, // if clicked change color and icon
+                                    size: 30,
+                                    color: Color(0xff35bbca),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 40.h),
+                            padding: EdgeInsets.only(top: 20.h),
                             child: Text(
                               "Location: Lucban, Quezon\n"
                               "Date: May 14 - 15\n\n"
@@ -439,18 +523,32 @@ class Festivals extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 40.h),
-                            child: Text(
-                              'Pintados Festival',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            padding: EdgeInsets.only(top: 20.h),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Pintados Festival',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons
+                                        .volume_down_rounded, // if clicked change color and icon
+                                    size: 30,
+                                    color: Color(0xff35bbca),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 40.h),
+                            padding: EdgeInsets.only(top: 20.h),
                             child: Text(
                               "Location: Tacloban City, Leyte\n"
                               "Date: June 28 - 29\n\n"
@@ -501,18 +599,32 @@ class Festivals extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 40.h),
-                            child: Text(
-                              'Aliwan Festival',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            padding: EdgeInsets.only(top: 20.h),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Aliwan Festival',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons
+                                        .volume_down_rounded, // if clicked change color and icon
+                                    size: 30,
+                                    color: Color(0xff35bbca),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 40.h),
+                            padding: EdgeInsets.only(top: 20.h),
                             child: Text(
                               "Location: CCP Complex Pasay City\n"
                               "Date: April 26 - 28\n\n"
@@ -562,18 +674,32 @@ class Festivals extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 40.h),
-                            child: Text(
-                              'Penafrancia Festival',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            padding: EdgeInsets.only(top: 20.h),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Penafrancia Festival',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons
+                                        .volume_down_rounded, // if clicked change color and icon
+                                    size: 30,
+                                    color: Color(0xff35bbca),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 40.h),
+                            padding: EdgeInsets.only(top: 20.h),
                             child: Text(
                               "Location: Naga, Camarines Sur\n"
                               "Date: 3rd Saturday of September\n\n"
@@ -624,18 +750,32 @@ class Festivals extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 40.h),
-                            child: Text(
-                              'Air Balloon Fiesta',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            padding: EdgeInsets.only(top: 20.h),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Air Balloon Fiesta',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons
+                                        .volume_down_rounded, // if clicked change color and icon
+                                    size: 30,
+                                    color: Color(0xff35bbca),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 40.h),
+                            padding: EdgeInsets.only(top: 20.h),
                             child: Text(
                               "Location: Clark Freeport Zone, Angeles City, Pampanga\n"
                               "Date: Every 2nd week of February\n\n"
