@@ -107,17 +107,17 @@ class Favorite extends StatelessWidget {
                             height: 150.h,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
-                              // image: const DecorationImage(
-                              //     image: AssetImage(
-                              //         'assets/Festival/sliver_bg.jpg'),
-                              //     fit: BoxFit.cover),
+                              image: const DecorationImage(
+                                  image: AssetImage(
+                                      'assets/Festival/festival_bg.jpg'),
+                                  fit: BoxFit.cover),
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(10.r),
                             ),
                             child: Text(
                               'Festivals',
                               style: TextStyle(
-                                color: Colors.black,
+                                color: Colors.white,
                                 fontSize: 18.sp,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: 'gothic',
@@ -143,11 +143,15 @@ class Favorite extends StatelessWidget {
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(10.r),
+                              image: const DecorationImage(
+                                image: AssetImage('assets/Landscape/landscape_bg.jpg'),
+                                fit: BoxFit.cover,
+                              ),
                             ),
                             child: Text(
                               'Landscape',
                               style: TextStyle(
-                                color: Colors.black,
+                                color: Colors.white,
                                 fontSize: 18.sp,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: 'gothic',
