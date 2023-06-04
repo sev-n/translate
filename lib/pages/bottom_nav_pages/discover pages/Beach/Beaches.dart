@@ -66,18 +66,31 @@ class Beaches extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 40.h),
-                            child: Text(
-                              'EL Nido',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            padding: EdgeInsets.only(top: 30.h),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'EL Nido',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.volume_down_rounded, // if clicked change color and icon
+                                    size: 30,
+                                    color: Color(0xff35bbca),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 40.h),
+                            padding: EdgeInsets.only(top: 30.h),
                             child: Text(
                               "El Nido, which is the well-known region of Palawan, consistently ranks among the world's picturesque beaches, giving it the moniker 'Heaven on Earth'. The beaches and islands of El Nido, look like a hidden adventure since they are surrounded by old limestone cliffs, yet this paradise is actually a well-known getaway.",
                               textAlign: TextAlign.justify,

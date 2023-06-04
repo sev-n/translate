@@ -21,7 +21,7 @@ class Festivals extends StatelessWidget {
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
-                'assets/Beaches/BC.png',
+                'assets/Festival/festival_bg.jpg',
                 fit: BoxFit.cover,
               ),
               titlePadding: EdgeInsets.only(top: 5.h, bottom: 10.h),
