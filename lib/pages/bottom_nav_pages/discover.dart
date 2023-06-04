@@ -134,23 +134,26 @@ class Favorite extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                          width: 150.w,
-                          height: 150.h,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10.r),
-                          ),
-                          child: Text(
-                            'Landscape',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 18.sp,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'gothic',
+                        Clickable(
+                          destination: '/landscape',
+                          child: Container(
+                            width: 150.w,
+                            height: 150.h,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10.r),
                             ),
-                            textAlign: TextAlign.center,
+                            child: Text(
+                              'Landscape',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 18.sp,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'gothic',
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
                           ),
                         ),
                       ],
