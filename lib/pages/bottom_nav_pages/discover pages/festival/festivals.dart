@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:translate/model/custom_leading.dart';
 import 'package:translate/utils/colors.dart';
 
 class Festivals extends StatelessWidget {
@@ -15,7 +16,7 @@ class Festivals extends StatelessWidget {
         slivers: [
           SliverAppBar(
             backgroundColor: accent,
-            leading: const Icon(Icons.menu),
+            leading: const LeadingWidget(),
             expandedHeight: 250.h,
             floating: false,
             pinned: true,

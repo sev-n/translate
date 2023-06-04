@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
+import 'package:translate/model/custom_leading.dart';
 import 'package:translate/utils/colors.dart';
 
 class Cultures extends StatelessWidget {
@@ -14,7 +15,7 @@ class Cultures extends StatelessWidget {
         slivers: [
           SliverAppBar(
             backgroundColor: accent,
-            leading: const Icon(Icons.menu),
+            leading: const LeadingWidget(),
             expandedHeight: 250,
             floating: false,
             pinned: true,
