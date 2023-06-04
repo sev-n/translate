@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:translate/pages/bottom_nav_pages/discover%20pages/Beach/Beaches.dart';
 import 'package:translate/pages/bottom_nav_pages/discover%20pages/Cultural/Cultures.dart';
 import 'package:translate/pages/bottom_nav_pages/discover%20pages/Food/food.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/Landscape/landscapes.dart';
 import 'package:translate/pages/bottom_nav_pages/discover%20pages/festival/festivals.dart';
 import 'package:translate/utils/colors.dart';
 import 'model/model.dart';
@@ -63,6 +64,7 @@ class MyApp extends StatelessWidget {
               '/cultures': (content) => const Cultures(),
               '/beaches': (content) => const Beaches(),
               '/festivals': (context) => const Festivals(),
+              '/landscape': (context) => const Landscapes(),
             },
           );
         },
