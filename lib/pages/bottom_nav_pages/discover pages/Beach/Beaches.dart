@@ -1,13 +1,62 @@
 // ignore_for_file: file_names
-
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:translate/model/custom_leading.dart';
-import 'package:translate/model/tts.dart';
 import 'package:translate/utils/colors.dart';
 
-class Beaches extends StatelessWidget {
+bool isSpeakingCompleted = false;
+bool iconChange = false;
+
+Map<String, bool> iconState = {
+  'nido': false,
+  'lagoon': false,
+  'cove': false,
+  'kayangan': false,
+  'white': false,
+  'siargao': false,
+  'baler': false,
+};
+
+class Beaches extends StatefulWidget {
   const Beaches({super.key});
+
+  @override
+  State<Beaches> createState() => _BeachesState();
+}
+
+class _BeachesState extends State<Beaches> {
+  speak(String text) async {
+    final FlutterTts flutterTts = FlutterTts();
+    String selectedLanguage = "fil-PH";
+    List<dynamic> languages = await flutterTts.getLanguages;
+
+    flutterTts.setCompletionHandler(() {
+      setState(() {
+        isSpeakingCompleted = true;
+        iconState['lagoon'] = false;
+        iconState['nido'] = false;
+        iconState['cove'] = false;
+        iconState['kayangan'] = false;
+        iconState['white'] = false;
+        iconState['siargao'] = false;
+        iconState['baler'] = false;
+      });
+    });
+
+    if (!languages.contains(selectedLanguage)) {
+      // Language not supported
+      debugPrint("Selected language is not supported on this device");
+      return;
+    } else {
+      flutterTts.setLanguage(selectedLanguage);
+      await flutterTts.setPitch(1);
+      await flutterTts.speak(text);
+    }
+    setState(() {
+      isSpeakingCompleted = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,14 +129,24 @@ class Beaches extends StatelessWidget {
                             ),
                             IconButton(
                               onPressed: () {
-                                Speak.speak('EL Nido');
+                                setState(() {
+                                  iconState['nido'] = true;
+                                });
+                                speak('EL Nido');
                               },
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              icon: !iconState['nido']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -148,14 +207,24 @@ class Beaches extends StatelessWidget {
                             ),
                             IconButton(
                               onPressed: () {
-                                Speak.speak('Blue Lagoon');
+                                setState(() {
+                                  iconState['lagoon'] = true;
+                                });
+                                speak('Blue Lagoon');
                               },
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              icon: !iconState['lagoon']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -216,14 +285,24 @@ class Beaches extends StatelessWidget {
                             ),
                             IconButton(
                               onPressed: () {
-                                Speak.speak('Crystal Cove');
+                                setState(() {
+                                  iconState['cove'] = true;
+                                });
+                                speak('Crystal Cove');
                               },
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              icon: !iconState['cove']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -286,14 +365,24 @@ class Beaches extends StatelessWidget {
                             ),
                             IconButton(
                               onPressed: () {
-                                Speak.speak('Kayangan Lake');
+                                setState(() {
+                                  iconState['kayangan'] = true;
+                                });
+                                speak('Kayangan Lake');
                               },
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              icon: !iconState['kayangan']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -356,14 +445,24 @@ class Beaches extends StatelessWidget {
                             ),
                             IconButton(
                               onPressed: () {
-                                Speak.speak('White Island');
+                                setState(() {
+                                  iconState['white'] = true;
+                                });
+                                speak('White Island');
                               },
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              icon: !iconState['white']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -423,14 +522,24 @@ class Beaches extends StatelessWidget {
                             ),
                             IconButton(
                               onPressed: () {
-                                Speak.speak('Siargao Island');
+                                setState(() {
+                                  iconState['siargao'] = true;
+                                });
+                                speak('Siargao Island');
                               },
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              icon: !iconState['siargao']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -490,14 +599,24 @@ class Beaches extends StatelessWidget {
                             ),
                             IconButton(
                               onPressed: () {
-                                Speak.speak('Baler');
+                                setState(() {
+                                  iconState['baler'] = true;
+                                });
+                                speak('Baler');
                               },
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              icon: !iconState['baler']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
