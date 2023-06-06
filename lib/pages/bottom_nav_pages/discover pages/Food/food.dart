@@ -1,10 +1,67 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:translate/model/custom_leading.dart';
 import 'package:translate/utils/colors.dart';
 
-class Foods extends StatelessWidget {
+bool isSpeakingCompleted = false;
+bool iconChange = false;
+
+Map<String, bool> iconStateFood = {
+  'adobo': false,
+  'sinigang': false,
+  'crispy': false,
+  'sisig': false,
+  'kare-kare': false,
+  'balut': false,
+  'bicol': false,
+  'halo-halo': false,
+  'ice': false,
+  'bulalo': false,
+};
+
+class Foods extends StatefulWidget {
   const Foods({super.key});
+
+  @override
+  State<Foods> createState() => _FoodsState();
+}
+
+class _FoodsState extends State<Foods> {
+  speak(String text) async {
+    final FlutterTts flutterTts = FlutterTts();
+    String selectedLanguage = "fil-PH";
+    List<dynamic> languages = await flutterTts.getLanguages;
+
+    flutterTts.setCompletionHandler(() {
+      setState(() {
+        isSpeakingCompleted = true;
+        iconStateFood['adobo'] = false;
+        iconStateFood['sinigang'] = false;
+        iconStateFood['crispy'] = false;
+        iconStateFood['sisig'] = false;
+        iconStateFood['kare-kare'] = false;
+        iconStateFood['balut'] = false;
+        iconStateFood['bicol'] = false;
+        iconStateFood['halo-halo'] = false;
+        iconStateFood['ice'] = false;
+        iconStateFood['bulalo'] = false;
+      });
+    });
+
+    if (!languages.contains(selectedLanguage)) {
+      // Language not supported
+      debugPrint("Selected language is not supported on this device");
+      return;
+    } else {
+      flutterTts.setLanguage(selectedLanguage);
+      await flutterTts.setPitch(1);
+      await flutterTts.speak(text);
+    }
+    setState(() {
+      isSpeakingCompleted = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,13 +131,25 @@ class Foods extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              onPressed: () {
+                                setState(() {
+                                  iconStateFood['adobo'] = true;
+                                });
+                                speak('Adobo');
+                              },
+                              icon: !iconStateFood['adobo']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -139,13 +208,25 @@ class Foods extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              onPressed: () {
+                                setState(() {
+                                  iconStateFood['sinigang'] = true;
+                                });
+                                speak('Sinigang');
+                              },
+                              icon: !iconStateFood['sinigang']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -204,13 +285,25 @@ class Foods extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              onPressed: () {
+                                setState(() {
+                                  iconStateFood['crispy'] = true;
+                                });
+                                speak('Crispy Pata');
+                              },
+                              icon: !iconStateFood['crispy']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -269,13 +362,25 @@ class Foods extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              onPressed: () {
+                                setState(() {
+                                  iconStateFood['sisig'] = true;
+                                });
+                                speak('Sisig');
+                              },
+                              icon: !iconStateFood['sisig']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -334,13 +439,25 @@ class Foods extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              onPressed: () {
+                                setState(() {
+                                  iconStateFood['kare-kare'] = true;
+                                });
+                                speak('Kare-kare');
+                              },
+                              icon: !iconStateFood['kare-kare']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -399,13 +516,25 @@ class Foods extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              onPressed: () {
+                                setState(() {
+                                  iconStateFood['balut'] = true;
+                                });
+                                speak('Balut');
+                              },
+                              icon: !iconStateFood['balut']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -464,13 +593,25 @@ class Foods extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              onPressed: () {
+                                setState(() {
+                                  iconStateFood['bicol'] = true;
+                                });
+                                speak('Bicol Express');
+                              },
+                              icon: !iconStateFood['bicol']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -529,13 +670,25 @@ class Foods extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              onPressed: () {
+                                setState(() {
+                                  iconStateFood['halo-halo'] = true;
+                                });
+                                speak('Halo-halo');
+                              },
+                              icon: !iconStateFood['halo-halo']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -594,13 +747,25 @@ class Foods extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              onPressed: () {
+                                setState(() {
+                                  iconStateFood['ice'] = true;
+                                });
+                                speak('Ice Candy');
+                              },
+                              icon: !iconStateFood['ice']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -659,13 +824,25 @@ class Foods extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              onPressed: () {
+                                setState(() {
+                                  iconStateFood['bulalo'] = true;
+                                });
+                                speak('Bulalo');
+                              },
+                              icon: !iconStateFood['bulalo']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),

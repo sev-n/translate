@@ -2,11 +2,68 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:translate/model/custom_leading.dart';
 import 'package:translate/utils/colors.dart';
 
-class Landscapes extends StatelessWidget {
+bool isSpeakingCompleted = false;
+bool iconChange = false;
+
+Map<String, bool> iconStateLandscape = {
+  'osmena': false,
+  'kanlaon': false,
+  'kabunian': false,
+  'kitanglad': false,
+  'dulang-dulang': false,
+  'guiting-guiting': false,
+  'halcon': false,
+  'pinatubo': false,
+  'pulag': false,
+  'apo': false,
+};
+
+class Landscapes extends StatefulWidget {
   const Landscapes({super.key});
+
+  @override
+  State<Landscapes> createState() => _LandscapesState();
+}
+
+class _LandscapesState extends State<Landscapes> {
+  speak(String text) async {
+    final FlutterTts flutterTts = FlutterTts();
+    String selectedLanguage = "fil-PH";
+    List<dynamic> languages = await flutterTts.getLanguages;
+
+    flutterTts.setCompletionHandler(() {
+      setState(() {
+        isSpeakingCompleted = true;
+        iconStateLandscape['osmena'] = false;
+        iconStateLandscape['kanlaon'] = false;
+        iconStateLandscape['kabunian'] = false;
+        iconStateLandscape['kitanglad'] = false;
+        iconStateLandscape['dulang-dulang'] = false;
+        iconStateLandscape['guiting-guiting'] = false;
+        iconStateLandscape['halcon'] = false;
+        iconStateLandscape['pinatubo'] = false;
+        iconStateLandscape['pulag'] = false;
+        iconStateLandscape['apo'] = false;
+      });
+    });
+
+    if (!languages.contains(selectedLanguage)) {
+      // Language not supported
+      debugPrint("Selected language is not supported on this device");
+      return;
+    } else {
+      flutterTts.setLanguage(selectedLanguage);
+      await flutterTts.setPitch(1);
+      await flutterTts.speak(text);
+    }
+    setState(() {
+      isSpeakingCompleted = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,13 +135,25 @@ class Landscapes extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              onPressed: () {
+                                setState(() {
+                                  iconStateLandscape['osmena'] = true;
+                                });
+                                speak('Osmeña Peak');
+                              },
+                              icon: !iconStateLandscape['osmena']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -148,13 +217,25 @@ class Landscapes extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              onPressed: () {
+                                setState(() {
+                                  iconStateLandscape['kanlaon'] = true;
+                                });
+                                speak('Mt. Kanlaon');
+                              },
+                              icon: !iconStateLandscape['kanlaon']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -219,13 +300,25 @@ class Landscapes extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              onPressed: () {
+                                setState(() {
+                                  iconStateLandscape['kabunian'] = true;
+                                });
+                                speak('Mt. Kabunian');
+                              },
+                              icon: !iconStateLandscape['kabunian']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -290,13 +383,25 @@ class Landscapes extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              onPressed: () {
+                                setState(() {
+                                  iconStateLandscape['kitanglad'] = true;
+                                });
+                                speak('Mt. Kitanglad');
+                              },
+                              icon: !iconStateLandscape['kitanglad']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -360,13 +465,25 @@ class Landscapes extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              onPressed: () {
+                                setState(() {
+                                  iconStateLandscape['dulang-dulang'] = true;
+                                });
+                                speak('Mt. Dulang-dulang');
+                              },
+                              icon: !iconStateLandscape['dulang-dulang']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -431,13 +548,25 @@ class Landscapes extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              onPressed: () {
+                                setState(() {
+                                  iconStateLandscape['guiting-guiting'] = true;
+                                });
+                                speak('Mt. Guiting-guiting');
+                              },
+                              icon: !iconStateLandscape['guiting-guiting']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -502,13 +631,25 @@ class Landscapes extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              onPressed: () {
+                                setState(() {
+                                  iconStateLandscape['halcon'] = true;
+                                });
+                                speak('Mt. Halcon');
+                              },
+                              icon: !iconStateLandscape['halcon']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -573,13 +714,25 @@ class Landscapes extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              onPressed: () {
+                                setState(() {
+                                  iconStateLandscape['pinatubo'] = true;
+                                });
+                                speak('Mt.Pinatubo');
+                              },
+                              icon: !iconStateLandscape['pinatubo']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -644,13 +797,25 @@ class Landscapes extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              onPressed: () {
+                                setState(() {
+                                  iconStateLandscape['pulag'] = true;
+                                });
+                                speak('Mt. Pulag');
+                              },
+                              icon: !iconStateLandscape['pulag']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -715,13 +880,25 @@ class Landscapes extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              onPressed: () {
+                                setState(() {
+                                  iconStateLandscape['apo'] = true;
+                                });
+                                speak('Mt. Apo');
+                              },
+                              icon: !iconStateLandscape['apo']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),

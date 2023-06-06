@@ -2,11 +2,68 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:translate/model/custom_leading.dart';
 import 'package:translate/utils/colors.dart';
 
-class Festivals extends StatelessWidget {
+bool isSpeakingCompleted = false;
+bool iconChange = false;
+
+Map<String, bool> iconStateFestival = {
+  'ati-atihan': false,
+  'sinulog': false,
+  'dinagyang': false,
+  'panagbenga': false,
+  'moriones': false,
+  'pahiyas': false,
+  'pintados': false,
+  'aliwan': false,
+  'penafrancia': false,
+  'air': false,
+};
+
+class Festivals extends StatefulWidget {
   const Festivals({super.key});
+
+  @override
+  State<Festivals> createState() => _FestivalsState();
+}
+
+class _FestivalsState extends State<Festivals> {
+  speak(String text) async {
+    final FlutterTts flutterTts = FlutterTts();
+    String selectedLanguage = "fil-PH";
+    List<dynamic> languages = await flutterTts.getLanguages;
+
+    flutterTts.setCompletionHandler(() {
+      setState(() {
+        isSpeakingCompleted = true;
+        iconStateFestival['ati-atihan'] = false;
+        iconStateFestival['sinulog'] = false;
+        iconStateFestival['dinagyang'] = false;
+        iconStateFestival['panagbenga'] = false;
+        iconStateFestival['moriones'] = false;
+        iconStateFestival['pahiyas'] = false;
+        iconStateFestival['pintados'] = false;
+        iconStateFestival['aliwan'] = false;
+        iconStateFestival['penafrancia'] = false;
+        iconStateFestival['air'] = false;
+      });
+    });
+
+    if (!languages.contains(selectedLanguage)) {
+      // Language not supported
+      debugPrint("Selected language is not supported on this device");
+      return;
+    } else {
+      flutterTts.setLanguage(selectedLanguage);
+      await flutterTts.setPitch(1);
+      await flutterTts.speak(text);
+    }
+    setState(() {
+      isSpeakingCompleted = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,13 +137,25 @@ class Festivals extends StatelessWidget {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(
-                                    Icons
-                                        .volume_down_rounded, // if clicked change color and icon
-                                    size: 30,
-                                    color: Color(0xff35bbca),
-                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      iconStateFestival['ati-atihan'] = true;
+                                    });
+                                    speak('Ati-atihan Festival');
+                                  },
+                                  icon: !iconStateFestival['ati-atihan']!
+                                      ? const Icon(
+                                          Icons
+                                              .volume_down_rounded, // if clicked change color and icon
+                                          size: 30,
+                                          color: Color(0xff35bbca),
+                                        )
+                                      : const Icon(
+                                          Icons
+                                              .volume_up_rounded, // if clicked change color and icon
+                                          size: 30,
+                                          color: Colors.indigoAccent,
+                                        ),
                                 ),
                               ],
                             ),
@@ -157,13 +226,25 @@ class Festivals extends StatelessWidget {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(
-                                    Icons
-                                        .volume_down_rounded, // if clicked change color and icon
-                                    size: 30,
-                                    color: Color(0xff35bbca),
-                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      iconStateFestival['sinulog'] = true;
+                                    });
+                                    speak('Sinulog Festival');
+                                  },
+                                  icon: !iconStateFestival['sinulog']!
+                                      ? const Icon(
+                                          Icons
+                                              .volume_down_rounded, // if clicked change color and icon
+                                          size: 30,
+                                          color: Color(0xff35bbca),
+                                        )
+                                      : const Icon(
+                                          Icons
+                                              .volume_up_rounded, // if clicked change color and icon
+                                          size: 30,
+                                          color: Colors.indigoAccent,
+                                        ),
                                 ),
                               ],
                             ),
@@ -235,13 +316,25 @@ class Festivals extends StatelessWidget {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(
-                                    Icons
-                                        .volume_down_rounded, // if clicked change color and icon
-                                    size: 30,
-                                    color: Color(0xff35bbca),
-                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      iconStateFestival['dinagyang'] = true;
+                                    });
+                                    speak('Dinagyang Festival');
+                                  },
+                                  icon: !iconStateFestival['dinagyang']!
+                                      ? const Icon(
+                                          Icons
+                                              .volume_down_rounded, // if clicked change color and icon
+                                          size: 30,
+                                          color: Color(0xff35bbca),
+                                        )
+                                      : const Icon(
+                                          Icons
+                                              .volume_up_rounded, // if clicked change color and icon
+                                          size: 30,
+                                          color: Colors.indigoAccent,
+                                        ),
                                 ),
                               ],
                             ),
@@ -310,13 +403,25 @@ class Festivals extends StatelessWidget {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(
-                                    Icons
-                                        .volume_down_rounded, // if clicked change color and icon
-                                    size: 30,
-                                    color: Color(0xff35bbca),
-                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      iconStateFestival['panagbenga'] = true;
+                                    });
+                                    speak('Panagbenga Festival');
+                                  },
+                                  icon: !iconStateFestival['panagbenga']!
+                                      ? const Icon(
+                                          Icons
+                                              .volume_down_rounded, // if clicked change color and icon
+                                          size: 30,
+                                          color: Color(0xff35bbca),
+                                        )
+                                      : const Icon(
+                                          Icons
+                                              .volume_up_rounded, // if clicked change color and icon
+                                          size: 30,
+                                          color: Colors.indigoAccent,
+                                        ),
                                 ),
                               ],
                             ),
@@ -386,13 +491,25 @@ class Festivals extends StatelessWidget {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(
-                                    Icons
-                                        .volume_down_rounded, // if clicked change color and icon
-                                    size: 30,
-                                    color: Color(0xff35bbca),
-                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      iconStateFestival['moriones'] = true;
+                                    });
+                                    speak('Moriones Festival');
+                                  },
+                                  icon: !iconStateFestival['moriones']!
+                                      ? const Icon(
+                                          Icons
+                                              .volume_down_rounded, // if clicked change color and icon
+                                          size: 30,
+                                          color: Color(0xff35bbca),
+                                        )
+                                      : const Icon(
+                                          Icons
+                                              .volume_up_rounded, // if clicked change color and icon
+                                          size: 30,
+                                          color: Colors.indigoAccent,
+                                        ),
                                 ),
                               ],
                             ),
@@ -461,13 +578,25 @@ class Festivals extends StatelessWidget {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(
-                                    Icons
-                                        .volume_down_rounded, // if clicked change color and icon
-                                    size: 30,
-                                    color: Color(0xff35bbca),
-                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      iconStateFestival['pahiyas'] = true;
+                                    });
+                                    speak('Pahiyas Festival');
+                                  },
+                                  icon: !iconStateFestival['pahiyas']!
+                                      ? const Icon(
+                                          Icons
+                                              .volume_down_rounded, // if clicked change color and icon
+                                          size: 30,
+                                          color: Color(0xff35bbca),
+                                        )
+                                      : const Icon(
+                                          Icons
+                                              .volume_up_rounded, // if clicked change color and icon
+                                          size: 30,
+                                          color: Colors.indigoAccent,
+                                        ),
                                 ),
                               ],
                             ),
@@ -537,13 +666,25 @@ class Festivals extends StatelessWidget {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(
-                                    Icons
-                                        .volume_down_rounded, // if clicked change color and icon
-                                    size: 30,
-                                    color: Color(0xff35bbca),
-                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      iconStateFestival['pintados'] = true;
+                                    });
+                                    speak('Pintados Festival');
+                                  },
+                                  icon: !iconStateFestival['pintados']!
+                                      ? const Icon(
+                                          Icons
+                                              .volume_down_rounded, // if clicked change color and icon
+                                          size: 30,
+                                          color: Color(0xff35bbca),
+                                        )
+                                      : const Icon(
+                                          Icons
+                                              .volume_up_rounded, // if clicked change color and icon
+                                          size: 30,
+                                          color: Colors.indigoAccent,
+                                        ),
                                 ),
                               ],
                             ),
@@ -613,13 +754,25 @@ class Festivals extends StatelessWidget {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(
-                                    Icons
-                                        .volume_down_rounded, // if clicked change color and icon
-                                    size: 30,
-                                    color: Color(0xff35bbca),
-                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      iconStateFestival['aliwan'] = true;
+                                    });
+                                    speak('Aliwan Festival');
+                                  },
+                                  icon: !iconStateFestival['aliwan']!
+                                      ? const Icon(
+                                          Icons
+                                              .volume_down_rounded, // if clicked change color and icon
+                                          size: 30,
+                                          color: Color(0xff35bbca),
+                                        )
+                                      : const Icon(
+                                          Icons
+                                              .volume_up_rounded, // if clicked change color and icon
+                                          size: 30,
+                                          color: Colors.indigoAccent,
+                                        ),
                                 ),
                               ],
                             ),
@@ -688,13 +841,25 @@ class Festivals extends StatelessWidget {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(
-                                    Icons
-                                        .volume_down_rounded, // if clicked change color and icon
-                                    size: 30,
-                                    color: Color(0xff35bbca),
-                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      iconStateFestival['penafrancia'] = true;
+                                    });
+                                    speak('Penafrancia Festival');
+                                  },
+                                  icon: !iconStateFestival['penafrancia']!
+                                      ? const Icon(
+                                          Icons
+                                              .volume_down_rounded, // if clicked change color and icon
+                                          size: 30,
+                                          color: Color(0xff35bbca),
+                                        )
+                                      : const Icon(
+                                          Icons
+                                              .volume_up_rounded, // if clicked change color and icon
+                                          size: 30,
+                                          color: Colors.indigoAccent,
+                                        ),
                                 ),
                               ],
                             ),
@@ -764,13 +929,25 @@ class Festivals extends StatelessWidget {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(
-                                    Icons
-                                        .volume_down_rounded, // if clicked change color and icon
-                                    size: 30,
-                                    color: Color(0xff35bbca),
-                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      iconStateFestival['air'] = true;
+                                    });
+                                    speak('Air Balloon Festia');
+                                  },
+                                  icon: !iconStateFestival['air']!
+                                      ? const Icon(
+                                          Icons
+                                              .volume_down_rounded, // if clicked change color and icon
+                                          size: 30,
+                                          color: Color(0xff35bbca),
+                                        )
+                                      : const Icon(
+                                          Icons
+                                              .volume_up_rounded, // if clicked change color and icon
+                                          size: 30,
+                                          color: Colors.indigoAccent,
+                                        ),
                                 ),
                               ],
                             ),

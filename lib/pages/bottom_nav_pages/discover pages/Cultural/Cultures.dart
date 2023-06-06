@@ -1,11 +1,58 @@
 // ignore_for_file: file_names
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:translate/model/custom_leading.dart';
 import 'package:translate/utils/colors.dart';
 
-class Cultures extends StatelessWidget {
+bool isSpeakingCompleted = false;
+bool iconChange = false;
+
+Map<String, bool> iconStateCulture = {
+  'intramuros': false,
+  'rizal': false,
+  "quiapo": false,
+  "cultural": false,
+  'vigan': false,
+};
+
+class Cultures extends StatefulWidget {
   const Cultures({super.key});
+
+  @override
+  State<Cultures> createState() => _CulturesState();
+}
+
+class _CulturesState extends State<Cultures> {
+  speak(String text) async {
+    final FlutterTts flutterTts = FlutterTts();
+    String selectedLanguage = "fil-PH";
+    List<dynamic> languages = await flutterTts.getLanguages;
+
+    flutterTts.setCompletionHandler(() {
+      setState(() {
+        isSpeakingCompleted = true;
+        iconStateCulture['intramuros'] = false;
+        iconStateCulture['rizal'] = false;
+        iconStateCulture['quiapo'] = false;
+        iconStateCulture['cultural'] = false;
+        iconStateCulture['vigan'] = false;
+      });
+    });
+
+    if (!languages.contains(selectedLanguage)) {
+      // Language not supported
+      debugPrint("Selected language is not supported on this device");
+      return;
+    } else {
+      flutterTts.setLanguage(selectedLanguage);
+      await flutterTts.setPitch(1);
+      await flutterTts.speak(text);
+    }
+    setState(() {
+      isSpeakingCompleted = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,13 +122,25 @@ class Cultures extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              onPressed: () {
+                                setState(() {
+                                  iconStateCulture['intramuros'] = true;
+                                });
+                                speak('Intramuros');
+                              },
+                              icon: !iconStateCulture['intramuros']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -143,13 +202,25 @@ class Cultures extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              onPressed: () {
+                                setState(() {
+                                  iconStateCulture['rizal'] = true;
+                                });
+                                speak('RizalPark');
+                              },
+                              icon: !iconStateCulture['rizal']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -209,13 +280,25 @@ class Cultures extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              onPressed: () {
+                                setState(() {
+                                  iconStateCulture['quiapo'] = true;
+                                });
+                                speak('Quiapo Church');
+                              },
+                              icon: !iconStateCulture['quiapo']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -277,13 +360,25 @@ class Cultures extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              onPressed: () {
+                                setState(() {
+                                  iconStateCulture['cultural'] = true;
+                                });
+                                speak('Cultural Center');
+                              },
+                              icon: !iconStateCulture['cultural']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
@@ -345,13 +440,25 @@ class Cultures extends StatelessWidget {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons
-                                    .volume_down_rounded, // if clicked change color and icon
-                                size: 30,
-                                color: Color(0xff35bbca),
-                              ),
+                              onPressed: () {
+                                setState(() {
+                                  iconStateCulture['vigan'] = true;
+                                });
+                                speak('Vigan City');
+                              },
+                              icon: !iconStateCulture['vigan']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
                             ),
                           ],
                         ),
