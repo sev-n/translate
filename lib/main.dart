@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:translate/model/stt.dart';
 import 'package:translate/pages/bottom_nav_pages/discover%20pages/Beach/Beaches.dart';
 import 'package:translate/pages/bottom_nav_pages/discover%20pages/Cultural/Cultures.dart';
 import 'package:translate/pages/bottom_nav_pages/discover%20pages/Food/food.dart';
@@ -41,6 +42,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider<ShowState>(
           create: (_) => ShowState(),
+        ),
+        ChangeNotifierProvider<LanguagesStt>(
+          create: (_) => LanguagesStt(),
         ),
       ],
       child: ScreenUtilInit(
