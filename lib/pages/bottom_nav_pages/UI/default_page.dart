@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:translate/model/model.dart';
 import 'package:translate/utils/colors.dart';
 import 'package:translator/translator.dart';
-import 'trans_language.dart';
+import '../trans_language.dart';
 
 //final TextEditingController resultController = TextEditingController();
 

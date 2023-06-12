@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:translate/utils/colors.dart';
 import 'model/color_model.dart';
-import 'pages/bottom_nav_pages/speech.dart';
-import 'pages/bottom_nav_pages/default_page.dart';
-import 'pages/bottom_nav_pages/discover.dart';
-import 'pages/bottom_nav_pages/history.dart';
+import 'pages/bottom_nav_pages/UI/speech.dart';
+import 'pages/bottom_nav_pages/UI/default_page.dart';
+import 'pages/bottom_nav_pages/UI/discover.dart';
+import 'pages/bottom_nav_pages/UI/history.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'dart:ui' as ui;
 
