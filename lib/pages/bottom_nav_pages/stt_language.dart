@@ -1,94 +1,192 @@
 import 'package:flutter/material.dart';
+import 'package:translate/utils/colors.dart';
 import 'package:provider/provider.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 import 'package:translate/model/stt.dart';
 
-// TODO: Experiment this, if satisfied then use this.
+// // TODO: Experiment this, if satisfied then use this.
 
-class Speech extends StatefulWidget {
-  const Speech({super.key});
+// class Speech extends StatefulWidget {
+//   const Speech({super.key});
+
+//   @override
+//   State<Speech> createState() => SpeechState();
+// }
+
+// class SpeechState extends State<Speech> {
+//   late stt.SpeechToText speechToText = stt.SpeechToText();
+//   bool isListening = false;
+//   String text = 'Press the button to start speak!';
+//   double confidence = 1.0;
+//   String idLocale = '';
+//   bool speechEnabled = false;
+//   List<stt.LocaleName> _locales = [];
+
+//   void initSpeech() async {
+//     speechEnabled = await speechToText.initialize(
+//       onStatus: (String status) {
+//         if (status == 'done') {
+//           debugPrint("Status Done");
+//         }
+//       },
+//     );
+//     setState(() {});
+//   }
+
+//    Future<void> getSupportedLanguages() async {
+//     List<stt.LocaleName> locales = await speechToText.locales();
+//     setState(() {
+//       _locales = locales;
+//     });
+//   }
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     initSpeech();
+//     getSupportedLanguages();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Confidence: ${(confidence * 100.0).toStringAsFixed(1)}%'),
+//       ),
+//       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+//       floatingActionButton: Consumer<LanguagesStt>(
+//         builder: (context, data, child) {
+//           void listen() async {
+//             if (speechEnabled) {
+//               setState(() => isListening = true);
+//               speechToText.listen(
+//                 onResult: (val) => setState(
+//                   () {
+//                     text = val.recognizedWords;
+//                   },
+//                 ),
+//                 localeId: data.langCode,
+//                 listenMode: stt.ListenMode.dictation,
+//               );
+//             } else {
+//               setState(() => isListening = false);
+//               speechToText.stop();
+//             }
+//           }
+
+//           return FloatingActionButton(
+//             onPressed: listen,
+//             child:
+//                 Icon(!speechToText.isNotListening ? Icons.mic : Icons.mic_none),
+//           );
+//         },
+//       ),
+//       body: SingleChildScrollView(
+//         reverse: true,
+//         child: Column(
+//           children: [
+//             Container(
+//               padding: const EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 150.0),
+//               child: Text(text),
+//             ),
+//             ElevatedButton(
+//               onPressed: () {
+//                 // Navigator.push(
+//                 //   context,
+//                 //   MaterialPageRoute(
+//                 //     builder: (context) => const Spt(),
+//                 //   ),
+//                 // );
+//               },
+//               child: const Text("Supported"),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+class SourceLanguageStt extends StatefulWidget {
+  const SourceLanguageStt({super.key});
 
   @override
-  State<Speech> createState() => SpeechState();
+  State<SourceLanguageStt> createState() => _SourceLanguageSttState();
 }
 
-class SpeechState extends State<Speech> {
-  late stt.SpeechToText speechToText;
-  bool isListening = false;
-  String text = 'Press the button to start speak!';
-  double confidence = 1.0;
-  String idLocale = '';
+class _SourceLanguageSttState extends State<SourceLanguageStt> {
+  late stt.SpeechToText speech;
+  List<stt.LocaleName> locales = [];
+  bool langAvail = false;
+  bool speechEnabled = false;
+
+  Future<void> getSupportedLanguages() async {
+    await speech.initialize();
+    // ignore: no_leading_underscores_for_local_identifiers
+    List<stt.LocaleName> _locales = await speech.locales();
+    setState(() {
+      locales = _locales;
+    });
+    for (var locale in locales) {
+      debugPrint('Language: ${locale.name}, Locale Id: ${locale.localeId}');
+    }
+  }
+
+  void initSpeech() async {
+    speechEnabled = await speech.initialize(
+      onStatus: (String status) {
+        if (status == 'done') {
+          debugPrint("Status Done");
+        }
+      },
+    );
+    setState(() {});
+  }
 
   @override
   void initState() {
     super.initState();
-    speechToText = stt.SpeechToText();
+     speech = stt.SpeechToText();
+    getSupportedLanguages();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Confidence: ${(confidence * 100.0).toStringAsFixed(1)}%'),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Consumer<LanguagesStt>(
-        builder: (context, data, child) {
-          void listen() async {
-            if (!isListening) {
-              bool available = await speechToText.initialize(
-                onStatus: (val) => debugPrint('onStatus: $val'),
-                onError: (val) => debugPrint('onError: $val'),
-              );
-              if (available) {
-                setState(() => isListening = true);
-                speechToText.listen(
-                  onResult: (val) => setState(
-                    () {
-                      text = val.recognizedWords;
-                      // if (val.hasConfidenceRating && val.confidence > 0) {
-                      //   confidence = val.confidence;
-                      // }
-                    },
-                  ),
-                  localeId: data.langCode,
-                  listenMode: stt.ListenMode.dictation,
-                );
-              }
-            } else {
-              setState(() => isListening = false);
-              speechToText.stop();
-            }
-          }
+    var langStt = Provider.of<LanguagesStt>(context, listen: false);
 
-          return FloatingActionButton(
-            onPressed: listen,
-            child:
-                Icon(!speechToText.isNotListening ? Icons.mic : Icons.mic_none),
+    return Scaffold(
+      backgroundColor: darkColor,
+      appBar: AppBar(),
+      body: ListView.builder(
+        itemCount: locales.length,
+        itemBuilder: (BuildContext context, int index) {
+          String localeName = locales[index].name;
+          String localeCode = locales[index].localeId;
+          return ListTile(
+            title: Text(
+              localeName,
+              style: const TextStyle(
+                color: Colors.white,
+                fontFamily: 'gothic',
+              ),
+            ),
+            subtitle: Text(
+              localeCode,
+              style: const TextStyle(
+                color: Colors.white,
+                fontFamily: 'gothic',
+              ),
+            ),
+            onTap: () {
+              // Do something when the user taps on a language
+              langStt.setLangName(localeName);
+              langStt.setLangCode(localeCode);
+              debugPrint('Selected language name: ${langStt.langName}');
+              debugPrint('Seclected language code: ${langStt.langCode}');
+              Navigator.pop(context);
+            },
           );
         },
-      ),
-      body: SingleChildScrollView(
-        reverse: true,
-        child: Column(
-          children: [
-            Container(
-              padding: const EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 150.0),
-              child: Text(text),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => const Spt(),
-                //   ),
-                // );
-              },
-              child: const Text("Supported"),
-            ),
-          ],
-        ),
       ),
     );
   }

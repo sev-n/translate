@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+import 'package:translate/model/stt.dart';
+import 'package:translate/pages/bottom_nav_pages/stt_language.dart';
 import 'package:translate/utils/animate.dart';
 import 'package:translate/utils/colors.dart';
 
@@ -21,6 +24,12 @@ class Conversation extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {
                       // Do something when the button is pressed
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SourceLanguageStt(),
+                        ),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: accent,
@@ -35,15 +44,19 @@ class Conversation extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Expanded(
-                          child: Text(
-                            'English',
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 1,
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                              fontSize: 16.sp,
-                              fontFamily: 'Space',
-                            ),
+                          child: Consumer<LanguagesStt>(
+                            builder: (context, data, child) {
+                              return Text(
+                                data.langName,
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
+                                textAlign: TextAlign.start,
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  fontFamily: 'gothic',
+                                ),
+                              );
+                            },
                           ),
                         ),
                         SizedBox(width: 16.0.w),
