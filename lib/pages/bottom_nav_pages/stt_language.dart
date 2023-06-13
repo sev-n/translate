@@ -122,35 +122,35 @@ class _SourceLanguageSttState extends State<SourceLanguageStt> {
   bool speechEnabled = false;
 
   // TODO: need to append supported languages into local maps. Find a way to initialize once the languages is appended to the maps.
-  Future<void> getSupportedLanguages() async {
-    await speech.initialize();
-    // ignore: no_leading_underscores_for_local_identifiers
-    List<stt.LocaleName> _locales = await speech.locales();
-    setState(() {
-      locales = _locales;
-    });
-    for (var locale in locales) {
-      debugPrint('Language: ${locale.name}, Locale Id: ${locale.localeId}');
-    }
-  }
+  // Future<void> getSupportedLanguages() async {
+  //   await speech.initialize();
+  //   // ignore: no_leading_underscores_for_local_identifiers
+  //   List<stt.LocaleName> _locales = await speech.locales();
+  //   setState(() {
+  //     SttSupportedLanguages.supLanguanges = _locales;
+  //   });
+  //   for (var locale in locales) {
+  //     debugPrint('Language: ${locale.name}, Locale Id: ${locale.localeId}');
+  //   }
+  // }
 
-  void initSpeech() async {
-    speechEnabled = await speech.initialize(
-      onStatus: (String status) {
-        if (status == 'done') {
-          debugPrint("Status Done");
-        }
-      },
-    );
-    setState(() {});
-  }
+  // void initSpeech() async {
+  //   speechEnabled = await speech.initialize(
+  //     onStatus: (String status) {
+  //       if (status == 'done') {
+  //         debugPrint("Status Done");
+  //       }
+  //     },
+  //   );
+  //   setState(() {});
+  // }
 
-  @override
-  void initState() {
-    super.initState();
-    speech = stt.SpeechToText();
-    getSupportedLanguages();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   speech = stt.SpeechToText();
+  //   getSupportedLanguages();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -160,10 +160,10 @@ class _SourceLanguageSttState extends State<SourceLanguageStt> {
       backgroundColor: darkColor,
       appBar: AppBar(),
       body: ListView.builder(
-        itemCount: locales.length,
+        itemCount: SttSupportedLanguages.supLanguanges.length,
         itemBuilder: (BuildContext context, int index) {
-          String localeName = locales[index].name;
-          String localeCode = locales[index].localeId;
+          String localeName = SttSupportedLanguages.supLanguanges[index].name;
+          String localeCode = SttSupportedLanguages.supLanguanges[index].localeId;
           return ListTile(
             title: Text(
               localeName,
