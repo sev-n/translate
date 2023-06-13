@@ -141,6 +141,7 @@ class HomePageState extends State<HomePage> {
             //canvasColor: ThemeManager.isDarkMode ? darkColor : mcgpalette0,
             ),
         child: Drawer(
+backgroundColor: darkColor,
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
@@ -148,39 +149,27 @@ class HomePageState extends State<HomePage> {
                 child: DrawerHeader(
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/BB.png'),
+                      image:  AssetImage('assets/BB.png'),
                       fit: BoxFit.cover,
                     ),
                   ),
                   child: Stack(
                     children: [
-                      Center(
-                        child: Text(
-                          'Babel',
-                          style: TextStyle(
-                            fontFamily: 'Space',
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 4,
-                            fontSize: 30,
-                            color: Colors.white,
-                          ),
-                        ),
-                      )
                     ],
                   ),
                 ),
               ),
               ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.three_p_rounded,
-                  color: ThemeManager.isDarkMode ? Colors.black : darkColor,
+                  color: Colors.white,
                 ),
-                title: Text(
+                title: const Text(
                   'About',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontFamily: 'GothicA1',
-                    color: ThemeManager.isDarkMode ? Colors.black : darkColor,
+                  color: Colors.white,
                   ),
                 ),
                 //selected: selectedPage == 1,
@@ -191,16 +180,16 @@ class HomePageState extends State<HomePage> {
                 },
               ),
               ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.security,
-                  color: ThemeManager.isDarkMode ? Colors.black : darkColor,
+                  color: Colors.white,
                 ),
-                title: Text(
+                title: const Text(
                   'Privacy Policy',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontFamily: 'GothicA1',
-                    color: ThemeManager.isDarkMode ? Colors.black : darkColor,
+                  color: Colors.white,
                   ),
                 ),
                 //selected: selectedPage == 2,
