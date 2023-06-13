@@ -148,7 +148,6 @@ class _GetStartedBtnState extends State<GetStartedBtn> {
           alignment: const Alignment(0, 0.85),
           child: SizedBox(
             width: 200,
-            height: 150,
             child: ElevatedButton(
               onPressed: () {
                 sleep();

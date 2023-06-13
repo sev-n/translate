@@ -144,37 +144,30 @@ class HomePageState extends State<HomePage> {
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
-              DrawerHeader(
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/BB.png'),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                child: Stack(
-                  children: [
-                    Positioned.fill(
-                      child: ImageFiltered(
-                        imageFilter:
-                            ui.ImageFilter.blur(sigmaX: 50.0, sigmaY: 50.0),
-                        child: Container(
-                          color: Colors.black.withOpacity(0.2),
-                        ),
-                      ),
+              const SafeArea(
+                child: DrawerHeader(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/BB.png'),
+                      fit: BoxFit.cover,
                     ),
-                    const Center(
-                      child: Text(
-                        'Babel',
-                        style: TextStyle(
-                          fontFamily: 'Space',
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 4,
-                          fontSize: 30,
-                          color: Colors.white,
+                  ),
+                  child: Stack(
+                    children: [
+                      Center(
+                        child: Text(
+                          'Babel',
+                          style: TextStyle(
+                            fontFamily: 'Space',
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 4,
+                            fontSize: 30,
+                            color: Colors.white,
+                          ),
                         ),
-                      ),
-                    )
-                  ],
+                      )
+                    ],
+                  ),
                 ),
               ),
               ListTile(

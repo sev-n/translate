@@ -46,6 +46,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<LanguagesStt>(
           create: (_) => LanguagesStt(),
         ),
+        ChangeNotifierProvider<TransLanguageStt>(
+          create: (_) => TransLanguageStt(),
+        ),
       ],
       child: ScreenUtilInit(
         designSize: const Size(360, 690),
