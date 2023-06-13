@@ -138,68 +138,70 @@ class HomePageState extends State<HomePage> {
         data: Theme.of(context).copyWith(
             //canvasColor: ThemeManager.isDarkMode ? darkColor : mcgpalette0,
             ),
-        child: Drawer(
-backgroundColor: darkColor,
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              const SafeArea(
-                child: DrawerHeader(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image:  AssetImage('assets/Babel.png'),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  child: Stack(
-                    children: [
-                    ],
-                  ),
-                ),
-              ),
-              ListTile(
-                leading: const Icon(
-                  Icons.three_p_rounded,
-                  color: Colors.white,
-                ),
-                title: const Text(
-                  'About',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'GothicA1',
-                  color: Colors.white,
-                  ),
-                ),
-                //selected: selectedPage == 1,
-                selectedTileColor: const Color(0xfffdfffc),
-                onTap: () {
-                  Navigator.pop(context);
-                  Navigator.pushNamed(context, '/about');
-                },
-              ),
-              ListTile(
-                leading: const Icon(
-                  Icons.security,
-                  color: Colors.white,
-                ),
-                title: const Text(
-                  'Privacy Policy',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'GothicA1',
-                  color: Colors.white,
-                  ),
-                ),
-                //selected: selectedPage == 2,
-                selectedTileColor: Colors.grey[400],
-                onTap: () {
-                  Navigator.pop(context);
-                  Navigator.pushNamed(context, '/privacy');
-                },
-              ),
-            ],
+child: Drawer(
+  backgroundColor: Colors.white,
+  child: ListView(
+    padding: EdgeInsets.zero,
+    children: <Widget>[
+      const SafeArea(
+        child: DrawerHeader(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/Babel.png'),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Stack(
+            children: [],
           ),
         ),
+      ),
+      Padding(
+        padding: const EdgeInsets.only(top: 50), // Adjust the value as needed
+        child: ListTile(
+          leading: const Icon(
+            Icons.three_p_rounded,
+            color: darkColor,
+          ),
+          title: const Text(
+            'About',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontFamily: 'GothicA1',
+              color: darkColor,
+            ),
+          ),
+          //selected: selectedPage == 1,
+          selectedTileColor: const Color(0xfffdfffc),
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.pushNamed(context, '/about');
+          },
+        ),
+      ),
+         ListTile(
+          leading: const Icon(
+            Icons.security,
+            color: darkColor,
+          ),
+          title: const Text(
+            'Privacy Policy',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontFamily: 'GothicA1',
+              color: darkColor,
+            ),
+          ),
+          //selected: selectedPage == 2,
+          selectedTileColor: Colors.grey[400],
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.pushNamed(context, '/privacy');
+          },
+        ),
+    ],
+  ),
+),
       ),
       body: SafeArea(child: pages[currentIndex]),
     );
