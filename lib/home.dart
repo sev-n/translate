@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:translate/utils/colors.dart';
-import 'model/color_model.dart';
 import 'pages/bottom_nav_pages/UI/speech.dart';
 import 'pages/bottom_nav_pages/UI/default_page.dart';
 import 'pages/bottom_nav_pages/UI/discover.dart';
 import 'pages/bottom_nav_pages/UI/history.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'dart:ui' as ui;
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -149,7 +147,7 @@ backgroundColor: darkColor,
                 child: DrawerHeader(
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image:  AssetImage('assets/BB.png'),
+                      image:  AssetImage('assets/Babel.png'),
                       fit: BoxFit.cover,
                     ),
                   ),
