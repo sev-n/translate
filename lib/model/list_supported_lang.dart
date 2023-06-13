@@ -1,3 +1,5 @@
+import 'package:speech_to_text/speech_to_text.dart' as stt;
+
 class ListLanguage {
   static final langs = {
     'auto': 'Automatic',
@@ -142,4 +144,11 @@ class TranslateToLanguages {
 
 class TranslateToLanguagesStt {
   static final sttLangs = {'en_US': 'English', 'fil_PH': 'Filipino'};
+}
+
+
+// speech section
+
+class SttSupportedLanguages {
+  static List<stt.LocaleName> supLanguanges = [];
 }
