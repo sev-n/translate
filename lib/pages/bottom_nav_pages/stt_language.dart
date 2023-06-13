@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:translate/model/list_supported_lang.dart';
 import 'package:translate/utils/colors.dart';
 import 'package:provider/provider.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
@@ -120,6 +121,7 @@ class _SourceLanguageSttState extends State<SourceLanguageStt> {
   bool langAvail = false;
   bool speechEnabled = false;
 
+  // TODO: need to append supported languages into local maps. Find a way to initialize once the languages is appended to the maps.
   Future<void> getSupportedLanguages() async {
     await speech.initialize();
     // ignore: no_leading_underscores_for_local_identifiers
@@ -146,7 +148,7 @@ class _SourceLanguageSttState extends State<SourceLanguageStt> {
   @override
   void initState() {
     super.initState();
-     speech = stt.SpeechToText();
+    speech = stt.SpeechToText();
     getSupportedLanguages();
   }
 
@@ -183,6 +185,57 @@ class _SourceLanguageSttState extends State<SourceLanguageStt> {
               langStt.setLangCode(localeCode);
               debugPrint('Selected language name: ${langStt.langName}');
               debugPrint('Seclected language code: ${langStt.langCode}');
+              Navigator.pop(context);
+            },
+          );
+        },
+      ),
+    );
+  }
+}
+
+class ToLanguageStt extends StatefulWidget {
+  const ToLanguageStt({super.key});
+
+  @override
+  State<ToLanguageStt> createState() => _ToLanguageSttState();
+}
+
+class _ToLanguageSttState extends State<ToLanguageStt> {
+  @override
+  Widget build(BuildContext context) {
+    var stt = Provider.of<TransLanguageStt>(context, listen: false);
+    return Scaffold(
+      backgroundColor: darkColor,
+      appBar: AppBar(),
+      body: ListView.builder(
+        itemCount: TranslateToLanguagesStt.sttLangs.length,
+        itemBuilder: (BuildContext context, int index) {
+          String langCode =
+              TranslateToLanguagesStt.sttLangs.keys.elementAt(index);
+          String langName =
+              TranslateToLanguagesStt.sttLangs.values.elementAt(index);
+          return ListTile(
+            title: Text(
+              langName,
+              style: const TextStyle(
+                color: Colors.white,
+                fontFamily: 'gothic',
+              ),
+            ),
+            subtitle: Text(
+              langCode,
+              style: const TextStyle(
+                color: Colors.white,
+                fontFamily: 'gothic',
+              ),
+            ),
+            onTap: () {
+              // Do something when the user taps on a language
+              stt.setLangName(langName);
+              stt.setLangCode(langCode);
+              // debugPrint('Selected language name: ${langStt.langName}');
+              // debugPrint('Seclected language code: ${langStt.langCode}');
               Navigator.pop(context);
             },
           );

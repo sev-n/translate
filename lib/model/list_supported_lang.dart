@@ -137,8 +137,9 @@ class ListLanguage {
 }
 
 class TranslateToLanguages {
-  static final tLangs = {
-    'en' : 'English',
-    'tl' : 'Filipino (Tagalog)'
-  };
+  static final tLangs = {'en': 'English', 'tl': 'Filipino (Tagalog)'};
+}
+
+class TranslateToLanguagesStt {
+  static final sttLangs = {'en_US': 'English', 'fil_PH': 'Filipino'};
 }

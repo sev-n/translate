@@ -90,6 +90,12 @@ class Conversation extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {
                         // Do something when the button is pressed
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ToLanguageStt(),
+                          ),
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: accent,
@@ -104,15 +110,19 @@ class Conversation extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Expanded(
-                            child: Text(
-                              'Filipino',
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 1,
-                              textAlign: TextAlign.start,
-                              style: TextStyle(
-                                fontSize: 16.sp,
-                                fontFamily: 'Space',
-                              ),
+                            child: Consumer<TransLanguageStt>(
+                              builder: (context, data, child) {
+                                return Text(
+                                  data.langName,
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                    fontSize: 14.sp,
+                                    fontFamily: 'Space',
+                                  ),
+                                );
+                              },
                             ),
                           ),
                           SizedBox(width: 16.0.w),
