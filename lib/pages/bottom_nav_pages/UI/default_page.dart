@@ -214,7 +214,7 @@ class _DefaultPageState extends State<DefaultPage> {
                             fontSize: 20.sp,
                             fontFamily: 'gothic',
                           ),
-                          hintText: "Enter you text here...",
+                          hintText: "Enter your text here...",
                           contentPadding: const EdgeInsets.symmetric(
                             vertical: 20,
                             horizontal: 10,
