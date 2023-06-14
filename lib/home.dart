@@ -30,12 +30,7 @@ class HomePageState extends State<HomePage> {
     });
   }
 
-  final List<Widget> pages = [
-    const DefaultPage(),
-    const Conversation(),
-    const History(),
-    const Favorite(),
-  ];
+  List<Widget> pages = [];
 
   TextStyle myTextStyle = const TextStyle(
     fontFamily: 'Space',
@@ -53,21 +48,30 @@ class HomePageState extends State<HomePage> {
     }
   }
 
-  void initSpeech() async {
-    speechEnabled = await speech.initialize(
+  Future<void> initSpeech() async {
+    bool success = await speech.initialize(
       onStatus: (String status) {
         if (status == 'done') {
           debugPrint("Status Done");
         }
       },
     );
-    setState(() {});
+    setState(() {
+      speechEnabled = success;
+    });
   }
 
   @override
   void initState() {
     super.initState();
     getSupportedLanguages();
+
+    pages = [
+      const DefaultPage(),
+      Conversation(speech: speech, isInitialized: speechEnabled),
+      const History(),
+      const Favorite(),
+    ];
   }
 
   @override
@@ -172,70 +176,71 @@ class HomePageState extends State<HomePage> {
         data: Theme.of(context).copyWith(
             //canvasColor: ThemeManager.isDarkMode ? darkColor : mcgpalette0,
             ),
-child: Drawer(
-  backgroundColor: Colors.white,
-  child: ListView(
-    padding: EdgeInsets.zero,
-    children: <Widget>[
-      const SafeArea(
-        child: DrawerHeader(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/Babel.png'),
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: Stack(
-            children: [],
+        child: Drawer(
+          backgroundColor: Colors.white,
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              const SafeArea(
+                child: DrawerHeader(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/Babel.png'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  child: Stack(
+                    children: [],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                    top: 50), // Adjust the value as needed
+                child: ListTile(
+                  leading: const Icon(
+                    Icons.three_p_rounded,
+                    color: darkColor,
+                  ),
+                  title: const Text(
+                    'About',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'GothicA1',
+                      color: darkColor,
+                    ),
+                  ),
+                  //selected: selectedPage == 1,
+                  selectedTileColor: const Color(0xfffdfffc),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, '/about');
+                  },
+                ),
+              ),
+              ListTile(
+                leading: const Icon(
+                  Icons.security,
+                  color: darkColor,
+                ),
+                title: const Text(
+                  'Privacy Policy',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'GothicA1',
+                    color: darkColor,
+                  ),
+                ),
+                //selected: selectedPage == 2,
+                selectedTileColor: Colors.grey[400],
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.pushNamed(context, '/privacy');
+                },
+              ),
+            ],
           ),
         ),
-      ),
-      Padding(
-        padding: const EdgeInsets.only(top: 50), // Adjust the value as needed
-        child: ListTile(
-          leading: const Icon(
-            Icons.three_p_rounded,
-            color: darkColor,
-          ),
-          title: const Text(
-            'About',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontFamily: 'GothicA1',
-              color: darkColor,
-            ),
-          ),
-          //selected: selectedPage == 1,
-          selectedTileColor: const Color(0xfffdfffc),
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.pushNamed(context, '/about');
-          },
-        ),
-      ),
-         ListTile(
-          leading: const Icon(
-            Icons.security,
-            color: darkColor,
-          ),
-          title: const Text(
-            'Privacy Policy',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontFamily: 'GothicA1',
-              color: darkColor,
-            ),
-          ),
-          //selected: selectedPage == 2,
-          selectedTileColor: Colors.grey[400],
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.pushNamed(context, '/privacy');
-          },
-        ),
-    ],
-  ),
-),
       ),
       body: SafeArea(child: pages[currentIndex]),
     );

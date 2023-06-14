@@ -1,3 +1,4 @@
+import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -6,15 +7,23 @@ import 'package:translate/model/swap_lang.dart';
 import 'package:translate/pages/bottom_nav_pages/stt_language.dart';
 import 'package:translate/utils/animate.dart';
 import 'package:translate/utils/colors.dart';
+import 'package:speech_to_text/speech_to_text.dart' as stt;
 
 class Conversation extends StatefulWidget {
-  const Conversation({super.key});
+  final stt.SpeechToText speech;
+  final bool isInitialized;
+
+  const Conversation(
+      {super.key, required this.speech, required this.isInitialized});
 
   @override
   State<Conversation> createState() => _ConversationState();
 }
 
 class _ConversationState extends State<Conversation> {
+  bool isListening = false;
+  String text = 'Press the button to start speak!';
+
   @override
   Widget build(BuildContext context) {
     var swap = Provider.of<Swap>(context, listen: false);
@@ -23,6 +32,10 @@ class _ConversationState extends State<Conversation> {
       color: const Color(0xff222831),
       child: Stack(
         children: [
+          Text(
+            "${widget.isInitialized}",
+            style: const TextStyle(color: Colors.white),
+          ),
           Padding(
             padding: EdgeInsets.only(top: 30.h, left: 10.w),
             child: Row(
@@ -35,7 +48,9 @@ class _ConversationState extends State<Conversation> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => swap.touchState % 2 == 0 ? const ToLanguageStt() : const SourceLanguageStt(),
+                          builder: (context) => swap.touchState % 2 == 0
+                              ? const ToLanguageStt()
+                              : const SourceLanguageStt(),
                         ),
                       );
                     },
@@ -52,11 +67,14 @@ class _ConversationState extends State<Conversation> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Expanded(
-                          child: Consumer3<LanguagesStt, TransLanguageStt, Swap>(
-                            builder: (context, langData, transData, swapData, child) {
-                              
+                          child:
+                              Consumer3<LanguagesStt, TransLanguageStt, Swap>(
+                            builder: (context, langData, transData, swapData,
+                                child) {
                               return Text(
-                                swapData.touchState % 2 == 0 ? transData.langName : langData.langName,
+                                swapData.touchState % 2 == 0
+                                    ? transData.langName
+                                    : langData.langName,
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 1,
                                 textAlign: TextAlign.start,
@@ -102,7 +120,9 @@ class _ConversationState extends State<Conversation> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => swap.touchState % 2 == 0 ? const SourceLanguageStt() : const ToLanguageStt(),
+                            builder: (context) => swap.touchState % 2 == 0
+                                ? const SourceLanguageStt()
+                                : const ToLanguageStt(),
                           ),
                         );
                       },
@@ -119,10 +139,14 @@ class _ConversationState extends State<Conversation> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Expanded(
-                            child: Consumer3<TransLanguageStt, LanguagesStt, Swap>(
-                              builder: (context, transData, langData, swapData, child) {
+                            child:
+                                Consumer3<TransLanguageStt, LanguagesStt, Swap>(
+                              builder: (context, transData, langData, swapData,
+                                  child) {
                                 return Text(
-                                  swapData.touchState % 2 == 0 ? langData.langName : transData.langName,
+                                  swapData.touchState % 2 == 0
+                                      ? langData.langName
+                                      : transData.langName,
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 1,
                                   textAlign: TextAlign.start,
@@ -146,15 +170,62 @@ class _ConversationState extends State<Conversation> {
             ),
           ),
           Align(
-            alignment: const Alignment(0, 0.70),
+            alignment: const Alignment(0, 0.80),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.mic_none),
-                  iconSize: 40,
-                  color: Colors.orange,
+                Consumer<LanguagesStt>(
+                  builder: (context, data, child) {
+                    void listen() async {
+                      if (widget.isInitialized) {
+                        setState(() => isListening = true);
+                        widget.speech.listen(
+                          onResult: (val) => setState(
+                            () {
+                              text = val.recognizedWords;
+                              // if (val.hasConfidenceRating && val.confidence > 0) {
+                              //   confidence = val.confidence;
+                              // }
+                            },
+                          ),
+                          localeId: data.langCode,
+                          listenMode: stt.ListenMode.dictation,
+                        );
+                      } else {
+                        setState(() => isListening = false);
+                        widget.speech.stop();
+                      }
+                    }
+
+                    return AvatarGlow(
+                      animate: true,
+                      glowColor: Colors.grey,
+                      endRadius: 75.0,
+                      duration: const Duration(milliseconds: 1000),
+                      repeatPauseDuration: const Duration(milliseconds: 100),
+                      repeat: true,
+                      child: Container(
+                        width: 65,
+                        height: 65,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            // Button press logic
+                            listen();
+                          },
+                          style: ElevatedButton.styleFrom(
+                            elevation: 10,
+                            shape: const CircleBorder(),
+                            padding: const EdgeInsets.all(16),
+                            backgroundColor: accent,
+                          ),
+                          child: const Icon(Icons.mic_none),
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ],
             ),

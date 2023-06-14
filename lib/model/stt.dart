@@ -37,3 +37,8 @@ class TransLanguageStt extends ChangeNotifier {
     notifyListeners();
   }
 }
+
+class LanguagesSpokeStt extends ChangeNotifier {
+
+
+}

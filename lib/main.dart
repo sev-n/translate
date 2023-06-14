@@ -59,6 +59,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<Swap>(
           create: (_) => Swap(),
         ),
+        ChangeNotifierProvider<LanguagesSpokeStt>(
+          create: (_) => LanguagesSpokeStt(),
+        ),
       ],
       child: ScreenUtilInit(
         designSize: const Size(360, 690),
