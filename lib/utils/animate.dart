@@ -1,6 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:translate/model/swap_lang.dart';
 
 class RotateSwapButton extends StatefulWidget {
   final Widget childWidget;
@@ -20,10 +22,10 @@ class _RotateSwapButtonState extends State<RotateSwapButton>
     super.initState();
     animationController = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 1),
+      duration: const Duration(milliseconds: 500),
     );
     animation =
-        Tween<double>(begin: 0, end: 2 * pi).animate(animationController)
+        Tween<double>(begin: 0, end: pi).animate(animationController)
           ..addListener(() {
             setState(() {});
           })
@@ -42,6 +44,8 @@ class _RotateSwapButtonState extends State<RotateSwapButton>
 
   @override
   Widget build(BuildContext context) {
+    var swap = Provider.of<Swap>(context, listen: false);
+
     return Transform.rotate(
       angle: animation.value,
       origin: const Offset(.2, .2),
@@ -50,6 +54,8 @@ class _RotateSwapButtonState extends State<RotateSwapButton>
           animationController.reset();
           animationController.forward();
           debugPrint("Clicked!");
+          swap.setTouchState();
+          debugPrint("${swap.touchState}");
         },
         child: widget.childWidget,
       ),
