@@ -2,15 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:translate/model/stt.dart';
+import 'package:translate/model/swap_lang.dart';
 import 'package:translate/pages/bottom_nav_pages/stt_language.dart';
 import 'package:translate/utils/animate.dart';
 import 'package:translate/utils/colors.dart';
 
-class Conversation extends StatelessWidget {
+class Conversation extends StatefulWidget {
   const Conversation({super.key});
 
   @override
+  State<Conversation> createState() => _ConversationState();
+}
+
+class _ConversationState extends State<Conversation> {
+  @override
   Widget build(BuildContext context) {
+    var swap = Provider.of<Swap>(context, listen: false);
+
     return Container(
       color: const Color(0xff222831),
       child: Stack(
@@ -27,7 +35,7 @@ class Conversation extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const SourceLanguageStt(),
+                          builder: (context) => swap.touchState % 2 == 0 ? const ToLanguageStt() : const SourceLanguageStt(),
                         ),
                       );
                     },
@@ -44,10 +52,11 @@ class Conversation extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Expanded(
-                          child: Consumer<LanguagesStt>(
-                            builder: (context, data, child) {
+                          child: Consumer3<LanguagesStt, TransLanguageStt, Swap>(
+                            builder: (context, langData, transData, swapData, child) {
+                              
                               return Text(
-                                data.langName,
+                                swapData.touchState % 2 == 0 ? transData.langName : langData.langName,
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 1,
                                 textAlign: TextAlign.start,
@@ -93,7 +102,7 @@ class Conversation extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const ToLanguageStt(),
+                            builder: (context) => swap.touchState % 2 == 0 ? const SourceLanguageStt() : const ToLanguageStt(),
                           ),
                         );
                       },
@@ -110,16 +119,16 @@ class Conversation extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Expanded(
-                            child: Consumer<TransLanguageStt>(
-                              builder: (context, data, child) {
+                            child: Consumer3<TransLanguageStt, LanguagesStt, Swap>(
+                              builder: (context, transData, langData, swapData, child) {
                                 return Text(
-                                  data.langName,
+                                  swapData.touchState % 2 == 0 ? langData.langName : transData.langName,
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 1,
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
                                     fontSize: 14.sp,
-                                    fontFamily: 'Space',
+                                    fontFamily: 'gothic',
                                   ),
                                 );
                               },
