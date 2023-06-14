@@ -23,7 +23,6 @@ class SourceLanguageModel extends ChangeNotifier {
   
 }
 
-// TODO: need some refactoring.
 class TranslatedLanguageModel extends ChangeNotifier {
 
   String language = 'Filipino (Tagalog)';

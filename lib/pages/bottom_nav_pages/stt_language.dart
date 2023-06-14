@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:translate/model/list_supported_lang.dart';
 import 'package:translate/utils/colors.dart';
 import 'package:provider/provider.dart';
-import 'package:speech_to_text/speech_to_text.dart' as stt;
 import 'package:translate/model/stt.dart';
 
-// // TODO: Experiment this, if satisfied then use this.
+// TODO: Experiment this, if satisfied then use this.
 
 // class Speech extends StatefulWidget {
 //   const Speech({super.key});
@@ -116,41 +115,6 @@ class SourceLanguageStt extends StatefulWidget {
 }
 
 class _SourceLanguageSttState extends State<SourceLanguageStt> {
-  late stt.SpeechToText speech;
-  List<stt.LocaleName> locales = [];
-  bool langAvail = false;
-  bool speechEnabled = false;
-
-  // TODO: need to append supported languages into local maps. Find a way to initialize once the languages is appended to the maps.
-  // Future<void> getSupportedLanguages() async {
-  //   await speech.initialize();
-  //   // ignore: no_leading_underscores_for_local_identifiers
-  //   List<stt.LocaleName> _locales = await speech.locales();
-  //   setState(() {
-  //     SttSupportedLanguages.supLanguanges = _locales;
-  //   });
-  //   for (var locale in locales) {
-  //     debugPrint('Language: ${locale.name}, Locale Id: ${locale.localeId}');
-  //   }
-  // }
-
-  // void initSpeech() async {
-  //   speechEnabled = await speech.initialize(
-  //     onStatus: (String status) {
-  //       if (status == 'done') {
-  //         debugPrint("Status Done");
-  //       }
-  //     },
-  //   );
-  //   setState(() {});
-  // }
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   speech = stt.SpeechToText();
-  //   getSupportedLanguages();
-  // }
 
   @override
   Widget build(BuildContext context) {
