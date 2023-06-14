@@ -11,6 +11,7 @@ import 'package:translate/pages/bottom_nav_pages/discover%20pages/festival/festi
 import 'package:translate/utils/colors.dart';
 import 'model/model.dart';
 import 'model/show_hide_model.dart';
+import 'model/swap_lang.dart';
 import 'pages/bottom_nav_pages/trans_language.dart';
 import 'pages/intro_page/introduction.dart';
 import 'pages/side_menu/about.dart';
@@ -54,6 +55,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider<TransLanguageStt>(
           create: (_) => TransLanguageStt(),
+        ),
+        ChangeNotifierProvider<Swap>(
+          create: (_) => Swap(),
         ),
       ],
       child: ScreenUtilInit(
