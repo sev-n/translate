@@ -10,11 +10,10 @@ import 'package:translate/utils/colors.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 
 class Conversation extends StatefulWidget {
-  final stt.SpeechToText speech;
-  final bool isInitialized;
+  // final stt.SpeechToText speech;
+  // final bool isInitialized;
 
-  const Conversation(
-      {super.key, required this.speech, required this.isInitialized});
+  const Conversation({super.key});
 
   @override
   State<Conversation> createState() => _ConversationState();
@@ -32,10 +31,10 @@ class _ConversationState extends State<Conversation> {
       color: const Color(0xff222831),
       child: Stack(
         children: [
-          Text(
-            "${widget.isInitialized}",
-            style: const TextStyle(color: Colors.white),
-          ),
+          // Text(
+          //   "${widget.isInitialized}",
+          //   style: const TextStyle(color: Colors.white),
+          // ),
           Padding(
             padding: EdgeInsets.only(top: 30.h, left: 10.w),
             child: Row(
@@ -176,34 +175,34 @@ class _ConversationState extends State<Conversation> {
               children: [
                 Consumer<LanguagesStt>(
                   builder: (context, data, child) {
-                    void listen() async {
-                      if (widget.isInitialized) {
-                        setState(() => isListening = true);
-                        widget.speech.listen(
-                          onResult: (val) => setState(
-                            () {
-                              text = val.recognizedWords;
-                              // if (val.hasConfidenceRating && val.confidence > 0) {
-                              //   confidence = val.confidence;
-                              // }
-                            },
-                          ),
-                          localeId: data.langCode,
-                          listenMode: stt.ListenMode.dictation,
-                        );
-                      } else {
-                        setState(() => isListening = false);
-                        widget.speech.stop();
-                      }
-                    }
+                    // void listen() async {
+                    //   if (widget.isInitialized) {
+                    //     setState(() => isListening = true);
+                    //     widget.speech.listen(
+                    //       onResult: (val) => setState(
+                    //         () {
+                    //           text = val.recognizedWords;
+                    //           // if (val.hasConfidenceRating && val.confidence > 0) {
+                    //           //   confidence = val.confidence;
+                    //           // }
+                    //         },
+                    //       ),
+                    //       localeId: data.langCode,
+                    //       listenMode: stt.ListenMode.dictation,
+                    //     );
+                    //   } else {
+                    //     setState(() => isListening = false);
+                    //     widget.speech.stop();
+                    //   }
+                    // }
 
                     return AvatarGlow(
-                      animate: true,
+                      animate: false,
                       glowColor: Colors.grey,
                       endRadius: 75.0,
                       duration: const Duration(milliseconds: 1000),
                       repeatPauseDuration: const Duration(milliseconds: 100),
-                      repeat: true,
+                      repeat: false,
                       child: Container(
                         width: 65,
                         height: 65,
@@ -213,7 +212,7 @@ class _ConversationState extends State<Conversation> {
                         child: ElevatedButton(
                           onPressed: () {
                             // Button press logic
-                            listen();
+                            //listen();
                           },
                           style: ElevatedButton.styleFrom(
                             elevation: 10,
