@@ -2,9 +2,8 @@
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart';
 import 'package:translate/model/custom_leading.dart';
-import 'package:translate/model/model.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/custom_search.dart';
 import 'package:translate/utils/colors.dart';
 
 bool isSpeakingCompleted = false;
@@ -95,7 +94,7 @@ class _BeachesState extends State<Beaches> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const ItemsSearch()),
+                          builder: (context) => ItemsSearch(map: searchMap)),
                     );
                   },
                   icon: const Icon(Icons.search),
@@ -689,176 +688,4 @@ class _BeachesState extends State<Beaches> {
   }
 }
 
-// TODO: Need some refactoring
 
-class CustomSearch extends SearchDelegate {
-  final BuildContext scaffoldContext;
-
-  CustomSearch(this.scaffoldContext);
-
-  @override
-  List<Widget> buildActions(BuildContext context) {
-    return [
-      IconButton(
-        icon: const Icon(Icons.clear),
-        onPressed: () {
-          query = '';
-        },
-      ),
-    ];
-  }
-
-  @override
-  Widget buildLeading(BuildContext context) {
-    return IconButton(
-      icon: const Icon(Icons.arrow_back),
-      onPressed: () {
-        close(context, null);
-      },
-    );
-  }
-
-  @override
-  Widget buildResults(BuildContext context) {
-    // Perform search logic here with query
-    final List<MapEntry<String, GlobalKey>> filteredResults = [];
-
-    for (MapEntry<String, GlobalKey> e in searchMap.entries) {
-      if (e.key.toLowerCase().contains(query.toLowerCase())) {
-        filteredResults.add(e);
-      }
-    }
-
-    return ListView.builder(
-      itemCount: filteredResults.length,
-      itemBuilder: (context, index) {
-        final MapEntry<String, GlobalKey> entry = filteredResults[index];
-        return ListTile(
-          title: Text(
-            entry.key,
-            style: const TextStyle(
-              color: Colors.white,
-              fontFamily: 'gothic',
-            ),
-          ),
-          onTap: () {
-            close(context, entry);
-          },
-        );
-      },
-    );
-  }
-
-  @override
-  Widget buildSuggestions(BuildContext context) {
-    //var updateLang = Provider.of<SourceLanguageModel>(context, listen: false);
-
-    var key = Provider.of<GetIndex>(context, listen: false);
-    // Display suggestions based on query and perform the same logic above.
-    // TODO: not sure if we need the buildResult, need to double check later.
-    final List<MapEntry<String, GlobalKey>> filteredResults = [];
-
-    for (MapEntry<String, GlobalKey> item in searchMap.entries) {
-      if (item.key.toLowerCase().contains(query.toLowerCase())) {
-        filteredResults.add(item);
-      }
-    }
-
-    return Container(
-      color: darkColor,
-      child: ListView.builder(
-        itemCount: filteredResults.length,
-        itemBuilder: (context, index) {
-          final MapEntry<String, GlobalKey> entry = filteredResults[index];
-          return ListTile(
-            title: Text(
-              entry.key,
-              style: const TextStyle(
-                color: Colors.white,
-                fontFamily: 'gothic',
-              ),
-            ),
-            onTap: () {
-              // updateLang.setText(entry.value);
-              // updateLang.setLangCode(entry.key);
-
-              // debugPrint(updateLang.getLangName);
-              // debugPrint(updateLang.getLangCode);
-              debugPrint("Beaches");
-              
-              key.setKey(entry.value);
-              close(context, entry);
-              Navigator.pop(context);
-              //Scrollable.ensureVisible(key1.currentContext!);
-              //Navigator.pop(scaffoldContext);
-              Scrollable.ensureVisible(
-                key.key!.currentContext!,
-                duration: const Duration(milliseconds: 1000),
-                curve: Curves.easeInOut,
-              );
-            },
-          );
-        },
-      ),
-    );
-  }
-}
-
-class ItemsSearch extends StatefulWidget {
-  const ItemsSearch({super.key});
-
-  @override
-  State<ItemsSearch> createState() => _ItemsSearchState();
-}
-
-class _ItemsSearchState extends State<ItemsSearch> {
-  @override
-  Widget build(BuildContext context) {
-    var key = Provider.of<GetIndex>(context, listen: false);
-
-    return Builder(builder: (BuildContext scaffoldContext) {
-      return Scaffold(
-        backgroundColor: darkColor,
-        appBar: AppBar(
-          actions: [
-            IconButton(
-              onPressed: () {
-                showSearch(
-                  context: context,
-                  delegate: CustomSearch(scaffoldContext),
-                );
-              },
-              icon: const Icon(Icons.search),
-            ),
-          ],
-        ),
-        body: ListView.builder(
-          itemCount: searchMap.length,
-          itemBuilder: (BuildContext context, int index) {
-            String name = searchMap.keys.elementAt(index);
-            // ignore: no_leading_underscores_for_local_identifiers
-            GlobalKey _key = searchMap.values.elementAt(index);
-            return ListTile(
-              title: Text(
-                name,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontFamily: 'gothic',
-                ),
-              ),
-              onTap: () {
-                key.setKey(_key);
-                Scrollable.ensureVisible(
-                  key.key!.currentContext!,
-                  duration: const Duration(milliseconds: 1000),
-                  curve: Curves.easeInOut,
-                );
-                Navigator.pop(context);
-              },
-            );
-          },
-        ),
-      );
-    });
-  }
-}
