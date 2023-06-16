@@ -20,8 +20,8 @@ class _PageOneState extends State<PageOne> {
       child: Column(
         children: [
           SizedBox(
-            width: 380.w,
-            height: 380.h,
+            width: 360.w,
+            height: 360.h,
             child: Lottie.asset('assets/lottie/page1.json'),
           ),
           Padding(
