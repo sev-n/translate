@@ -27,13 +27,13 @@ final key6 = GlobalKey();
 final key7 = GlobalKey();
 
 Map<String, GlobalKey> searchMap = {
-  'nido': key1,
-  'lagoon': key2,
-  'cove': key3,
-  'kayangan': key4,
-  'white': key5,
-  'siargao': key6,
-  'baler': key7,
+  'El Nido': key1,
+  'Blue Lagoon': key2,
+  'Crystal Cove': key3,
+  'Kayangan Lake': key4,
+  'White Island': key5,
+  'Siargao Island': key6,
+  'Baler': key7,
 };
 
 final ScrollController scrollController = ScrollController();
@@ -125,7 +125,7 @@ class _BeachesState extends State<Beaches> {
             //sliver items
 
             SliverToBoxAdapter(
-              key: searchMap['nido'],
+              key: searchMap['El Nido'],
               child: Padding(
                 padding: EdgeInsets.all(20.0.w),
                 child: Container(
@@ -206,7 +206,7 @@ class _BeachesState extends State<Beaches> {
               ),
             ),
             SliverToBoxAdapter(
-              key: searchMap['lagoon'],
+              key: searchMap['Blue Lagoon'],
               child: Padding(
                 padding: EdgeInsets.all(20.0.w),
                 child: Container(
@@ -285,7 +285,7 @@ class _BeachesState extends State<Beaches> {
               ),
             ),
             SliverToBoxAdapter(
-              key: searchMap['cove'],
+              key: searchMap['Crystal Cove'],
               child: Padding(
                 padding: EdgeInsets.all(20.0.w),
                 child: Container(
@@ -364,7 +364,7 @@ class _BeachesState extends State<Beaches> {
               ),
             ),
             SliverToBoxAdapter(
-              key: searchMap['kayangan'],
+              key: searchMap['Kayangan Lake'],
               child: Padding(
                 padding: EdgeInsets.all(20.0.w),
                 child: Container(
@@ -445,7 +445,7 @@ class _BeachesState extends State<Beaches> {
               ),
             ),
             SliverToBoxAdapter(
-              key: searchMap['white'],
+              key: searchMap['White Island'],
               child: Padding(
                 padding: EdgeInsets.all(20.0.w),
                 child: Container(
@@ -526,7 +526,7 @@ class _BeachesState extends State<Beaches> {
               ),
             ),
             SliverToBoxAdapter(
-              key: searchMap['siargao'],
+              key: searchMap['Siargao Island'],
               child: Padding(
                 padding: EdgeInsets.all(20.0.w),
                 child: Container(
@@ -604,7 +604,7 @@ class _BeachesState extends State<Beaches> {
               ),
             ),
             SliverToBoxAdapter(
-              key: searchMap['baler'],
+              key: searchMap['Baler'],
               child: Padding(
                 padding: EdgeInsets.all(20.0.w),
                 child: Container(

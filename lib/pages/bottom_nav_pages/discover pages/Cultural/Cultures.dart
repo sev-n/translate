@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:translate/model/custom_leading.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/custom_search.dart';
 import 'package:translate/utils/colors.dart';
 
 bool isSpeakingCompleted = false;
@@ -14,6 +15,20 @@ Map<String, bool> iconStateCulture = {
   "quiapo": false,
   "cultural": false,
   'vigan': false,
+};
+
+final key1 = GlobalKey();
+final key2 = GlobalKey();
+final key3 = GlobalKey();
+final key4 = GlobalKey();
+final key5 = GlobalKey();
+
+Map<String, GlobalKey> searchMapCultures = {
+  'Intramuros': key1,
+  'Rizal Park': key2,
+  'Quiapo Church': key3,
+  'Cultural Center': key4,
+  'Vigan City': key5
 };
 
 class Cultures extends StatefulWidget {
@@ -61,6 +76,18 @@ class _CulturesState extends State<Cultures> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            actions: [
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ItemsSearch(map: searchMapCultures)),
+                  );
+                },
+                icon: const Icon(Icons.search),
+              ),
+            ],
             backgroundColor: accent,
             leading: const LeadingWidget(),
             expandedHeight: 250,
@@ -84,6 +111,7 @@ class _CulturesState extends State<Cultures> {
             ),
           ),
           SliverToBoxAdapter(
+            key: searchMapCultures['Intramuros'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -164,6 +192,7 @@ class _CulturesState extends State<Cultures> {
             ),
           ),
           SliverToBoxAdapter(
+            key: searchMapCultures['Rizal Park'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -244,6 +273,7 @@ class _CulturesState extends State<Cultures> {
             ),
           ),
           SliverToBoxAdapter(
+            key: searchMapCultures['Quiapo Church'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -322,6 +352,7 @@ class _CulturesState extends State<Cultures> {
             ),
           ),
           SliverToBoxAdapter(
+            key: searchMapCultures['Cultural Center'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -402,6 +433,7 @@ class _CulturesState extends State<Cultures> {
             ),
           ),
           SliverToBoxAdapter(
+            key: searchMapCultures['Vigan City'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(

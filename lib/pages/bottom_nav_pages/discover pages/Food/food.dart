@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:translate/model/custom_leading.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/custom_search.dart';
 import 'package:translate/utils/colors.dart';
 
 bool isSpeakingCompleted = false;
@@ -18,6 +19,30 @@ Map<String, bool> iconStateFood = {
   'halo-halo': false,
   'ice': false,
   'bulalo': false,
+};
+
+final key1 = GlobalKey();
+final key2 = GlobalKey();
+final key3 = GlobalKey();
+final key4 = GlobalKey();
+final key5 = GlobalKey();
+final key6 = GlobalKey();
+final key7 = GlobalKey();
+final key8 = GlobalKey();
+final key9 = GlobalKey();
+final key10 = GlobalKey();
+
+Map<String, GlobalKey> searchMapFoods = {
+  'Adobo': key1,
+  'Sinigang': key2,
+  'Crispy Pata': key3,
+  'Sisig': key4,
+  'Kare-Kare': key5,
+  'Balut': key6,
+  'Bicol Express': key7,
+  'Halo-Halo': key8,
+  'Ice Candy': key9,
+  'Bulalo': key10,
 };
 
 class Foods extends StatefulWidget {
@@ -70,6 +95,18 @@ class _FoodsState extends State<Foods> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            actions: [
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ItemsSearch(map: searchMapFoods)),
+                  );
+                },
+                icon: const Icon(Icons.search),
+              ),
+            ],
             backgroundColor: accent,
             leading: const LeadingWidget(),
             expandedHeight: 250,
@@ -93,6 +130,7 @@ class _FoodsState extends State<Foods> {
             ),
           ),
           SliverToBoxAdapter(
+            key: searchMapFoods['Adobo'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -173,6 +211,7 @@ class _FoodsState extends State<Foods> {
             ),
           ),
           SliverToBoxAdapter(
+            key: searchMapFoods['Sinigang'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -250,6 +289,7 @@ class _FoodsState extends State<Foods> {
             ),
           ),
           SliverToBoxAdapter(
+            key: searchMapFoods['Crispy Pata'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -327,6 +367,7 @@ class _FoodsState extends State<Foods> {
             ),
           ),
           SliverToBoxAdapter(
+            key: searchMapFoods['Sisig'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -404,6 +445,7 @@ class _FoodsState extends State<Foods> {
             ),
           ),
           SliverToBoxAdapter(
+            key: searchMapFoods['Kare-Kare'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -481,6 +523,7 @@ class _FoodsState extends State<Foods> {
             ),
           ),
           SliverToBoxAdapter(
+            key: searchMapFoods['Balut'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -558,6 +601,7 @@ class _FoodsState extends State<Foods> {
             ),
           ),
           SliverToBoxAdapter(
+            key: searchMapFoods['Bicol Express'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -635,6 +679,7 @@ class _FoodsState extends State<Foods> {
             ),
           ),
           SliverToBoxAdapter(
+            key: searchMapFoods['Halo-Halo'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -712,6 +757,7 @@ class _FoodsState extends State<Foods> {
             ),
           ),
           SliverToBoxAdapter(
+            key: searchMapFoods['Ice Candy'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -789,6 +835,7 @@ class _FoodsState extends State<Foods> {
             ),
           ),
           SliverToBoxAdapter(
+            key: searchMapFoods['Bulalo'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
