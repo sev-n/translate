@@ -206,22 +206,22 @@ class CustomSearch extends SearchDelegate {
           final MapEntry<String, String> entry = filteredResults[index];
           return ListTile(
             title: Text(
-              entry.value,
-              style: const TextStyle(
-                color: Colors.white,
-                fontFamily: 'gothic',
-              ),
-            ),
-            subtitle: Text(
               entry.key,
               style: const TextStyle(
                 color: Colors.white,
                 fontFamily: 'gothic',
               ),
             ),
+            subtitle: Text(
+              entry.value,
+              style: const TextStyle(
+                color: Colors.white,
+                fontFamily: 'gothic',
+              ),
+            ),
             onTap: () {
-              updateLang.setText(entry.value);
-              updateLang.setLangCode(entry.key);
+              updateLang.setText(entry.key);
+              updateLang.setLangCode(entry.value);
 
               debugPrint(updateLang.getLangName);
               debugPrint(updateLang.getLangCode);
