@@ -2,6 +2,7 @@ import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:translate/model/list_supported_lang.dart';
 import 'package:translate/model/stt.dart';
 import 'package:translate/model/swap_lang.dart';
 import 'package:translate/pages/bottom_nav_pages/stt_language.dart';
@@ -10,32 +11,59 @@ import 'package:translate/utils/colors.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 
 class Conversation extends StatefulWidget {
-  final stt.SpeechToText speech;
-  final bool isInitialized;
+  // final stt.SpeechToText speech;
+  // final bool isInitialized;
 
-  const Conversation(
-      {super.key, required this.speech, required this.isInitialized});
+  const Conversation({super.key});
 
   @override
   State<Conversation> createState() => _ConversationState();
 }
 
 class _ConversationState extends State<Conversation> {
+  stt.SpeechToText speech = stt.SpeechToText();
+  List<stt.LocaleName> locales = [];
+  bool speechEnabled = false;
   bool isListening = false;
   String text = 'Press the button to start speak!';
+
+  Future<void> initSpeech() async {
+    bool success = await speech.initialize(
+      onStatus: (String status) {
+        if (status == 'done') {
+          debugPrint("Status Done");
+          setState(() => isListening = false);
+        }
+      },
+    );
+    // ignore: no_leading_underscores_for_local_identifiers
+    List<stt.LocaleName> _locales = await speech.locales();
+    setState(() {
+      SttSupportedLanguages.supLanguanges = _locales;
+    });
+
+    setState(() {
+      speechEnabled = success;
+    });
+
+    debugPrint('$speechEnabled');
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    initSpeech();
+  }
 
   @override
   Widget build(BuildContext context) {
     var swap = Provider.of<Swap>(context, listen: false);
+    var textProvider = Provider.of<LanguagesSpokeStt>(context, listen: false);
 
     return Container(
       color: const Color(0xff222831),
       child: Stack(
         children: [
-          Text(
-            "${widget.isInitialized}",
-            style: const TextStyle(color: Colors.white),
-          ),
           Padding(
             padding: EdgeInsets.only(top: 30.h, left: 10.w),
             child: Row(
@@ -169,36 +197,58 @@ class _ConversationState extends State<Conversation> {
               ],
             ),
           ),
+          Center(
+            child: Container(
+              width: 340.w,
+              height: 290.h,
+              decoration: BoxDecoration(
+                color: const Color(0xff393E46),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Consumer<LanguagesSpokeStt>(
+                builder: (context, data, child) {
+                  return ListView.builder(
+                    itemCount: data.containers.length,
+                    itemBuilder: (context, int index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: data.containers[index],
+                      );
+                    },
+                  );
+                },
+              ),
+            ),
+          ),
           Align(
-            alignment: const Alignment(0, 0.80),
+            alignment: const Alignment(0, 1.05),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Consumer<LanguagesStt>(
                   builder: (context, data, child) {
                     void listen() async {
-                      if (widget.isInitialized) {
-                        setState(() => isListening = true);
-                        widget.speech.listen(
-                          onResult: (val) => setState(
-                            () {
-                              text = val.recognizedWords;
-                              // if (val.hasConfidenceRating && val.confidence > 0) {
-                              //   confidence = val.confidence;
-                              // }
-                            },
-                          ),
+                      if (speechEnabled && isListening) {
+                        
+                        speech.listen(
+                          onResult: (val) {
+                            Widget add = textProvider
+                                .createContainer(val.recognizedWords);
+                            textProvider.addContainer(add);
+                            debugPrint(textProvider.words);
+                          },
                           localeId: data.langCode,
                           listenMode: stt.ListenMode.dictation,
+                          partialResults: false,
                         );
                       } else {
                         setState(() => isListening = false);
-                        widget.speech.stop();
+                        speech.stop();
                       }
                     }
 
                     return AvatarGlow(
-                      animate: true,
+                      animate: !speech.isNotListening,
                       glowColor: Colors.grey,
                       endRadius: 75.0,
                       duration: const Duration(milliseconds: 1000),
@@ -213,6 +263,7 @@ class _ConversationState extends State<Conversation> {
                         child: ElevatedButton(
                           onPressed: () {
                             // Button press logic
+                            setState(() => isListening = true);
                             listen();
                           },
                           style: ElevatedButton.styleFrom(
@@ -221,7 +272,9 @@ class _ConversationState extends State<Conversation> {
                             padding: const EdgeInsets.all(16),
                             backgroundColor: accent,
                           ),
-                          child: const Icon(Icons.mic_none),
+                          child: Icon(!speech.isNotListening
+                              ? Icons.mic
+                              : Icons.mic_none),
                         ),
                       ),
                     );
