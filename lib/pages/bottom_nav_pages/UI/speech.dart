@@ -27,15 +27,20 @@ class _ConversationState extends State<Conversation> {
   bool isListening = false;
   String text = 'Press the button to start speak!';
 
+  void stopListening() async {
+    await speech.stop();
+    setState(() {});
+  }
+
   Future<void> initSpeech() async {
     bool success = await speech.initialize(
-      onStatus: (String status) {
-        if (status == 'done') {
-          debugPrint("Status Done");
-          setState(() => isListening = false);
-        }
-      },
-    );
+        onStatus: (String status) {
+          if (status == 'done') {
+            debugPrint("Status Done");
+            stopListening();
+          }
+        },
+        onError: (status) => debugPrint("$status"));
     // ignore: no_leading_underscores_for_local_identifiers
     List<stt.LocaleName> _locales = await speech.locales();
     setState(() {
@@ -212,7 +217,13 @@ class _ConversationState extends State<Conversation> {
                     itemBuilder: (context, int index) {
                       return Padding(
                         padding: const EdgeInsets.all(16.0),
-                        child: data.containers[index],
+                        child: Dismissible(
+                          key: UniqueKey(),
+                          child: data.containers[index],
+                          onDismissed: (DismissDirection direction){
+                              data.removeContainer(index);
+                          },
+                        ),
                       );
                     },
                   );
@@ -228,27 +239,28 @@ class _ConversationState extends State<Conversation> {
                 Consumer<LanguagesStt>(
                   builder: (context, data, child) {
                     void listen() async {
-                      if (speechEnabled && isListening) {
-                        
-                        speech.listen(
-                          onResult: (val) {
-                            Widget add = textProvider
-                                .createContainer(val.recognizedWords);
-                            textProvider.addContainer(add);
-                            debugPrint(textProvider.words);
-                          },
-                          localeId: data.langCode,
-                          listenMode: stt.ListenMode.dictation,
-                          partialResults: false,
-                        );
-                      } else {
-                        setState(() => isListening = false);
-                        speech.stop();
-                      }
+                      //if (speechEnabled) {
+                      //setState(() => isListening = true);
+                      await speech.listen(
+                        onResult: (val) {
+                          Widget add =
+                              textProvider.createContainer(val.recognizedWords);
+                          textProvider.addContainer(add);
+                          debugPrint(textProvider.words);
+                        },
+                        localeId: data.langCode,
+                        listenMode: stt.ListenMode.dictation,
+                        partialResults: false,
+                      );
+                      setState(() {});
+                      // } else {
+                      //   setState(() => isListening = false);
+                      //   //speech.stop();
+                      // }
                     }
 
                     return AvatarGlow(
-                      animate: !speech.isNotListening,
+                      animate: speech.isListening,
                       glowColor: Colors.grey,
                       endRadius: 75.0,
                       duration: const Duration(milliseconds: 1000),
@@ -263,8 +275,7 @@ class _ConversationState extends State<Conversation> {
                         child: ElevatedButton(
                           onPressed: () {
                             // Button press logic
-                            setState(() => isListening = true);
-                            listen();
+                            speech.isNotListening ? listen() : stopListening();
                           },
                           style: ElevatedButton.styleFrom(
                             elevation: 10,
@@ -272,9 +283,8 @@ class _ConversationState extends State<Conversation> {
                             padding: const EdgeInsets.all(16),
                             backgroundColor: accent,
                           ),
-                          child: Icon(!speech.isNotListening
-                              ? Icons.mic
-                              : Icons.mic_none),
+                          child: Icon(
+                              speech.isListening ? Icons.mic : Icons.mic_none),
                         ),
                       ),
                     );

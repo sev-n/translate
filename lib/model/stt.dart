@@ -87,4 +87,9 @@ class LanguagesSpokeStt extends ChangeNotifier {
     containers.add(container);
     notifyListeners();
   }
+
+  void removeContainer(int index){
+    containers.removeAt(index);
+    notifyListeners();
+  }
 }
