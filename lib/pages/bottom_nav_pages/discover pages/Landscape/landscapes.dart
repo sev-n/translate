@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:translate/model/custom_leading.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/custom_search.dart';
 import 'package:translate/utils/colors.dart';
 
 bool isSpeakingCompleted = false;
@@ -20,6 +21,29 @@ Map<String, bool> iconStateLandscape = {
   'pinatubo': false,
   'pulag': false,
   'apo': false,
+};
+final key1 = GlobalKey();
+final key2 = GlobalKey();
+final key3 = GlobalKey();
+final key4 = GlobalKey();
+final key5 = GlobalKey();
+final key6 = GlobalKey();
+final key7 = GlobalKey();
+final key8 = GlobalKey();
+final key9 = GlobalKey();
+final key10 = GlobalKey();
+
+Map<String, GlobalKey> searchMapLandscapes = {
+  'Osmena Peak': key1,
+  'Mt. Kanlaon': key2,
+  'Mt. Kabunian': key3,
+  'Mt. Kitanglad': key4,
+  'Mt. Dulang-dulang': key5,
+  'Mt. Guiting-guiting': key6,
+  'Mt. Halcon': key7,
+  'Mt. Pinatubo': key8,
+  'Mt. Pulag': key9,
+  'Mt. Apo': key10
 };
 
 class Landscapes extends StatefulWidget {
@@ -72,6 +96,18 @@ class _LandscapesState extends State<Landscapes> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            actions: [
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ItemsSearch(map: searchMapLandscapes)),
+                  );
+                },
+                icon: const Icon(Icons.search),
+              ),
+            ],
             backgroundColor: accent,
             leading: const LeadingWidget(),
             expandedHeight: 250,
@@ -97,6 +133,7 @@ class _LandscapesState extends State<Landscapes> {
           //sliver items
 
           SliverToBoxAdapter(
+            key: searchMapLandscapes['Osmena Peak'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -179,6 +216,7 @@ class _LandscapesState extends State<Landscapes> {
           ),
 
           SliverToBoxAdapter(
+            key: searchMapLandscapes['Mt. Kanlaon'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -262,6 +300,7 @@ class _LandscapesState extends State<Landscapes> {
           ),
 
           SliverToBoxAdapter(
+            key: searchMapLandscapes['Mt. Kabunian'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -345,6 +384,7 @@ class _LandscapesState extends State<Landscapes> {
           ),
 
           SliverToBoxAdapter(
+            key: searchMapLandscapes['Mt. Kitanglad'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -427,6 +467,7 @@ class _LandscapesState extends State<Landscapes> {
           ),
 
           SliverToBoxAdapter(
+            key: searchMapLandscapes['Mt. Dulang-dulang'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -510,6 +551,7 @@ class _LandscapesState extends State<Landscapes> {
           ),
 
           SliverToBoxAdapter(
+            key: searchMapLandscapes['Mt. Guiting-guiting'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -593,6 +635,7 @@ class _LandscapesState extends State<Landscapes> {
           ),
 
           SliverToBoxAdapter(
+            key: searchMapLandscapes['Mt. Halcon'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -676,6 +719,7 @@ class _LandscapesState extends State<Landscapes> {
           ),
 
           SliverToBoxAdapter(
+            key: searchMapLandscapes['Mt. Pinatubo'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -759,6 +803,7 @@ class _LandscapesState extends State<Landscapes> {
           ),
 
           SliverToBoxAdapter(
+            key: searchMapLandscapes['Mt. Pulag'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -842,6 +887,7 @@ class _LandscapesState extends State<Landscapes> {
           ),
 
           SliverToBoxAdapter(
+            key: searchMapLandscapes['Mt. Apo'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(

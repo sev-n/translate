@@ -35,8 +35,8 @@ class _SourceLanguage extends State<SourceLanguage> {
         body: ListView.builder(
           itemCount: ListLanguage.langs.values.length,
           itemBuilder: (BuildContext context, int index) {
-            String langCode = ListLanguage.langs.keys.elementAt(index);
-            String langName = ListLanguage.langs.values.elementAt(index);
+            String langCode = ListLanguage.langs.values.elementAt(index);
+            String langName = ListLanguage.langs.keys.elementAt(index);
             return ListTile(
               title: Text(
                 langName,
@@ -87,8 +87,8 @@ class _LanguagesToTranslateState extends State<LanguagesToTranslate> {
       body: ListView.builder(
         itemCount: TranslateToLanguages.tLangs.values.length,
         itemBuilder: (BuildContext context, int index) {
-          String langCode = TranslateToLanguages.tLangs.keys.elementAt(index);
-          String langName = TranslateToLanguages.tLangs.values.elementAt(index);
+          String langCode = TranslateToLanguages.tLangs.values.elementAt(index);
+          String langName = TranslateToLanguages.tLangs.keys.elementAt(index);
           return ListTile(
             title: Text(
               langName,
@@ -206,22 +206,22 @@ class CustomSearch extends SearchDelegate {
           final MapEntry<String, String> entry = filteredResults[index];
           return ListTile(
             title: Text(
-              entry.value,
-              style: const TextStyle(
-                color: Colors.white,
-                fontFamily: 'gothic',
-              ),
-            ),
-            subtitle: Text(
               entry.key,
               style: const TextStyle(
                 color: Colors.white,
                 fontFamily: 'gothic',
               ),
             ),
+            subtitle: Text(
+              entry.value,
+              style: const TextStyle(
+                color: Colors.white,
+                fontFamily: 'gothic',
+              ),
+            ),
             onTap: () {
-              updateLang.setText(entry.value);
-              updateLang.setLangCode(entry.key);
+              updateLang.setText(entry.key);
+              updateLang.setLangCode(entry.value);
 
               debugPrint(updateLang.getLangName);
               debugPrint(updateLang.getLangCode);

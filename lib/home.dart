@@ -1,14 +1,10 @@
-// ignore_for_file: no_leading_underscores_for_local_identifiers
-
 import 'package:flutter/material.dart';
-import 'package:translate/model/list_supported_lang.dart';
 import 'package:translate/utils/colors.dart';
 import 'pages/bottom_nav_pages/UI/speech.dart';
 import 'pages/bottom_nav_pages/UI/default_page.dart';
 import 'pages/bottom_nav_pages/UI/discover.dart';
 import 'pages/bottom_nav_pages/UI/history.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:speech_to_text/speech_to_text.dart' as stt;
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,9 +16,6 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   //index
   int currentIndex = 0;
-  stt.SpeechToText speech = stt.SpeechToText();
-  List<stt.LocaleName> locales = [];
-  bool speechEnabled = false;
 
   void updateIndex(int index) {
     setState(() {
@@ -40,37 +33,6 @@ class HomePageState extends State<HomePage> {
   TextStyle myTextStyle = const TextStyle(
     fontFamily: 'Space',
   );
-
-  Future<void> getSupportedLanguages() async {
-    await speech.initialize();
-    List<stt.LocaleName> _locales = await speech.locales();
-    setState(() {
-      SttSupportedLanguages.supLanguanges = _locales;
-    });
-
-    for (var locale in locales) {
-      debugPrint('Language: ${locale.name}, Locale Id: ${locale.localeId}');
-    }
-  }
-
-  Future<void> initSpeech() async {
-    bool success = await speech.initialize(
-      onStatus: (String status) {
-        if (status == 'done') {
-          debugPrint("Status Done");
-        }
-      },
-    );
-    setState(() {
-      speechEnabled = success;
-    });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    getSupportedLanguages();
-  }
 
   @override
   Widget build(BuildContext context) {

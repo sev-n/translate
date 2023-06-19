@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:translate/model/custom_leading.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/custom_search.dart';
 import 'package:translate/utils/colors.dart';
 
 bool isSpeakingCompleted = false;
@@ -20,6 +21,29 @@ Map<String, bool> iconStateFestival = {
   'aliwan': false,
   'penafrancia': false,
   'air': false,
+};
+final key1 = GlobalKey();
+final key2 = GlobalKey();
+final key3 = GlobalKey();
+final key4 = GlobalKey();
+final key5 = GlobalKey();
+final key6 = GlobalKey();
+final key7 = GlobalKey();
+final key8 = GlobalKey();
+final key9 = GlobalKey();
+final key10 = GlobalKey();
+
+Map<String, GlobalKey> searchMapFestivals = {
+  'Ati-Atihan Festival': key1,
+  'Sinulog Festival': key2,
+  'Dinagyang Festival': key3,
+  'Panagbenga Festival': key4,
+  'Moriones Festival': key5,
+  'Pahiyas Festival': key6,
+  'Pintados Festival': key7,
+  'Aliwan Festival': key8,
+  'Penefrancia Festival': key9,
+  'Air Balloon Fiesta': key10,
 };
 
 class Festivals extends StatefulWidget {
@@ -72,6 +96,18 @@ class _FestivalsState extends State<Festivals> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            actions: [
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ItemsSearch(map: searchMapFestivals)),
+                  );
+                },
+                icon: const Icon(Icons.search),
+              ),
+            ],
             backgroundColor: accent,
             leading: const LeadingWidget(),
             expandedHeight: 250.h,
@@ -97,6 +133,7 @@ class _FestivalsState extends State<Festivals> {
           //sliver items
 
           SliverToBoxAdapter(
+            key: searchMapFestivals['Ati-Atihan Festival'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -186,6 +223,7 @@ class _FestivalsState extends State<Festivals> {
           ),
 
           SliverToBoxAdapter(
+            key: searchMapFestivals['Sinulog Festival'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -276,6 +314,7 @@ class _FestivalsState extends State<Festivals> {
           ),
 
           SliverToBoxAdapter(
+            key: searchMapFestivals['Dinagyang Festival'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -363,6 +402,7 @@ class _FestivalsState extends State<Festivals> {
           ),
 
           SliverToBoxAdapter(
+            key: searchMapFestivals['Panagbenga Festival'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -451,6 +491,7 @@ class _FestivalsState extends State<Festivals> {
           ),
 
           SliverToBoxAdapter(
+            key: searchMapFestivals['Moriones Festival'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -538,6 +579,7 @@ class _FestivalsState extends State<Festivals> {
           ),
 
           SliverToBoxAdapter(
+            key: searchMapFestivals['Pahiyas Festival'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -626,6 +668,7 @@ class _FestivalsState extends State<Festivals> {
           ),
 
           SliverToBoxAdapter(
+            key: searchMapFestivals['Pintados Festival'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -714,6 +757,7 @@ class _FestivalsState extends State<Festivals> {
           ),
 
           SliverToBoxAdapter(
+            key: searchMapFestivals['Aliwan Festival'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -801,6 +845,7 @@ class _FestivalsState extends State<Festivals> {
           ),
 
           SliverToBoxAdapter(
+            key: searchMapFestivals['Penefrancia Festival'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -889,6 +934,7 @@ class _FestivalsState extends State<Festivals> {
           ),
 
           SliverToBoxAdapter(
+            key: searchMapFestivals['Air Balloon Fiesta'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(

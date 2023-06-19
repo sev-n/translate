@@ -45,3 +45,17 @@ class TranslatedLanguageModel extends ChangeNotifier {
 
 }
 
+
+class GetIndex extends ChangeNotifier{
+  // ignore: unused_field
+  GlobalKey? _key;
+
+  void setKey(GlobalKey key){
+    _key = key;
+  }
+
+  GlobalKey? get key => _key;
+  
+
+}
+

@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_final_fields
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:translate/utils/colors.dart';
 
 class LanguagesStt extends ChangeNotifier {
   String localeName = 'English';
@@ -39,6 +41,55 @@ class TransLanguageStt extends ChangeNotifier {
 }
 
 class LanguagesSpokeStt extends ChangeNotifier {
+  String receivedWords = '';
 
+  List<Widget> containers = [];
 
+  String get words => receivedWords;
+
+  void setWords(String words) {
+    receivedWords = words;
+    notifyListeners();
+  }
+
+  Widget createContainer(String text) {
+    return Container(
+      padding: const EdgeInsets.all(12),
+      height: 70.h,
+      decoration: BoxDecoration(
+        color: darkColor,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            text,
+            style: const TextStyle(
+              color: Color(0xffEEEEEE),
+              fontFamily: 'gothic',
+            ),
+          ),
+          const SizedBox(height: 10),
+          const Text(
+            "Translated text here!",
+            style: TextStyle(
+              color: Color(0xffEEEEEE),
+              fontFamily: 'gothic',
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void addContainer(Widget container) {
+    containers.add(container);
+    notifyListeners();
+  }
+
+  void removeContainer(int index){
+    containers.removeAt(index);
+    notifyListeners();
+  }
 }
