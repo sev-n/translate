@@ -156,7 +156,7 @@ class HomePageState extends State<HomePage> {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 50), // Adjust the value as needed
+                    top: 25), // Adjust the value as needed
                 child: ListTile(
                   leading: const Icon(
                     Icons.three_p_rounded,
@@ -167,6 +167,7 @@ class HomePageState extends State<HomePage> {
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontFamily: 'GothicA1',
+                      fontSize: 18,
                       color: darkColor,
                     ),
                   ),
@@ -188,6 +189,7 @@ class HomePageState extends State<HomePage> {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontFamily: 'GothicA1',
+fontSize: 18,
                     color: darkColor,
                   ),
                 ),
