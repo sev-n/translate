@@ -238,7 +238,6 @@ class _ConversationState extends State<Conversation> {
               children: [
                 Consumer<LanguagesStt>(
                   builder: (context, data, child) {
-
                     void listen() async {
                       //if (speechEnabled) {
                       //setState(() => isListening = true);
@@ -266,7 +265,7 @@ class _ConversationState extends State<Conversation> {
                       endRadius: 75.0,
                       duration: const Duration(milliseconds: 1000),
                       repeatPauseDuration: const Duration(milliseconds: 100),
-                      repeat: false,
+                      repeat: true,
                       child: Container(
                         width: 65,
                         height: 65,
