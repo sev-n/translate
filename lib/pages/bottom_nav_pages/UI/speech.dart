@@ -29,7 +29,9 @@ class _ConversationState extends State<Conversation> {
 
   void stopListening() async {
     await speech.stop();
-    setState(() {});
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   Future<void> initSpeech() async {
@@ -58,6 +60,13 @@ class _ConversationState extends State<Conversation> {
   void initState() {
     super.initState();
     initSpeech();
+  }
+
+  @override
+  void dispose() {
+    // Cancel any ongoing operations
+    speech.cancel();
+    super.dispose();
   }
 
   @override
@@ -220,8 +229,8 @@ class _ConversationState extends State<Conversation> {
                         child: Dismissible(
                           key: UniqueKey(),
                           child: data.containers[index],
-                          onDismissed: (DismissDirection direction){
-                              data.removeContainer(index);
+                          onDismissed: (DismissDirection direction) {
+                            data.removeContainer(index);
                           },
                         ),
                       );
