@@ -260,6 +260,7 @@ class _ConversationState extends State<Conversation> {
                         localeId: data.langCode,
                         listenMode: stt.ListenMode.dictation,
                         partialResults: false,
+                        listenFor: const Duration(seconds: 5),
                       );
                       setState(() {});
                       // } else {
