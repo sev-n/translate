@@ -9,6 +9,7 @@ import 'package:translate/pages/bottom_nav_pages/stt_language.dart';
 import 'package:translate/utils/animate.dart';
 import 'package:translate/utils/colors.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
+import 'package:translator/translator.dart';
 
 class Conversation extends StatefulWidget {
   // final stt.SpeechToText speech;
@@ -27,13 +28,41 @@ class _ConversationState extends State<Conversation> {
   bool isListening = false;
   String text = 'Press the button to start speak!';
 
-  List<String> langId = [
-    'en_US',
-    'fil_PH',
-    'ja_JP',
-    'ko_KR',
-    'cmn_CN'
-  ];
+  List<String> langId = ['en_US', 'fil_PH', 'ja_JP', 'ko_KR', 'cmn_CN'];
+
+  Map<String, String> convertLangStt = {
+    'en_US': 'en',
+    'fil_PH': 'tl',
+    'ja_JP': 'ja',
+    'ko_KR': 'ko',
+    'cmn_CN': 'zn-cn'
+  };
+
+  Map<String, String> convertLangTts = {
+    'en_US': 'en',
+    'fil_PH': 'tl',
+    'ja_JP': 'ja',
+    'ko_KR': 'ko',
+    'cmn_CN': 'zn-cn'
+  };
+
+  String convertStt(String text) {
+    for (var entry in convertLangStt.entries) {
+      if (entry.key == text) {
+        return entry.value;
+      }
+    }
+    return 'language not supported';
+  }
+
+  String convertTts(String text) {
+    for (var entry in convertLangStt.entries) {
+      if (entry.key == text) {
+        return entry.value;
+      }
+    }
+    return 'language not supported';
+  }
 
   void stopListening() async {
     await speech.stop();
@@ -53,12 +82,12 @@ class _ConversationState extends State<Conversation> {
         onError: (status) => debugPrint("$status"));
     // ignore: no_leading_underscores_for_local_identifiers
     List<stt.LocaleName> _locales = await speech.locales();
-    for(stt.LocaleName id in _locales){
-      if(langId.contains(id.localeId)){
+    for (stt.LocaleName id in _locales) {
+      if (langId.contains(id.localeId)) {
         debugPrint(id.localeId);
         setState(() {
           SttSupportedLanguages.supLanguanges.add(id);
-        TranslateToLanguagesStt.languanges.add(id);
+          TranslateToLanguagesStt.languanges.add(id);
         });
       }
     }
@@ -86,6 +115,7 @@ class _ConversationState extends State<Conversation> {
   Widget build(BuildContext context) {
     var swap = Provider.of<Swap>(context, listen: false);
     var textProvider = Provider.of<LanguagesSpokeStt>(context, listen: false);
+    var transProvider = Provider.of<TranslatedText>(context, listen: false);
 
     return Container(
       color: const Color(0xff222831),
@@ -258,19 +288,38 @@ class _ConversationState extends State<Conversation> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Consumer<LanguagesStt>(
-                  builder: (context, data, child) {
+                Consumer3<LanguagesStt, TransLanguageStt, TranslatedText>(
+                  builder: (context, langstt, transStt, transText, child) {
+                    Future<String> translate(String text) async {
+                      final translator = GoogleTranslator();
+                      var fromLang = convertStt(langstt.langCode);
+                      var toLang = convertStt(transStt.langCode);
+                      var translation = await translator.translate(text,
+                          from: fromLang,
+                          to: toLang);
+
+                      transProvider.setText(translation.toString());
+
+                      return translation.toString();
+                    }
+
                     void listen() async {
                       //if (speechEnabled) {
                       //setState(() => isListening = true);
+
                       await speech.listen(
-                        onResult: (val) {
-                          Widget add =
-                              textProvider.createContainer(val.recognizedWords);
+                        onResult: (val) async {
+                          String translatedText =
+                              await translate(val.recognizedWords);
+
+                          Widget add = textProvider.createContainer(
+                              val.recognizedWords, translatedText.toString());
+
                           textProvider.addContainer(add);
+
                           debugPrint(textProvider.words);
                         },
-                        localeId: data.langCode,
+                        localeId: langstt.langCode,
                         listenMode: stt.ListenMode.dictation,
                         partialResults: false,
                         listenFor: const Duration(seconds: 5),
