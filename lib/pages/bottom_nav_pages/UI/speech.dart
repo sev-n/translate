@@ -27,6 +27,14 @@ class _ConversationState extends State<Conversation> {
   bool isListening = false;
   String text = 'Press the button to start speak!';
 
+  List<String> langId = [
+    'en_US',
+    'fil_PH',
+    'ja_JP',
+    'ko_KR',
+    'cmn_CN'
+  ];
+
   void stopListening() async {
     await speech.stop();
     if (mounted) {
@@ -45,10 +53,15 @@ class _ConversationState extends State<Conversation> {
         onError: (status) => debugPrint("$status"));
     // ignore: no_leading_underscores_for_local_identifiers
     List<stt.LocaleName> _locales = await speech.locales();
-    setState(() {
-      SttSupportedLanguages.supLanguanges = _locales;
-    });
-
+    for(stt.LocaleName id in _locales){
+      if(langId.contains(id.localeId)){
+        debugPrint(id.localeId);
+        setState(() {
+          SttSupportedLanguages.supLanguanges.add(id);
+        TranslateToLanguagesStt.languanges.add(id);
+        });
+      }
+    }
     setState(() {
       speechEnabled = success;
     });

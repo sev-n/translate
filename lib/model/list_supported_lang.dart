@@ -74,5 +74,5 @@ class SttSupportedLanguages {
 }
 
 class TranslateToLanguagesStt {
-  static final sttLangs = {'en_US': 'English', 'fil_PH': 'Filipino'};
+  static List<stt.LocaleName> languanges = [];
 }

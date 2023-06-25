@@ -173,22 +173,20 @@ class _ToLanguageSttState extends State<ToLanguageStt> {
       backgroundColor: darkColor,
       appBar: AppBar(),
       body: ListView.builder(
-        itemCount: TranslateToLanguagesStt.sttLangs.length,
+        itemCount: TranslateToLanguagesStt.languanges.length,
         itemBuilder: (BuildContext context, int index) {
-          String langCode =
-              TranslateToLanguagesStt.sttLangs.keys.elementAt(index);
-          String langName =
-              TranslateToLanguagesStt.sttLangs.values.elementAt(index);
+          String localeName = TranslateToLanguagesStt.languanges[index].name;
+          String localeCode = TranslateToLanguagesStt.languanges[index].localeId;
           return ListTile(
             title: Text(
-              langName,
+              localeName,
               style: const TextStyle(
                 color: Colors.white,
                 fontFamily: 'gothic',
               ),
             ),
             subtitle: Text(
-              langCode,
+              localeCode,
               style: const TextStyle(
                 color: Colors.white,
                 fontFamily: 'gothic',
@@ -196,8 +194,8 @@ class _ToLanguageSttState extends State<ToLanguageStt> {
             ),
             onTap: () {
               // Do something when the user taps on a language
-              stt.setLangName(langName);
-              stt.setLangCode(langCode);
+              stt.setLangName(localeName);
+              stt.setLangCode(localeCode);
               // debugPrint('Selected language name: ${langStt.langName}');
               // debugPrint('Seclected language code: ${langStt.langCode}');
               Navigator.pop(context);
