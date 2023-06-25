@@ -22,6 +22,18 @@ class LanguagesStt extends ChangeNotifier {
   }
 }
 
+class TranslatedText extends ChangeNotifier {
+  String _translatedText = '';
+
+  String get translatedText => _translatedText;
+
+  void setText(var text){
+    _translatedText =  text;
+    notifyListeners();
+  }
+
+}
+
 class TransLanguageStt extends ChangeNotifier {
   String _langName = 'Filipino';
   String _langCode = 'fil_PH';
@@ -41,6 +53,8 @@ class TransLanguageStt extends ChangeNotifier {
 }
 
 class LanguagesSpokeStt extends ChangeNotifier {
+
+
   String receivedWords = '';
 
   List<Widget> containers = [];
@@ -52,7 +66,9 @@ class LanguagesSpokeStt extends ChangeNotifier {
     notifyListeners();
   }
 
-  Widget createContainer(String text) {
+
+
+  Widget createContainer(String text, String translatedText) {
     return Container(
       padding: const EdgeInsets.all(12),
       height: 70.h,
@@ -71,9 +87,9 @@ class LanguagesSpokeStt extends ChangeNotifier {
             ),
           ),
           const SizedBox(height: 10),
-          const Text(
-            "Translated text here!",
-            style: TextStyle(
+          Text(
+            translatedText,
+            style: const TextStyle(
               color: Color(0xffEEEEEE),
               fontFamily: 'gothic',
             ),
@@ -88,7 +104,7 @@ class LanguagesSpokeStt extends ChangeNotifier {
     notifyListeners();
   }
 
-  void removeContainer(int index){
+  void removeContainer(int index) {
     containers.removeAt(index);
     notifyListeners();
   }
