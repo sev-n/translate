@@ -27,11 +27,10 @@ class TranslatedText extends ChangeNotifier {
 
   String get translatedText => _translatedText;
 
-  void setText(var text){
-    _translatedText =  text;
+  void setText(var text) {
+    _translatedText = text;
     notifyListeners();
   }
-
 }
 
 class TransLanguageStt extends ChangeNotifier {
@@ -53,8 +52,6 @@ class TransLanguageStt extends ChangeNotifier {
 }
 
 class LanguagesSpokeStt extends ChangeNotifier {
-
-
   String receivedWords = '';
 
   List<Widget> containers = [];
@@ -66,38 +63,64 @@ class LanguagesSpokeStt extends ChangeNotifier {
     notifyListeners();
   }
 
-
-
   Widget createContainer(String text, String translatedText) {
     return Container(
-      padding: const EdgeInsets.all(12),
-      height: 70.h,
+      //padding: const EdgeInsets.all(12),
+      height: 120.h,
       decoration: BoxDecoration(
         color: darkColor,
         borderRadius: BorderRadius.circular(10),
       ),
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              text,
-              style: const TextStyle(
-                color: Color(0xffEEEEEE),
-                fontFamily: 'gothic',
+      child: Stack(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.volume_down_rounded),
+                iconSize: 30,
+                color: const Color(0xff35bbca),
+                splashRadius: 5,
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.info_outline_rounded),
+                iconSize: 28,
+                color: const Color(0xff35bbca),
+                splashRadius: 5,
+              ),
+            ],
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 40.h, left: 20.w),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    text,
+                    style: TextStyle(
+                      color: const Color(0xffEEEEEE),
+                      fontFamily: 'gothic',
+                      fontSize: 16.sp,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    translatedText,
+                    style: TextStyle(
+                      color: const Color(0xffEEEEEE),
+                      fontFamily: 'gothic',
+                      fontSize: 14.sp,
+                    ),
+                  ),
+                ],
               ),
             ),
-            const SizedBox(height: 10),
-            Text(
-              translatedText,
-              style: const TextStyle(
-                color: Color(0xffEEEEEE),
-                fontFamily: 'gothic',
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
