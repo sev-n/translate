@@ -288,12 +288,13 @@ class _ConversationState extends State<Conversation> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Consumer3<LanguagesStt, TransLanguageStt, TranslatedText>(
-                  builder: (context, langstt, transStt, transText, child) {
+                Consumer4<LanguagesStt, TransLanguageStt, TranslatedText, Swap>(
+                  builder: (context, langstt, transStt, transText, swap, child) {
                     Future<String> translate(String text) async {
                       final translator = GoogleTranslator();
-                      var fromLang = convertStt(langstt.langCode);
-                      var toLang = convertStt(transStt.langCode);
+
+                      var fromLang = convertStt(swap.touchState % 2 == 0 ? transStt.langCode : langstt.langCode );
+                      var toLang = convertStt(swap.touchState % 2 == 0 ? langstt.langCode : transStt.langCode);
                       var translation = await translator.translate(text,
                           from: fromLang,
                           to: toLang);
