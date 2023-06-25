@@ -76,25 +76,28 @@ class LanguagesSpokeStt extends ChangeNotifier {
         color: darkColor,
         borderRadius: BorderRadius.circular(10),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            text,
-            style: const TextStyle(
-              color: Color(0xffEEEEEE),
-              fontFamily: 'gothic',
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              text,
+              style: const TextStyle(
+                color: Color(0xffEEEEEE),
+                fontFamily: 'gothic',
+              ),
             ),
-          ),
-          const SizedBox(height: 10),
-          Text(
-            translatedText,
-            style: const TextStyle(
-              color: Color(0xffEEEEEE),
-              fontFamily: 'gothic',
+            const SizedBox(height: 10),
+            Text(
+              translatedText,
+              style: const TextStyle(
+                color: Color(0xffEEEEEE),
+                fontFamily: 'gothic',
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
