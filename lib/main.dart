@@ -65,6 +65,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<GetIndex>(
           create: (_) => GetIndex(),
         ),
+        ChangeNotifierProvider<TranslatedText>(
+          create: (_) => TranslatedText(),
+        ),
       ],
       child: ScreenUtilInit(
         designSize: const Size(360, 690),
