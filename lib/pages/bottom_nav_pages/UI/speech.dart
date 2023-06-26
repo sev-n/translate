@@ -38,13 +38,7 @@ class _ConversationState extends State<Conversation> {
     'cmn_CN': 'zn-cn'
   };
 
-  Map<String, String> convertLangTts = {
-    'en_US': 'en',
-    'fil_PH': 'tl',
-    'ja_JP': 'ja',
-    'ko_KR': 'ko',
-    'cmn_CN': 'zn-cn'
-  };
+  
 
   String convertStt(String text) {
     for (var entry in convertLangStt.entries) {
@@ -55,14 +49,6 @@ class _ConversationState extends State<Conversation> {
     return 'language not supported';
   }
 
-  String convertTts(String text) {
-    for (var entry in convertLangStt.entries) {
-      if (entry.key == text) {
-        return entry.value;
-      }
-    }
-    return 'language not supported';
-  }
 
   void stopListening() async {
     await speech.stop();
@@ -289,15 +275,20 @@ class _ConversationState extends State<Conversation> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Consumer4<LanguagesStt, TransLanguageStt, TranslatedText, Swap>(
-                  builder: (context, langstt, transStt, transText, swap, child) {
+                  builder:
+                      (context, langstt, transStt, transText, swap, child) {
+                    var fromLang = convertStt(swap.touchState % 2 == 0
+                        ? transStt.langCode
+                        : langstt.langCode);
+                    var toLang = convertStt(swap.touchState % 2 == 0
+                        ? langstt.langCode
+                        : transStt.langCode);
+
                     Future<String> translate(String text) async {
                       final translator = GoogleTranslator();
 
-                      var fromLang = convertStt(swap.touchState % 2 == 0 ? transStt.langCode : langstt.langCode );
-                      var toLang = convertStt(swap.touchState % 2 == 0 ? langstt.langCode : transStt.langCode);
                       var translation = await translator.translate(text,
-                          from: fromLang,
-                          to: toLang);
+                          from: fromLang, to: toLang);
 
                       transProvider.setText(translation.toString());
 
@@ -314,7 +305,10 @@ class _ConversationState extends State<Conversation> {
                               await translate(val.recognizedWords);
 
                           Widget add = textProvider.createContainer(
-                              val.recognizedWords, translatedText.toString());
+                              val.recognizedWords,
+                              translatedText.toString(),
+                              toLang);
+                          debugPrint(toLang);
 
                           textProvider.addContainer(add);
 

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:translate/utils/colors.dart';
 
 class LanguagesStt extends ChangeNotifier {
@@ -63,7 +64,42 @@ class LanguagesSpokeStt extends ChangeNotifier {
     notifyListeners();
   }
 
-  Widget createContainer(String text, String translatedText) {
+  Map<String, String> convertLangTts = {
+    'en': 'en-US',
+    'tl': 'fil-PH',
+    'ja': 'ja-JP',
+    'ko': 'ko-KR',
+    'zn-cn': 'zn-CN'
+  };
+
+  String convertTts(String text){
+    for (var entry in convertLangTts.entries) {
+      if (entry.key == text) {
+        return entry.value;
+      }
+    }
+    return 'language not supported';
+  }
+
+  speak(String text, String code) async {
+    final FlutterTts flutterTts = FlutterTts();
+    String selectedLanguage = code;
+    List<dynamic> languages = await flutterTts.getLanguages;
+
+    flutterTts.setCompletionHandler(() {});
+
+    if (!languages.contains(selectedLanguage)) {
+      // Language not supported
+      debugPrint("Selected language is not supported on this device");
+      return;
+    } else {
+      flutterTts.setLanguage(selectedLanguage);
+      await flutterTts.setPitch(1);
+      await flutterTts.speak(text);
+    }
+  }
+
+  Widget createContainer(String text, String translatedText, String code) {
     return Container(
       //padding: const EdgeInsets.all(12),
       height: 120.h,
@@ -77,7 +113,12 @@ class LanguagesSpokeStt extends ChangeNotifier {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () async {
+                  debugPrint(code);
+                  var getCode = convertTts(code);
+                  debugPrint(getCode);
+                  speak(translatedText, getCode);
+                },
                 icon: const Icon(Icons.volume_down_rounded),
                 iconSize: 30,
                 color: const Color(0xff35bbca),
