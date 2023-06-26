@@ -28,7 +28,7 @@ class _ConversationState extends State<Conversation> {
   bool isListening = false;
   String text = 'Press the button to start speak!';
 
-  List<String> langId = ['en_US', 'fil_PH', 'ja_JP', 'ko_KR', 'cmn_CN'];
+  List<String> langId = ['cmn_CN', 'en_US', 'fil_PH', 'ja_JP', 'ko_KR', ];
 
   Map<String, String> convertLangStt = {
     'en_US': 'en',
@@ -67,10 +67,12 @@ class _ConversationState extends State<Conversation> {
         },
         onError: (status) => debugPrint("$status"));
     // ignore: no_leading_underscores_for_local_identifiers
+    // TODO: need to fix a bug that if items is already added, still adding the languages.
     List<stt.LocaleName> _locales = await speech.locales();
     for (stt.LocaleName id in _locales) {
       if (langId.contains(id.localeId)) {
         debugPrint(id.localeId);
+        debugPrint("Adding languages to the list!!");
         setState(() {
           SttSupportedLanguages.supLanguanges.add(id);
           TranslateToLanguagesStt.languanges.add(id);
