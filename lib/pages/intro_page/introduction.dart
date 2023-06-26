@@ -40,6 +40,13 @@ class Introduction extends StatefulWidget {
 
 class _IntroductionState extends State<Introduction> {
   bool isLastPage = false;
+
+  @override
+  void dispose() {
+    controllerPage.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,19 +54,26 @@ class _IntroductionState extends State<Introduction> {
         child: Stack(
           alignment: Alignment.center,
           children: [
-            PageView(
-              onPageChanged: (index) {
-                setState(() {
-                  isLastPage = (index == 1);
-                });
+            Consumer<ShowState>(
+              builder: (context, data, child) {
+                return PageView(
+                  onPageChanged: (index) {
+                    setState(() {
+                      isLastPage = (index == 1);
+                    });
+                  },
+                  controller: controllerPage,
+                  physics: data.canSwipe
+                      ? null
+                      : const NeverScrollableScrollPhysics(),
+                  children: const [
+                    // pages
+                    PageOne(),
+                    PageTwo(),
+                    //PageThree(),
+                  ],
+                );
               },
-              controller: controllerPage,
-              children: const [
-                // pages
-                PageOne(),
-                PageTwo(),
-                //PageThree(),
-              ],
             ),
             isLastPage ? const GetStartedBtn() : const NextBtn(),
             isLastPage
@@ -150,6 +164,7 @@ class _GetStartedBtnState extends State<GetStartedBtn> {
             width: 200,
             child: ElevatedButton(
               onPressed: () {
+                varShow.setSwipeState(false);
                 sleep();
                 debugPrint('This also code execute');
                 varShow.setShow(false);
