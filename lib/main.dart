@@ -3,15 +3,24 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:translate/model/stt.dart';
-import 'package:translate/pages/bottom_nav_pages/discover%20pages/Beach/Beaches.dart';
-import 'package:translate/pages/bottom_nav_pages/discover%20pages/Cultural/Cultures.dart';
-import 'package:translate/pages/bottom_nav_pages/discover%20pages/Food/food.dart';
-import 'package:translate/pages/bottom_nav_pages/discover%20pages/Landscape/landscapes.dart';
-import 'package:translate/pages/bottom_nav_pages/discover%20pages/festival/festivals.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/Philippines/Beach/Beaches.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/China/china.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/Philippines/Cultural/Cultures.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/Philippines/Food/food.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/Japan/japan.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/Korea/korea.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/Philippines/Landscape/landscapes.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/Philippines/Philippines.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/Philippines/festival/festivals.dart';
 import 'package:translate/utils/colors.dart';
 import 'model/model.dart';
 import 'model/show_hide_model.dart';
 import 'model/swap_lang.dart';
+import 'pages/bottom_nav_pages/discover pages/Korea/Beach/K-Beaches.dart';
+import 'pages/bottom_nav_pages/discover pages/Korea/Cultural/K-Cultures.dart';
+import 'pages/bottom_nav_pages/discover pages/Korea/Food/K-Foods.dart';
+import 'pages/bottom_nav_pages/discover pages/Korea/Landscape/K-Landscapes.dart';
+import 'pages/bottom_nav_pages/discover pages/Korea/festival/K-Festivals.dart';
 import 'pages/bottom_nav_pages/trans_language.dart';
 import 'pages/intro_page/introduction.dart';
 import 'pages/side_menu/about.dart';
@@ -21,10 +30,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitDown,
-    DeviceOrientation.portraitUp
-  ]);
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
 
   final prefs = await SharedPreferences.getInstance();
 
@@ -91,6 +98,15 @@ class MyApp extends StatelessWidget {
               '/beaches': (content) => const Beaches(),
               '/festivals': (context) => const Festivals(),
               '/landscape': (context) => const Landscapes(),
+              '/philippines': (context) => const Philippines(),
+              '/korea': (context) => const Korea(),
+              '/k-beaches': (context) => const KBeaches(),
+              '/k-cultures': (context) => const KCultures(),
+              '/k-festivals': (context) => const KFestivals(),
+              '/k-foods': (context) => const KFoods(),
+              '/k-landscape': (context) => const KLandscapes(),
+              '/japan': (context) => const Japan(),
+              '/china': (context) => const China(),
             },
           );
         },

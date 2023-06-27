@@ -6,33 +6,91 @@ class Favorite extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(
-        color: const Color(0xff222831),
-        child: Stack(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(top: 30.h),
-              child: Column(
-                children: [
-                  Row(
+    return Container(
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
+      color: const Color(0xff222831),
+      child: Stack(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(top: 100.h),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Clickable(
+                      destination: '/philippines',
+                      child: Container(
+                        width: 150.w,
+                        height: 150.h,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          image: const DecorationImage(
+                            image: AssetImage('assets/PHIL.png'),
+                            fit: BoxFit.cover,
+                          ),
+                          borderRadius: BorderRadius.circular(10.r),
+                        ),
+                        child: Text(
+                          'Philippines',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'gothic',
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    Clickable(
+                      destination: '/korea',
+                      child: Container(
+                        width: 150.w,
+                        height: 150.h,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          image: const DecorationImage(
+                            image: AssetImage('assets/KOREA.png'),
+                            fit: BoxFit.cover,
+                          ),
+                          borderRadius: BorderRadius.circular(10.r),
+                        ),
+                        child: Text(
+                          'Korea',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'gothic',
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 100.h),
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Clickable(
-                        destination: '/beaches',
+                        destination: '/japan',
                         child: Container(
                           width: 150.w,
                           height: 150.h,
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                             image: const DecorationImage(
-                              image: AssetImage('assets/Beaches/BC.png'),
+                              image: AssetImage('assets/JAPAN.png'),
                               fit: BoxFit.cover,
                             ),
                             borderRadius: BorderRadius.circular(10.r),
                           ),
                           child: Text(
-                            'Beaches',
+                            'Japan',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 18.sp,
@@ -44,23 +102,23 @@ class Favorite extends StatelessWidget {
                         ),
                       ),
                       Clickable(
-                        destination: '/cultures',
+                        destination: '/china',
                         child: Container(
                           width: 150.w,
                           height: 150.h,
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                             image: const DecorationImage(
-                              image: AssetImage('assets/Cultural/CAC.png'),
-                              fit: BoxFit.cover,
-                            ),
+                                image: AssetImage('assets/CHINA.png'),
+                                fit: BoxFit.cover),
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(10.r),
                           ),
                           child: Text(
-                            'Culutural Attraction',
+                            'China',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 16.sp,
+                              fontSize: 18.sp,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'gothic',
                             ),
@@ -70,104 +128,11 @@ class Favorite extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 50.h),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Clickable(
-                          destination: '/foods',
-                          child: Container(
-                            width: 150.w,
-                            height: 150.h,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              image: const DecorationImage(
-                                image: AssetImage('assets/Foods/FDC.png'),
-                                fit: BoxFit.cover,
-                              ),
-                              borderRadius: BorderRadius.circular(10.r),
-                            ),
-                            child: Text(
-                              'Food Delicacy',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'gothic',
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ),
-                        Clickable(
-                          destination: '/festivals',
-                          child: Container(
-                            width: 150.w,
-                            height: 150.h,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              image: const DecorationImage(
-                                  image: AssetImage(
-                                      'assets/Festival/festival_bg.jpg'),
-                                  fit: BoxFit.cover),
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10.r),
-                            ),
-                            child: Text(
-                              'Festivals',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'gothic',
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 50.h, bottom: 50.h),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Clickable(
-                          destination: '/landscape',
-                          child: Container(
-                            width: 150.w,
-                            height: 150.h,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10.r),
-                              image: const DecorationImage(
-                                image: AssetImage('assets/Landscape/landscape_bg.jpg'),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            child: Text(
-                              'Landscape',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'gothic',
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
