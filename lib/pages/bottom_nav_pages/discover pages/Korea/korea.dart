@@ -85,7 +85,7 @@ class Korea extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Clickable(
-                              destination: '/foods',
+                              destination: '/k-foods',
                               child: Container(
                                 width: 150.w,
                                 height: 150.h,
