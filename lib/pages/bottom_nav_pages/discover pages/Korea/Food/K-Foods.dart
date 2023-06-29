@@ -11,16 +11,12 @@ bool isSpeakingCompleted = false;
 bool iconChange = false;
 
 Map<String, bool> iconStateFood = {
-  'adobo': false,
-  'sinigang': false,
-  'crispy': false,
-  'sisig': false,
-  'kare-kare': false,
-  'balut': false,
-  'bicol': false,
-  'halo-halo': false,
-  'ice': false,
-  'bulalo': false,
+  'kimchi': false,
+  'bibimbap': false,
+  'tteokbokki': false,
+  'bulgogi': false,
+  'jjigae': false,
+  'jajangmyeon': false,
 };
 
 final key1 = GlobalKey();
@@ -35,16 +31,12 @@ final key9 = GlobalKey();
 final key10 = GlobalKey();
 
 Map<String, GlobalKey> searchMapFoods = {
-  'Adobo': key1,
-  'Sinigang': key2,
-  'Crispy Pata': key3,
-  'Sisig': key4,
-  'Kare-Kare': key5,
-  'Balut': key6,
-  'Bicol Express': key7,
-  'Halo-Halo': key8,
-  'Ice Candy': key9,
-  'Bulalo': key10,
+  'Kimchi': key1,
+  'Bibimbap': key2,
+  'Tteokbokki': key3,
+  'Bulgogi': key4,
+  'Jjigae': key5,
+  'Jajangmyeon': key6,
 };
 
 class KFoods extends StatefulWidget {
@@ -63,16 +55,7 @@ class _FoodsState extends State<KFoods> {
     flutterTts.setCompletionHandler(() {
       setState(() {
         isSpeakingCompleted = true;
-        iconStateFood['adobo'] = false;
-        iconStateFood['sinigang'] = false;
-        iconStateFood['crispy'] = false;
-        iconStateFood['sisig'] = false;
-        iconStateFood['kare-kare'] = false;
-        iconStateFood['balut'] = false;
-        iconStateFood['bicol'] = false;
-        iconStateFood['halo-halo'] = false;
-        iconStateFood['ice'] = false;
-        iconStateFood['bulalo'] = false;
+        iconStateFood['kimchi'] = false;
       });
     });
 
@@ -132,7 +115,7 @@ class _FoodsState extends State<KFoods> {
             ),
           ),
           SliverToBoxAdapter(
-            key: searchMapFoods['Adobo'],
+            key: searchMapFoods['Kimchi'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -150,7 +133,7 @@ class _FoodsState extends State<KFoods> {
                         child: Align(
                           alignment: Alignment.topCenter,
                           child: Image.asset(
-                            'assets/Foods/ADOBO.jpg',
+                            'assets/Foods/KIMCHI.jpg',
                             fit: BoxFit.cover,
                             width: 400.w,
                             height: 250.h,
@@ -163,7 +146,7 @@ class _FoodsState extends State<KFoods> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Adobo',
+                              'Kimchi',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -173,11 +156,11 @@ class _FoodsState extends State<KFoods> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateFood['adobo'] = true;
+                                  iconStateFood['kimchi'] = true;
                                 });
-                                speak('Adobo');
+                                speak('Kimchi');
                               },
-                              icon: !iconStateFood['adobo']!
+                              icon: !iconStateFood['kimchi']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -197,7 +180,7 @@ class _FoodsState extends State<KFoods> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Adobo is often the national dish of the Philippines and it's centainly the most famous Filipino dish. The flavor is created using vinegar, soy sauce, garlic, bay leaves, and black pepper. Also chilli pepper are sometimes added to give it a little spice.",
+                          "Kimchi/Kimchee is a traditional Korean side dish made from fermented cabbage, radish, or cucumber. It is often categorized by the main vegetable ingredient used to make it. Kimchi is a staple food in Korean cuisine",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -213,7 +196,7 @@ class _FoodsState extends State<KFoods> {
             ),
           ),
           SliverToBoxAdapter(
-            key: searchMapFoods['Sinigang'],
+            key: searchMapFoods['Bibimbap'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -229,7 +212,7 @@ class _FoodsState extends State<KFoods> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10.w),
                         child: Image.asset(
-                          'assets/Foods/SINIGANG.jpg',
+                          'assets/Foods/BIBIMBAP.jpg',
                           fit: BoxFit.cover,
                           width: 400.w,
                           height: 220.h,
@@ -241,7 +224,7 @@ class _FoodsState extends State<KFoods> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Sinigang',
+                              'Bibimbap',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -251,11 +234,11 @@ class _FoodsState extends State<KFoods> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateFood['sinigang'] = true;
+                                  iconStateFood['bibimbap'] = true;
                                 });
-                                speak('Sinigang');
+                                speak('Bibimbap');
                               },
-                              icon: !iconStateFood['sinigang']!
+                              icon: !iconStateFood['bibimbap']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -275,7 +258,319 @@ class _FoodsState extends State<KFoods> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Sinigang is a sour soup that is typically made with pork and tamarind though sometinmes other sour fruits like guava, green mango or calamansi are used insted. Tomatoes, garlic, onion and various other vegetables complete the stew. It's delicious Filipino comfort food and makes for a hearty hangover breakfast if had a few to many liquor the night before.",
+                          "Bibimbap is probably one of the most well-known and beloved Korean dishes to many people. Even if people don't know anything about Korea, it's not too difficult to find people who had bibimbap sometime in their lives.",
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            key: searchMapFoods['Tteokbokki'],
+            child: Padding(
+              padding: EdgeInsets.all(20.0.w),
+              child: Container(
+                height: 520.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xff393E46),
+                  borderRadius: BorderRadius.circular(20.w),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(20.0.w),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10.w),
+                        child: Image.asset(
+                          'assets/Foods/TTEOKBOKKI.jpg',
+                          fit: BoxFit.cover,
+                          width: 400.w,
+                          height: 220.h,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Tteokbokki',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  iconStateFood['tteokbokki'] = true;
+                                });
+                                speak('Tteokbokki');
+                              },
+                              icon: !iconStateFood['tteokbokki']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Text(
+                          "Tteokbokki is chewy rice cakes cooked in a red, spicy broth. It's a popular Korean street food. When I was a student coming home from school it was hard to resist the spicy rice cakes sold by vendors on the street! They would have big vats of tteokbokki and just keep stirring and stirring.",
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            key: searchMapFoods['Bulgogi'],
+            child: Padding(
+              padding: EdgeInsets.all(20.0.w),
+              child: Container(
+                height: 520.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xff393E46),
+                  borderRadius: BorderRadius.circular(20.w),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(20.0.w),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10.w),
+                        child: Image.asset(
+                          'assets/Foods/BULGOGI.jpg',
+                          fit: BoxFit.cover,
+                          width: 400.w,
+                          height: 220.h,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Bulgogi',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  iconStateFood['bulgogi'] = true;
+                                });
+                                speak('Bulgogi');
+                              },
+                              icon: !iconStateFood['bulgogi']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Text(
+                          "Bulgogi means 'fire meat'. It is often made with tender parts of beef, pork or chicken. However, in general terms, unless spicified, bulgogi is made with beef. Undoubtedly it is one of the most well-known Korean tranditional foods and it has been around for thousands of years.  ",
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            key: searchMapFoods['Jjigae'],
+            child: Padding(
+              padding: EdgeInsets.all(20.0.w),
+              child: Container(
+                height: 520.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xff393E46),
+                  borderRadius: BorderRadius.circular(20.w),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(20.0.w),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10.w),
+                        child: Image.asset(
+                          'assets/Foods/JJIGAE.jpg',
+                          fit: BoxFit.cover,
+                          width: 400.w,
+                          height: 220.h,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Jjigae',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  iconStateFood['jjigae'] = true;
+                                });
+                                speak('Jjigae');
+                              },
+                              icon: !iconStateFood['jjigae']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Text(
+                          "Kimchi-jjigae or kimchi stew is one of the most-loved of all the stews in Korean cuisine. It's a warm, hearty, spicy, savory, delicious dish that pretty much everyone loves. As long as they can handle spicy food, I never met a person who didn't like kimchi-jjigae.",
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            key: searchMapFoods['Jajangmyeon'],
+            child: Padding(
+              padding: EdgeInsets.all(20.0.w),
+              child: Container(
+                height: 520.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xff393E46),
+                  borderRadius: BorderRadius.circular(20.w),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(20.0.w),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10.w),
+                        child: Image.asset(
+                          'assets/Foods/JAJANGMYEON.jpg',
+                          fit: BoxFit.cover,
+                          width: 400.w,
+                          height: 220.h,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Jajangmyeon',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  iconStateFood['jajangmyeon'] = true;
+                                });
+                                speak('Jajangmyeon');
+                              },
+                              icon: !iconStateFood['jajangmyeon']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Text(
+                          "Jjajangmyeon is everybody's favorite food. It's actually a very popular korean chinese dish, created by early Chinese immigrants in Korea, catering to Korea tastes. Tangsuyuk(sweet and souor pork) is another example.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
