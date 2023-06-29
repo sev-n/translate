@@ -17,7 +17,7 @@ Map<String, bool> iconState = {
   'cheongsihaeng': false,
   'wonpyeong': false,
   'yeongildae': false,
-  'boryeong': false,
+  'daecheon': false,
   'haeundae': false,
   'gwangalli': false,
 };
@@ -581,6 +581,318 @@ class _KBeachesState extends State<KBeaches> {
                           padding: EdgeInsets.only(top: 20.h),
                           child: Text(
                             "The beach is located in Ganggang-dong, Buk-gu, Pohang-si, Gyeongsangbuk-do, Douhu-dong. It is a representative beach in Pohang. It was reopened in 1975 and used the name of the northern beach of Pohang. In June 2013, it was changed to the current name.", textAlign: TextAlign.justify, style: TextStyle(
+                              fontSize: 14.sp,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              //key: searchMap['Sokcho'],
+              child: Padding(
+                padding: EdgeInsets.all(20.0.w),
+                child: Container(
+                  height: 550.h,
+                  decoration: BoxDecoration(
+                    color: const Color(0xff393E46),
+                    borderRadius: BorderRadius.circular(20.w),
+                  ),
+                  child: Padding( padding: EdgeInsets.all(20.0.w),
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10.w),
+                          child: Align(
+                            alignment: Alignment.topCenter,
+                            child: Image.asset(
+                              'assets/Beaches/WONPYEONG.jpg',
+                              fit: BoxFit.cover,
+                              width: 400.w,
+                              height: 250.h,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 20.h),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Wonpyeong',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    iconState['wonpyeong'] = true;
+                                  });
+                                  speak('Wonpyeong');
+                                },
+                                icon: !iconState['wonpyeong']!
+                                    ? const Icon(
+                                        Icons
+                                            .volume_down_rounded, // if clicked change color and icon
+                                        size: 30,
+                                        color: Color(0xff35bbca),
+                                      )
+                                    : const Icon(
+                                        Icons
+                                            .volume_up_rounded, // if clicked change color and icon
+                                        size: 30,
+                                        color: Colors.indigoAccent,
+                                      ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 20.h),
+                          child: Text(
+                            "Wonpyeong Beach, adjacent to Gungchon Beach, has a dense pine tree forest. Behind the beach area, you will find a marine bike railway. In particular, enjoying the water while camping in the thick pine trees is popular with family vacationers", textAlign: TextAlign.justify, style: TextStyle(
+                              fontSize: 14.sp,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              //key: searchMap['Sokcho'],
+              child: Padding(
+                padding: EdgeInsets.all(20.0.w),
+                child: Container(
+                  height: 550.h,
+                  decoration: BoxDecoration(
+                    color: const Color(0xff393E46),
+                    borderRadius: BorderRadius.circular(20.w),
+                  ),
+                  child: Padding( padding: EdgeInsets.all(20.0.w),
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10.w),
+                          child: Align(
+                            alignment: Alignment.topCenter,
+                            child: Image.asset(
+                              'assets/Beaches/DAECHEON.jpg',
+                              fit: BoxFit.cover,
+                              width: 400.w,
+                              height: 250.h,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 20.h),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Daecheon',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    iconState['daecheon'] = true;
+                                  });
+                                  speak('Daecheon');
+                                },
+                                icon: !iconState['daecheon']!
+                                    ? const Icon(
+                                        Icons
+                                            .volume_down_rounded, // if clicked change color and icon
+                                        size: 30,
+                                        color: Color(0xff35bbca),
+                                      )
+                                    : const Icon(
+                                        Icons
+                                            .volume_up_rounded, // if clicked change color and icon
+                                        size: 30,
+                                        color: Colors.indigoAccent,
+                                      ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 20.h),
+                          child: Text(
+                            "Daecheon Beach, located in Boryeong-si, Chungcheongnam-do, is a 3.5 kilometer-long, 100 meter-wide sandy beach. It is famous for its white sand mostly made from shells(instead of silica, like most beaches). In particular, it is also home for the annual Boryeong Mud Festival.", textAlign: TextAlign.justify, style: TextStyle(
+                              fontSize: 14.sp,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              //key: searchMap['Sokcho'],
+              child: Padding(
+                padding: EdgeInsets.all(20.0.w),
+                child: Container(
+                  height: 550.h,
+                  decoration: BoxDecoration(
+                    color: const Color(0xff393E46),
+                    borderRadius: BorderRadius.circular(20.w),
+                  ),
+                  child: Padding( padding: EdgeInsets.all(20.0.w),
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10.w),
+                          child: Align(
+                            alignment: Alignment.topCenter,
+                            child: Image.asset(
+                              'assets/Beaches/HAEUNDAE.jpg',
+                              fit: BoxFit.cover,
+                              width: 400.w,
+                              height: 250.h,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 20.h),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Haeundae',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    iconState['haeundae'] = true;
+                                  });
+                                  speak('Haeundae');
+                                },
+                                icon: !iconState['haeundae']!
+                                    ? const Icon(
+                                        Icons
+                                            .volume_down_rounded, // if clicked change color and icon
+                                        size: 30,
+                                        color: Color(0xff35bbca),
+                                      )
+                                    : const Icon(
+                                        Icons
+                                            .volume_up_rounded, // if clicked change color and icon
+                                        size: 30,
+                                        color: Colors.indigoAccent,
+                                      ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 20.h),
+                          child: Text(
+                            "Haeundae Beach is the most famous beach in Busan. The white sand beach is roughly 1.5 kilometer-long, over a 30-50 meter wide area, creating a beautiful coastline before a shallow bay, making it perfect for swimming.", textAlign: TextAlign.justify, style: TextStyle(
+                              fontSize: 14.sp,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              //key: searchMap['Sokcho'],
+              child: Padding(
+                padding: EdgeInsets.all(20.0.w),
+                child: Container(
+                  height: 550.h,
+                  decoration: BoxDecoration(
+                    color: const Color(0xff393E46),
+                    borderRadius: BorderRadius.circular(20.w),
+                  ),
+                  child: Padding( padding: EdgeInsets.all(20.0.w),
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10.w),
+                          child: Align(
+                            alignment: Alignment.topCenter,
+                            child: Image.asset(
+                              'assets/Beaches/GWANGALLI.jpg',
+                              fit: BoxFit.cover,
+                              width: 400.w,
+                              height: 250.h,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 20.h),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Gwangalli',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    iconState['gwangalli'] = true;
+                                  });
+                                  speak('Gwangalli');
+                                },
+                                icon: !iconState['gwangalli']!
+                                    ? const Icon(
+                                        Icons
+                                            .volume_down_rounded, // if clicked change color and icon
+                                        size: 30,
+                                        color: Color(0xff35bbca),
+                                      )
+                                    : const Icon(
+                                        Icons
+                                            .volume_up_rounded, // if clicked change color and icon
+                                        size: 30,
+                                        color: Colors.indigoAccent,
+                                      ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 20.h),
+                          child: Text(
+                            "Gwangalli Beach or Gwangan Beach is a beach in Busan, South Korea. It is located at Gwangan 2 Suryeong-gu, Busan Metropolitan City, west of Haeundae Beach. It sits inside a cove spanned by the Gwangan Bridge and covers 82,000 square meteres over a length of 1.4 km and a width of 25 - 110 metres.", textAlign: TextAlign.justify, style: TextStyle(
                               fontSize: 14.sp,
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
