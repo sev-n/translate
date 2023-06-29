@@ -35,7 +35,7 @@ class Korea extends StatelessWidget {
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
                                 image: const DecorationImage(
-                                  image: AssetImage('assets/Beaches/BC.png'),
+                                  image: AssetImage('assets/Beaches/KBC.png'),
                                   fit: BoxFit.cover,
                                 ),
                                 borderRadius: BorderRadius.circular(10.r),

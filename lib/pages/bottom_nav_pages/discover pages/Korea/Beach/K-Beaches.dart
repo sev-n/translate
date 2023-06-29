@@ -10,6 +10,16 @@ bool iconChange = false;
 
 Map<String, bool> iconState = {
   'surfyy': false,
+  'gwakji': false,
+  'jangho': false,
+  'sokcho': false,
+  'jeongdongjin': false,
+  'cheongsihaeng': false,
+  'wonpyeong': false,
+  'yeongildae': false,
+  'boryeong': false,
+  'haeundae': false,
+  'gwangalli': false,
 };
 
 final key1 = GlobalKey();
@@ -33,6 +43,16 @@ class _KBeachesState extends State<KBeaches> {
       setState(() {
         isSpeakingCompleted = true;
         iconState['surfyy'] = false;
+        iconState['gwakji'] = false;
+        iconState['jangho'] = false;
+        iconState['sokcho'] = false;
+        iconState['jeongdongjin'] = false;
+        iconState['cheongsihaeng'] = false;
+        iconState['yeongildae'] = false;
+        iconState['wonpyeong'] = false;
+        iconState['boryeong'] = false;
+        iconState['haeundae'] = false;
+        iconState['gwangalli'] = false;
       });
     });
 
@@ -78,7 +98,7 @@ class _KBeachesState extends State<KBeaches> {
               pinned: true,
               flexibleSpace: FlexibleSpaceBar(
                 background: Image.asset(
-                  'assets/Beaches/BC.png',
+                  'assets/Beaches/KBC.png',
                   fit: BoxFit.cover,
                 ),
                 titlePadding: EdgeInsets.only(top: 5.h, bottom: 10.h),
@@ -127,7 +147,7 @@ class _KBeachesState extends State<KBeaches> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'Gangwon-do Surfyy',
+                                'Gangwon-Do Surfyy',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 16.sp,
@@ -176,9 +196,406 @@ class _KBeachesState extends State<KBeaches> {
                 ),
               ),
             ),
+            SliverToBoxAdapter(
+              //key: searchMap['Gangwon-do'],
+              child: Padding(
+                padding: EdgeInsets.all(20.0.w),
+                child: Container(
+                  height: 550.h,
+                  decoration: BoxDecoration(
+                    color: const Color(0xff393E46),
+                    borderRadius: BorderRadius.circular(20.w),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(20.0.w),
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10.w),
+                          child: Align(
+                            alignment: Alignment.topCenter,
+                            child: Image.asset(
+                              'assets/Beaches/GWAKJI.jpg',
+                              fit: BoxFit.cover,
+                              width: 400.w,
+                              height: 250.h,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 20.h),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Gwakji',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    iconState['surfyy'] = true;
+                                  });
+                                  speak('Surfyy');
+                                },
+                                icon: !iconState['surfyy']!
+                                    ? const Icon(
+                                        Icons
+                                            .volume_down_rounded, // if clicked change color and icon
+                                        size: 30,
+                                        color: Color(0xff35bbca),
+                                      )
+                                    : const Icon(
+                                        Icons
+                                            .volume_up_rounded, // if clicked change color and icon
+                                        size: 30,
+                                        color: Colors.indigoAccent,
+                                      ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 20.h),
+                          child: Text(
+                            "Gwakji Gwamul Beach is one of the favorite beaches for Jeju Islands residents and visitors, not from this beautiful island located in Aewol-eup. Gwakji Beach is known for its expansive beach area and sandy shore. Being away from the Jeju City and populated area, the beach is proud of its crystal clear water.",
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(
+                              fontSize: 14.sp,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              //key: searchMap['Sokcho'],
+              child: Padding(
+                padding: EdgeInsets.all(20.0.w),
+                child: Container(
+                  height: 550.h,
+                  decoration: BoxDecoration(
+                    color: const Color(0xff393E46),
+                    borderRadius: BorderRadius.circular(20.w),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(20.0.w),
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10.w),
+                          child: Align(
+                            alignment: Alignment.topCenter,
+                            child: Image.asset(
+                              'assets/Beaches/JANGHO.jpg',
+                              fit: BoxFit.cover,
+                              width: 400.w,
+                              height: 250.h,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 20.h),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Jangho',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    iconState['jangho'] = true;
+                                  });
+                                  speak('Jangho');
+                                },
+                                icon: !iconState['jangho']!
+                                    ? const Icon(
+                                        Icons
+                                            .volume_down_rounded, // if clicked change color and icon
+                                        size: 30,
+                                        color: Color(0xff35bbca),
+                                      )
+                                    : const Icon(
+                                        Icons
+                                            .volume_up_rounded, // if clicked change color and icon
+                                        size: 30,
+                                        color: Colors.indigoAccent,
+                                      ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 20.h),
+                          child: Text(
+                            "Jangho Beach is a beautiful beach located on the eastcoast of Korea in Samcheok. Jangho Beach is famous for its serene view and especially the crystal clear water! Commonly referred to as the Naples of Korea, this is definitively one of the must visit beaches in summer.", textAlign: TextAlign.justify, style: TextStyle(
+                              fontSize: 14.sp,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              //key: searchMap['Sokcho'],
+              child: Padding(
+                padding: EdgeInsets.all(20.0.w),
+                child: Container(
+                  height: 550.h,
+                  decoration: BoxDecoration(
+                    color: const Color(0xff393E46),
+                    borderRadius: BorderRadius.circular(20.w),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(20.0.w),
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10.w),
+                          child: Align(
+                            alignment: Alignment.topCenter,
+                            child: Image.asset(
+                              'assets/Beaches/SOKCHO.jpg',
+                              fit: BoxFit.cover,
+                              width: 400.w,
+                              height: 250.h,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 20.h),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Sokcho',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    iconState['sokcho'] = true;
+                                  });
+                                  speak('Sokcho');
+                                },
+                                icon: !iconState['sokcho']!
+                                    ? const Icon(
+                                        Icons
+                                            .volume_down_rounded, // if clicked change color and icon
+                                        size: 30,
+                                        color: Color(0xff35bbca),
+                                      )
+                                    : const Icon(
+                                        Icons
+                                            .volume_up_rounded, // if clicked change color and icon
+                                        size: 30,
+                                        color: Colors.indigoAccent,
+                                      ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 20.h),
+                          child: Text(
+                            "Sokcho Beach is a pristine coastline that stretches around 2km in length. Dipping your toes in the refreshing East Sea should be the first thing you do when you arrive in Sokcho, especially considering that the bus terminal is a short hop from the beach entrance.", textAlign: TextAlign.justify, style: TextStyle(
+                              fontSize: 14.sp,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              //key: searchMap['Sokcho'],
+              child: Padding(
+                padding: EdgeInsets.all(20.0.w),
+                child: Container(
+                  height: 550.h,
+                  decoration: BoxDecoration(
+                    color: const Color(0xff393E46),
+                    borderRadius: BorderRadius.circular(20.w),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(20.0.w),
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10.w),
+                          child: Align(
+                            alignment: Alignment.topCenter,
+                            child: Image.asset(
+                              'assets/Beaches/JEONGDONGJIN.jpg',
+                              fit: BoxFit.cover,
+                              width: 400.w,
+                              height: 250.h,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 20.h),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Jeongdongjin',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    iconState['jeongdongjin'] = true;
+                                  });
+                                  speak('Jeongdongjin');
+                                },
+                                icon: !iconState['jeongdongjin']!
+                                    ? const Icon(
+                                        Icons
+                                            .volume_down_rounded, // if clicked change color and icon
+                                        size: 30,
+                                        color: Color(0xff35bbca),
+                                      )
+                                    : const Icon(
+                                        Icons
+                                            .volume_up_rounded, // if clicked change color and icon
+                                        size: 30,
+                                        color: Colors.indigoAccent,
+                                      ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 20.h),
+                          child: Text(
+                            "Jeongdongjin Beach is a nice, sandy beach that stretches over 250 meters with three major swimming spots: in front of Jeongdongjin Station, by Sandglass Park, and by the Jeongdongjin Breakwater. The spots near the railway station and by the park  are more popular because they are spacious and easy to reach.  ", textAlign: TextAlign.justify, style: TextStyle(
+                              fontSize: 14.sp,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              //key: searchMap['Sokcho'],
+              child: Padding(
+                padding: EdgeInsets.all(20.0.w),
+                child: Container(
+                  height: 550.h,
+                  decoration: BoxDecoration(
+                    color: const Color(0xff393E46),
+                    borderRadius: BorderRadius.circular(20.w),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(20.0.w),
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10.w),
+                          child: Align(
+                            alignment: Alignment.topCenter,
+                            child: Image.asset(
+                              'assets/Beaches/YEONGILDAE.jpg',
+                              fit: BoxFit.cover,
+                              width: 400.w,
+                              height: 250.h,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 20.h),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Yeongildae',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    iconState['yeongildae'] = true;
+                                  });
+                                  speak('Yeongildae');
+                                },
+                                icon: !iconState['yeongildae']!
+                                    ? const Icon(
+                                        Icons
+                                            .volume_down_rounded, // if clicked change color and icon
+                                        size: 30,
+                                        color: Color(0xff35bbca),
+                                      )
+                                    : const Icon(
+                                        Icons
+                                            .volume_up_rounded, // if clicked change color and icon
+                                        size: 30,
+                                        color: Colors.indigoAccent,
+                                      ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 20.h),
+                          child: Text(
+                            "The beach is located in Ganggang-dong, Buk-gu, Pohang-si, Gyeongsangbuk-do, Douhu-dong. It is a representative beach in Pohang. It was reopened in 1975 and used the name of the northern beach of Pohang. In June 2013, it was changed to the current name.", textAlign: TextAlign.justify, style: TextStyle(
+                              fontSize: 14.sp,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       );
-    });
+    },);
   }
 }
