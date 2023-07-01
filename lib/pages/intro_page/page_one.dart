@@ -19,18 +19,30 @@ class _PageOneState extends State<PageOne> {
       color: darkColor,
       child: Column(
         children: [
+          Padding(
+            padding: EdgeInsets.only(top: 50.h),
+            child: Text(
+              "Babel: Translation App",
+              style: TextStyle(
+                fontSize: 18.sp,
+                fontFamily: 'gothic',
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
           SizedBox(
             width: 360.w,
             height: 360.h,
             child: Lottie.asset('assets/lottie/page1.json'),
           ),
           Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: EdgeInsets.only(top: 0.h, left: 20.w, right: 20.w),
             child: Text(
               'Translate between languages with our translation app.',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 18.sp,
+                fontSize: 16.sp,
                 fontFamily: 'gothic',
                 color: Colors.white,
               ),

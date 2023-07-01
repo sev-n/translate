@@ -21,6 +21,18 @@ class _PageTwoState extends State<PageTwo> {
         children: [
           Padding(
             padding: EdgeInsets.only(top: 50.h),
+            child: Text(
+              "Babel: Translation App",
+              style: TextStyle(
+                fontSize: 18.sp,
+                fontFamily: 'gothic',
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 30.h),
             child: SizedBox(
               width: 300.w,
               height: 300.h,
@@ -28,12 +40,12 @@ class _PageTwoState extends State<PageTwo> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(30.0),
+            padding: EdgeInsets.only(top: 30.h, left: 20.w, right: 20.w),
             child: Text(
               'Discover a world of languages and unlock excellent communication with our intuitive translation app.',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 18.sp,
+                fontSize: 16.sp,
                 fontFamily: 'gothic',
                 color: Colors.white,
               ),
