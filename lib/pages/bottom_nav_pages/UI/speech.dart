@@ -66,9 +66,10 @@ class _ConversationState extends State<Conversation> {
           }
         },
         onError: (status) => debugPrint("$status"));
-    // ignore: no_leading_underscores_for_local_identifiers
-    // TODO: need to fix a bug that if items is already added, still adding the languages.
     List<stt.LocaleName> _locales = await speech.locales();
+    // clear the list so everytime initialize the list dont have any duplicates
+    SttSupportedLanguages.supLanguanges.clear();
+    TranslateToLanguagesStt.languanges.clear();
     for (stt.LocaleName id in _locales) {
       if (langId.contains(id.localeId)) {
         debugPrint(id.localeId);
