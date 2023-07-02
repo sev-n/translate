@@ -17,6 +17,10 @@ Map<String, bool> iconStateFood = {
   'bulgogi': false,
   'jjigae': false,
   'jajangmyeon': false,
+  'samgyeopsal': false,
+  'yangnyeom': false,
+  'bibim-naengmyeon': false,
+  'samgyetang': false,
 };
 
 final key1 = GlobalKey();
@@ -37,6 +41,10 @@ Map<String, GlobalKey> searchMapFoods = {
   'Bulgogi': key4,
   'Jjigae': key5,
   'Jajangmyeon': key6,
+  'Samgyeopsal': key7,
+  'Yangnyeom': key8,
+  'Bibim-naengmyeon': key9,
+  'Samgyetang': key10,
 };
 
 class KFoods extends StatefulWidget {
@@ -571,6 +579,318 @@ class _FoodsState extends State<KFoods> {
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
                           "Jjajangmyeon is everybody's favorite food. It's actually a very popular korean chinese dish, created by early Chinese immigrants in Korea, catering to Korea tastes. Tangsuyuk(sweet and souor pork) is another example.",
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            key: searchMapFoods['Samgyeopsal'],
+            child: Padding(
+              padding: EdgeInsets.all(20.0.w),
+              child: Container(
+                height: 520.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xff393E46),
+                  borderRadius: BorderRadius.circular(20.w),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(20.0.w),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10.w),
+                        child: Image.asset(
+                          'assets/Foods/SAMGYEOPSAL.jpg',
+                          fit: BoxFit.cover,
+                          width: 400.w,
+                          height: 220.h,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Samgyeopsal',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  iconStateFood['samgyeopsal'] = true;
+                                });
+                                speak('Samgyeopsal');
+                              },
+                              icon: !iconStateFood['samgyeopsal']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Text(
+                          "Samgyeopsal or grilled pork belly is a type of gui in Korean cuisine. It is a part of the abdomen under the loinfrom the 5th rib or 6th rib to the hind limb. In Korea the word samgyeopsal, meaning 'pork belly', oftens refers to samgyeopsal gui (grilled pork belly) in the same way that the word galbi, meaning 'ribs', often refers to galbi gui (grilled beef ribs)",
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            key: searchMapFoods['Yangnyeom'],
+            child: Padding(
+              padding: EdgeInsets.all(20.0.w),
+              child: Container(
+                height: 520.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xff393E46),
+                  borderRadius: BorderRadius.circular(20.w),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(20.0.w),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10.w),
+                        child: Image.asset(
+                          'assets/Foods/KOREANFC.jpg',
+                          fit: BoxFit.cover,
+                          width: 400.w,
+                          height: 220.h,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Yangnyeom',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  iconStateFood['yangnyeom'] = true;
+                                });
+                                speak('Yangnyeom');
+                              },
+                              icon: !iconStateFood['yangnyeom']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Text(
+                          "Yangnyeom chicken is double deep fried chicken that is coated with sticky, spicy and sweet sauce. In my opinion, the taste and the sensation is almost magical! It's super delicious and addictive.",
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            key: searchMapFoods['Bibim-naengmyeon'],
+            child: Padding(
+              padding: EdgeInsets.all(20.0.w),
+              child: Container(
+                height: 520.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xff393E46),
+                  borderRadius: BorderRadius.circular(20.w),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(20.0.w),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10.w),
+                        child: Image.asset(
+                          'assets/Foods/BIBIMNOODLES.jpg',
+                          fit: BoxFit.cover,
+                          width: 400.w,
+                          height: 220.h,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Bibim-naengmyeon',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  iconStateFood['bibim-naengmyeon'] = true;
+                                });
+                                speak('Bibim-naengmyeon');
+                              },
+                              icon: !iconStateFood['bibim-naengmyeon']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Text(
+                          "Spicy korean icy cold noodle dish called bibim-naengmyeon. Unlike mul-naengmyeon it's not very brothy, but its still ice cold and made with a slightly sweet, vinegary, spicy sauce as well as some cucumber and pear. When you eat it, the first thing you need to do is mix it up in the bowl, which is why it is called bibim, which means 'mixed-up' in korean.",
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            key: searchMapFoods['Samgyetang'],
+            child: Padding(
+              padding: EdgeInsets.all(20.0.w),
+              child: Container(
+                height: 520.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xff393E46),
+                  borderRadius: BorderRadius.circular(20.w),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(20.0.w),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10.w),
+                        child: Image.asset(
+                          'assets/Foods/SAMGYETANG.jpg',
+                          fit: BoxFit.cover,
+                          width: 400.w,
+                          height: 220.h,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Samgyetang',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  iconStateFood['samgyetang'] = true;
+                                });
+                                speak('Samgyetang');
+                              },
+                              icon: !iconStateFood['samgyetang']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Text(
+                          "Samgyetang or Ginseng chicken soup is a hot, steaming, delicious dish that features a small chicken stuffed with rice, ginseng, garlic, and jujube. You have to commit to eating the whole chiken all by yourself when you sit down for a bowl of samgyetang! But it's totally worth it.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
