@@ -70,7 +70,7 @@ class Beaches extends StatefulWidget {
 }
 
 class _BeachesState extends State<Beaches> {
-  speak(String text) async {
+  Future speak(String text) async {
     final FlutterTts flutterTts = FlutterTts();
     String selectedLanguage = "fil-PH";
     List<dynamic> languages = await flutterTts.getLanguages;
@@ -108,6 +108,12 @@ class _BeachesState extends State<Beaches> {
     setState(() {
       isSpeakingCompleted = false;
     });
+  }
+
+  @override
+  void dispose(){
+    scrollController.dispose();
+    super.dispose();
   }
 
   @override
@@ -196,11 +202,11 @@ class _BeachesState extends State<Beaches> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () {
+                                onPressed: () async {
                                   setState(() {
                                     iconState['nido'] = true;
                                   });
-                                  speak('EL Nido');
+                                  await speak('EL Nido');
                                 },
                                 icon: !iconState['nido']!
                                     ? const Icon(
