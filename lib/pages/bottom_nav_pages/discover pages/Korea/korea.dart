@@ -144,7 +144,7 @@ class Korea extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Clickable(
-                              destination: '/landscape',
+                              destination: '/k-landscape',
                               child: Container(
                                 width: 150.w,
                                 height: 150.h,
