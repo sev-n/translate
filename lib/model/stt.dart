@@ -56,6 +56,7 @@ class LanguagesSpokeStt extends ChangeNotifier {
   String receivedWords = '';
 
   List<Widget> containers = [];
+  List<Widget> history = [];
 
   String get words => receivedWords;
 
@@ -168,11 +169,17 @@ class LanguagesSpokeStt extends ChangeNotifier {
 
   void addContainer(Widget container) {
     containers.insert(0, container);
+    history.insert(0, container);
     notifyListeners();
   }
 
   void removeContainer(int index) {
     containers.removeAt(index);
+    notifyListeners();
+  }
+
+  void removeItemHistory(int index) {
+    history.removeAt(index);
     notifyListeners();
   }
 }

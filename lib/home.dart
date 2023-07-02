@@ -105,32 +105,7 @@ class HomePageState extends State<HomePage> {
       ),
       appBar: AppBar(
         backgroundColor: darkColor,
-        //todo : use this section if we want to have a title on appbar
         elevation: 0,
-        //todo : use this when you want to have a theme switcher
-        // actions: [
-        //   Padding(
-        //     padding:
-        //         const EdgeInsets.only(right: 16.0, top: 8.0, bottom: 8.0),
-        //     child: Container(
-        //       decoration: BoxDecoration(
-        //         shape: BoxShape.rectangle,
-        //         color: Colors.white70.withOpacity(0.1),
-        //         borderRadius: BorderRadius.circular(8.0),
-        //       ),
-        //       child: IconButton(
-        //         onPressed: () {
-        //           setState(() {
-        //             ThemeManager.isDarkMode = !ThemeManager.isDarkMode;
-        //           });
-        //         },
-        //         icon: Icon(!ThemeManager.isDarkMode
-        //             ? ThemeManager.iconDark
-        //             : ThemeManager.iconLight),
-        //       ),
-        //     ),
-        //   ),
-        // ],
       ),
       drawer: Theme(
         data: Theme.of(context).copyWith(

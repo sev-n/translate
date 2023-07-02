@@ -10,6 +10,7 @@ import 'package:translate/utils/animate.dart';
 import 'package:translate/utils/colors.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 import 'package:translator/translator.dart';
+import 'dart:core';
 
 class Conversation extends StatefulWidget {
   // final stt.SpeechToText speech;
@@ -28,7 +29,13 @@ class _ConversationState extends State<Conversation> {
   bool isListening = false;
   String text = 'Press the button to start speak!';
 
-  List<String> langId = ['cmn_CN', 'en_US', 'fil_PH', 'ja_JP', 'ko_KR', ];
+  List<String> langId = [
+    'cmn_CN',
+    'en_US',
+    'fil_PH',
+    'ja_JP',
+    'ko_KR',
+  ];
 
   Map<String, String> convertLangStt = {
     'en_US': 'en',
@@ -38,8 +45,6 @@ class _ConversationState extends State<Conversation> {
     'cmn_CN': 'zn-cn'
   };
 
-  
-
   String convertStt(String text) {
     for (var entry in convertLangStt.entries) {
       if (entry.key == text) {
@@ -48,7 +53,6 @@ class _ConversationState extends State<Conversation> {
     }
     return 'language not supported';
   }
-
 
   void stopListening() async {
     await speech.stop();
@@ -314,6 +318,8 @@ class _ConversationState extends State<Conversation> {
                           debugPrint(toLang);
 
                           textProvider.addContainer(add);
+                          DateTime currentDate = DateTime.timestamp();
+                          debugPrint('$currentDate');
 
                           debugPrint(textProvider.words);
                         },
