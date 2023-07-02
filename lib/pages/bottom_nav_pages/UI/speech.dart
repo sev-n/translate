@@ -1,6 +1,7 @@
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:translate/model/list_supported_lang.dart';
 import 'package:translate/model/stt.dart';
@@ -314,8 +315,14 @@ class _ConversationState extends State<Conversation> {
                           debugPrint(toLang);
 
                           textProvider.addContainer(add);
-                          DateTime currentDate = DateTime.timestamp();
-                          debugPrint('$currentDate');
+                          
+                          DateTime timeNow = DateTime.now();
+                          String date =
+                              DateFormat('EEEE, MMM d, yyyy').format(timeNow);
+                          final formatTime = DateFormat('h:mm a');
+                          final time = formatTime.format(timeNow);
+                          debugPrint('$date');
+                          debugPrint('$time');
 
                           debugPrint(textProvider.words);
                         },
