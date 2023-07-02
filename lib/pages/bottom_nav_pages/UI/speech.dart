@@ -78,15 +78,11 @@ class _ConversationState extends State<Conversation> {
       if (langId.contains(id.localeId)) {
         debugPrint(id.localeId);
         debugPrint("Adding languages to the list!!");
-        setState(() {
-          SttSupportedLanguages.supLanguanges.add(id);
-          TranslateToLanguagesStt.languanges.add(id);
-        });
+        SttSupportedLanguages.supLanguanges.add(id);
+        TranslateToLanguagesStt.languanges.add(id);
       }
     }
-    setState(() {
-      speechEnabled = success;
-    });
+    speechEnabled = success;
 
     debugPrint('$speechEnabled');
   }
