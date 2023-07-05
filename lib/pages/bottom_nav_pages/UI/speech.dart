@@ -112,7 +112,7 @@ class _ConversationState extends State<Conversation> {
       child: Stack(
         children: [
           Padding(
-            padding: EdgeInsets.only(top: 30.h, left: 10.w),
+            padding: EdgeInsets.only(top: 60.h, left: 10.w),
             child: Row(
               children: [
                 SizedBox(
@@ -244,7 +244,8 @@ class _ConversationState extends State<Conversation> {
               ],
             ),
           ),
-          Center(
+          Align(
+            alignment: Alignment(0, 0.20),
             child: Container(
               width: 340.w,
               height: 290.h,
@@ -274,7 +275,7 @@ class _ConversationState extends State<Conversation> {
             ),
           ),
           Align(
-            alignment: const Alignment(0, 1.05),
+            alignment: const Alignment(0, 1.10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
