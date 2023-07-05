@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:translate/utils/colors.dart';
 import 'pages/bottom_nav_pages/UI/speech.dart';
 import 'pages/bottom_nav_pages/UI/default_page.dart';
@@ -106,6 +107,14 @@ class HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: darkColor,
         elevation: 0,
+        title: Text(
+          "Babel: Translation App",
+          style: TextStyle(
+            fontFamily: 'gothic',
+            fontSize: 17.sp,
+          ),
+        ),
+        centerTitle: true,
       ),
       drawer: Theme(
         data: Theme.of(context).copyWith(
@@ -164,7 +173,7 @@ class HomePageState extends State<HomePage> {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontFamily: 'GothicA1',
-fontSize: 18,
+                    fontSize: 18,
                     color: darkColor,
                   ),
                 ),
