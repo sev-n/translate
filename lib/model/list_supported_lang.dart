@@ -12,6 +12,7 @@ class ListLanguage {
     'German': 'de',
     'Japanese': 'ja',
     'Korean': 'ko',
+    'Russian': 'ru',
     'Spanish': 'es'
   };
 }
@@ -28,6 +29,7 @@ class TranslateToLanguages {
     'German': 'de',
     'Japanese': 'ja',
     'Korean': 'ko',
+    'Russian': 'ru',
     'Spanish': 'es'
   };
 }
