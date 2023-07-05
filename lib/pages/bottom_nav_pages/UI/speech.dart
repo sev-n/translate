@@ -30,22 +30,34 @@ class _ConversationState extends State<Conversation> {
   bool isListening = false;
   String text = 'Press the button to start speak!';
 
+  // this list is used to compare if that language is supported or not.
   List<String> langId = [
+    'ar_AE',
     'cmn_CN',
     'en_US',
     'fil_PH',
+    'fr_FR',
+    'de_DE',
     'ja_JP',
     'ko_KR',
+    'ru_RU',
+    'es_ES',
   ];
 
   Map<String, String> convertLangStt = {
+    'ar_AE': 'ar',
+    'cmn_CN': 'zn-cn',
     'en_US': 'en',
     'fil_PH': 'tl',
+    'fr_FR': 'fr',
+    'de_DE': 'de',
     'ja_JP': 'ja',
     'ko_KR': 'ko',
-    'cmn_CN': 'zn-cn'
+    'ru_RU': 'ru',
+    'es_ES': 'es',
   };
 
+  // convert Stt language code so it can translate
   String convertStt(String text) {
     for (var entry in convertLangStt.entries) {
       if (entry.key == text) {

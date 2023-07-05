@@ -12,11 +12,9 @@ class SourceLanguageStt extends StatefulWidget {
 }
 
 class _SourceLanguageSttState extends State<SourceLanguageStt> {
-
   @override
   Widget build(BuildContext context) {
     var langStt = Provider.of<LanguagesStt>(context, listen: false);
-
     return Scaffold(
       backgroundColor: darkColor,
       appBar: AppBar(),
@@ -73,7 +71,8 @@ class _ToLanguageSttState extends State<ToLanguageStt> {
         itemCount: TranslateToLanguagesStt.languanges.length,
         itemBuilder: (BuildContext context, int index) {
           String localeName = TranslateToLanguagesStt.languanges[index].name;
-          String localeCode = TranslateToLanguagesStt.languanges[index].localeId;
+          String localeCode =
+              TranslateToLanguagesStt.languanges[index].localeId;
           return ListTile(
             title: Text(
               localeName,
