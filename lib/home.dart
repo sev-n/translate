@@ -106,6 +106,13 @@ class HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: darkColor,
         elevation: 0,
+        title: currentIndex != 3
+            ? Text(
+                "Babel: Translation App",
+                style: TextStyle(fontFamily: 'gothic'),
+              )
+            : null,
+        centerTitle: true,
       ),
       drawer: Theme(
         data: Theme.of(context).copyWith(
@@ -164,7 +171,7 @@ class HomePageState extends State<HomePage> {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontFamily: 'GothicA1',
-fontSize: 18,
+                    fontSize: 18,
                     color: darkColor,
                   ),
                 ),
