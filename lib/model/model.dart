@@ -25,7 +25,7 @@ class SourceLanguageModel extends ChangeNotifier {
 
 class TranslatedLanguageModel extends ChangeNotifier {
 
-  String language = 'Filipino (Tagalog)';
+  String language = 'Filipino';
   String languageCode = 'tl';
 
     void setText(String newText){

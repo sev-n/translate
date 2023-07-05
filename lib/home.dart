@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:translate/utils/colors.dart';
 import 'pages/bottom_nav_pages/UI/speech.dart';
 import 'pages/bottom_nav_pages/UI/default_page.dart';
@@ -84,7 +85,7 @@ class HomePageState extends State<HomePage> {
                 ),
                 GButton(
                   icon: Icons.history,
-                  text: 'History',
+                  text: 'Recent',
                   iconColor: Colors.white,
                   iconActiveColor: Colors.white,
                   rippleColor: Colors.indigoAccent,
@@ -106,12 +107,13 @@ class HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: darkColor,
         elevation: 0,
-        title: currentIndex != 3
-            ? Text(
-                "Babel: Translation App",
-                style: TextStyle(fontFamily: 'gothic'),
-              )
-            : null,
+        title: Text(
+          "Babel: Translation App",
+          style: TextStyle(
+            fontFamily: 'gothic',
+            fontSize: 17.sp,
+          ),
+        ),
         centerTitle: true,
       ),
       drawer: Theme(
