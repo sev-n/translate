@@ -85,7 +85,7 @@ class HomePageState extends State<HomePage> {
                 ),
                 GButton(
                   icon: Icons.history,
-                  text: 'History',
+                  text: 'Recent',
                   iconColor: Colors.white,
                   iconActiveColor: Colors.white,
                   rippleColor: Colors.indigoAccent,
