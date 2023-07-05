@@ -54,6 +54,8 @@ class Landscapes extends StatefulWidget {
 }
 
 class _LandscapesState extends State<Landscapes> {
+  final ScrollController scrollController = ScrollController();
+
   speak(String text) async {
     final FlutterTts flutterTts = FlutterTts();
     String selectedLanguage = "fil-PH";
@@ -90,10 +92,17 @@ class _LandscapesState extends State<Landscapes> {
   }
 
   @override
+  void dispose(){
+    scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: darkColor,
       body: CustomScrollView(
+        controller: scrollController,
         slivers: [
           SliverAppBar(
             actions: [

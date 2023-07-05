@@ -60,7 +60,7 @@ Map<String, GlobalKey> searchMap = {
   'Bantayan': key15,
 };
 
-final ScrollController scrollController = ScrollController();
+
 
 class Beaches extends StatefulWidget {
   const Beaches({super.key});
@@ -70,6 +70,8 @@ class Beaches extends StatefulWidget {
 }
 
 class _BeachesState extends State<Beaches> {
+  final ScrollController scrollController = ScrollController();
+  
   Future speak(String text) async {
     final FlutterTts flutterTts = FlutterTts();
     String selectedLanguage = "fil-PH";
