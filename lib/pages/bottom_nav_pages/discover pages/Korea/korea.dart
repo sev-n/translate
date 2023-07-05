@@ -110,7 +110,7 @@ class Korea extends StatelessWidget {
                               ),
                             ),
                             Clickable(
-                              destination: '/festivals',
+                              destination: '/k-festivals',
                               child: Container(
                                 width: 150.w,
                                 height: 150.h,
