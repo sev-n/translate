@@ -46,14 +46,14 @@ Map<String, GlobalKey> searchMapLandscapes = {
   'Mt. Apo': key10
 };
 
-class Landscapes extends StatefulWidget {
-  const Landscapes({super.key});
+class JLandscapes extends StatefulWidget {
+  const JLandscapes({super.key});
 
   @override
-  State<Landscapes> createState() => _LandscapesState();
+  State<JLandscapes> createState() => _JLandscapesState();
 }
 
-class _LandscapesState extends State<Landscapes> {
+class _JLandscapesState extends State<JLandscapes> {
   speak(String text) async {
     final FlutterTts flutterTts = FlutterTts();
     String selectedLanguage = "fil-PH";

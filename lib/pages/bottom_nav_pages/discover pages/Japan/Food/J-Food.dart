@@ -45,14 +45,14 @@ Map<String, GlobalKey> searchMapFoods = {
   'Bulalo': key10,
 };
 
-class Foods extends StatefulWidget {
-  const Foods({super.key});
+class JFoods extends StatefulWidget {
+  const JFoods({super.key});
 
   @override
-  State<Foods> createState() => _FoodsState();
+  State<JFoods> createState() => _JFoodsState();
 }
 
-class _FoodsState extends State<Foods> {
+class _JFoodsState extends State<JFoods> {
   speak(String text) async {
     final FlutterTts flutterTts = FlutterTts();
     String selectedLanguage = "fil-PH";

@@ -46,14 +46,14 @@ Map<String, GlobalKey> searchMapFestivals = {
   'Air Balloon Fiesta': key10,
 };
 
-class Festivals extends StatefulWidget {
-  const Festivals({super.key});
+class JFestivals extends StatefulWidget {
+  const JFestivals({super.key});
 
   @override
-  State<Festivals> createState() => _FestivalsState();
+  State<JFestivals> createState() => _JFestivalsState();
 }
 
-class _FestivalsState extends State<Festivals> {
+class _JFestivalsState extends State<JFestivals> {
   speak(String text) async {
     final FlutterTts flutterTts = FlutterTts();
     String selectedLanguage = "fil-PH";
