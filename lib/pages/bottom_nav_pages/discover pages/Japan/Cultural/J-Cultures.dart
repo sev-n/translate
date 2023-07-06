@@ -31,14 +31,14 @@ Map<String, GlobalKey> searchMapCultures = {
   'Vigan City': key5
 };
 
-class Cultures extends StatefulWidget {
-  const Cultures({super.key});
+class JCultures extends StatefulWidget {
+  const JCultures({super.key});
 
   @override
-  State<Cultures> createState() => _CulturesState();
+  State<JCultures> createState() => _JCulturesState();
 }
 
-class _CulturesState extends State<Cultures> {
+class _JCulturesState extends State<JCultures> {
   speak(String text) async {
     final FlutterTts flutterTts = FlutterTts();
     String selectedLanguage = "fil-PH";

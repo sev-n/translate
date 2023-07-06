@@ -38,14 +38,14 @@ Map<String, GlobalKey> searchMap = {
 
 final ScrollController scrollController = ScrollController();
 
-class Beaches extends StatefulWidget {
-  const Beaches({super.key});
+class JBeaches extends StatefulWidget {
+  const JBeaches({super.key});
 
   @override
-  State<Beaches> createState() => _BeachesState();
+  State<JBeaches> createState() => _JBeachesState();
 }
 
-class _BeachesState extends State<Beaches> {
+class _JBeachesState extends State<JBeaches> {
   speak(String text) async {
     final FlutterTts flutterTts = FlutterTts();
     String selectedLanguage = "fil-PH";
