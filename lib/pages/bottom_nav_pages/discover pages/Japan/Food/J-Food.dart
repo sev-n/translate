@@ -195,7 +195,7 @@ class _JFoodsState extends State<JFoods> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "",
+                          "Tempura, tenpura, is a typical Japanese dish that was originally introduced to Japan by the Portuguese in Nagasaki through fritter-cooking techniques during the 16th century. The dish usually consists of seafood, meat and vegetables that have been battered and deep fried.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -273,7 +273,7 @@ class _JFoodsState extends State<JFoods> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "",
+                          "Sushi is a Japanese dish of prepared vinegared rice, usually with some sugar and salt, accompanied by a variety of ingridients, such as seafood-often raw-and vegetables. STyles of sushi and its presentation vary widely, but the one key ingridients is 'sushi rice', also referred to as shari or sumeshi.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -351,7 +351,7 @@ class _JFoodsState extends State<JFoods> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "",
+                          "Ramen is Japanese noodle dish. It consists of Chinese-style wheat noodles served in a broth; common flavors are soy suace and miso, with typical toppings including sliced pork, nori, menma, and scallions. Ramen has its roots in Chinese noodle dishes. Nearly every region in Japan has its own variation of ramen, such as tonkatsu ramen of Kyushu and the miso ramen of the Hokkaido.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -429,7 +429,7 @@ class _JFoodsState extends State<JFoods> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "",
+                          "Tokatsu is a Japanese dish consisting of a crispy fried pork cutlet. Seasoned pork loin or fillet is lightly dredged in flour, dipped in beaten eggs, and coated in Panko bread crumbs before deep-frying in hot oil until golden and crunchy.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -507,7 +507,7 @@ class _JFoodsState extends State<JFoods> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "",
+                          "Sashimi is Japanese delicacy consisting of fresh raw fish or meat sliced into thin pieces and often eaten with soy sauce. The word sashimi means 'pierced body'. This word dates from the Muromachi period(1336 to 1573) and was possibly coined when the word kiru(cut), the culinary step, was considered too inauspicious to be used by anyone other than samurai.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -585,7 +585,7 @@ class _JFoodsState extends State<JFoods> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "",
+                          "Donburi literally 'bowl', also abbreviated to 'don' as a suffix, less commonly spelled 'domburi' is a Japanese rice bowl dish consisting of fish, meat, vegetables or other ingridients simmered together and served over rice.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -663,7 +663,7 @@ class _JFoodsState extends State<JFoods> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "",
+                          "Sukiyaki is a Japanese dish that is prepared and served in the nabemono(Japanese hot pot) style. It consists of meat(usually thinly sliced beef) which is slowly cooked or simmered at the table, alongside vegetables and other ingridients, in a shallow iron pot in mixture of soy sauce, sugar, and mirin.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -741,7 +741,7 @@ class _JFoodsState extends State<JFoods> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "",
+                          "Edamame is Japanese dish prepared with immature soybeans in the pod. The pods are boiled or steamed and may be served with salt or other condiments. The dish has become popular across the world because it is rich in vitamins, dietary fiber, and isoflavones. When the beans are outside the pod, the term mukimame is also sometimes used in Japanese.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -819,7 +819,7 @@ class _JFoodsState extends State<JFoods> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "",
+                          "Gyoza are Japanese pan-fried dumplings that are crispy and golden on the bottom and juicy on the inside, are ubiquitous as ramen in Japan. You can find these mouthwatering dumplings being served at specialty shops, izakaya, ramen shops, grocery stores or even at festivals.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -897,7 +897,7 @@ class _JFoodsState extends State<JFoods> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "",
+                          "Shabu-Shabu is a popular Japanese-style hot pot where the meat and vegetables are cooked in a flavorful kombu dashi broth. Everyone at the tables takes part in the communal cooking and enjoys the ingridients with different dipping sauces. It's intimate yet casual, and a whole lot of fun!",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
