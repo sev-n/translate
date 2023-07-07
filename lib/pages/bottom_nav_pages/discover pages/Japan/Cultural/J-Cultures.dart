@@ -10,11 +10,16 @@ bool isSpeakingCompleted = false;
 bool iconChange = false;
 
 Map<String, bool> iconStateCulture = {
-  'intramuros': false,
-  'rizal': false,
-  "quiapo": false,
-  "cultural": false,
-  'vigan': false,
+  'tea-ceremony': false,
+  'ikebana': false,
+  'calligraphy': false,
+  'kimono': false,
+  'kabuki': false,
+  'samurai': false,
+  'zen-buddhism': false,
+  'origami': false,
+  'sumo': false,
+  'onsen': false,
 };
 
 final key1 = GlobalKey();
@@ -22,13 +27,23 @@ final key2 = GlobalKey();
 final key3 = GlobalKey();
 final key4 = GlobalKey();
 final key5 = GlobalKey();
+final key6 = GlobalKey();
+final key7 = GlobalKey();
+final key8 = GlobalKey();
+final key9 = GlobalKey();
+final key10 = GlobalKey();
 
 Map<String, GlobalKey> searchMapCultures = {
-  'Intramuros': key1,
-  'Rizal Park': key2,
-  'Quiapo Church': key3,
-  'Cultural Center': key4,
-  'Vigan City': key5
+  'Tea-Ceremony': key1,
+  'Ikebana': key2,
+  'Calligraphy': key3,
+  'Kimono': key4,
+  'Kabuki': key5,
+  'Samurai': key6,
+  'Zen-Buddhism': key7,
+  'Origami': key8,
+  'Sumo': key9,
+  'Onsen': key10,
 };
 
 class JCultures extends StatefulWidget {
@@ -47,11 +62,16 @@ class _JCulturesState extends State<JCultures> {
     flutterTts.setCompletionHandler(() {
       setState(() {
         isSpeakingCompleted = true;
-        iconStateCulture['intramuros'] = false;
-        iconStateCulture['rizal'] = false;
-        iconStateCulture['quiapo'] = false;
-        iconStateCulture['cultural'] = false;
-        iconStateCulture['vigan'] = false;
+        iconStateCulture['tea-ceremony'] = false;
+        iconStateCulture['ikebana'] = false;
+        iconStateCulture['calligraphy'] = false;
+        iconStateCulture['kimono'] = false;
+        iconStateCulture['kabuki'] = false;
+        iconStateCulture['samurai'] = false;
+        iconStateCulture['zen-buddhism'] = false;
+        iconStateCulture['origami'] = false;
+        iconStateCulture['sumo'] = false;
+        iconStateCulture['onsen'] = false;
       });
     });
 
@@ -111,7 +131,7 @@ class _JCulturesState extends State<JCultures> {
             ),
           ),
           SliverToBoxAdapter(
-            key: searchMapCultures['Intramuros'],
+            key: searchMapCultures['Tea-Ceremony'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -129,7 +149,7 @@ class _JCulturesState extends State<JCultures> {
                         child: Align(
                           alignment: Alignment.topCenter,
                           child: Image.asset(
-                            'assets/Cultural/INTRAMUROS.jpg',
+                            'assets/Cultural/TEACEREMONY.jpg',
                             fit: BoxFit.cover,
                             width: 400.w,
                             height: 250.h,
@@ -142,7 +162,7 @@ class _JCulturesState extends State<JCultures> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Intramuros',
+                              'Japanese Tea Ceremony',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -152,11 +172,11 @@ class _JCulturesState extends State<JCultures> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateCulture['intramuros'] = true;
+                                  iconStateCulture['tea-ceremony'] = true;
                                 });
-                                speak('Intramuros');
+                                speak('Tea-Ceremony');
                               },
-                              icon: !iconStateCulture['intramuros']!
+                              icon: !iconStateCulture['tea-ceremony']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -176,7 +196,7 @@ class _JCulturesState extends State<JCultures> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Intramuros is an ancient walled city in Manila, it is one of the top spots that tourists visit here in the Philippines. It was built by Spaniards in 1521 it was designed as a tight grid to keep its street functional but contained. Today, this is the only district in manila that has been successful in keeping its old Spanish-era look.",
+                          "The Japanese Tea Ceremony or 'chanoyu' is a Japanese cultural activity involving the ceremonial preparation and presentation of matcha, powdered green tea, the procedure of which called 'temae'. While in the west is known as tea ceremony, it is seldom ceremonial in practice.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -192,7 +212,7 @@ class _JCulturesState extends State<JCultures> {
             ),
           ),
           SliverToBoxAdapter(
-            key: searchMapCultures['Rizal Park'],
+            key: searchMapCultures['Ikebana'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -210,7 +230,7 @@ class _JCulturesState extends State<JCultures> {
                         child: Align(
                           alignment: Alignment.topCenter,
                           child: Image.asset(
-                            'assets/Cultural/RIZAL.jpg',
+                            'assets/Cultural/IKEBANA.jpg',
                             fit: BoxFit.cover,
                             width: 400.w,
                             height: 250.h,
@@ -223,7 +243,7 @@ class _JCulturesState extends State<JCultures> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Rizal Park',
+                              'Ikebana',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -233,11 +253,11 @@ class _JCulturesState extends State<JCultures> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateCulture['rizal'] = true;
+                                  iconStateCulture['ikebana'] = true;
                                 });
-                                speak('RizalPark');
+                                speak('Ikebana');
                               },
-                              icon: !iconStateCulture['rizal']!
+                              icon: !iconStateCulture['ikebana']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -257,7 +277,7 @@ class _JCulturesState extends State<JCultures> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Rizal Park, also known as Luneta Park. It is an iconic and one of the most visited by tourist from other countries or from other provinces. This park carries a rich history as it is the location of Rizal's (Philippine National Hero) execution. The place was also called Bagumbayan during the spanish colonization in the Philippines.",
+                          "Ikebana is the Japanese art of flower arrangement. It is also known as kado. The tradition dates back to Heain period(794-1185), when floral offerings were made at altars. Later, flower arrangements were instead use to adorn the tokoma(alcove) of a traditional Japanese home.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -273,7 +293,7 @@ class _JCulturesState extends State<JCultures> {
             ),
           ),
           SliverToBoxAdapter(
-            key: searchMapCultures['Quiapo Church'],
+            key: searchMapCultures['Calligraphy'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -291,7 +311,7 @@ class _JCulturesState extends State<JCultures> {
                         child: Align(
                           alignment: Alignment.topCenter,
                           child: Image.asset(
-                            'assets/Cultural/QUIAPO.jpg',
+                            'assets/Cultural/JPCALLIGRAPHY.jpg',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -302,7 +322,7 @@ class _JCulturesState extends State<JCultures> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Quiapo Church',
+                              'Japanese Calligraphy',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -312,11 +332,11 @@ class _JCulturesState extends State<JCultures> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateCulture['quiapo'] = true;
+                                  iconStateCulture['calligraphy'] = true;
                                 });
-                                speak('Quiapo Church');
+                                speak('Japanese Calligraphy');
                               },
-                              icon: !iconStateCulture['quiapo']!
+                              icon: !iconStateCulture['calligraphy']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -336,7 +356,7 @@ class _JCulturesState extends State<JCultures> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Quiapo Church is also known as the minor Basilica of the Black Nazarene or Saint John the Baptist Parish. It is a prominent basilica in the district of Quiapo Manila. The church is famous because it is the home of Black Nazarene, a black statue of Jesus Christ that sait to be miraculous. Quiapo Church holds a novena every friday in honor of the Black Nazarene.",
+                          "Japanese Calligraphy also called 'shuji', is a form of calligraphy, or artistic writing, of the Japanese language. Written Japanese was originally based on Chinese characters only. but the advent of the hiragana and katakana Japanese syllabaries resulted in intrinsically Japanese calligraphy styles.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -352,7 +372,7 @@ class _JCulturesState extends State<JCultures> {
             ),
           ),
           SliverToBoxAdapter(
-            key: searchMapCultures['Cultural Center'],
+            key: searchMapCultures['Kimono'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -370,7 +390,7 @@ class _JCulturesState extends State<JCultures> {
                         child: Align(
                           alignment: Alignment.topCenter,
                           child: Image.asset(
-                            'assets/Cultural/CULTURALCENTER.jpg',
+                            'assets/Cultural/Kimono.jpg',
                             fit: BoxFit.cover,
                             width: 400.w,
                             height: 200.h,
@@ -383,7 +403,7 @@ class _JCulturesState extends State<JCultures> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Cultural Center',
+                              'Kimono',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -393,11 +413,11 @@ class _JCulturesState extends State<JCultures> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateCulture['cultural'] = true;
+                                  iconStateCulture['kimono'] = true;
                                 });
-                                speak('Cultural Center');
+                                speak('Kimono');
                               },
-                              icon: !iconStateCulture['cultural']!
+                              icon: !iconStateCulture['kimono']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -417,7 +437,7 @@ class _JCulturesState extends State<JCultures> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Cultural Center of the Philippines was created back in 1966 with its purpose of promoting and preserving the best Filipino Arts and Culture. Through its Cultural Exchange Program, the CCP supports the growth and development of regional arts centers all over the country.",
+                          "The Kimono is a traditional Japanese garment and the national dress of Japan. The kimono is a wrapped-front garment with square sleeves and a rectangular body, and is worn left side wrapped over right, unless the wearer is deceased. The kimono is traditionally worn with a broad sash, called an 'obi', and is commonly worn with accessories such as 'zori' sandals and 'tabi' socks.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -433,7 +453,7 @@ class _JCulturesState extends State<JCultures> {
             ),
           ),
           SliverToBoxAdapter(
-            key: searchMapCultures['Vigan City'],
+            key: searchMapCultures['Kabuki'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -451,7 +471,7 @@ class _JCulturesState extends State<JCultures> {
                         child: Align(
                           alignment: Alignment.topCenter,
                           child: Image.asset(
-                            'assets/Cultural/VIGAN.jpg',
+                            'assets/Cultural/KABUKI.jpg',
                             fit: BoxFit.cover,
                             width: 400.w,
                             height: 200.h,
@@ -464,7 +484,7 @@ class _JCulturesState extends State<JCultures> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Vigan City',
+                              'Kabuki',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -474,11 +494,11 @@ class _JCulturesState extends State<JCultures> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateCulture['vigan'] = true;
+                                  iconStateCulture['kabuki'] = true;
                                 });
-                                speak('Vigan City');
+                                speak('Kabuki');
                               },
-                              icon: !iconStateCulture['vigan']!
+                              icon: !iconStateCulture['kabuki']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -498,7 +518,412 @@ class _JCulturesState extends State<JCultures> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Know for its perfectly-preserved Spanish Colonial architecture and culture,Vigan, Ilocos Sur easily became one of the country's tourism giants. Inviting millions of tourists not only from different parts of the country but the whole world. Vigan is unique for having preserved much of its Hispanic colonial character, particularly its grid street pattern historic urban lay out. Its significance also lies on how the different architectural influences are blended to create a homogenous townscape.",
+                          "Kabuki is a classical form of Japanese Theatre, mixing dramatic performance with traditional dance. Kabuki theatre is known for its heavily stylised performances, its glamorous, highly decorated costumes, and for the elaborate kumadori make-up worn by some of tis performers.",
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            key: searchMapCultures['Samurai'],
+            child: Padding(
+              padding: EdgeInsets.all(20.0.w),
+              child: Container(
+                height: 550.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xff393E46),
+                  borderRadius: BorderRadius.circular(20.w),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(20.0.w),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10.w),
+                        child: Align(
+                          alignment: Alignment.topCenter,
+                          child: Image.asset(
+                            'assets/Cultural/SAMURAI.jpg',
+                            fit: BoxFit.cover,
+                            width: 400.w,
+                            height: 200.h,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Samurai',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  iconStateCulture['samurai'] = true;
+                                });
+                                speak('Samurai');
+                              },
+                              icon: !iconStateCulture['samurai']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Text(
+                          "Samurai were the hereditary military nobility and officer caste of medieval and early modern japan from the late 12th century until their abolition in the 1870s during the Meiji era. They were the well-paid retainers of the daimyo, the great feudal landholders. They had high prestige and special privileges.",
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            key: searchMapCultures['Zen-Buddhism'],
+            child: Padding(
+              padding: EdgeInsets.all(20.0.w),
+              child: Container(
+                height: 550.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xff393E46),
+                  borderRadius: BorderRadius.circular(20.w),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(20.0.w),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10.w),
+                        child: Align(
+                          alignment: Alignment.topCenter,
+                          child: Image.asset(
+                            'assets/Cultural/ZEN.jpg',
+                            fit: BoxFit.cover,
+                            width: 400.w,
+                            height: 200.h,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Zen-Buddhism',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  iconStateCulture['zen-buddhism'] = true;
+                                });
+                                speak('Zen-Buddhism');
+                              },
+                              icon: !iconStateCulture['zen-buddhism']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Text(
+                          "Zen is a school of Mahayana Buddhism that originated in China during the Tang Dynasty, known as the Chan School and later developed into various sub-schools and branches. From China, Chan spread south to Vietnam and became Vietnam and became Vietnamese Thien, northeast to korea to become Seon Buddhism, and east to Japan, becoming Japanese Zen.",
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            key: searchMapCultures['Origami'],
+            child: Padding(
+              padding: EdgeInsets.all(20.0.w),
+              child: Container(
+                height: 550.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xff393E46),
+                  borderRadius: BorderRadius.circular(20.w),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(20.0.w),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10.w),
+                        child: Align(
+                          alignment: Alignment.topCenter,
+                          child: Image.asset(
+                            'assets/Cultural/ORIGAMI.jpg',
+                            fit: BoxFit.cover,
+                            width: 400.w,
+                            height: 200.h,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Origami',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  iconStateCulture['origami'] = true;
+                                });
+                                speak('Origami');
+                              },
+                              icon: !iconStateCulture['origami']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Text(
+                          "Origami, from 'ori' meaning 'folding', and kami meaning 'paper' is the Japanese art of paper folding. In modern usage, the word 'origami' is often used as an inclusive term for all folding practices, regardless of their culture of origin. The goal is to transform a flat square sheet of paper into a finished sculpture through folding and sculpting techniques.",
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            key: searchMapCultures['Sumo'],
+            child: Padding(
+              padding: EdgeInsets.all(20.0.w),
+              child: Container(
+                height: 550.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xff393E46),
+                  borderRadius: BorderRadius.circular(20.w),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(20.0.w),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10.w),
+                        child: Align(
+                          alignment: Alignment.topCenter,
+                          child: Image.asset(
+                            'assets/Cultural/SUMO.jpg',
+                            fit: BoxFit.cover,
+                            width: 400.w,
+                            height: 200.h,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Sumo',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  iconStateCulture['sumo'] = true;
+                                });
+                                speak('Sumo');
+                              },
+                              icon: !iconStateCulture['sumo']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Text(
+                          "Sumo is a form of competitive full-contact wrestling where a rikishi(wrestlers) attempts to force his opponent out of a circular ring or into touching the ground with any body part other than the soles of his feet(usually by throwing, shoving or pushing him down).",
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            key: searchMapCultures['Onsen'],
+            child: Padding(
+              padding: EdgeInsets.all(20.0.w),
+              child: Container(
+                height: 550.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xff393E46),
+                  borderRadius: BorderRadius.circular(20.w),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(20.0.w),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10.w),
+                        child: Align(
+                          alignment: Alignment.topCenter,
+                          child: Image.asset(
+                            'assets/Cultural/ONSEN.jpg',
+                            fit: BoxFit.cover,
+                            width: 400.w,
+                            height: 200.h,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Onsen',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  iconStateCulture['onsen'] = true;
+                                });
+                                speak('Onsen');
+                              },
+                              icon: !iconStateCulture['onsen']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Text(
+                          "In Japan, onsen are hot springs and the bathing facilities and traditional inns around them. There are approximately 25,000 hot springs sources throughout Japan, and approximately 3,000 onsen establishments use naturally hot water from these geothermally heated springs.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
