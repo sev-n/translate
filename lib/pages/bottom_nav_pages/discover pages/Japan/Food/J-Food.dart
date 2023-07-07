@@ -9,16 +9,16 @@ bool isSpeakingCompleted = false;
 bool iconChange = false;
 
 Map<String, bool> iconStateFood = {
-  'adobo': false,
-  'sinigang': false,
-  'crispy': false,
-  'sisig': false,
-  'kare-kare': false,
-  'balut': false,
-  'bicol': false,
-  'halo-halo': false,
-  'ice': false,
-  'bulalo': false,
+  'tempura': false,
+  'sushi': false,
+  'ramen': false,
+  'tonkatsu': false,
+  'sashimi': false,
+  'donburi': false,
+  'sukiyaki': false,
+  'edamame': false,
+  'gyoza': false,
+  'shabu-shabu': false,
 };
 
 final key1 = GlobalKey();
@@ -33,16 +33,16 @@ final key9 = GlobalKey();
 final key10 = GlobalKey();
 
 Map<String, GlobalKey> searchMapFoods = {
-  'Adobo': key1,
-  'Sinigang': key2,
-  'Crispy Pata': key3,
-  'Sisig': key4,
-  'Kare-Kare': key5,
-  'Balut': key6,
-  'Bicol Express': key7,
-  'Halo-Halo': key8,
-  'Ice Candy': key9,
-  'Bulalo': key10,
+  'Tempura': key1,
+  'Sushi': key2,
+  'Ramen': key3,
+  'Tonkatsu': key4,
+  'Sashimi': key5,
+  'Donburi': key6,
+  'Sukiyaki': key7,
+  'Edamame': key8,
+  'Gyoza': key9,
+  'Shabu-Shabu': key10,
 };
 
 class JFoods extends StatefulWidget {
@@ -61,16 +61,16 @@ class _JFoodsState extends State<JFoods> {
     flutterTts.setCompletionHandler(() {
       setState(() {
         isSpeakingCompleted = true;
-        iconStateFood['adobo'] = false;
-        iconStateFood['sinigang'] = false;
-        iconStateFood['crispy'] = false;
-        iconStateFood['sisig'] = false;
-        iconStateFood['kare-kare'] = false;
-        iconStateFood['balut'] = false;
-        iconStateFood['bicol'] = false;
-        iconStateFood['halo-halo'] = false;
-        iconStateFood['ice'] = false;
-        iconStateFood['bulalo'] = false;
+        iconStateFood['tempura'] = false;
+        iconStateFood['sushi'] = false;
+        iconStateFood['ramen'] = false;
+        iconStateFood['tonkatsu'] = false;
+        iconStateFood['sashimi'] = false;
+        iconStateFood['donburi'] = false;
+        iconStateFood['sukiyaki'] = false;
+        iconStateFood['edamame'] = false;
+        iconStateFood['gyoza'] = false;
+        iconStateFood['shabu-shabu'] = false;
       });
     });
 
@@ -130,7 +130,7 @@ class _JFoodsState extends State<JFoods> {
             ),
           ),
           SliverToBoxAdapter(
-            key: searchMapFoods['Adobo'],
+            key: searchMapFoods['Tempura'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -148,7 +148,7 @@ class _JFoodsState extends State<JFoods> {
                         child: Align(
                           alignment: Alignment.topCenter,
                           child: Image.asset(
-                            'assets/Foods/ADOBO.jpg',
+                            'assets/Foods/TEMPURA.jpg',
                             fit: BoxFit.cover,
                             width: 400.w,
                             height: 250.h,
@@ -161,7 +161,7 @@ class _JFoodsState extends State<JFoods> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Adobo',
+                              'Tempura',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -171,11 +171,11 @@ class _JFoodsState extends State<JFoods> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateFood['adobo'] = true;
+                                  iconStateFood['tempura'] = true;
                                 });
-                                speak('Adobo');
+                                speak('Tempura');
                               },
-                              icon: !iconStateFood['adobo']!
+                              icon: !iconStateFood['tempura']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -195,7 +195,7 @@ class _JFoodsState extends State<JFoods> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Adobo is often the national dish of the Philippines and it's centainly the most famous Filipino dish. The flavor is created using vinegar, soy sauce, garlic, bay leaves, and black pepper. Also chilli pepper are sometimes added to give it a little spice.",
+                          "Tempura, tenpura, is a typical Japanese dish that was originally introduced to Japan by the Portuguese in Nagasaki through fritter-cooking techniques during the 16th century. The dish usually consists of seafood, meat and vegetables that have been battered and deep fried.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -211,7 +211,7 @@ class _JFoodsState extends State<JFoods> {
             ),
           ),
           SliverToBoxAdapter(
-            key: searchMapFoods['Sinigang'],
+            key: searchMapFoods['Sushi'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -227,7 +227,7 @@ class _JFoodsState extends State<JFoods> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10.w),
                         child: Image.asset(
-                          'assets/Foods/SINIGANG.jpg',
+                          'assets/Foods/SUSHI.jpg',
                           fit: BoxFit.cover,
                           width: 400.w,
                           height: 220.h,
@@ -239,7 +239,7 @@ class _JFoodsState extends State<JFoods> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Sinigang',
+                              'Sushi',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -249,11 +249,11 @@ class _JFoodsState extends State<JFoods> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateFood['sinigang'] = true;
+                                  iconStateFood['sushi'] = true;
                                 });
-                                speak('Sinigang');
+                                speak('Sushi');
                               },
-                              icon: !iconStateFood['sinigang']!
+                              icon: !iconStateFood['sushi']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -273,7 +273,7 @@ class _JFoodsState extends State<JFoods> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Sinigang is a sour soup that is typically made with pork and tamarind though sometinmes other sour fruits like guava, green mango or calamansi are used insted. Tomatoes, garlic, onion and various other vegetables complete the stew. It's delicious Filipino comfort food and makes for a hearty hangover breakfast if had a few to many liquor the night before.",
+                          "Sushi is a Japanese dish of prepared vinegared rice, usually with some sugar and salt, accompanied by a variety of ingridients, such as seafood-often raw-and vegetables. STyles of sushi and its presentation vary widely, but the one key ingridients is 'sushi rice', also referred to as shari or sumeshi.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -289,7 +289,7 @@ class _JFoodsState extends State<JFoods> {
             ),
           ),
           SliverToBoxAdapter(
-            key: searchMapFoods['Crispy Pata'],
+            key: searchMapFoods['Ramen'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -305,7 +305,7 @@ class _JFoodsState extends State<JFoods> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10.w),
                         child: Image.asset(
-                          'assets/Foods/PATA.jpg',
+                          'assets/Foods/RAMEN.jpg',
                           fit: BoxFit.cover,
                           width: 400.w,
                           height: 220.h,
@@ -317,7 +317,7 @@ class _JFoodsState extends State<JFoods> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Crispy Pata',
+                              'Ramen',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -327,11 +327,11 @@ class _JFoodsState extends State<JFoods> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateFood['crispy'] = true;
+                                  iconStateFood['ramen'] = true;
                                 });
-                                speak('Crispy Pata');
+                                speak('Ramen');
                               },
-                              icon: !iconStateFood['crispy']!
+                              icon: !iconStateFood['ramen']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -351,7 +351,7 @@ class _JFoodsState extends State<JFoods> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Crispy Pata refers to a famous Filipino dish of deep-fried pork trotters or knuckles served with a dipping sauce made with vinegar, soy sauce, garlic, onions, sugar and black pepper. To prepare, the pork leg is boiled to tenderize the meat before being deep-fried till golden brown and crispy. When cooked well, crispy pata is crunchy on the outside with moist and tender meat. It's usually served as a main dish with white rice.",
+                          "Ramen is Japanese noodle dish. It consists of Chinese-style wheat noodles served in a broth; common flavors are soy suace and miso, with typical toppings including sliced pork, nori, menma, and scallions. Ramen has its roots in Chinese noodle dishes. Nearly every region in Japan has its own variation of ramen, such as tonkatsu ramen of Kyushu and the miso ramen of the Hokkaido.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -367,7 +367,7 @@ class _JFoodsState extends State<JFoods> {
             ),
           ),
           SliverToBoxAdapter(
-            key: searchMapFoods['Sisig'],
+            key: searchMapFoods['Tonkatsu'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -383,7 +383,7 @@ class _JFoodsState extends State<JFoods> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10.w),
                         child: Image.asset(
-                          'assets/Foods/SISIG.jpg',
+                          'assets/Foods/TONKATSU.jpg',
                           fit: BoxFit.cover,
                           width: 400.w,
                           height: 220.h,
@@ -395,7 +395,7 @@ class _JFoodsState extends State<JFoods> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Sisig',
+                              'Tonkatsu',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -405,11 +405,11 @@ class _JFoodsState extends State<JFoods> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateFood['sisig'] = true;
+                                  iconStateFood['tonkatsu'] = true;
                                 });
-                                speak('Sisig');
+                                speak('Tonkatsu');
                               },
-                              icon: !iconStateFood['sisig']!
+                              icon: !iconStateFood['tonkatsu']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -429,7 +429,7 @@ class _JFoodsState extends State<JFoods> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Pork Sisig is most common and it consist of chopped up pig ears, jowls and liver, onion, chili peppers delivered on a sizzling hot skillet with a raw egg on top. You'll need to mix in the egg to cook it before the skillet cools down. It usually comes with a couple calamansi halves so you can squeeze the juice over the top.",
+                          "Tokatsu is a Japanese dish consisting of a crispy fried pork cutlet. Seasoned pork loin or fillet is lightly dredged in flour, dipped in beaten eggs, and coated in Panko bread crumbs before deep-frying in hot oil until golden and crunchy.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -445,7 +445,7 @@ class _JFoodsState extends State<JFoods> {
             ),
           ),
           SliverToBoxAdapter(
-            key: searchMapFoods['Kare-Kare'],
+            key: searchMapFoods['Sashimi'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -461,7 +461,7 @@ class _JFoodsState extends State<JFoods> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10.w),
                         child: Image.asset(
-                          'assets/Foods/KAREKARE.jpg',
+                          'assets/Foods/SASHIMI.jpg',
                           fit: BoxFit.cover,
                           width: 400.w,
                           height: 200.h,
@@ -473,7 +473,7 @@ class _JFoodsState extends State<JFoods> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Kare-Kare',
+                              'Sashimi',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -483,11 +483,11 @@ class _JFoodsState extends State<JFoods> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateFood['kare-kare'] = true;
+                                  iconStateFood['sashimi'] = true;
                                 });
-                                speak('Kare-kare');
+                                speak('Sashimi');
                               },
-                              icon: !iconStateFood['kare-kare']!
+                              icon: !iconStateFood['sashimi']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -507,7 +507,7 @@ class _JFoodsState extends State<JFoods> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Kare-Kare is thick stew made from oxtail, vegetables and peanut sauce. It reminded us a bit of massaman curry from Thailand which makes sense as the world 'kare' is derived from the Filipino word for curry. Supposedly the best kare-kare comes from Pampanga which is just north of Manila, but you'll find this dish served all over the Philippines.",
+                          "Sashimi is Japanese delicacy consisting of fresh raw fish or meat sliced into thin pieces and often eaten with soy sauce. The word sashimi means 'pierced body'. This word dates from the Muromachi period(1336 to 1573) and was possibly coined when the word kiru(cut), the culinary step, was considered too inauspicious to be used by anyone other than samurai.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -523,7 +523,7 @@ class _JFoodsState extends State<JFoods> {
             ),
           ),
           SliverToBoxAdapter(
-            key: searchMapFoods['Balut'],
+            key: searchMapFoods['Donburi'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -539,7 +539,7 @@ class _JFoodsState extends State<JFoods> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10.w),
                         child: Image.asset(
-                          'assets/Foods/BALUT.jpg',
+                          'assets/Foods/DONBURI.jpg',
                           fit: BoxFit.cover,
                           width: 400.w,
                           height: 220.h,
@@ -551,7 +551,7 @@ class _JFoodsState extends State<JFoods> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Balut',
+                              'Donburi',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -561,11 +561,11 @@ class _JFoodsState extends State<JFoods> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateFood['balut'] = true;
+                                  iconStateFood['donburi'] = true;
                                 });
-                                speak('Balut');
+                                speak('Donburi');
                               },
-                              icon: !iconStateFood['balut']!
+                              icon: !iconStateFood['donburi']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -585,7 +585,7 @@ class _JFoodsState extends State<JFoods> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Balut is probably the most infamous street food in the Philippines and the most likely to be a part of drunken dare involving tourists. It is basically just boiled duck egg. However, the duck eggs used for Balut have been fertilized and allowed to incubate anywhere from 14 to  18 days.",
+                          "Donburi literally 'bowl', also abbreviated to 'don' as a suffix, less commonly spelled 'domburi' is a Japanese rice bowl dish consisting of fish, meat, vegetables or other ingridients simmered together and served over rice.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -601,7 +601,7 @@ class _JFoodsState extends State<JFoods> {
             ),
           ),
           SliverToBoxAdapter(
-            key: searchMapFoods['Bicol Express'],
+            key: searchMapFoods['Sukiyaki'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -617,7 +617,7 @@ class _JFoodsState extends State<JFoods> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10.w),
                         child: Image.asset(
-                          'assets/Foods/BICOLEXPRESS.jpg',
+                          'assets/Foods/SUKIYAKI.jpg',
                           fit: BoxFit.cover,
                           width: 400.w,
                           height: 220.h,
@@ -629,7 +629,7 @@ class _JFoodsState extends State<JFoods> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Bicol Express',
+                              'Sukiyaki',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -639,11 +639,11 @@ class _JFoodsState extends State<JFoods> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateFood['bicol'] = true;
+                                  iconStateFood['sukiyaki'] = true;
                                 });
-                                speak('Bicol Express');
+                                speak('Sukiyaki');
                               },
-                              icon: !iconStateFood['bicol']!
+                              icon: !iconStateFood['sukiyaki']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -663,7 +663,7 @@ class _JFoodsState extends State<JFoods> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Bicol Express is a stew made with pork belly, coconut milk/cream, bagoong alamang(shrimp paste), and generous amounts of finger chillis and siling labuyo(bird's eye chili). It's spicy and creamy and best eaten with steamed rice to help tone down the heat. Bicol Express got its name from a cooking competition in Manila in the 1970's.",
+                          "Sukiyaki is a Japanese dish that is prepared and served in the nabemono(Japanese hot pot) style. It consists of meat(usually thinly sliced beef) which is slowly cooked or simmered at the table, alongside vegetables and other ingridients, in a shallow iron pot in mixture of soy sauce, sugar, and mirin.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -679,7 +679,7 @@ class _JFoodsState extends State<JFoods> {
             ),
           ),
           SliverToBoxAdapter(
-            key: searchMapFoods['Halo-Halo'],
+            key: searchMapFoods['Edamame'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -695,7 +695,7 @@ class _JFoodsState extends State<JFoods> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10.w),
                         child: Image.asset(
-                          'assets/Foods/HALOHALO.jpg',
+                          'assets/Foods/EDAMAME.jpg',
                           fit: BoxFit.cover,
                           width: 400.w,
                           height: 220.h,
@@ -707,7 +707,7 @@ class _JFoodsState extends State<JFoods> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Halo-Halo',
+                              'Edamame',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -717,11 +717,11 @@ class _JFoodsState extends State<JFoods> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateFood['halo-halo'] = true;
+                                  iconStateFood['edamame'] = true;
                                 });
-                                speak('Halo-halo');
+                                speak('Edamame');
                               },
-                              icon: !iconStateFood['halo-halo']!
+                              icon: !iconStateFood['edamame']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -741,7 +741,7 @@ class _JFoodsState extends State<JFoods> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Literally meaning 'mix mix' the name halo-halo is pretty description for this tranditional Filipino dessert that includes every sweet treat the restaurant has in their refrigerator and freezer. While components vary, you'll find some common and add-ons at most halo-halo carts and bars: jellies, flan, macapuno, palm seed, sweetened red beans, shaved ice, ube ice cream, fresh fruit, toasted coconut flakes, pinipig.",
+                          "Edamame is Japanese dish prepared with immature soybeans in the pod. The pods are boiled or steamed and may be served with salt or other condiments. The dish has become popular across the world because it is rich in vitamins, dietary fiber, and isoflavones. When the beans are outside the pod, the term mukimame is also sometimes used in Japanese.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -757,7 +757,7 @@ class _JFoodsState extends State<JFoods> {
             ),
           ),
           SliverToBoxAdapter(
-            key: searchMapFoods['Ice Candy'],
+            key: searchMapFoods['Gyoza'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -773,7 +773,7 @@ class _JFoodsState extends State<JFoods> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10.w),
                         child: Image.asset(
-                          'assets/Foods/ICECANDY.jpg',
+                          'assets/Foods/GYOZA.jpg',
                           fit: BoxFit.cover,
                           width: 400.w,
                           height: 220.h,
@@ -785,7 +785,7 @@ class _JFoodsState extends State<JFoods> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Ice Candy',
+                              'Gyoza',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -795,11 +795,11 @@ class _JFoodsState extends State<JFoods> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateFood['ice'] = true;
+                                  iconStateFood['gyoza'] = true;
                                 });
-                                speak('Ice Candy');
+                                speak('Gyoza');
                               },
-                              icon: !iconStateFood['ice']!
+                              icon: !iconStateFood['gyoza']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -819,7 +819,7 @@ class _JFoodsState extends State<JFoods> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Ice Candy is made by mixing fruit juice with sugar and milk, then pouring it into slender practice bags that are tied shut and frozen. Ice Candy is eaten just like a home made push pop. Tea or bite off the top of the plastic and squeeze from the buttom.",
+                          "Gyoza are Japanese pan-fried dumplings that are crispy and golden on the bottom and juicy on the inside, are ubiquitous as ramen in Japan. You can find these mouthwatering dumplings being served at specialty shops, izakaya, ramen shops, grocery stores or even at festivals.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -835,7 +835,7 @@ class _JFoodsState extends State<JFoods> {
             ),
           ),
           SliverToBoxAdapter(
-            key: searchMapFoods['Bulalo'],
+            key: searchMapFoods['Shabu-Shabu'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -851,7 +851,7 @@ class _JFoodsState extends State<JFoods> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10.w),
                         child: Image.asset(
-                          'assets/Foods/BULALO.jpg',
+                          'assets/Foods/SHABUSHABU.jpg',
                           fit: BoxFit.cover,
                           width: 400.w,
                           height: 220.h,
@@ -863,7 +863,7 @@ class _JFoodsState extends State<JFoods> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Bulalo',
+                              'Shabu-Shabu',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -873,11 +873,11 @@ class _JFoodsState extends State<JFoods> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateFood['bulalo'] = true;
+                                  iconStateFood['shabu-shabu'] = true;
                                 });
-                                speak('Bulalo');
+                                speak('Shabu-Shabu');
                               },
-                              icon: !iconStateFood['bulalo']!
+                              icon: !iconStateFood['shabu-shabu']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -897,7 +897,7 @@ class _JFoodsState extends State<JFoods> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Bulalo is light-colored soup made with leafy vegetables, corn on the cob and beef shanks filled with bone marrow. It's basically a type of Nilaga dish (Boiled meat and vegies soup) made specifically with beef shanks containing marrow. To prepare, the beef shanks are simmered for several hours until the collagen and fat melt into the clea broth.",
+                          "Shabu-Shabu is a popular Japanese-style hot pot where the meat and vegetables are cooked in a flavorful kombu dashi broth. Everyone at the tables takes part in the communal cooking and enjoys the ingridients with different dipping sauces. It's intimate yet casual, and a whole lot of fun!",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,

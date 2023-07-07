@@ -10,13 +10,16 @@ bool isSpeakingCompleted = false;
 bool iconChange = false;
 
 Map<String, bool> iconState = {
-  'nido': false,
-  'lagoon': false,
-  'cove': false,
-  'kayangan': false,
-  'white': false,
-  'siargao': false,
-  'baler': false,
+  'okinawa': false,
+  'kamakura': false,
+  'yonehara': false,
+  'mibaru': false,
+  'aharen': false,
+  'odaiba': false,
+  'naoshima': false,
+  'katsurahama': false,
+  'jodogahama': false,
+  'zushi': false,
 };
 final key1 = GlobalKey();
 final key2 = GlobalKey();
@@ -25,15 +28,21 @@ final key4 = GlobalKey();
 final key5 = GlobalKey();
 final key6 = GlobalKey();
 final key7 = GlobalKey();
+final key8 = GlobalKey();
+final key9 = GlobalKey();
+final key10 = GlobalKey();
 
 Map<String, GlobalKey> searchMap = {
-  'El Nido': key1,
-  'Blue Lagoon': key2,
-  'Crystal Cove': key3,
-  'Kayangan Lake': key4,
-  'White Island': key5,
-  'Siargao Island': key6,
-  'Baler': key7,
+  'Okinawa': key1,
+  'Kamakura': key2,
+  'Yonehara': key3,
+  'Mibaru': key4,
+  'Aharen': key5,
+  'Odaiba': key6,
+  'Naoshima': key7,
+  'Katsurahama': key8,
+  'Jodogahama': key9,
+  'Zushi': key10,
 };
 
 final ScrollController scrollController = ScrollController();
@@ -53,14 +62,16 @@ class _JBeachesState extends State<JBeaches> {
 
     flutterTts.setCompletionHandler(() {
       setState(() {
-        isSpeakingCompleted = true;
-        iconState['lagoon'] = false;
-        iconState['nido'] = false;
-        iconState['cove'] = false;
-        iconState['kayangan'] = false;
-        iconState['white'] = false;
-        iconState['siargao'] = false;
-        iconState['baler'] = false;
+        iconState['okinawa'] = false;
+        iconState['kamakura'] = false;
+        iconState['yonehara'] = false;
+        iconState['mibaru'] = false;
+        iconState['aharen'] = false;
+        iconState['odaiba'] = false;
+        iconState['naoshima'] = false;
+        iconState['katsurahama'] = false;
+        iconState['jodogahama'] = false;
+        iconState['zushil'] = false;
       });
     });
 
@@ -80,7 +91,6 @@ class _JBeachesState extends State<JBeaches> {
 
   @override
   Widget build(BuildContext context) {
-
     return Builder(builder: (BuildContext scaffoldContext) {
       return Scaffold(
         backgroundColor: darkColor,
@@ -125,7 +135,7 @@ class _JBeachesState extends State<JBeaches> {
             //sliver items
 
             SliverToBoxAdapter(
-              key: searchMap['El Nido'],
+              key: searchMap['Okinawa'],
               child: Padding(
                 padding: EdgeInsets.all(20.0.w),
                 child: Container(
@@ -143,7 +153,7 @@ class _JBeachesState extends State<JBeaches> {
                           child: Align(
                             alignment: Alignment.topCenter,
                             child: Image.asset(
-                              'assets/Beaches/ELNIDO.jpg',
+                              'assets/Beaches/OKINAWA.jpg',
                               fit: BoxFit.cover,
                               width: 400.w,
                               height: 250.h,
@@ -156,7 +166,7 @@ class _JBeachesState extends State<JBeaches> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'EL Nido',
+                                'Okinawa',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 16.sp,
@@ -166,11 +176,11 @@ class _JBeachesState extends State<JBeaches> {
                               IconButton(
                                 onPressed: () {
                                   setState(() {
-                                    iconState['nido'] = true;
+                                    iconState['okinawa'] = true;
                                   });
-                                  speak('EL Nido');
+                                  speak('Okinawa');
                                 },
-                                icon: !iconState['nido']!
+                                icon: !iconState['okinawa']!
                                     ? const Icon(
                                         Icons
                                             .volume_down_rounded, // if clicked change color and icon
@@ -190,7 +200,7 @@ class _JBeachesState extends State<JBeaches> {
                         Padding(
                           padding: EdgeInsets.only(top: 20.h),
                           child: Text(
-                            "El Nido, which is the well-known region of Palawan, consistently ranks among the world's picturesque beaches, giving it the moniker 'Heaven on Earth'. The beaches and islands of El Nido, look like a hidden adventure since they are surrounded by old limestone cliffs, yet this paradise is actually a well-known getaway.",
+                            "Okinawa Island is the largest of the largest islands and the Ryukyu Islands of Japan in the Kyushu region. It is the smallest and least populated of the five main island of Japan. The island is approximately 106km long, an average 11km wide, and has an area of 1,206.98 square kilometers. It is roughly 640 kilometers south of the main island of Kyushu and the rest of Japan.",
                             textAlign: TextAlign.justify,
                             style: TextStyle(
                               fontSize: 14.sp,
@@ -206,7 +216,7 @@ class _JBeachesState extends State<JBeaches> {
               ),
             ),
             SliverToBoxAdapter(
-              key: searchMap['Blue Lagoon'],
+              key: searchMap['Kamakura'],
               child: Padding(
                 padding: EdgeInsets.all(20.0.w),
                 child: Container(
@@ -224,7 +234,7 @@ class _JBeachesState extends State<JBeaches> {
                           child: Align(
                             alignment: Alignment.topCenter,
                             child: Image.asset(
-                              'assets/Beaches/BLUELAGOON.jpg',
+                              'assets/Beaches/KAMAKURA.jpg',
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -235,7 +245,7 @@ class _JBeachesState extends State<JBeaches> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'Blue Lagoon',
+                                'Kamakura',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 16.sp,
@@ -245,11 +255,11 @@ class _JBeachesState extends State<JBeaches> {
                               IconButton(
                                 onPressed: () {
                                   setState(() {
-                                    iconState['lagoon'] = true;
+                                    iconState['kamakura'] = true;
                                   });
-                                  speak('Blue Lagoon');
+                                  speak('Kamakura');
                                 },
-                                icon: !iconState['lagoon']!
+                                icon: !iconState['kamakura']!
                                     ? const Icon(
                                         Icons
                                             .volume_down_rounded, // if clicked change color and icon
@@ -269,7 +279,7 @@ class _JBeachesState extends State<JBeaches> {
                         Padding(
                           padding: EdgeInsets.only(top: 20.h),
                           child: Text(
-                            "It takes hours and miles across miles of lush tropical flora, hills, and valleys to get to Pagudpud, which is located somewhere on the northern edge of the country. Without a doubt, Pagudpud is only for the daring, but the exhausting journey is rewarded with a stunning, untouched coastline that appears to go forever.",
+                            "Kamakura beach are a short walk from several train stations and by bus from Kamakura Station, just an hour by train down the coast. The swimming season for Kamakura's three strands of sand is brief-just two months in summer-but the area has its charms in other seasons as well.",
                             textAlign: TextAlign.justify,
                             style: TextStyle(
                               fontSize: 14.sp,
@@ -285,7 +295,7 @@ class _JBeachesState extends State<JBeaches> {
               ),
             ),
             SliverToBoxAdapter(
-              key: searchMap['Crystal Cove'],
+              key: searchMap['Yonehara'],
               child: Padding(
                 padding: EdgeInsets.all(20.0.w),
                 child: Container(
@@ -303,7 +313,7 @@ class _JBeachesState extends State<JBeaches> {
                           child: Align(
                             alignment: Alignment.topCenter,
                             child: Image.asset(
-                              'assets/Beaches/CRYSTALCOVE.jpg',
+                              'assets/Beaches/YONEHARA.jpg',
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -314,7 +324,7 @@ class _JBeachesState extends State<JBeaches> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'Crystal Cove',
+                                'Yonehara',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 16.sp,
@@ -324,11 +334,11 @@ class _JBeachesState extends State<JBeaches> {
                               IconButton(
                                 onPressed: () {
                                   setState(() {
-                                    iconState['cove'] = true;
+                                    iconState['yonehara'] = true;
                                   });
-                                  speak('Crystal Cove');
+                                  speak('Yonehara');
                                 },
-                                icon: !iconState['cove']!
+                                icon: !iconState['yonehara']!
                                     ? const Icon(
                                         Icons
                                             .volume_down_rounded, // if clicked change color and icon
@@ -348,7 +358,7 @@ class _JBeachesState extends State<JBeaches> {
                         Padding(
                           padding: EdgeInsets.only(top: 20.h),
                           child: Text(
-                            "Crystal Cove Island Resort is a private beach island near Boracay. The main attractions of the island are its 2 coves and white sand beaches, which offer great opportunities ",
+                            "Yonehara Beach is the most popular snorkeling spot on Ishigaki Island. There are also corals in shallow areas near the Beach, and you can see colorful fish even in those shallow areas. There is a Yonehara campsite next to the beach, and during the summer season, not only tourist but also locals visit and it is crowded with many people.",
                             textAlign: TextAlign.justify,
                             style: TextStyle(
                               fontSize: 14.sp,
@@ -364,7 +374,7 @@ class _JBeachesState extends State<JBeaches> {
               ),
             ),
             SliverToBoxAdapter(
-              key: searchMap['Kayangan Lake'],
+              key: searchMap['Mibaru'],
               child: Padding(
                 padding: EdgeInsets.all(20.0.w),
                 child: Container(
@@ -382,7 +392,7 @@ class _JBeachesState extends State<JBeaches> {
                           child: Align(
                             alignment: Alignment.topCenter,
                             child: Image.asset(
-                              'assets/Beaches/KAYANGAN.jpg',
+                              'assets/Beaches/MIBARU.jpg',
                               fit: BoxFit.cover,
                               width: 400.w,
                               height: 200.h,
@@ -395,7 +405,7 @@ class _JBeachesState extends State<JBeaches> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'Kayangan Lake',
+                                'Mibaru',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 16.sp,
@@ -405,11 +415,11 @@ class _JBeachesState extends State<JBeaches> {
                               IconButton(
                                 onPressed: () {
                                   setState(() {
-                                    iconState['kayangan'] = true;
+                                    iconState['mibaru'] = true;
                                   });
-                                  speak('Kayangan Lake');
+                                  speak('Mibaru');
                                 },
-                                icon: !iconState['kayangan']!
+                                icon: !iconState['mibaru']!
                                     ? const Icon(
                                         Icons
                                             .volume_down_rounded, // if clicked change color and icon
@@ -429,7 +439,7 @@ class _JBeachesState extends State<JBeaches> {
                         Padding(
                           padding: EdgeInsets.only(top: 20.h),
                           child: Text(
-                            "Kayangan Lake is a crystal-clear freshwater lake in Coron, featuring underwater rocks formations, caves and islets. It's a popular spot for photographers, for fairly obvious reasons, and is said to be the cleanest lake in all of the Philippines. The water is so clear that you can often see down to a depth of 10 metres, enabling even non-swimmers to see the untoched rock formations from viewpoints around the lake.",
+                            "This is a pristine beach with shallow water that stretches about two kilometers along the Pacific coast of southern Okinawa. The popular glass-bottom boat operates throughout the year. The beach is surrounded by coral reefs, and it rarely experiences rough waters, even on windy days; the boat is always available except during storm or typhoon weather.",
                             textAlign: TextAlign.justify,
                             style: TextStyle(
                               fontSize: 14.sp,
@@ -445,7 +455,7 @@ class _JBeachesState extends State<JBeaches> {
               ),
             ),
             SliverToBoxAdapter(
-              key: searchMap['White Island'],
+              key: searchMap['Aharen'],
               child: Padding(
                 padding: EdgeInsets.all(20.0.w),
                 child: Container(
@@ -463,7 +473,7 @@ class _JBeachesState extends State<JBeaches> {
                           child: Align(
                             alignment: Alignment.topCenter,
                             child: Image.asset(
-                              'assets/Beaches/WHITEISLAND.jpg',
+                              'assets/Beaches/AHAREN.jpg',
                               fit: BoxFit.cover,
                               width: 400.w,
                               height: 250.h,
@@ -476,7 +486,7 @@ class _JBeachesState extends State<JBeaches> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'White Island',
+                                'Aharen',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 16.sp,
@@ -486,11 +496,11 @@ class _JBeachesState extends State<JBeaches> {
                               IconButton(
                                 onPressed: () {
                                   setState(() {
-                                    iconState['white'] = true;
+                                    iconState['aharen'] = true;
                                   });
-                                  speak('White Island');
+                                  speak('Aharen');
                                 },
-                                icon: !iconState['white']!
+                                icon: !iconState['aharen']!
                                     ? const Icon(
                                         Icons
                                             .volume_down_rounded, // if clicked change color and icon
@@ -510,7 +520,7 @@ class _JBeachesState extends State<JBeaches> {
                         Padding(
                           padding: EdgeInsets.only(top: 20.h),
                           child: Text(
-                            "A sandbar on the volcanic island of Camiguin makes up the isolated White Island. The sandbar appears like a half-submerged island at low tide. According to Filipino animist, the vista from White Island resembles a celestial route leading to the volcano dominion of the gods.",
+                            "Aharen Beach, on the south of Tokashiki Island, is the most lively beach on the entire island. A photo taken from the south end of Aharen Beach could capture the entire arch-shaped beach's beauty. When the weather is good, you will have the islands from afar as a backdrop and a blue sky with white clouds complementing Aharen Beach's Kerama Blue color.",
                             textAlign: TextAlign.justify,
                             style: TextStyle(
                               fontSize: 14.sp,
@@ -526,7 +536,7 @@ class _JBeachesState extends State<JBeaches> {
               ),
             ),
             SliverToBoxAdapter(
-              key: searchMap['Siargao Island'],
+              key: searchMap['Odaiba'],
               child: Padding(
                 padding: EdgeInsets.all(20.0.w),
                 child: Container(
@@ -542,7 +552,7 @@ class _JBeachesState extends State<JBeaches> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(10.w),
                           child: Image.asset(
-                            'assets/Beaches/SIARGAO.jpg',
+                            'assets/Beaches/ODAIBA.jpg',
                             fit: BoxFit.cover,
                             width: 400.w,
                             height: 250.h,
@@ -554,7 +564,7 @@ class _JBeachesState extends State<JBeaches> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'Siargao Island',
+                                'Odaiba',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 16.sp,
@@ -564,11 +574,11 @@ class _JBeachesState extends State<JBeaches> {
                               IconButton(
                                 onPressed: () {
                                   setState(() {
-                                    iconState['siargao'] = true;
+                                    iconState['odaiba'] = true;
                                   });
-                                  speak('Siargao Island');
+                                  speak('Odaiba');
                                 },
-                                icon: !iconState['siargao']!
+                                icon: !iconState['odaiba']!
                                     ? const Icon(
                                         Icons
                                             .volume_down_rounded, // if clicked change color and icon
@@ -588,7 +598,7 @@ class _JBeachesState extends State<JBeaches> {
                         Padding(
                           padding: EdgeInsets.only(top: 20.h),
                           child: Text(
-                            "Known as the Surfing Capital of the Philippinesm Siargao flaunts great waves and swells anytime of the year, Uninterrupted winds and currents from the Pacific Ocean creat Siargao's popular waves and the monsoon season enhances the thrill. However, if surfing isn't your thing, Siargao also has a handful of calmer beaches for beach bums.",
+                            "Odaiba is a man-made beach, 800 meters in length, located near the Decks shopping mall. While swimming is not permitted, visitors enjoy sunbathing, spectacular sunsets, and beach volleyball. To get there from Shimbashi Station on the Yamanote Line, take the Yurikamome train across Rainbow Bridge. While train is not covered by the JR Pass, the views of the city are well worth the trip.",
                             textAlign: TextAlign.justify,
                             style: TextStyle(
                               fontSize: 14.sp,
@@ -604,7 +614,7 @@ class _JBeachesState extends State<JBeaches> {
               ),
             ),
             SliverToBoxAdapter(
-              key: searchMap['Baler'],
+              key: searchMap['Naoshima'],
               child: Padding(
                 padding: EdgeInsets.all(20.0.w),
                 child: Container(
@@ -620,7 +630,7 @@ class _JBeachesState extends State<JBeaches> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(10.w),
                           child: Image.asset(
-                            'assets/Beaches/BALER.jpg',
+                            'assets/Beaches/NAOSHIMA.jpg',
                             fit: BoxFit.cover,
                             width: 400.w,
                             height: 250.h,
@@ -632,7 +642,7 @@ class _JBeachesState extends State<JBeaches> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'Baler',
+                                'Naoshima',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 16.sp,
@@ -642,11 +652,11 @@ class _JBeachesState extends State<JBeaches> {
                               IconButton(
                                 onPressed: () {
                                   setState(() {
-                                    iconState['baler'] = true;
+                                    iconState['naoshima'] = true;
                                   });
-                                  speak('Baler');
+                                  speak('Naoshima');
                                 },
-                                icon: !iconState['baler']!
+                                icon: !iconState['naoshima']!
                                     ? const Icon(
                                         Icons
                                             .volume_down_rounded, // if clicked change color and icon
@@ -666,7 +676,241 @@ class _JBeachesState extends State<JBeaches> {
                         Padding(
                           padding: EdgeInsets.only(top: 20.h),
                           child: Text(
-                            "A five-hour trip from Manila will bring you to the coastal hamlet of Baler, where you can stay close to the capital. Another well-liked surfing location without the crowds of Siargao is the township of Baler, which serves as the provincial seat of Aurora. Baler, which is unspoiled and underappreciated, provides both incredible surf and tranquil natural settings.",
+                            "The Seto Inland Sea lies between the islands of Honshu, Shikoku, and Kyushu, and the beaches along this sea experience a mild climate. One such beach location is Naoshima, where you can spend the night on the beach in a yurt- a circular tent traditionally used by herdsmen in Mongolia- and enjoy unique art installations right on the beach(this is also known as the 'Museum Island')",
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(
+                              fontSize: 14.sp,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              key: searchMap['Katsurahama'],
+              child: Padding(
+                padding: EdgeInsets.all(20.0.w),
+                child: Container(
+                  height: 565.h,
+                  decoration: BoxDecoration(
+                    color: const Color(0xff393E46),
+                    borderRadius: BorderRadius.circular(20.w),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(20.0.w),
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10.w),
+                          child: Image.asset(
+                            'assets/Beaches/KATSURAHAMA.jpg',
+                            fit: BoxFit.cover,
+                            width: 400.w,
+                            height: 250.h,
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 20.h),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Katsuharama',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    iconState['katsurahama'] = true;
+                                  });
+                                  speak('Katsurahama');
+                                },
+                                icon: !iconState['katsurahama']!
+                                    ? const Icon(
+                                        Icons
+                                            .volume_down_rounded, // if clicked change color and icon
+                                        size: 30,
+                                        color: Color(0xff35bbca),
+                                      )
+                                    : const Icon(
+                                        Icons
+                                            .volume_up_rounded, // if clicked change color and icon
+                                        size: 30,
+                                        color: Colors.indigoAccent,
+                                      ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 20.h),
+                          child: Text(
+                            "Katsurahama Beach is also a scenic destination, near the city of Kochi, in the islands of Shikoku. Although swimming is prohibited, there are some popular attractions, including the famous Sakamoto Ryoma statue and the Tosa Dog Museum. A one-way trip(Kochiken Kotsu local bus). from JR Kochi Station to Katsurahama beach cost 690 yen and takes 35 minutes.",
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(
+                              fontSize: 14.sp,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              key: searchMap['Jodogahama'],
+              child: Padding(
+                padding: EdgeInsets.all(20.0.w),
+                child: Container(
+                  height: 565.h,
+                  decoration: BoxDecoration(
+                    color: const Color(0xff393E46),
+                    borderRadius: BorderRadius.circular(20.w),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(20.0.w),
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10.w),
+                          child: Image.asset(
+                            'assets/Beaches/JODOGAHAMA.jpg',
+                            fit: BoxFit.cover,
+                            width: 400.w,
+                            height: 250.h,
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 20.h),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Jodogahama',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    iconState['jodogahama'] = true;
+                                  });
+                                  speak('Jodogahama');
+                                },
+                                icon: !iconState['jodogahama']!
+                                    ? const Icon(
+                                        Icons
+                                            .volume_down_rounded, // if clicked change color and icon
+                                        size: 30,
+                                        color: Color(0xff35bbca),
+                                      )
+                                    : const Icon(
+                                        Icons
+                                            .volume_up_rounded, // if clicked change color and icon
+                                        size: 30,
+                                        color: Colors.indigoAccent,
+                                      ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 20.h),
+                          child: Text(
+                            "Located on the Rikuchu Coast, this small beach is flanked by pine forests and volcanic white rocks. The name Jodogahama translates to 'Pure Land Beach', a reference to the scenic beauty of this hidden inlet. This is a great beach for swimming, with crystal-clear blue waters and calm waves.",
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(
+                              fontSize: 14.sp,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              key: searchMap['Zushi'],
+              child: Padding(
+                padding: EdgeInsets.all(20.0.w),
+                child: Container(
+                  height: 565.h,
+                  decoration: BoxDecoration(
+                    color: const Color(0xff393E46),
+                    borderRadius: BorderRadius.circular(20.w),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(20.0.w),
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10.w),
+                          child: Image.asset(
+                            'assets/Beaches/ZUSHI.jpg',
+                            fit: BoxFit.cover,
+                            width: 400.w,
+                            height: 250.h,
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 20.h),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Zushi',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    iconState['zushi'] = true;
+                                  });
+                                  speak('Zushi');
+                                },
+                                icon: !iconState['zushi']!
+                                    ? const Icon(
+                                        Icons
+                                            .volume_down_rounded, // if clicked change color and icon
+                                        size: 30,
+                                        color: Color(0xff35bbca),
+                                      )
+                                    : const Icon(
+                                        Icons
+                                            .volume_up_rounded, // if clicked change color and icon
+                                        size: 30,
+                                        color: Colors.indigoAccent,
+                                      ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 20.h),
+                          child: Text(
+                            "Tokyo's closest natural beach is suprisingly quiet most of the time, Once upon a time, this beach had a bad reputation: as it is located right next to a US military base, it had become the go-to place for late-night noise. Now clean and with very specific restrictions in place - no sound systems, no tattoos allowed - it has become a popular to watch the sunset.",
                             textAlign: TextAlign.justify,
                             style: TextStyle(
                               fontSize: 14.sp,
@@ -687,5 +931,3 @@ class _JBeachesState extends State<JBeaches> {
     });
   }
 }
-
-
