@@ -1,4 +1,7 @@
 // ignore_for_file: file_names
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -71,9 +74,35 @@ class Beaches extends StatefulWidget {
 
 class _BeachesState extends State<Beaches> {
   final ScrollController scrollController = ScrollController();
+   bool get isAndroid => !kIsWeb && Platform.isAndroid;
+  late FlutterTts flutterTts;
+
+  // TODO: need to play around in this.
+  void initTts(){
+
+    flutterTts = FlutterTts();
+
+    if (isAndroid) {
+      _getDefaultEngine();
+      _getDefaultVoice();
+    }
+  }
+
+  Future _getDefaultEngine() async {
+    var engine = await flutterTts.getDefaultEngine;
+    if (engine != null) {
+      print(engine);
+    }
+  }
+
+  Future _getDefaultVoice() async {
+    var voice = await flutterTts.getDefaultVoice;
+    if (voice != null) {
+      print(voice);
+    }
+  }
   
   Future speak(String text) async {
-    final FlutterTts flutterTts = FlutterTts();
     String selectedLanguage = "fil-PH";
     List<dynamic> languages = await flutterTts.getLanguages;
 
@@ -113,9 +142,16 @@ class _BeachesState extends State<Beaches> {
   }
 
   @override
+  void initState(){
+    super.initState();
+    initTts();
+  }
+
+  @override
   void dispose(){
-    scrollController.dispose();
     super.dispose();
+    scrollController.dispose();
+    flutterTts.stop();
   }
 
   @override
