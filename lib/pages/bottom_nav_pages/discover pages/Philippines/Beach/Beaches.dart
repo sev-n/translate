@@ -319,11 +319,11 @@ class _BeachesState extends State<Beaches> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () {
+                                onPressed: () async {
                                   setState(() {
                                     iconState['lagoon'] = true;
                                   });
-                                  speak('Blue Lagoon');
+                                  await speak('Blue Lagoon');
                                 },
                                 icon: !iconState['lagoon']!
                                     ? const Icon(
@@ -398,11 +398,11 @@ class _BeachesState extends State<Beaches> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () {
+                                onPressed: () async {
                                   setState(() {
                                     iconState['cove'] = true;
                                   });
-                                  speak('Crystal Cove');
+                                  await speak('Crystal Cove');
                                 },
                                 icon: !iconState['cove']!
                                     ? const Icon(
@@ -479,11 +479,11 @@ class _BeachesState extends State<Beaches> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () {
+                                onPressed: () async {
                                   setState(() {
                                     iconState['kayangan'] = true;
                                   });
-                                  speak('Kayangan Lake');
+                                  await speak('Kayangan Lake');
                                 },
                                 icon: !iconState['kayangan']!
                                     ? const Icon(
@@ -560,11 +560,11 @@ class _BeachesState extends State<Beaches> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () {
+                                onPressed: () async{
                                   setState(() {
                                     iconState['white'] = true;
                                   });
-                                  speak('White Island');
+                                  await speak('White Island');
                                 },
                                 icon: !iconState['white']!
                                     ? const Icon(
@@ -638,11 +638,11 @@ class _BeachesState extends State<Beaches> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () {
+                                onPressed: () async {
                                   setState(() {
                                     iconState['siargao'] = true;
                                   });
-                                  speak('Siargao Island');
+                                  await speak('Siargao Island');
                                 },
                                 icon: !iconState['siargao']!
                                     ? const Icon(
@@ -716,11 +716,11 @@ class _BeachesState extends State<Beaches> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () {
+                                onPressed: () async {
                                   setState(() {
                                     iconState['baler'] = true;
                                   });
-                                  speak('Baler');
+                                  await speak('Baler');
                                 },
                                 icon: !iconState['baler']!
                                     ? const Icon(
@@ -762,7 +762,7 @@ class _BeachesState extends State<Beaches> {
               child: Padding(
                 padding: EdgeInsets.all(20.0.w),
                 child: Container(
-                  height: 565.h,
+                  height: 618.h,
                   decoration: BoxDecoration(
                     color: const Color(0xff393E46),
                     borderRadius: BorderRadius.circular(20.w),
@@ -794,11 +794,11 @@ class _BeachesState extends State<Beaches> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () {
+                                onPressed: () async {
                                   setState(() {
                                     iconState['anguib'] = true;
                                   });
-                                  speak('Anguib');
+                                  await speak('Anguib');
                                 },
                                 icon: !iconState['anguib']!
                                     ? const Icon(
@@ -840,7 +840,7 @@ class _BeachesState extends State<Beaches> {
               child: Padding(
                 padding: EdgeInsets.all(20.0.w),
                 child: Container(
-                  height: 565.h,
+                  height: 580.h,
                   decoration: BoxDecoration(
                     color: const Color(0xff393E46),
                     borderRadius: BorderRadius.circular(20.w),
@@ -872,11 +872,11 @@ class _BeachesState extends State<Beaches> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () {
+                                onPressed: () async {
                                   setState(() {
                                     iconState['bantayan'] = true;
                                   });
-                                  speak('Bantayan');
+                                  await speak('Bantayan');
                                 },
                                 icon: !iconState['bantayan']!
                                     ? const Icon(
@@ -918,7 +918,7 @@ class _BeachesState extends State<Beaches> {
               child: Padding(
                 padding: EdgeInsets.all(20.0.w),
                 child: Container(
-                  height: 565.h,
+                  height: 580.h,
                   decoration: BoxDecoration(
                     color: const Color(0xff393E46),
                     borderRadius: BorderRadius.circular(20.w),
@@ -950,11 +950,11 @@ class _BeachesState extends State<Beaches> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () {
+                                onPressed: () async {
                                   setState(() {
                                     iconState['coron'] = true;
                                   });
-                                  speak('Coron');
+                                  await speak('Coron');
                                 },
                                 icon: !iconState['coron']!
                                     ? const Icon(
@@ -1027,11 +1027,11 @@ class _BeachesState extends State<Beaches> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () {
+                                onPressed: () async {
                                   setState(() {
                                     iconState['lambug'] = true;
                                   });
-                                  speak('Lambug');
+                                  await speak('Lambug');
                                 },
                                 icon: !iconState['lambug']!
                                     ? const Icon(
