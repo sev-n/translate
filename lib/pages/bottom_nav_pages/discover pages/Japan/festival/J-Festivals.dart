@@ -882,7 +882,7 @@ class _JFestivalsState extends State<JFestivals> {
                           Padding(
                             padding: EdgeInsets.only(top: 20.h),
                             child: Text(
-                              "",
+                              "The Kishiwada Danjiri Matsuri, help in Kishiwada Osaka, is one of the most famous Danjiri Matsuri festivals in Japan. The festival is a parade involving large wooden shrine floats that are pulled at a high speed by a large team of men.",
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 fontSize: 14.sp,
@@ -967,7 +967,7 @@ class _JFestivalsState extends State<JFestivals> {
                           Padding(
                             padding: EdgeInsets.only(top: 20.h),
                             child: Text(
-                              "",
+                              "Sannō Matsuri or the Sannō Festival, is a major Shinto festival in Tokyo, along with the Fukugawa Matsuri and Kanda Matsuri. The festival takes place annually in mid-june, but involves a procession called Shinkosai in even numbered years only; annual celebrations encompass a number of activities and celebrations over a week, including the day-long Shinkosai(also called Jinkosai) parade through Nagatacho, Chiyoda, Tokyo.",
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 fontSize: 14.sp,
