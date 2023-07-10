@@ -52,7 +52,7 @@ class _DefaultPageState extends State<DefaultPage> {
         child: Stack(
           children: [
             Padding(
-              padding: EdgeInsets.only(top: 30.h, left: 10.w),
+              padding: EdgeInsets.only(top: 60.h, left: 10.w),
               child: Row(
                 children: [
                   SizedBox(
@@ -160,7 +160,7 @@ class _DefaultPageState extends State<DefaultPage> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 70.h),
+              padding: EdgeInsets.only(top: 100.h),
               child: Column(
                 //crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -228,7 +228,7 @@ class _DefaultPageState extends State<DefaultPage> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 320.h),
+              padding: EdgeInsets.only(top: 350.h),
               child: Column(
                 children: [
                   Center(

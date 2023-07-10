@@ -30,22 +30,34 @@ class _ConversationState extends State<Conversation> {
   bool isListening = false;
   String text = 'Press the button to start speak!';
 
+  // this list is used to compare if that language is supported or not.
   List<String> langId = [
+    'ar_AE',
     'cmn_CN',
     'en_US',
     'fil_PH',
+    'fr_FR',
+    'de_DE',
     'ja_JP',
     'ko_KR',
+    'ru_RU',
+    'es_ES',
   ];
 
   Map<String, String> convertLangStt = {
+    'ar_AE': 'ar',
+    'cmn_CN': 'zn-cn',
     'en_US': 'en',
     'fil_PH': 'tl',
+    'fr_FR': 'fr',
+    'de_DE': 'de',
     'ja_JP': 'ja',
     'ko_KR': 'ko',
-    'cmn_CN': 'zn-cn'
+    'ru_RU': 'ru',
+    'es_ES': 'es',
   };
 
+  // convert Stt language code so it can translate
   String convertStt(String text) {
     for (var entry in convertLangStt.entries) {
       if (entry.key == text) {
@@ -112,7 +124,7 @@ class _ConversationState extends State<Conversation> {
       child: Stack(
         children: [
           Padding(
-            padding: EdgeInsets.only(top: 30.h, left: 10.w),
+            padding: EdgeInsets.only(top: 60.h, left: 10.w),
             child: Row(
               children: [
                 SizedBox(
@@ -244,7 +256,8 @@ class _ConversationState extends State<Conversation> {
               ],
             ),
           ),
-          Center(
+          Align(
+            alignment: Alignment(0, 0.20),
             child: Container(
               width: 340.w,
               height: 290.h,
@@ -274,7 +287,7 @@ class _ConversationState extends State<Conversation> {
             ),
           ),
           Align(
-            alignment: const Alignment(0, 1.05),
+            alignment: const Alignment(0, 1.10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
