@@ -11,16 +11,16 @@ bool isSpeakingCompleted = false;
 bool iconChange = false;
 
 Map<String, bool> iconStateFestival = {
-  'ati-atihan': false,
-  'sinulog': false,
-  'dinagyang': false,
-  'panagbenga': false,
-  'moriones': false,
-  'pahiyas': false,
-  'pintados': false,
-  'aliwan': false,
-  'penafrancia': false,
-  'air': false,
+  'cherry-blossom': false,
+  'gion': false,
+  'tanabata': false,
+  'aomori-nebuta': false,
+  'awa-odori': false,
+  'kanda': false,
+  'sapporo-snow': false,
+  'takayama': false,
+  'kishiwada-danjiri': false,
+  'sanno': false,
 };
 final key1 = GlobalKey();
 final key2 = GlobalKey();
@@ -34,16 +34,16 @@ final key9 = GlobalKey();
 final key10 = GlobalKey();
 
 Map<String, GlobalKey> searchMapFestivals = {
-  'Ati-Atihan Festival': key1,
-  'Sinulog Festival': key2,
-  'Dinagyang Festival': key3,
-  'Panagbenga Festival': key4,
-  'Moriones Festival': key5,
-  'Pahiyas Festival': key6,
-  'Pintados Festival': key7,
-  'Aliwan Festival': key8,
-  'Penefrancia Festival': key9,
-  'Air Balloon Fiesta': key10,
+  'Cherry-Blossom Festival': key1,
+  'Gion Matsuri': key2,
+  'Tanabata': key3,
+  'Aomori-Nebuta': key4,
+  'Awa-Odori': key5,
+  'Kanda': key6,
+  'Sapporo-Snow': key7,
+  'Takayama': key8,
+  'Kishiwada-Danjiri': key9,
+  'Sanno': key10,
 };
 
 class JFestivals extends StatefulWidget {
@@ -62,16 +62,16 @@ class _JFestivalsState extends State<JFestivals> {
     flutterTts.setCompletionHandler(() {
       setState(() {
         isSpeakingCompleted = true;
-        iconStateFestival['ati-atihan'] = false;
-        iconStateFestival['sinulog'] = false;
-        iconStateFestival['dinagyang'] = false;
-        iconStateFestival['panagbenga'] = false;
-        iconStateFestival['moriones'] = false;
-        iconStateFestival['pahiyas'] = false;
-        iconStateFestival['pintados'] = false;
-        iconStateFestival['aliwan'] = false;
-        iconStateFestival['penafrancia'] = false;
-        iconStateFestival['air'] = false;
+        iconStateFestival['cherry-blossom'] = false;
+        iconStateFestival['gion'] = false;
+        iconStateFestival['tanabata'] = false;
+        iconStateFestival['aomori-nebuta'] = false;
+        iconStateFestival['awa-odori'] = false;
+        iconStateFestival['kanda'] = false;
+        iconStateFestival['sapporo-snow'] = false;
+        iconStateFestival['takayama'] = false;
+        iconStateFestival['kishiwada-danjiri'] = false;
+        iconStateFestival['sanno'] = false;
       });
     });
 
@@ -133,7 +133,7 @@ class _JFestivalsState extends State<JFestivals> {
           //sliver items
 
           SliverToBoxAdapter(
-            key: searchMapFestivals['Ati-Atihan Festival'],
+            key: searchMapFestivals['Cherry-Blossom Festival'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -153,7 +153,7 @@ class _JFestivalsState extends State<JFestivals> {
                             child: Align(
                               alignment: Alignment.topCenter,
                               child: Image.asset(
-                                'assets/Festival/Ati-Atihan.jpg',
+                                'assets/Festival/CHERRYBLOSSOM.jpg',
                                 fit: BoxFit.cover,
                                 width: 400.w,
                                 height: 260.h,
@@ -166,7 +166,7 @@ class _JFestivalsState extends State<JFestivals> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Ati-Atihan Festival',
+                                  'Cherry-Blossom Festival',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18.sp,
@@ -176,11 +176,11 @@ class _JFestivalsState extends State<JFestivals> {
                                 IconButton(
                                   onPressed: () {
                                     setState(() {
-                                      iconStateFestival['ati-atihan'] = true;
+                                      iconStateFestival['cherry-blossom'] = true;
                                     });
-                                    speak('Ati-atihan Festival');
+                                    speak('Cherry-Blossom Festival');
                                   },
-                                  icon: !iconStateFestival['ati-atihan']!
+                                  icon: !iconStateFestival['cherry-blossom']!
                                       ? const Icon(
                                           Icons
                                               .volume_down_rounded, // if clicked change color and icon
@@ -200,11 +200,7 @@ class _JFestivalsState extends State<JFestivals> {
                           Padding(
                             padding: EdgeInsets.only(top: 20.h),
                             child: Text(
-                              "Location: Aklan\n"
-                              "Date: 3rd Sunday of January\n\n"
-                              "For good reason, the Ati-Atihan Festival is considered the national "
-                              "holiday of the Philippines. This religious festival is one of the oldest in "
-                              "the Philippines and is sometimes regarded as the best and biggest Mardi Gras in the world.",
+                              "The National Cherry Blossom Festival is a spring celebration in Washington, D.C, commemorating the March 27, 1912, gift of Japanese cherry trees from Mayor Yukio Ozaki of Tokyo City to the city of Washington, D.C. Ozaki gave the trees to enhance the growing friendship between United States and Japan and also celebrate the continued close relationship between the two nations.",
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 fontSize: 14.sp,
@@ -223,7 +219,7 @@ class _JFestivalsState extends State<JFestivals> {
           ),
 
           SliverToBoxAdapter(
-            key: searchMapFestivals['Sinulog Festival'],
+            key: searchMapFestivals['Gion Matsuri'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -243,7 +239,7 @@ class _JFestivalsState extends State<JFestivals> {
                             child: Align(
                               alignment: Alignment.topCenter,
                               child: Image.asset(
-                                'assets/Festival/sinulog.jpg',
+                                'assets/Festival/GION.jpg',
                                 fit: BoxFit.cover,
                                 width: 400.w,
                                 height: 250.h,
@@ -256,7 +252,7 @@ class _JFestivalsState extends State<JFestivals> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Sinulog Festival',
+                                  'Gion Matsuri',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18.sp,
@@ -266,11 +262,11 @@ class _JFestivalsState extends State<JFestivals> {
                                 IconButton(
                                   onPressed: () {
                                     setState(() {
-                                      iconStateFestival['sinulog'] = true;
+                                      iconStateFestival['gion'] = true;
                                     });
-                                    speak('Sinulog Festival');
+                                    speak('Gion Matsuri');
                                   },
-                                  icon: !iconStateFestival['sinulog']!
+                                  icon: !iconStateFestival['gion']!
                                       ? const Icon(
                                           Icons
                                               .volume_down_rounded, // if clicked change color and icon
@@ -290,12 +286,7 @@ class _JFestivalsState extends State<JFestivals> {
                           Padding(
                             padding: EdgeInsets.only(top: 20.h),
                             child: Text(
-                              "Location: Cebu City\n"
-                              "Date: 3rd Sunday of January\n\n"
-                              "On the third weekend in January, Cebu City offers a festival dish that "
-                              "can compete with any in the world. This celebration, often referred to as "
-                              "Sinulog, draws together talented locals from the city and neighboring provinces "
-                              "to display their abilities through pageantry, street dancing, sports, and other events.",
+                              "The Gion Festival is one of the largest and most famous festivals in Japan, taking place annually during the month of July in Kyoto. Many events take place in central Kyoto and at the Yasaka Shrine, the festival's patron shrine, located in Kyoto's famous Gion district, which gives the festival its name.",
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 fontSize: 14.sp,
@@ -314,7 +305,7 @@ class _JFestivalsState extends State<JFestivals> {
           ),
 
           SliverToBoxAdapter(
-            key: searchMapFestivals['Dinagyang Festival'],
+            key: searchMapFestivals['Tanabata'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -334,7 +325,7 @@ class _JFestivalsState extends State<JFestivals> {
                             child: Align(
                               alignment: Alignment.topCenter,
                               child: Image.asset(
-                                'assets/Festival/dinagyang.jpg',
+                                'assets/Festival/TANABATA.jpg',
                                 fit: BoxFit.cover,
                                 width: 400.w,
                                 height: 250.h,
@@ -347,7 +338,7 @@ class _JFestivalsState extends State<JFestivals> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Dinagyang Festival',
+                                  'Tanabata',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18.sp,
@@ -357,11 +348,11 @@ class _JFestivalsState extends State<JFestivals> {
                                 IconButton(
                                   onPressed: () {
                                     setState(() {
-                                      iconStateFestival['dinagyang'] = true;
+                                      iconStateFestival['tanabata'] = true;
                                     });
-                                    speak('Dinagyang Festival');
+                                    speak('Tanabata');
                                   },
-                                  icon: !iconStateFestival['dinagyang']!
+                                  icon: !iconStateFestival['tanabata']!
                                       ? const Icon(
                                           Icons
                                               .volume_down_rounded, // if clicked change color and icon
@@ -381,9 +372,7 @@ class _JFestivalsState extends State<JFestivals> {
                           Padding(
                             padding: EdgeInsets.only(top: 20.h),
                             child: Text(
-                              "Location: IloIlo City\n"
-                              "Date: 4th Sunday of January\n\n"
-                              "Every year on the fourth weekend of January, the entire city of Iloilo shuts down for a street festival. Typically, during this festival, the streets are closed off while people enjoy unending food and drink while listening to bands playing on every corner. Boom boxes that are really tall are everywhere. In this festival, various tribes get together and perform engaging street dance routines and presentations.",
+                              "Tanabata is also known as the Star Festival, is a Japanese festival originating from the Chinese Qixi Festival. It celebrates the meeting of the deities Orihime and Hikoboshi. According to legend, the Milky Way seperates there lovers, and they are allowed to meet only once a year on the seventh lunar month of the lunisolar calendar.",
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 fontSize: 14.sp,
@@ -400,13 +389,12 @@ class _JFestivalsState extends State<JFestivals> {
               ),
             ),
           ),
-
           SliverToBoxAdapter(
-            key: searchMapFestivals['Panagbenga Festival'],
+            key: searchMapFestivals['Aomori-Nebuta'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
-                height: 676.h,
+                height: 625.h,
                 decoration: BoxDecoration(
                   color: const Color(0xff393E46),
                   borderRadius: BorderRadius.circular(20.w),
@@ -422,7 +410,7 @@ class _JFestivalsState extends State<JFestivals> {
                             child: Align(
                               alignment: Alignment.topCenter,
                               child: Image.asset(
-                                'assets/Festival/panagbenga.jpg',
+                                'assets/Festival/AOMORI.jpg',
                                 fit: BoxFit.cover,
                                 width: 400.w,
                                 height: 250.h,
@@ -435,7 +423,7 @@ class _JFestivalsState extends State<JFestivals> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Panagbenga Festival',
+                                  'Aomori-Nebuta',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18.sp,
@@ -445,11 +433,11 @@ class _JFestivalsState extends State<JFestivals> {
                                 IconButton(
                                   onPressed: () {
                                     setState(() {
-                                      iconStateFestival['panagbenga'] = true;
+                                      iconStateFestival['aomori-nebuta'] = true;
                                     });
-                                    speak('Panagbenga Festival');
+                                    speak('Aomori-Nebuta');
                                   },
-                                  icon: !iconStateFestival['panagbenga']!
+                                  icon: !iconStateFestival['aomori-nebuta']!
                                       ? const Icon(
                                           Icons
                                               .volume_down_rounded, // if clicked change color and icon
@@ -469,10 +457,7 @@ class _JFestivalsState extends State<JFestivals> {
                           Padding(
                             padding: EdgeInsets.only(top: 20.h),
                             child: Text(
-                              "Location: Baguio City\n"
-                              "Date: February 1 - March 4\n\n"
-                              'The "season of blooming" festival, which takes place in Baguio City in February, is a feast whose appeal stems mostly from its flora and wildlife theme. Expect charming parades of floral floats around the city and kids wearing plant and animal decorations.\n\n'
-                              'Session Road in Bloom, when the roadway is closed to make way for exquisite flower carts, lovely street dancing, and outdoor cafes, is a sight to behold. For those who have just finished the frenzied celebrations of January, it is a welcome celebration. ',
+                              "The Aomori-Nebuta Matsuri is a Japanese summer festival that takes place in Aomori, Aomori Prefecture, Japan in early August. The festival attracts the most tourist of any of the country's nebuta festivals, and is counted among the three largest festivals in the Tonoku region.",
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 fontSize: 14.sp,
@@ -489,13 +474,12 @@ class _JFestivalsState extends State<JFestivals> {
               ),
             ),
           ),
-
           SliverToBoxAdapter(
-            key: searchMapFestivals['Moriones Festival'],
+            key: searchMapFestivals['Awa-Odori'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
-                height: 575.h,
+                height: 625.h,
                 decoration: BoxDecoration(
                   color: const Color(0xff393E46),
                   borderRadius: BorderRadius.circular(20.w),
@@ -511,7 +495,7 @@ class _JFestivalsState extends State<JFestivals> {
                             child: Align(
                               alignment: Alignment.topCenter,
                               child: Image.asset(
-                                'assets/Festival/moriones.jpg',
+                                'assets/Festival/AWAODORI.jpg',
                                 fit: BoxFit.cover,
                                 width: 400.w,
                                 height: 250.h,
@@ -524,7 +508,7 @@ class _JFestivalsState extends State<JFestivals> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Moriones Festival',
+                                  'Awa-Odori',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18.sp,
@@ -534,11 +518,11 @@ class _JFestivalsState extends State<JFestivals> {
                                 IconButton(
                                   onPressed: () {
                                     setState(() {
-                                      iconStateFestival['moriones'] = true;
+                                      iconStateFestival['awa-odori'] = true;
                                     });
-                                    speak('Moriones Festival');
+                                    speak('Awa-Odori');
                                   },
-                                  icon: !iconStateFestival['moriones']!
+                                  icon: !iconStateFestival['awa-odori']!
                                       ? const Icon(
                                           Icons
                                               .volume_down_rounded, // if clicked change color and icon
@@ -558,9 +542,7 @@ class _JFestivalsState extends State<JFestivals> {
                           Padding(
                             padding: EdgeInsets.only(top: 20.h),
                             child: Text(
-                              "Location: Marinduque Province\n"
-                              "Date: April 2 - 7\n\n"
-                              'People swarm to the island province of Marinduque in the Philippines during Holy Week for a weeklong celebration of St. Longinus. Numerous participants dress in armor to simulate the saint being sought out by other centurions after becoming a Christian.',
+                              "The Awa Dance Festival is held from 12 - 15 august as part of the Obon Festival in Tokushima Prefecture on Shikoku in Japan. Awa Odori is the largest dance festival in Japan, attracting over 1.3 million tourist every year.",
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 fontSize: 14.sp,
@@ -577,13 +559,12 @@ class _JFestivalsState extends State<JFestivals> {
               ),
             ),
           ),
-
           SliverToBoxAdapter(
-            key: searchMapFestivals['Pahiyas Festival'],
+            key: searchMapFestivals['Kanda'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
-                height: 660.h,
+                height: 625.h,
                 decoration: BoxDecoration(
                   color: const Color(0xff393E46),
                   borderRadius: BorderRadius.circular(20.w),
@@ -599,7 +580,7 @@ class _JFestivalsState extends State<JFestivals> {
                             child: Align(
                               alignment: Alignment.topCenter,
                               child: Image.asset(
-                                'assets/Festival/pahiyas.jpg',
+                                'assets/Festival/KANDA.jpg',
                                 fit: BoxFit.cover,
                                 width: 400.w,
                                 height: 250.h,
@@ -612,7 +593,7 @@ class _JFestivalsState extends State<JFestivals> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Pahiyas Festival',
+                                  'Kanda',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18.sp,
@@ -622,11 +603,11 @@ class _JFestivalsState extends State<JFestivals> {
                                 IconButton(
                                   onPressed: () {
                                     setState(() {
-                                      iconStateFestival['pahiyas'] = true;
+                                      iconStateFestival['kanda'] = true;
                                     });
-                                    speak('Pahiyas Festival');
+                                    speak('Kanda');
                                   },
-                                  icon: !iconStateFestival['pahiyas']!
+                                  icon: !iconStateFestival['kanda']!
                                       ? const Icon(
                                           Icons
                                               .volume_down_rounded, // if clicked change color and icon
@@ -646,10 +627,7 @@ class _JFestivalsState extends State<JFestivals> {
                           Padding(
                             padding: EdgeInsets.only(top: 20.h),
                             child: Text(
-                              "Location: Lucban, Quezon\n"
-                              "Date: May 14 - 15\n\n"
-                              "The Pahiyas, a distinctive harvest festival, is held in Lucban every May. Farm products are used by locals to brightly decorate their dwellings. The competition-based nature of the show adds to the event's glitz.\n\n"
-                              'If you would like to take the item off the walls without paying, come out with a basket. The sigarilyas, sitaw, and talong, as well as the other luscious fruits and vegetables described in the Bahay Kubo song, are frequently on display.',
+                              "Kanda Matsuri or the Kanda Festival, is one of the three great Shinto festivals in Tokyo, along with the Fukugawa Matsuri and Sanno Matsuri. The festival started in the early 17th century as a celebration of Tokugawa leyasu's decisive victory at the battle of Sekigahara and was continued as a display of the prosperity of the Tokugawa shogunate during the Edo period.",
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 fontSize: 14.sp,
@@ -666,13 +644,12 @@ class _JFestivalsState extends State<JFestivals> {
               ),
             ),
           ),
-
           SliverToBoxAdapter(
-            key: searchMapFestivals['Pintados Festival'],
+            key: searchMapFestivals['Sapporo-Snow'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
-                height: 660.h,
+                height: 625.h,
                 decoration: BoxDecoration(
                   color: const Color(0xff393E46),
                   borderRadius: BorderRadius.circular(20.w),
@@ -688,7 +665,7 @@ class _JFestivalsState extends State<JFestivals> {
                             child: Align(
                               alignment: Alignment.topCenter,
                               child: Image.asset(
-                                'assets/Festival/pintados.jpg',
+                                'assets/Festival/SAPPORO.jpg',
                                 fit: BoxFit.cover,
                                 width: 400.w,
                                 height: 250.h,
@@ -701,7 +678,7 @@ class _JFestivalsState extends State<JFestivals> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Pintados Festival',
+                                  'Sapporo-Snow',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18.sp,
@@ -711,11 +688,11 @@ class _JFestivalsState extends State<JFestivals> {
                                 IconButton(
                                   onPressed: () {
                                     setState(() {
-                                      iconStateFestival['pintados'] = true;
+                                      iconStateFestival['sapporo-snow'] = true;
                                     });
-                                    speak('Pintados Festival');
+                                    speak('Sapporo-Snow');
                                   },
-                                  icon: !iconStateFestival['pintados']!
+                                  icon: !iconStateFestival['sapporo-snow']!
                                       ? const Icon(
                                           Icons
                                               .volume_down_rounded, // if clicked change color and icon
@@ -735,10 +712,7 @@ class _JFestivalsState extends State<JFestivals> {
                           Padding(
                             padding: EdgeInsets.only(top: 20.h),
                             child: Text(
-                              "Location: Tacloban City, Leyte\n"
-                              "Date: June 28 - 29\n\n"
-                              "This festival is the highlight of June for residents of Tacloban City. It is the fourth celebration in honor of Sto. Niño-the baby Jesus. Yes, Filipinos love to remind everyone to be childlike in their ways and treasure their children, placing their hopes in them.\n\n"
-                              'This festival has been growing in popularity over the years as it sends a lot of participants to the next festival on this list, the Aliwan Fiesta.',
+                              "The Sapporo-Snow is a festival held annuallu in Sapporo, Japan, over seven days in February. Odori Park, Susukino, and Tsudome are the main sites of the festival. In 2007, about two million people visited Sapporo to see the hundreds of snow statues and ice sculpture at the Odori Park and Susukino sites, in central Sapporo, and at the Satoland site.",
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 fontSize: 14.sp,
@@ -755,13 +729,12 @@ class _JFestivalsState extends State<JFestivals> {
               ),
             ),
           ),
-
           SliverToBoxAdapter(
-            key: searchMapFestivals['Aliwan Festival'],
+            key: searchMapFestivals['Takayama'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
-                height: 595.h,
+                height: 625.h,
                 decoration: BoxDecoration(
                   color: const Color(0xff393E46),
                   borderRadius: BorderRadius.circular(20.w),
@@ -777,7 +750,7 @@ class _JFestivalsState extends State<JFestivals> {
                             child: Align(
                               alignment: Alignment.topCenter,
                               child: Image.asset(
-                                'assets/Festival/aliwan.jpg',
+                                'assets/Festival/TAKAYAMA.jpg',
                                 fit: BoxFit.cover,
                                 width: 400.w,
                                 height: 250.h,
@@ -790,7 +763,7 @@ class _JFestivalsState extends State<JFestivals> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Aliwan Festival',
+                                  'Takayama',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18.sp,
@@ -800,11 +773,11 @@ class _JFestivalsState extends State<JFestivals> {
                                 IconButton(
                                   onPressed: () {
                                     setState(() {
-                                      iconStateFestival['aliwan'] = true;
+                                      iconStateFestival['takayama'] = true;
                                     });
-                                    speak('Aliwan Festival');
+                                    speak('Takayama');
                                   },
-                                  icon: !iconStateFestival['aliwan']!
+                                  icon: !iconStateFestival['takayama']!
                                       ? const Icon(
                                           Icons
                                               .volume_down_rounded, // if clicked change color and icon
@@ -824,9 +797,7 @@ class _JFestivalsState extends State<JFestivals> {
                           Padding(
                             padding: EdgeInsets.only(top: 20.h),
                             child: Text(
-                              "Location: CCP Complex Pasay City\n"
-                              "Date: April 26 - 28\n\n"
-                              "The final week of April is when the Aliwan Fiesta takes place. With a debut date of 2003, this event is among the most recent in the nation. However, only a few other things in the nation can match its tremendous popularity. The festival, which takes place in Pasay City, is currently hailed as the origin of all celebrations in the nation.",
+                              "Takayama Festivals in Takayama in Japan started in the 16th to 17th century. The festivals are believed to have been started during the rule of the Kanamori familiy",
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 fontSize: 14.sp,
@@ -843,13 +814,12 @@ class _JFestivalsState extends State<JFestivals> {
               ),
             ),
           ),
-
           SliverToBoxAdapter(
-            key: searchMapFestivals['Penefrancia Festival'],
+            key: searchMapFestivals['Kishiwada-Danjiri'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
-                height: 768.h,
+                height: 625.h,
                 decoration: BoxDecoration(
                   color: const Color(0xff393E46),
                   borderRadius: BorderRadius.circular(20.w),
@@ -865,7 +835,7 @@ class _JFestivalsState extends State<JFestivals> {
                             child: Align(
                               alignment: Alignment.topCenter,
                               child: Image.asset(
-                                'assets/Festival/penafrancia.jpg',
+                                'assets/Festival/KISHIWADA.jpg',
                                 fit: BoxFit.cover,
                                 width: 400.w,
                                 height: 250.h,
@@ -878,7 +848,7 @@ class _JFestivalsState extends State<JFestivals> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Penafrancia Festival',
+                                  'Kishiwada-Danjiri',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18.sp,
@@ -888,11 +858,11 @@ class _JFestivalsState extends State<JFestivals> {
                                 IconButton(
                                   onPressed: () {
                                     setState(() {
-                                      iconStateFestival['penafrancia'] = true;
+                                      iconStateFestival['kishiwada-danjiri'] = true;
                                     });
-                                    speak('Penafrancia Festival');
+                                    speak('Kishiwada-Danjiri');
                                   },
-                                  icon: !iconStateFestival['penafrancia']!
+                                  icon: !iconStateFestival['kishiwada-danjiri']!
                                       ? const Icon(
                                           Icons
                                               .volume_down_rounded, // if clicked change color and icon
@@ -912,10 +882,7 @@ class _JFestivalsState extends State<JFestivals> {
                           Padding(
                             padding: EdgeInsets.only(top: 20.h),
                             child: Text(
-                              "Location: Naga, Camarines Sur\n"
-                              "Date: 3rd Saturday of September\n\n"
-                              "The Penafrancia Festival is an annual religious festival held in the city of Naga in the Bicol region of the Philippines. The festival is in honor of Our Lady of Peñafrancia, the patroness of the Bicol region.\n\n"
-                              'The festival takes place on the third Saturday of September and lasts for nine days. It features a series of religious and cultural events, including a fluvial procession where the image of Our Lady of Peñafrancia is carried on a brightly decorated barge down the Naga River. This is followed by a procession on land where devotees carry the image of the patroness on their shoulders, shouting “Viva la Virgen!”.',
+                              "",
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 fontSize: 14.sp,
@@ -932,13 +899,12 @@ class _JFestivalsState extends State<JFestivals> {
               ),
             ),
           ),
-
           SliverToBoxAdapter(
-            key: searchMapFestivals['Air Balloon Fiesta'],
+            key: searchMapFestivals['Sanno'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
-                height: 680.h,
+                height: 625.h,
                 decoration: BoxDecoration(
                   color: const Color(0xff393E46),
                   borderRadius: BorderRadius.circular(20.w),
@@ -954,7 +920,7 @@ class _JFestivalsState extends State<JFestivals> {
                             child: Align(
                               alignment: Alignment.topCenter,
                               child: Image.asset(
-                                'assets/Festival/air_balloon.jpg',
+                                'assets/Festival/SANNO.jpg',
                                 fit: BoxFit.cover,
                                 width: 400.w,
                                 height: 250.h,
@@ -967,7 +933,7 @@ class _JFestivalsState extends State<JFestivals> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Air Balloon Fiesta',
+                                  'Sanno',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18.sp,
@@ -977,11 +943,11 @@ class _JFestivalsState extends State<JFestivals> {
                                 IconButton(
                                   onPressed: () {
                                     setState(() {
-                                      iconStateFestival['air'] = true;
+                                      iconStateFestival['sanno'] = true;
                                     });
-                                    speak('Air Balloon Festia');
+                                    speak('Sanno');
                                   },
-                                  icon: !iconStateFestival['air']!
+                                  icon: !iconStateFestival['sanno']!
                                       ? const Icon(
                                           Icons
                                               .volume_down_rounded, // if clicked change color and icon
@@ -1001,10 +967,7 @@ class _JFestivalsState extends State<JFestivals> {
                           Padding(
                             padding: EdgeInsets.only(top: 20.h),
                             child: Text(
-                              "Location: Clark Freeport Zone, Angeles City, Pampanga\n"
-                              "Date: Every 2nd week of February\n\n"
-                              "Everyone is thrilled that the Philippine International Hot Air Balloon Fiesta is returning. The four-day celebration now has a new location after formerly taking place in Pampanga. The festival offers a variety of flying-related activities, including skydiving, paragliding, and breathtaking hot air balloon rides.\n\n"
-                              'The longest-running festival in Asia will bring together travelers and aviators from all around the world.',
+                              "",
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 fontSize: 14.sp,
