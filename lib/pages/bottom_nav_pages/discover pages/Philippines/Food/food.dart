@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_tts/flutter_tts.dart';
@@ -54,9 +57,33 @@ class Foods extends StatefulWidget {
 
 class _FoodsState extends State<Foods> {
   final ScrollController scrollController = ScrollController();
+  bool get isAndroid => !kIsWeb && Platform.isAndroid;
+  late FlutterTts flutterTts;
 
-  speak(String text) async {
-    final FlutterTts flutterTts = FlutterTts();
+  void initTts() {
+    flutterTts = FlutterTts();
+
+    if (isAndroid) {
+      _getDefaultEngine();
+      _getDefaultVoice();
+    }
+  }
+
+  Future _getDefaultEngine() async {
+    var engine = await flutterTts.getDefaultEngine;
+    if (engine != null) {
+      print(engine);
+    }
+  }
+
+  Future _getDefaultVoice() async {
+    var voice = await flutterTts.getDefaultVoice;
+    if (voice != null) {
+      print(voice);
+    }
+  }
+
+  Future speak(String text) async {
     String selectedLanguage = "fil-PH";
     List<dynamic> languages = await flutterTts.getLanguages;
 
@@ -91,9 +118,16 @@ class _FoodsState extends State<Foods> {
   }
 
   @override
-  void dispose(){
-    scrollController.dispose();
+  void initState() {
+    super.initState();
+    initTts();
+  }
+
+  @override
+  void dispose() {
     super.dispose();
+    scrollController.dispose();
+    flutterTts.stop();
   }
 
   @override
