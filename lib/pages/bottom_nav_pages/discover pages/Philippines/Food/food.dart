@@ -37,15 +37,15 @@ final key10 = GlobalKey();
 
 Map<String, GlobalKey> searchMapFoods = {
   'Adobo': key1,
-  'Sinigang': key2,
-  'Crispy Pata': key3,
-  'Sisig': key4,
-  'Kare-Kare': key5,
-  'Balut': key6,
-  'Bicol Express': key7,
-  'Halo-Halo': key8,
-  'Ice Candy': key9,
-  'Bulalo': key10,
+  'Balut': key2,
+  'Bicol Express': key3,
+  'Bulalo': key4,
+  'Crispy Pata': key5,
+  'Halo-Halo': key6,
+  'Ice Candy': key7,
+  'Kare-Kare': key8,
+  'Sinigang': key9,
+  'Sisig': key10,
 };
 
 class Foods extends StatefulWidget {

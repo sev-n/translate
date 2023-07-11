@@ -27,10 +27,10 @@ final key4 = GlobalKey();
 final key5 = GlobalKey();
 
 Map<String, GlobalKey> searchMapCultures = {
-  'Intramuros': key1,
-  'Rizal Park': key2,
+  'Cultural Center': key1,
+  'Intramuros': key2,
   'Quiapo Church': key3,
-  'Cultural Center': key4,
+  'Rizal Park': key4,
   'Vigan City': key5
 };
 
@@ -105,7 +105,7 @@ class _CulturesState extends State<Cultures> {
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
     scrollController.dispose();
     flutterTts.stop();
@@ -125,7 +125,8 @@ class _CulturesState extends State<Cultures> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => ItemsSearch(map: searchMapCultures)),
+                        builder: (context) =>
+                            ItemsSearch(map: searchMapCultures)),
                   );
                 },
                 icon: const Icon(Icons.search),
@@ -151,6 +152,87 @@ class _CulturesState extends State<Cultures> {
                 ),
               ),
               centerTitle: true,
+            ),
+          ),
+          SliverToBoxAdapter(
+            key: searchMapCultures['Cultural Center'],
+            child: Padding(
+              padding: EdgeInsets.all(20.0.w),
+              child: Container(
+                height: 525.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xff393E46),
+                  borderRadius: BorderRadius.circular(20.w),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(20.0.w),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10.w),
+                        child: Align(
+                          alignment: Alignment.topCenter,
+                          child: Image.asset(
+                            'assets/Cultural/CULTURALCENTER.jpg',
+                            fit: BoxFit.cover,
+                            width: 400.w,
+                            height: 200.h,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Cultural Center',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  iconStateCulture['cultural'] = true;
+                                });
+                                speak('Cultural Center');
+                              },
+                              icon: !iconStateCulture['cultural']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Text(
+                          "Cultural Center of the Philippines was created back in 1966 with its purpose of promoting and preserving the best Filipino Arts and Culture. Through its Cultural Exchange Program, the CCP supports the growth and development of regional arts centers all over the country.",
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ),
           ),
           SliverToBoxAdapter(
@@ -220,87 +302,6 @@ class _CulturesState extends State<Cultures> {
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
                           "Intramuros is an ancient walled city in Manila, it is one of the top spots that tourists visit here in the Philippines. It was built by Spaniards in 1521 it was designed as a tight grid to keep its street functional but contained. Today, this is the only district in manila that has been successful in keeping its old Spanish-era look.",
-                          textAlign: TextAlign.justify,
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-          SliverToBoxAdapter(
-            key: searchMapCultures['Rizal Park'],
-            child: Padding(
-              padding: EdgeInsets.all(20.0.w),
-              child: Container(
-                height: 525.h,
-                decoration: BoxDecoration(
-                  color: const Color(0xff393E46),
-                  borderRadius: BorderRadius.circular(20.w),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(20.0.w),
-                  child: Column(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(10.w),
-                        child: Align(
-                          alignment: Alignment.topCenter,
-                          child: Image.asset(
-                            'assets/Cultural/RIZAL.jpg',
-                            fit: BoxFit.cover,
-                            width: 400.w,
-                            height: 250.h,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 20.h),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Rizal Park',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  iconStateCulture['rizal'] = true;
-                                });
-                                speak('RizalPark');
-                              },
-                              icon: !iconStateCulture['rizal']!
-                                  ? const Icon(
-                                      Icons
-                                          .volume_down_rounded, // if clicked change color and icon
-                                      size: 30,
-                                      color: Color(0xff35bbca),
-                                    )
-                                  : const Icon(
-                                      Icons
-                                          .volume_up_rounded, // if clicked change color and icon
-                                      size: 30,
-                                      color: Colors.indigoAccent,
-                                    ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 20.h),
-                        child: Text(
-                          "Rizal Park, also known as Luneta Park. It is an iconic and one of the most visited by tourist from other countries or from other provinces. This park carries a rich history as it is the location of Rizal's (Philippine National Hero) execution. The place was also called Bagumbayan during the spanish colonization in the Philippines.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -395,7 +396,7 @@ class _CulturesState extends State<Cultures> {
             ),
           ),
           SliverToBoxAdapter(
-            key: searchMapCultures['Cultural Center'],
+            key: searchMapCultures['Rizal Park'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -413,10 +414,10 @@ class _CulturesState extends State<Cultures> {
                         child: Align(
                           alignment: Alignment.topCenter,
                           child: Image.asset(
-                            'assets/Cultural/CULTURALCENTER.jpg',
+                            'assets/Cultural/RIZAL.jpg',
                             fit: BoxFit.cover,
                             width: 400.w,
-                            height: 200.h,
+                            height: 250.h,
                           ),
                         ),
                       ),
@@ -426,7 +427,7 @@ class _CulturesState extends State<Cultures> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Cultural Center',
+                              'Rizal Park',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -436,11 +437,11 @@ class _CulturesState extends State<Cultures> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateCulture['cultural'] = true;
+                                  iconStateCulture['rizal'] = true;
                                 });
-                                speak('Cultural Center');
+                                speak('RizalPark');
                               },
-                              icon: !iconStateCulture['cultural']!
+                              icon: !iconStateCulture['rizal']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -460,7 +461,7 @@ class _CulturesState extends State<Cultures> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Cultural Center of the Philippines was created back in 1966 with its purpose of promoting and preserving the best Filipino Arts and Culture. Through its Cultural Exchange Program, the CCP supports the growth and development of regional arts centers all over the country.",
+                          "Rizal Park, also known as Luneta Park. It is an iconic and one of the most visited by tourist from other countries or from other provinces. This park carries a rich history as it is the location of Rizal's (Philippine National Hero) execution. The place was also called Bagumbayan during the spanish colonization in the Philippines.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
