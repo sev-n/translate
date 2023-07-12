@@ -11,16 +11,16 @@ bool isSpeakingCompleted = false;
 bool iconChange = false;
 
 Map<String, bool> iconStateLandscape = {
-  'osmena': false,
-  'kanlaon': false,
-  'kabunian': false,
-  'kitanglad': false,
-  'dulang-dulang': false,
-  'guiting-guiting': false,
-  'halcon': false,
-  'pinatubo': false,
-  'pulag': false,
-  'apo': false,
+  'arashiyama': false,
+  'fuji': false,
+  'hitachi': false,
+  'himeji': false,
+  'kinkakuji': false,
+  'miyajima': false,
+  'nachi': false,
+  'oirase': false,
+  'shirakawa': false,
+  'tottori': false,
 };
 final key1 = GlobalKey();
 final key2 = GlobalKey();
@@ -34,16 +34,16 @@ final key9 = GlobalKey();
 final key10 = GlobalKey();
 
 Map<String, GlobalKey> searchMapLandscapes = {
-  'Osmena Peak': key1,
-  'Mt. Kanlaon': key2,
-  'Mt. Kabunian': key3,
-  'Mt. Kitanglad': key4,
-  'Mt. Dulang-dulang': key5,
-  'Mt. Guiting-guiting': key6,
-  'Mt. Halcon': key7,
-  'Mt. Pinatubo': key8,
-  'Mt. Pulag': key9,
-  'Mt. Apo': key10
+  'Arashiyama': key1,
+  'Fuji': key2,
+  'Hitachi': key3,
+  'Himeji': key4,
+  'Kinkakuji': key5,
+  'Miyajima': key6,
+  'Nachi': key7,
+  'Oirase': key8,
+  'Shirakawa': key9,
+  'Tottori': key10
 };
 
 class JLandscapes extends StatefulWidget {
@@ -62,16 +62,16 @@ class _JLandscapesState extends State<JLandscapes> {
     flutterTts.setCompletionHandler(() {
       setState(() {
         isSpeakingCompleted = true;
-        iconStateLandscape['osmena'] = false;
-        iconStateLandscape['kanlaon'] = false;
-        iconStateLandscape['kabunian'] = false;
-        iconStateLandscape['kitanglad'] = false;
-        iconStateLandscape['dulang-dulang'] = false;
-        iconStateLandscape['guiting-guiting'] = false;
-        iconStateLandscape['halcon'] = false;
-        iconStateLandscape['pinatubo'] = false;
-        iconStateLandscape['pulag'] = false;
-        iconStateLandscape['apo'] = false;
+        iconStateLandscape['arashiyama'] = false;
+        iconStateLandscape['fuji'] = false;
+        iconStateLandscape['hitachi'] = false;
+        iconStateLandscape['himeji'] = false;
+        iconStateLandscape['kinkakuji'] = false;
+        iconStateLandscape['miyajima'] = false;
+        iconStateLandscape['nachi'] = false;
+        iconStateLandscape['oirase'] = false;
+        iconStateLandscape['shirakawa'] = false;
+        iconStateLandscape['tottori'] = false;
       });
     });
 
@@ -133,7 +133,7 @@ class _JLandscapesState extends State<JLandscapes> {
           //sliver items
 
           SliverToBoxAdapter(
-            key: searchMapLandscapes['Osmena Peak'],
+            key: searchMapLandscapes['Arashiyama'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
@@ -151,7 +151,7 @@ class _JLandscapesState extends State<JLandscapes> {
                         child: Align(
                           alignment: Alignment.topCenter,
                           child: Image.asset(
-                            'assets/Landscape/osmena.jpg',
+                            'assets/Landscape/BAMBOO.jpg',
                             fit: BoxFit.cover,
                             width: 400.w,
                             height: 250.h,
@@ -164,7 +164,7 @@ class _JLandscapesState extends State<JLandscapes> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Osmeña Peak',
+                              'Arashiyama Bamboo Groove',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -174,11 +174,11 @@ class _JLandscapesState extends State<JLandscapes> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateLandscape['osmena'] = true;
+                                  iconStateLandscape['arashiyama'] = true;
                                 });
-                                speak('Osmeña Peak');
+                                speak('arashiyama');
                               },
-                              icon: !iconStateLandscape['osmena']!
+                              icon: !iconStateLandscape['arashiyama']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -198,8 +198,7 @@ class _JLandscapesState extends State<JLandscapes> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Location: Cebu\n\n"
-                          "Osmeña Peak, rising 1,013 meters above sea level, is regarded as Cebu's highest peak and a well-liked hiking destination in the Philippines due to its beautiful mountain vistas. It is situated in Dalaguete Municipality, often known as Cebu's Vegetable Basket. Rugged slopes that are evocative of the well-known Chocolate slopes in Bohol surround the rocky peak. ",
+                          "The Arashiyama Bamboo Grove is one of Kyoto's top sights and for good reason: standing amid these these soaring stalks of bamboo is like being in another world.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -214,13 +213,12 @@ class _JLandscapesState extends State<JLandscapes> {
               ),
             ),
           ),
-
           SliverToBoxAdapter(
-            key: searchMapLandscapes['Mt. Kanlaon'],
+            key: searchMapLandscapes['Fuji'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
-                height: 760.h,
+                height: 581.h,
                 decoration: BoxDecoration(
                   color: const Color(0xff393E46),
                   borderRadius: BorderRadius.circular(20.w),
@@ -234,7 +232,7 @@ class _JLandscapesState extends State<JLandscapes> {
                         child: Align(
                           alignment: Alignment.topCenter,
                           child: Image.asset(
-                            'assets/Landscape/mt.canlaon.jpg',
+                            'assets/Landscape/FUJI.jpeg',
                             fit: BoxFit.cover,
                             width: 400.w,
                             height: 250.h,
@@ -247,7 +245,7 @@ class _JLandscapesState extends State<JLandscapes> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Mt. Kanlaon',
+                              'Fuji',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -257,11 +255,11 @@ class _JLandscapesState extends State<JLandscapes> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateLandscape['kanlaon'] = true;
+                                  iconStateLandscape['fuji'] = true;
                                 });
-                                speak('Mt. Kanlaon');
+                                speak('Fuji');
                               },
-                              icon: !iconStateLandscape['kanlaon']!
+                              icon: !iconStateLandscape['fuji']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -281,9 +279,7 @@ class _JLandscapesState extends State<JLandscapes> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Location: Negros\n\n"
-                          "A Active Stratovolcano. Mt. Kanlaon, the fourth-largest island in the Philippines and widely regarded as the tallest mountain on the Visayas mainland, proudly dominates Negros Island. 2,435 meters are above sea level at its peak. According to Pinoy Mountaineer, Mt. Kanlaon is a Trail Class 4 mountain that can take up to 4 days to climb.\n\n"
-                          "An magnificent lunar-shaped crater top can be found below Mount Kanlaon. There are waterfalls, lagoons, and lush forests all around the volcano. It serves as a shelter for biodiversity, with 200 different types of plants. Numerous endangered species, such as the Visayan Warty Pig and the Philippine Spotted Deer, can also be found atop Mount Kanlaon.",
+                          "Mount Fuji, located on the island of Honshu, is an active stratovolcano in Japan, with a summit elevation of 3,776.24m(12,389 ft 3 in). It is the tallest mountain in Japan, the second-highest volcano located on an island in Asia.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -298,13 +294,12 @@ class _JLandscapesState extends State<JLandscapes> {
               ),
             ),
           ),
-
           SliverToBoxAdapter(
-            key: searchMapLandscapes['Mt. Kabunian'],
+            key: searchMapLandscapes['Hitachi'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
-                height: 693.h,
+                height: 581.h,
                 decoration: BoxDecoration(
                   color: const Color(0xff393E46),
                   borderRadius: BorderRadius.circular(20.w),
@@ -318,7 +313,7 @@ class _JLandscapesState extends State<JLandscapes> {
                         child: Align(
                           alignment: Alignment.topCenter,
                           child: Image.asset(
-                            'assets/Landscape/kabunian.jpg',
+                            'assets/Landscape/HITACHI.jpg',
                             fit: BoxFit.cover,
                             width: 400.w,
                             height: 250.h,
@@ -331,7 +326,7 @@ class _JLandscapesState extends State<JLandscapes> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Mt. Kabunian',
+                              'Hitachi Seaside Park',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -341,11 +336,11 @@ class _JLandscapesState extends State<JLandscapes> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateLandscape['kabunian'] = true;
+                                  iconStateLandscape['hitachi'] = true;
                                 });
-                                speak('Mt. Kabunian');
+                                speak('hitachi');
                               },
-                              icon: !iconStateLandscape['kabunian']!
+                              icon: !iconStateLandscape['hitachi']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -365,9 +360,7 @@ class _JLandscapesState extends State<JLandscapes> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Location: Benguet\n\n"
-                          "The majority of the Philippines' stunning mountains are located in Northern Luzon, particularly on the Cordilleras, the nation's greatest mountain range. One of these is Mt. Kabunian, a mysterious mountain that is a component of the Bakun Trilogy and can be found in Bakun town, Benguet, alongside Mt. Lubo and Mt. Tenglawan.\n\n"
-                          'The supreme deity of the Kankana-ey tribe in Mountain Province is referenced in the name "Kabunian" of this creature. The rocky mountainside of Mt. Kabunian was also a place of burial, with wooden coffins hung from the cliff.',
+                          "Located in the area facing the Pacific Ocean in the city of Hitachinaka, Hitachi Seaside Park offers beautiful flowers in its well-kept, large gardens throughout the year. In spring, narcissuses, tulips and nemophila(baby blue eyes) attract lots of visitors.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -382,13 +375,12 @@ class _JLandscapesState extends State<JLandscapes> {
               ),
             ),
           ),
-
           SliverToBoxAdapter(
-            key: searchMapLandscapes['Mt. Kitanglad'],
+            key: searchMapLandscapes['Himeji'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
-                height: 575.h,
+                height: 581.h,
                 decoration: BoxDecoration(
                   color: const Color(0xff393E46),
                   borderRadius: BorderRadius.circular(20.w),
@@ -402,7 +394,7 @@ class _JLandscapesState extends State<JLandscapes> {
                         child: Align(
                           alignment: Alignment.topCenter,
                           child: Image.asset(
-                            'assets/Landscape/kitanglad.jpg',
+                            'assets/Landscape/HIMEJI.jpg',
                             fit: BoxFit.cover,
                             width: 400.w,
                             height: 250.h,
@@ -415,7 +407,7 @@ class _JLandscapesState extends State<JLandscapes> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Mt. Kitanglad',
+                              'Himeji Castle',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -425,11 +417,11 @@ class _JLandscapesState extends State<JLandscapes> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateLandscape['kitanglad'] = true;
+                                  iconStateLandscape['himeji'] = true;
                                 });
-                                speak('Mt. Kitanglad');
+                                speak('himeji');
                               },
-                              icon: !iconStateLandscape['kitanglad']!
+                              icon: !iconStateLandscape['himeji']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -449,8 +441,7 @@ class _JLandscapesState extends State<JLandscapes> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Location: Bukidnon\n\n"
-                          "Inactive Volcano. The country's fourth-highest mountain is Mount Kitanglad. It is one of the hiking and protected natural areas in the Philippines. In Bukidnon province, the Food Basket of Mindanao, Mt. Kitanglad, one of the top 5 tallest mountains in the Philippines, has a summit that is 2,899 meters above sea level.",
+                          "Himeji Castle is a hilltop Japanese castle complex situated in the city of Himeji which is located in the Hyogo Prefecture in Japan. The castle is regarded as the finest surviving example of prototypical Japanese castle architecture, comprising a network of 83 rooms with advanced defensive systems from the feudal period.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -465,13 +456,12 @@ class _JLandscapesState extends State<JLandscapes> {
               ),
             ),
           ),
-
           SliverToBoxAdapter(
-            key: searchMapLandscapes['Mt. Dulang-dulang'],
+            key: searchMapLandscapes['Kinkakuji'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
-                height: 711.h,
+                height: 581.h,
                 decoration: BoxDecoration(
                   color: const Color(0xff393E46),
                   borderRadius: BorderRadius.circular(20.w),
@@ -485,7 +475,7 @@ class _JLandscapesState extends State<JLandscapes> {
                         child: Align(
                           alignment: Alignment.topCenter,
                           child: Image.asset(
-                            'assets/Landscape/dulang-dulang.jpg',
+                            'assets/Landscape/KINKAKUJI.jpg',
                             fit: BoxFit.cover,
                             width: 400.w,
                             height: 250.h,
@@ -498,7 +488,7 @@ class _JLandscapesState extends State<JLandscapes> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Mt. Dulang-dulang',
+                              'Kinkakuji',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -508,11 +498,11 @@ class _JLandscapesState extends State<JLandscapes> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateLandscape['dulang-dulang'] = true;
+                                  iconStateLandscape['kinkakuji'] = true;
                                 });
-                                speak('Mt. Dulang-dulang');
+                                speak('kinkakuji');
                               },
-                              icon: !iconStateLandscape['dulang-dulang']!
+                              icon: !iconStateLandscape['kinkakuji']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -532,9 +522,7 @@ class _JLandscapesState extends State<JLandscapes> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Location: Bukidnon\n\n"
-                          "Another spectacular summit in the country with a stunning mountain outlook is tucked away within the Kitanglad Mountain Range. The second-highest mountain in the Philippines, Mount Dulang-Dulang, is 2,938 meters above sea level. It has thick moss- and fog-covered woodlands, too.\n\n"
-                          "A variety of scenery, tall pine trees, and dense jungles with a mystical feel emerge from the lush rainforests. The old trees that encircle the woodlands are whirling, and some of them even have limbs that are twisted. Even a glimpse of the spectacular Mount Apo can be possible if you are fortunate enough to sight a top that is clear.",
+                          "Kinkakuji, literally 'Temple of the Golden Pavillion', officially named Rokuon-ji, is a Zen Buddhist temple in Kyoto, Japan. It is one of the most popular buildings in Kyoto, attracting many visitors annually. It is designated as a National Special Historic Site, a National Special Landscape and is one of 17 locations making up the Historic Monuments of Ancient Kyoto which are World Heritage Sites.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -549,13 +537,12 @@ class _JLandscapesState extends State<JLandscapes> {
               ),
             ),
           ),
-
           SliverToBoxAdapter(
-            key: searchMapLandscapes['Mt. Guiting-guiting'],
+            key: searchMapLandscapes['Miyajima'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
-                height: 700.h,
+                height: 581.h,
                 decoration: BoxDecoration(
                   color: const Color(0xff393E46),
                   borderRadius: BorderRadius.circular(20.w),
@@ -569,7 +556,7 @@ class _JLandscapesState extends State<JLandscapes> {
                         child: Align(
                           alignment: Alignment.topCenter,
                           child: Image.asset(
-                            'assets/Landscape/guiting-guiting.jpg',
+                            'assets/Landscape/MIYAJIMA.jpg',
                             fit: BoxFit.cover,
                             width: 400.w,
                             height: 250.h,
@@ -582,7 +569,7 @@ class _JLandscapesState extends State<JLandscapes> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Mt. Guiting-guiting',
+                              'Miyajima Island',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -592,11 +579,11 @@ class _JLandscapesState extends State<JLandscapes> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateLandscape['guiting-guiting'] = true;
+                                  iconStateLandscape['miyajima'] = true;
                                 });
-                                speak('Mt. Guiting-guiting');
+                                speak('miyajima');
                               },
-                              icon: !iconStateLandscape['guiting-guiting']!
+                              icon: !iconStateLandscape['miyajima']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -616,9 +603,7 @@ class _JLandscapesState extends State<JLandscapes> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Location: Romblon\n\n"
-                          "Mt. Guiting-Guiting, another excellent hiking location in the Philippines, is located in Romblon province's Sibuyan Island, midway between the Luzon and Visayas main islands. Its breathtaking height above sea level is approximately 2,058 meters.\n\n"
-                          "One of the most difficult climbs in the Philippines is Mt. Guiting-Guting, as evidenced by the Pinoy Mountaineer difficulty rating. It is classified as a Class 5 trail and has a Difficulty Level of 9/9. This means that the trek involves rock climbing, which calls for ropes. You'll need an average of 4 days to complete the climb to the top.",
+                          "Miyajima is small island less than an hour outside the city of Hiroshima. It is most famous for its giant torii gate, which at high tide seems to float on the water. The sight is ranked as one of Japan's three best views.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -633,13 +618,12 @@ class _JLandscapesState extends State<JLandscapes> {
               ),
             ),
           ),
-
           SliverToBoxAdapter(
-            key: searchMapLandscapes['Mt. Halcon'],
+            key: searchMapLandscapes['Nachi'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
-                height: 743.h,
+                height: 581.h,
                 decoration: BoxDecoration(
                   color: const Color(0xff393E46),
                   borderRadius: BorderRadius.circular(20.w),
@@ -653,7 +637,7 @@ class _JLandscapesState extends State<JLandscapes> {
                         child: Align(
                           alignment: Alignment.topCenter,
                           child: Image.asset(
-                            'assets/Landscape/halcon.jpg',
+                            'assets/Landscape/NACHI.jpg',
                             fit: BoxFit.cover,
                             width: 400.w,
                             height: 250.h,
@@ -666,7 +650,7 @@ class _JLandscapesState extends State<JLandscapes> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Mt. Halcon',
+                              'Nachi Falls',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -676,11 +660,11 @@ class _JLandscapesState extends State<JLandscapes> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateLandscape['halcon'] = true;
+                                  iconStateLandscape['nachi'] = true;
                                 });
-                                speak('Mt. Halcon');
+                                speak('nachi-falls');
                               },
-                              icon: !iconStateLandscape['halcon']!
+                              icon: !iconStateLandscape['nachi']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -700,9 +684,7 @@ class _JLandscapesState extends State<JLandscapes> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Location: Tacloban City, Leyte\n\n"
-                          "With an elevation of 2,582 meters above sea level, Mt. Halcon is one of the most challenging hikes in the Philippines and is comparable to Mt. Guiting-Guiting due to its exceedingly challenging trails. This majestic mountain, which is located in Oriental Mindoro, has steep slopes that call for experienced hikers to traverse through lush forests and cross roaring rivers.\n\n"
-                          "A wide variety of plants and animals, including the gravely endangered Mindoro Tamaraw, may be found on Mt. Halcon. Due of its difficult trails, it is referred to as a 'Knife Edge' similarly to Mt. Guiting-Guiting. Except for the wooden ladder you'll have to climb, Mt. Halcon is easier to navigate.",
+                          "Nachi Falls in Nachikatsuura, Wakayama Prefecture, Japan, is one of the best-known waterfalls in Japan. With a drop of 133 meters(and 13 meters wide), it is the country's tallest water fall with single uninterrupted drop.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -717,13 +699,12 @@ class _JLandscapesState extends State<JLandscapes> {
               ),
             ),
           ),
-
           SliverToBoxAdapter(
-            key: searchMapLandscapes['Mt. Pinatubo'],
+            key: searchMapLandscapes['Oirase'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
-                height: 743.h,
+                height: 581.h,
                 decoration: BoxDecoration(
                   color: const Color(0xff393E46),
                   borderRadius: BorderRadius.circular(20.w),
@@ -737,7 +718,7 @@ class _JLandscapesState extends State<JLandscapes> {
                         child: Align(
                           alignment: Alignment.topCenter,
                           child: Image.asset(
-                            'assets/Landscape/pinatubo.jpg',
+                            'assets/Landscape/OIRASE.jpg',
                             fit: BoxFit.cover,
                             width: 400.w,
                             height: 250.h,
@@ -750,7 +731,7 @@ class _JLandscapesState extends State<JLandscapes> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Mt. Pinatubo',
+                              'Oirase Gorge',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -760,11 +741,11 @@ class _JLandscapesState extends State<JLandscapes> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateLandscape['pinatubo'] = true;
+                                  iconStateLandscape['oirase'] = true;
                                 });
-                                speak('Mt.Pinatubo');
+                                speak('oirase');
                               },
-                              icon: !iconStateLandscape['pinatubo']!
+                              icon: !iconStateLandscape['oirase']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -784,9 +765,7 @@ class _JLandscapesState extends State<JLandscapes> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Location: Zambales\n\n"
-                          "Mt. Pinatubo, an active stratovolcano, is located less than 100 kilometers from Manila, the capital of the Philippines. It was a dormant volcano for 500 years prior to its June 1991 eruption. It is one of the sought-after day climb mountains close to Manila and is majestically ensconced in the Zambales region, drawing both domestic and foreign tourists.\n\n"
-                          "The catastrophic explosion of Mt. Pinatubo is ranked as the second-largest volcanic eruption of the 20th century. It has since become a spectacular destination, decades after the catastrophe. One of the best hikes in the Philippines, it rewards mountaineers with a breathtaking view of the turquoise-colored crater lake.",
+                          "Oirase Strean is a picturesque mountain in Aomori Prefecture that is one of Japan's most famous and popular autumn colors destinations. The stream flows along the floor of the Oirase Gorge, winding among trees which, while a lush green in spring and summer, turn brilliant shades of red, yellow and orange from late October through early November.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -801,13 +780,12 @@ class _JLandscapesState extends State<JLandscapes> {
               ),
             ),
           ),
-
           SliverToBoxAdapter(
-            key: searchMapLandscapes['Mt. Pulag'],
+            key: searchMapLandscapes['Shirakawa'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
-                height: 743.h,
+                height: 581.h,
                 decoration: BoxDecoration(
                   color: const Color(0xff393E46),
                   borderRadius: BorderRadius.circular(20.w),
@@ -821,7 +799,7 @@ class _JLandscapesState extends State<JLandscapes> {
                         child: Align(
                           alignment: Alignment.topCenter,
                           child: Image.asset(
-                            'assets/Landscape/pulag.jpg',
+                            'assets/Landscape/SHIRAKAWA.jpg',
                             fit: BoxFit.cover,
                             width: 400.w,
                             height: 250.h,
@@ -834,7 +812,7 @@ class _JLandscapesState extends State<JLandscapes> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Mt. Pulag',
+                              'Shirakawa-Go',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -844,11 +822,11 @@ class _JLandscapesState extends State<JLandscapes> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateLandscape['pulag'] = true;
+                                  iconStateLandscape['shirakawa'] = true;
                                 });
-                                speak('Mt. Pulag');
+                                speak('shirakawa');
                               },
-                              icon: !iconStateLandscape['pulag']!
+                              icon: !iconStateLandscape['shirakawa']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -868,9 +846,7 @@ class _JLandscapesState extends State<JLandscapes> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Location: Benguet\n\n"
-                          "Bordering the northernmost provinces of Benguet and Ifugao in the Cordillera region, Mt. Pulag is the country's third-highest mountain and Luzon's highest peak, with an elevation of 2,922 meters above sea level. It is one of the most popular destinations for a major hike in Luzon. "
-                          "It is called the Playground of the Gods because it offers breathtaking views, such as one of the best seas of clouds in the Philippines. The temperature here can even drop to -2 degrees Celsius. Surrounding the trails are vast vegetable gardens and mossy pine forests.",
+                          "The Shirakawa-Go and neighboring Gokayama regions line the Shogawa River Valley in the remote mountains that span from Gifu to Toyama Prefectures. Declared a UNDESCO world heritage site in 1995, they are famous for their traditional gassho-zukuri farmhouses, some of which are more than 250 years old.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -885,13 +861,12 @@ class _JLandscapesState extends State<JLandscapes> {
               ),
             ),
           ),
-
           SliverToBoxAdapter(
-            key: searchMapLandscapes['Mt. Apo'],
+            key: searchMapLandscapes['Tottori'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
-                height: 700.h,
+                height: 581.h,
                 decoration: BoxDecoration(
                   color: const Color(0xff393E46),
                   borderRadius: BorderRadius.circular(20.w),
@@ -905,7 +880,7 @@ class _JLandscapesState extends State<JLandscapes> {
                         child: Align(
                           alignment: Alignment.topCenter,
                           child: Image.asset(
-                            'assets/Landscape/apo.jpg',
+                            'assets/Landscape/TOTTORI.jpg',
                             fit: BoxFit.cover,
                             width: 400.w,
                             height: 250.h,
@@ -918,7 +893,7 @@ class _JLandscapesState extends State<JLandscapes> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Mt. Apo',
+                              'Tottori Sand Dunes',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -928,11 +903,11 @@ class _JLandscapesState extends State<JLandscapes> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateLandscape['apo'] = true;
+                                  iconStateLandscape['tottori'] = true;
                                 });
-                                speak('Mt. Apo');
+                                speak('tottori');
                               },
-                              icon: !iconStateLandscape['apo']!
+                              icon: !iconStateLandscape['tottori']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -952,9 +927,7 @@ class _JLandscapesState extends State<JLandscapes> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Location: Davao City\n\n"
-                          "The highest mountain in the country and undeniably the best mountain to hike in the Philippines is Mt. Apo, with a summit towering 2,956 meters above sea level over Southern Mindanao. It is located west of Davao City and is home to the critically endangered Philippine Eagle.\n\n"
-                          "It exhibits a multitude of landscapes, from mossy swamps to craggy rocks and lush forests. One of the many trails you’ll encounter during a Mt. Apo trekking package is the Kidapawan trail, which belongs to trail class 4, having a difficulty level of 7/9 with steep slopes and cliffs.",
+                          "The Tottori Sand Dunes are sand dunes located outside the city center of Tottori in Tottori Prefecture, Japan. At a lenght of 9 miles(14km) and less than 1.5 miles(2.4 km)wide, it is the largest sand dune in Japan. The sand dunes are part of San'in Kaigan Geopark, which is part of the UNESCO Global Geoparks.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
