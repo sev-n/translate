@@ -216,11 +216,11 @@ class _LandscapesState extends State<Landscapes> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 setState(() {
                                   iconStateLandscape['apo'] = true;
                                 });
-                                speak('Mt. Apo');
+                                await speak('Mt. Apo');
                               },
                               icon: !iconStateLandscape['apo']!
                                   ? const Icon(
@@ -300,11 +300,11 @@ class _LandscapesState extends State<Landscapes> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 setState(() {
                                   iconStateLandscape['dulang-dulang'] = true;
                                 });
-                                speak('Mt. Dulang-dulang');
+                                await speak('Mt. Dulang-dulang');
                               },
                               icon: !iconStateLandscape['dulang-dulang']!
                                   ? const Icon(
@@ -384,11 +384,11 @@ class _LandscapesState extends State<Landscapes> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 setState(() {
                                   iconStateLandscape['guiting-guiting'] = true;
                                 });
-                                speak('Mt. Guiting-guiting');
+                                await speak('Mt. Guiting-guiting');
                               },
                               icon: !iconStateLandscape['guiting-guiting']!
                                   ? const Icon(
@@ -468,11 +468,11 @@ class _LandscapesState extends State<Landscapes> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 setState(() {
                                   iconStateLandscape['halcon'] = true;
                                 });
-                                speak('Mt. Halcon');
+                                await speak('Mt. Halcon');
                               },
                               icon: !iconStateLandscape['halcon']!
                                   ? const Icon(
@@ -552,11 +552,11 @@ class _LandscapesState extends State<Landscapes> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 setState(() {
                                   iconStateLandscape['kabunian'] = true;
                                 });
-                                speak('Mt. Kabunian');
+                                await speak('Mt. Kabunian');
                               },
                               icon: !iconStateLandscape['kabunian']!
                                   ? const Icon(
@@ -636,11 +636,11 @@ class _LandscapesState extends State<Landscapes> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 setState(() {
                                   iconStateLandscape['kanlaon'] = true;
                                 });
-                                speak('Mt. Kanlaon');
+                                await speak('Mt. Kanlaon');
                               },
                               icon: !iconStateLandscape['kanlaon']!
                                   ? const Icon(
@@ -720,11 +720,11 @@ class _LandscapesState extends State<Landscapes> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 setState(() {
                                   iconStateLandscape['kitanglad'] = true;
                                 });
-                                speak('Mt. Kitanglad');
+                                await speak('Mt. Kitanglad');
                               },
                               icon: !iconStateLandscape['kitanglad']!
                                   ? const Icon(
@@ -803,11 +803,11 @@ class _LandscapesState extends State<Landscapes> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async{
                                 setState(() {
                                   iconStateLandscape['pinatubo'] = true;
                                 });
-                                speak('Mt.Pinatubo');
+                                await speak('Mt.Pinatubo');
                               },
                               icon: !iconStateLandscape['pinatubo']!
                                   ? const Icon(
@@ -887,11 +887,11 @@ class _LandscapesState extends State<Landscapes> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 setState(() {
                                   iconStateLandscape['pulag'] = true;
                                 });
-                                speak('Mt. Pulag');
+                                await speak('Mt. Pulag');
                               },
                               icon: !iconStateLandscape['pulag']!
                                   ? const Icon(
@@ -971,11 +971,11 @@ class _LandscapesState extends State<Landscapes> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 setState(() {
                                   iconStateLandscape['osmena'] = true;
                                 });
-                                speak('Osmeña Peak');
+                                await speak('Osmeña Peak');
                               },
                               icon: !iconStateLandscape['osmena']!
                                   ? const Icon(

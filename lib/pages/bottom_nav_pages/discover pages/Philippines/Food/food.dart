@@ -212,11 +212,11 @@ class _FoodsState extends State<Foods> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 setState(() {
                                   iconStateFood['adobo'] = true;
                                 });
-                                speak('Adobo');
+                                await speak('Adobo');
                               },
                               icon: !iconStateFood['adobo']!
                                   ? const Icon(
@@ -290,11 +290,11 @@ class _FoodsState extends State<Foods> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 setState(() {
                                   iconStateFood['balut'] = true;
                                 });
-                                speak('Balut');
+                                await speak('Balut');
                               },
                               icon: !iconStateFood['balut']!
                                   ? const Icon(
@@ -368,11 +368,11 @@ class _FoodsState extends State<Foods> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 setState(() {
                                   iconStateFood['bicol'] = true;
                                 });
-                                speak('Bicol Express');
+                                await speak('Bicol Express');
                               },
                               icon: !iconStateFood['bicol']!
                                   ? const Icon(
@@ -446,11 +446,11 @@ class _FoodsState extends State<Foods> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 setState(() {
                                   iconStateFood['bulalo'] = true;
                                 });
-                                speak('Bulalo');
+                                await speak('Bulalo');
                               },
                               icon: !iconStateFood['bulalo']!
                                   ? const Icon(
@@ -524,11 +524,11 @@ class _FoodsState extends State<Foods> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 setState(() {
                                   iconStateFood['crispy'] = true;
                                 });
-                                speak('Crispy Pata');
+                                await speak('Crispy Pata');
                               },
                               icon: !iconStateFood['crispy']!
                                   ? const Icon(
@@ -602,11 +602,11 @@ class _FoodsState extends State<Foods> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 setState(() {
                                   iconStateFood['halo-halo'] = true;
                                 });
-                                speak('Halo-halo');
+                                await speak('Halo-halo');
                               },
                               icon: !iconStateFood['halo-halo']!
                                   ? const Icon(
@@ -680,11 +680,11 @@ class _FoodsState extends State<Foods> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 setState(() {
                                   iconStateFood['ice'] = true;
                                 });
-                                speak('Ice Candy');
+                                await speak('Ice Candy');
                               },
                               icon: !iconStateFood['ice']!
                                   ? const Icon(
@@ -758,11 +758,11 @@ class _FoodsState extends State<Foods> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 setState(() {
                                   iconStateFood['kare-kare'] = true;
                                 });
-                                speak('Kare-kare');
+                                await speak('Kare-kare');
                               },
                               icon: !iconStateFood['kare-kare']!
                                   ? const Icon(
@@ -836,11 +836,11 @@ class _FoodsState extends State<Foods> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 setState(() {
                                   iconStateFood['sinigang'] = true;
                                 });
-                                speak('Sinigang');
+                                await speak('Sinigang');
                               },
                               icon: !iconStateFood['sinigang']!
                                   ? const Icon(
@@ -914,11 +914,11 @@ class _FoodsState extends State<Foods> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 setState(() {
                                   iconStateFood['sisig'] = true;
                                 });
-                                speak('Sisig');
+                                await speak('Sisig');
                               },
                               icon: !iconStateFood['sisig']!
                                   ? const Icon(

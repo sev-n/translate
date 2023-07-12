@@ -218,11 +218,11 @@ class _FestivalsState extends State<Festivals> {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {
+                                  onPressed: () async {
                                     setState(() {
                                       iconStateFestival['air'] = true;
                                     });
-                                    speak('Air Balloon Festia');
+                                    await speak('Air Balloon Festia');
                                   },
                                   icon: !iconStateFestival['air']!
                                       ? const Icon(
@@ -307,11 +307,11 @@ class _FestivalsState extends State<Festivals> {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {
+                                  onPressed: () async {
                                     setState(() {
                                       iconStateFestival['aliwan'] = true;
                                     });
-                                    speak('Aliwan Festival');
+                                    await speak('Aliwan Festival');
                                   },
                                   icon: !iconStateFestival['aliwan']!
                                       ? const Icon(
@@ -395,11 +395,11 @@ class _FestivalsState extends State<Festivals> {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {
+                                  onPressed: () async{
                                     setState(() {
                                       iconStateFestival['ati-atihan'] = true;
                                     });
-                                    speak('Ati-atihan Festival');
+                                    await speak('Ati-atihan Festival');
                                   },
                                   icon: !iconStateFestival['ati-atihan']!
                                       ? const Icon(
@@ -485,11 +485,11 @@ class _FestivalsState extends State<Festivals> {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {
+                                  onPressed: () async{
                                     setState(() {
                                       iconStateFestival['dinagyang'] = true;
                                     });
-                                    speak('Dinagyang Festival');
+                                    await speak('Dinagyang Festival');
                                   },
                                   icon: !iconStateFestival['dinagyang']!
                                       ? const Icon(
@@ -573,11 +573,11 @@ class _FestivalsState extends State<Festivals> {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {
+                                  onPressed: () async {
                                     setState(() {
                                       iconStateFestival['moriones'] = true;
                                     });
-                                    speak('Moriones Festival');
+                                    await speak('Moriones Festival');
                                   },
                                   icon: !iconStateFestival['moriones']!
                                       ? const Icon(
@@ -661,11 +661,11 @@ class _FestivalsState extends State<Festivals> {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {
+                                  onPressed: () async {
                                     setState(() {
                                       iconStateFestival['pahiyas'] = true;
                                     });
-                                    speak('Pahiyas Festival');
+                                    await speak('Pahiyas Festival');
                                   },
                                   icon: !iconStateFestival['pahiyas']!
                                       ? const Icon(
@@ -750,11 +750,11 @@ class _FestivalsState extends State<Festivals> {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {
+                                  onPressed: () async {
                                     setState(() {
                                       iconStateFestival['panagbenga'] = true;
                                     });
-                                    speak('Panagbenga Festival');
+                                    await speak('Panagbenga Festival');
                                   },
                                   icon: !iconStateFestival['panagbenga']!
                                       ? const Icon(
@@ -839,11 +839,11 @@ class _FestivalsState extends State<Festivals> {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {
+                                  onPressed: () async {
                                     setState(() {
                                       iconStateFestival['penafrancia'] = true;
                                     });
-                                    speak('Penafrancia Festival');
+                                    await speak('Penafrancia Festival');
                                   },
                                   icon: !iconStateFestival['penafrancia']!
                                       ? const Icon(
@@ -928,11 +928,11 @@ class _FestivalsState extends State<Festivals> {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {
+                                  onPressed: () async {
                                     setState(() {
                                       iconStateFestival['pintados'] = true;
                                     });
-                                    speak('Pintados Festival');
+                                    await speak('Pintados Festival');
                                   },
                                   icon: !iconStateFestival['pintados']!
                                       ? const Icon(
@@ -1017,11 +1017,11 @@ class _FestivalsState extends State<Festivals> {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {
+                                  onPressed: () async {
                                     setState(() {
                                       iconStateFestival['sinulog'] = true;
                                     });
-                                    speak('Sinulog Festival');
+                                    await speak('Sinulog Festival');
                                   },
                                   icon: !iconStateFestival['sinulog']!
                                       ? const Icon(

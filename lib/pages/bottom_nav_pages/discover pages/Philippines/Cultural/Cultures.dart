@@ -194,11 +194,11 @@ class _CulturesState extends State<Cultures> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 setState(() {
                                   iconStateCulture['cultural'] = true;
                                 });
-                                speak('Cultural Center');
+                                await speak('Cultural Center');
                               },
                               icon: !iconStateCulture['cultural']!
                                   ? const Icon(
@@ -275,11 +275,11 @@ class _CulturesState extends State<Cultures> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 setState(() {
                                   iconStateCulture['intramuros'] = true;
                                 });
-                                speak('Intramuros');
+                                await speak('Intramuros');
                               },
                               icon: !iconStateCulture['intramuros']!
                                   ? const Icon(
@@ -354,11 +354,11 @@ class _CulturesState extends State<Cultures> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 setState(() {
                                   iconStateCulture['quiapo'] = true;
                                 });
-                                speak('Quiapo Church');
+                                await speak('Quiapo Church');
                               },
                               icon: !iconStateCulture['quiapo']!
                                   ? const Icon(
@@ -435,11 +435,11 @@ class _CulturesState extends State<Cultures> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 setState(() {
                                   iconStateCulture['rizal'] = true;
                                 });
-                                speak('RizalPark');
+                                await speak('RizalPark');
                               },
                               icon: !iconStateCulture['rizal']!
                                   ? const Icon(
@@ -516,11 +516,11 @@ class _CulturesState extends State<Cultures> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 setState(() {
                                   iconStateCulture['vigan'] = true;
                                 });
-                                speak('Vigan City');
+                                await speak('Vigan City');
                               },
                               icon: !iconStateCulture['vigan']!
                                   ? const Icon(
