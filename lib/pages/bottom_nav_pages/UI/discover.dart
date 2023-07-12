@@ -43,25 +43,29 @@ class _DiscoverState extends State<Discover> {
               String name = countries[index].name;
               String image = countries[index].image;
               String destination = countries[index].route;
-              // TODO: need to implement onTap
-              return Container(
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(image),
-                    fit: BoxFit.cover,
+              return GestureDetector(
+                onTap: (){
+                  Navigator.pushNamed(context, destination);
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(image),
+                      fit: BoxFit.cover,
+                    ),
+                    borderRadius: BorderRadius.circular(10.r),
                   ),
-                  borderRadius: BorderRadius.circular(10.r),
-                ),
-                child: Text(
-                  name,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.sp,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'gothic',
+                  child: Text(
+                    name,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'gothic',
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
                 ),
               );
             },

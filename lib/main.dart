@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:translate/model/stt.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/France/france.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/Germany/germany.dart';
 import 'package:translate/pages/bottom_nav_pages/discover%20pages/Japan/Beach/J-Beaches.dart';
 import 'package:translate/pages/bottom_nav_pages/discover%20pages/Japan/Cultural/J-Cultures.dart';
 import 'package:translate/pages/bottom_nav_pages/discover%20pages/Japan/Food/J-Food.dart';
@@ -17,6 +19,10 @@ import 'package:translate/pages/bottom_nav_pages/discover%20pages/Korea/korea.da
 import 'package:translate/pages/bottom_nav_pages/discover%20pages/Philippines/Landscape/landscapes.dart';
 import 'package:translate/pages/bottom_nav_pages/discover%20pages/Philippines/Philippines.dart';
 import 'package:translate/pages/bottom_nav_pages/discover%20pages/Philippines/festival/festivals.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/Russia/russia.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/Spain/spain.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/Uae/uae.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/Us/us.dart';
 import 'package:translate/utils/colors.dart';
 import 'model/model.dart';
 import 'model/show_hide_model.dart';
@@ -104,6 +110,12 @@ class MyApp extends StatelessWidget {
               '/festivals': (context) => const Festivals(),
               '/landscape': (context) => const Landscapes(),
               '/philippines': (context) => const Philippines(),
+              '/france': (context) => const France(),
+              '/germany': (context) => const Germany(),
+              '/russia': (context) => const Russia(),
+              '/spain': (context) => const Spain(),
+              '/uae': (context) => const Uae(),
+              '/us': (context) => const Us(),
               '/korea': (context) => const Korea(),
               '/k-beaches': (context) => const KBeaches(),
               '/k-cultures': (context) => const KCultures(),
