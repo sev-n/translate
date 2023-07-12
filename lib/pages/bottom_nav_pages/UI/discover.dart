@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../discover pages/custom_click.dart';
 
-class Favorite extends StatelessWidget {
-  const Favorite({super.key});
+class Discover extends StatelessWidget {
+  const Discover({super.key});
 
   @override
   Widget build(BuildContext context) {

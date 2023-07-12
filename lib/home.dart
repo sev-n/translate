@@ -28,7 +28,7 @@ class HomePageState extends State<HomePage> {
     const DefaultPage(),
     const Conversation(),
     const History(),
-    const Favorite(),
+    const Discover(),
   ];
 
   TextStyle myTextStyle = const TextStyle(
