@@ -37,16 +37,16 @@ final key9 = GlobalKey();
 final key10 = GlobalKey();
 
 Map<String, GlobalKey> searchMapLandscapes = {
-  'Osmena Peak': key1,
-  'Mt. Kanlaon': key2,
-  'Mt. Kabunian': key3,
-  'Mt. Kitanglad': key4,
-  'Mt. Dulang-dulang': key5,
-  'Mt. Guiting-guiting': key6,
-  'Mt. Halcon': key7,
+  'Mt. Apo': key1,
+  'Mt. Dulang-dulang': key2,
+  'Mt. Guiting-guiting': key3,
+  'Mt. Halcon': key4,
+  'Mt. Kabunian': key5,
+  'Mt. Kanlaon': key6,
+  'Mt. Kitanglad': key7,
   'Mt. Pinatubo': key8,
   'Mt. Pulag': key9,
-  'Mt. Apo': key10
+  'Osmena Peak': key10,
 };
 
 class Landscapes extends StatefulWidget {
@@ -125,7 +125,7 @@ class _LandscapesState extends State<Landscapes> {
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
     scrollController.dispose();
     flutterTts.stop();
@@ -145,7 +145,8 @@ class _LandscapesState extends State<Landscapes> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => ItemsSearch(map: searchMapLandscapes)),
+                        builder: (context) =>
+                            ItemsSearch(map: searchMapLandscapes)),
                   );
                 },
                 icon: const Icon(Icons.search),
@@ -176,11 +177,11 @@ class _LandscapesState extends State<Landscapes> {
           //sliver items
 
           SliverToBoxAdapter(
-            key: searchMapLandscapes['Osmena Peak'],
+            key: searchMapLandscapes['Mt. Apo'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
-                height: 581.h,
+                height: 700.h,
                 decoration: BoxDecoration(
                   color: const Color(0xff393E46),
                   borderRadius: BorderRadius.circular(20.w),
@@ -194,7 +195,7 @@ class _LandscapesState extends State<Landscapes> {
                         child: Align(
                           alignment: Alignment.topCenter,
                           child: Image.asset(
-                            'assets/Landscape/osmena.jpg',
+                            'assets/Landscape/apo.jpg',
                             fit: BoxFit.cover,
                             width: 400.w,
                             height: 250.h,
@@ -207,7 +208,7 @@ class _LandscapesState extends State<Landscapes> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Osmeña Peak',
+                              'Mt. Apo',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -217,11 +218,11 @@ class _LandscapesState extends State<Landscapes> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateLandscape['osmena'] = true;
+                                  iconStateLandscape['apo'] = true;
                                 });
-                                speak('Osmeña Peak');
+                                speak('Mt. Apo');
                               },
-                              icon: !iconStateLandscape['osmena']!
+                              icon: !iconStateLandscape['apo']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -241,259 +242,9 @@ class _LandscapesState extends State<Landscapes> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Location: Cebu\n\n"
-                          "Osmeña Peak, rising 1,013 meters above sea level, is regarded as Cebu's highest peak and a well-liked hiking destination in the Philippines due to its beautiful mountain vistas. It is situated in Dalaguete Municipality, often known as Cebu's Vegetable Basket. Rugged slopes that are evocative of the well-known Chocolate slopes in Bohol surround the rocky peak. ",
-                          textAlign: TextAlign.justify,
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-
-          SliverToBoxAdapter(
-            key: searchMapLandscapes['Mt. Kanlaon'],
-            child: Padding(
-              padding: EdgeInsets.all(20.0.w),
-              child: Container(
-                height: 760.h,
-                decoration: BoxDecoration(
-                  color: const Color(0xff393E46),
-                  borderRadius: BorderRadius.circular(20.w),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(20.0.w),
-                  child: Column(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(10.w),
-                        child: Align(
-                          alignment: Alignment.topCenter,
-                          child: Image.asset(
-                            'assets/Landscape/mt.canlaon.jpg',
-                            fit: BoxFit.cover,
-                            width: 400.w,
-                            height: 250.h,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 20.h),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Mt. Kanlaon',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  iconStateLandscape['kanlaon'] = true;
-                                });
-                                speak('Mt. Kanlaon');
-                              },
-                              icon: !iconStateLandscape['kanlaon']!
-                                  ? const Icon(
-                                      Icons
-                                          .volume_down_rounded, // if clicked change color and icon
-                                      size: 30,
-                                      color: Color(0xff35bbca),
-                                    )
-                                  : const Icon(
-                                      Icons
-                                          .volume_up_rounded, // if clicked change color and icon
-                                      size: 30,
-                                      color: Colors.indigoAccent,
-                                    ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 20.h),
-                        child: Text(
-                          "Location: Negros\n\n"
-                          "A Active Stratovolcano. Mt. Kanlaon, the fourth-largest island in the Philippines and widely regarded as the tallest mountain on the Visayas mainland, proudly dominates Negros Island. 2,435 meters are above sea level at its peak. According to Pinoy Mountaineer, Mt. Kanlaon is a Trail Class 4 mountain that can take up to 4 days to climb.\n\n"
-                          "An magnificent lunar-shaped crater top can be found below Mount Kanlaon. There are waterfalls, lagoons, and lush forests all around the volcano. It serves as a shelter for biodiversity, with 200 different types of plants. Numerous endangered species, such as the Visayan Warty Pig and the Philippine Spotted Deer, can also be found atop Mount Kanlaon.",
-                          textAlign: TextAlign.justify,
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-
-          SliverToBoxAdapter(
-            key: searchMapLandscapes['Mt. Kabunian'],
-            child: Padding(
-              padding: EdgeInsets.all(20.0.w),
-              child: Container(
-                height: 693.h,
-                decoration: BoxDecoration(
-                  color: const Color(0xff393E46),
-                  borderRadius: BorderRadius.circular(20.w),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(20.0.w),
-                  child: Column(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(10.w),
-                        child: Align(
-                          alignment: Alignment.topCenter,
-                          child: Image.asset(
-                            'assets/Landscape/kabunian.jpg',
-                            fit: BoxFit.cover,
-                            width: 400.w,
-                            height: 250.h,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 20.h),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Mt. Kabunian',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  iconStateLandscape['kabunian'] = true;
-                                });
-                                speak('Mt. Kabunian');
-                              },
-                              icon: !iconStateLandscape['kabunian']!
-                                  ? const Icon(
-                                      Icons
-                                          .volume_down_rounded, // if clicked change color and icon
-                                      size: 30,
-                                      color: Color(0xff35bbca),
-                                    )
-                                  : const Icon(
-                                      Icons
-                                          .volume_up_rounded, // if clicked change color and icon
-                                      size: 30,
-                                      color: Colors.indigoAccent,
-                                    ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 20.h),
-                        child: Text(
-                          "Location: Benguet\n\n"
-                          "The majority of the Philippines' stunning mountains are located in Northern Luzon, particularly on the Cordilleras, the nation's greatest mountain range. One of these is Mt. Kabunian, a mysterious mountain that is a component of the Bakun Trilogy and can be found in Bakun town, Benguet, alongside Mt. Lubo and Mt. Tenglawan.\n\n"
-                          'The supreme deity of the Kankana-ey tribe in Mountain Province is referenced in the name "Kabunian" of this creature. The rocky mountainside of Mt. Kabunian was also a place of burial, with wooden coffins hung from the cliff.',
-                          textAlign: TextAlign.justify,
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-
-          SliverToBoxAdapter(
-            key: searchMapLandscapes['Mt. Kitanglad'],
-            child: Padding(
-              padding: EdgeInsets.all(20.0.w),
-              child: Container(
-                height: 575.h,
-                decoration: BoxDecoration(
-                  color: const Color(0xff393E46),
-                  borderRadius: BorderRadius.circular(20.w),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(20.0.w),
-                  child: Column(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(10.w),
-                        child: Align(
-                          alignment: Alignment.topCenter,
-                          child: Image.asset(
-                            'assets/Landscape/kitanglad.jpg',
-                            fit: BoxFit.cover,
-                            width: 400.w,
-                            height: 250.h,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 20.h),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Mt. Kitanglad',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  iconStateLandscape['kitanglad'] = true;
-                                });
-                                speak('Mt. Kitanglad');
-                              },
-                              icon: !iconStateLandscape['kitanglad']!
-                                  ? const Icon(
-                                      Icons
-                                          .volume_down_rounded, // if clicked change color and icon
-                                      size: 30,
-                                      color: Color(0xff35bbca),
-                                    )
-                                  : const Icon(
-                                      Icons
-                                          .volume_up_rounded, // if clicked change color and icon
-                                      size: 30,
-                                      color: Colors.indigoAccent,
-                                    ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 20.h),
-                        child: Text(
-                          "Location: Bukidnon\n\n"
-                          "Inactive Volcano. The country's fourth-highest mountain is Mount Kitanglad. It is one of the hiking and protected natural areas in the Philippines. In Bukidnon province, the Food Basket of Mindanao, Mt. Kitanglad, one of the top 5 tallest mountains in the Philippines, has a summit that is 2,899 meters above sea level.",
+                          "Location: Davao City\n\n"
+                          "The highest mountain in the country and undeniably the best mountain to hike in the Philippines is Mt. Apo, with a summit towering 2,956 meters above sea level over Southern Mindanao. It is located west of Davao City and is home to the critically endangered Philippine Eagle.\n\n"
+                          "It exhibits a multitude of landscapes, from mossy swamps to craggy rocks and lush forests. One of the many trails you’ll encounter during a Mt. Apo trekking package is the Kidapawan trail, which belongs to trail class 4, having a difficulty level of 7/9 with steep slopes and cliffs.",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
@@ -762,6 +513,257 @@ class _LandscapesState extends State<Landscapes> {
           ),
 
           SliverToBoxAdapter(
+            key: searchMapLandscapes['Mt. Kabunian'],
+            child: Padding(
+              padding: EdgeInsets.all(20.0.w),
+              child: Container(
+                height: 693.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xff393E46),
+                  borderRadius: BorderRadius.circular(20.w),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(20.0.w),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10.w),
+                        child: Align(
+                          alignment: Alignment.topCenter,
+                          child: Image.asset(
+                            'assets/Landscape/kabunian.jpg',
+                            fit: BoxFit.cover,
+                            width: 400.w,
+                            height: 250.h,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Mt. Kabunian',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  iconStateLandscape['kabunian'] = true;
+                                });
+                                speak('Mt. Kabunian');
+                              },
+                              icon: !iconStateLandscape['kabunian']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Text(
+                          "Location: Benguet\n\n"
+                          "The majority of the Philippines' stunning mountains are located in Northern Luzon, particularly on the Cordilleras, the nation's greatest mountain range. One of these is Mt. Kabunian, a mysterious mountain that is a component of the Bakun Trilogy and can be found in Bakun town, Benguet, alongside Mt. Lubo and Mt. Tenglawan.\n\n"
+                          'The supreme deity of the Kankana-ey tribe in Mountain Province is referenced in the name "Kabunian" of this creature. The rocky mountainside of Mt. Kabunian was also a place of burial, with wooden coffins hung from the cliff.',
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+
+          SliverToBoxAdapter(
+            key: searchMapLandscapes['Mt. Kanlaon'],
+            child: Padding(
+              padding: EdgeInsets.all(20.0.w),
+              child: Container(
+                height: 760.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xff393E46),
+                  borderRadius: BorderRadius.circular(20.w),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(20.0.w),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10.w),
+                        child: Align(
+                          alignment: Alignment.topCenter,
+                          child: Image.asset(
+                            'assets/Landscape/mt.canlaon.jpg',
+                            fit: BoxFit.cover,
+                            width: 400.w,
+                            height: 250.h,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Mt. Kanlaon',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  iconStateLandscape['kanlaon'] = true;
+                                });
+                                speak('Mt. Kanlaon');
+                              },
+                              icon: !iconStateLandscape['kanlaon']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Text(
+                          "Location: Negros\n\n"
+                          "A Active Stratovolcano. Mt. Kanlaon, the fourth-largest island in the Philippines and widely regarded as the tallest mountain on the Visayas mainland, proudly dominates Negros Island. 2,435 meters are above sea level at its peak. According to Pinoy Mountaineer, Mt. Kanlaon is a Trail Class 4 mountain that can take up to 4 days to climb.\n\n"
+                          "An magnificent lunar-shaped crater top can be found below Mount Kanlaon. There are waterfalls, lagoons, and lush forests all around the volcano. It serves as a shelter for biodiversity, with 200 different types of plants. Numerous endangered species, such as the Visayan Warty Pig and the Philippine Spotted Deer, can also be found atop Mount Kanlaon.",
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+
+          SliverToBoxAdapter(
+            key: searchMapLandscapes['Mt. Kitanglad'],
+            child: Padding(
+              padding: EdgeInsets.all(20.0.w),
+              child: Container(
+                height: 575.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xff393E46),
+                  borderRadius: BorderRadius.circular(20.w),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(20.0.w),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10.w),
+                        child: Align(
+                          alignment: Alignment.topCenter,
+                          child: Image.asset(
+                            'assets/Landscape/kitanglad.jpg',
+                            fit: BoxFit.cover,
+                            width: 400.w,
+                            height: 250.h,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Mt. Kitanglad',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  iconStateLandscape['kitanglad'] = true;
+                                });
+                                speak('Mt. Kitanglad');
+                              },
+                              icon: !iconStateLandscape['kitanglad']!
+                                  ? const Icon(
+                                      Icons
+                                          .volume_down_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Color(0xff35bbca),
+                                    )
+                                  : const Icon(
+                                      Icons
+                                          .volume_up_rounded, // if clicked change color and icon
+                                      size: 30,
+                                      color: Colors.indigoAccent,
+                                    ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.h),
+                        child: Text(
+                          "Location: Bukidnon\n\n"
+                          "Inactive Volcano. The country's fourth-highest mountain is Mount Kitanglad. It is one of the hiking and protected natural areas in the Philippines. In Bukidnon province, the Food Basket of Mindanao, Mt. Kitanglad, one of the top 5 tallest mountains in the Philippines, has a summit that is 2,899 meters above sea level.",
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+
+          SliverToBoxAdapter(
             key: searchMapLandscapes['Mt. Pinatubo'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
@@ -930,11 +932,11 @@ class _LandscapesState extends State<Landscapes> {
           ),
 
           SliverToBoxAdapter(
-            key: searchMapLandscapes['Mt. Apo'],
+            key: searchMapLandscapes['Osmena Peak'],
             child: Padding(
               padding: EdgeInsets.all(20.0.w),
               child: Container(
-                height: 700.h,
+                height: 581.h,
                 decoration: BoxDecoration(
                   color: const Color(0xff393E46),
                   borderRadius: BorderRadius.circular(20.w),
@@ -948,7 +950,7 @@ class _LandscapesState extends State<Landscapes> {
                         child: Align(
                           alignment: Alignment.topCenter,
                           child: Image.asset(
-                            'assets/Landscape/apo.jpg',
+                            'assets/Landscape/osmena.jpg',
                             fit: BoxFit.cover,
                             width: 400.w,
                             height: 250.h,
@@ -961,7 +963,7 @@ class _LandscapesState extends State<Landscapes> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Mt. Apo',
+                              'Osmeña Peak',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
@@ -971,11 +973,11 @@ class _LandscapesState extends State<Landscapes> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  iconStateLandscape['apo'] = true;
+                                  iconStateLandscape['osmena'] = true;
                                 });
-                                speak('Mt. Apo');
+                                speak('Osmeña Peak');
                               },
-                              icon: !iconStateLandscape['apo']!
+                              icon: !iconStateLandscape['osmena']!
                                   ? const Icon(
                                       Icons
                                           .volume_down_rounded, // if clicked change color and icon
@@ -995,9 +997,8 @@ class _LandscapesState extends State<Landscapes> {
                       Padding(
                         padding: EdgeInsets.only(top: 20.h),
                         child: Text(
-                          "Location: Davao City\n\n"
-                          "The highest mountain in the country and undeniably the best mountain to hike in the Philippines is Mt. Apo, with a summit towering 2,956 meters above sea level over Southern Mindanao. It is located west of Davao City and is home to the critically endangered Philippine Eagle.\n\n"
-                          "It exhibits a multitude of landscapes, from mossy swamps to craggy rocks and lush forests. One of the many trails you’ll encounter during a Mt. Apo trekking package is the Kidapawan trail, which belongs to trail class 4, having a difficulty level of 7/9 with steep slopes and cliffs.",
+                          "Location: Cebu\n\n"
+                          "Osmeña Peak, rising 1,013 meters above sea level, is regarded as Cebu's highest peak and a well-liked hiking destination in the Philippines due to its beautiful mountain vistas. It is situated in Dalaguete Municipality, often known as Cebu's Vegetable Basket. Rugged slopes that are evocative of the well-known Chocolate slopes in Bohol surround the rocky peak. ",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 14.sp,
