@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:translate/model/stt.dart';
+import 'package:translate/pages/bottom_nav_pages/discover%20pages/France/Beach/F-Beaches.dart';
 import 'package:translate/pages/bottom_nav_pages/discover%20pages/France/france.dart';
 import 'package:translate/pages/bottom_nav_pages/discover%20pages/Germany/germany.dart';
 import 'package:translate/pages/bottom_nav_pages/discover%20pages/Japan/Beach/J-Beaches.dart';
@@ -111,6 +112,7 @@ class MyApp extends StatelessWidget {
               '/landscape': (context) => const Landscapes(),
               '/philippines': (context) => const Philippines(),
               '/france': (context) => const France(),
+              '/f-beaches': (context) => const FBeaches(),
               '/germany': (context) => const Germany(),
               '/russia': (context) => const Russia(),
               '/spain': (context) => const Spain(),
